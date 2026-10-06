@@ -1,0 +1,10 @@
+export const sectorHeroImages = {
+  construction:
+    'https://readdy.ai/api/search-image?query=Abstract%20geometric%20construction%20crane%20and%20steel%20building%20framework%20silhouette%2C%20warm%20burnt%20orange%20and%20concrete%20grey%20tones%2C%20minimalist%20editorial%20illustration%20style%2C%20clean%20lines%2C%20no%20people%2C%20professional%20business%20aesthetic%2C%20soft%20gradient%20background&width=600&height=400&seq=construction-sector-2026&orientation=landscape',
+  engineering:
+    'https://readdy.ai/api/search-image?query=Abstract%20precision%20aerospace%20engineering%20geometry%2C%20turbine%20blades%20and%20mechanical%20gears%20silhouette%2C%20metallic%20silver%20and%20cool%20steel%20blue%20tones%2C%20minimalist%20editorial%20illustration%2C%20no%20people%2C%20professional%20manufacturing%20aesthetic%2C%20soft%20gradient%20background&width=600&height=400&seq=engineering-sector-2026&orientation=landscape',
+  publicSector:
+    'https://readdy.ai/api/search-image?query=Abstract%20classical%20government%20building%20with%20column%20architecture%20and%20modern%20geometric%20overlay%2C%20sage%20green%20and%20warm%20stone%20tones%2C%20minimalist%20editorial%20illustration%2C%20no%20people%2C%20professional%20institutional%20aesthetic%2C%20soft%20gradient%20background&width=600&height=400&seq=public-sector-2026&orientation=landscape',
+  energy:
+    'https://readdy.ai/api/search-image?query=Abstract%20offshore%20oil%20platform%20and%20wind%20turbine%20silhouettes%2C%20deep%20teal%20and%20navy%20blue%20tones%2C%20geometric%20minimalist%20style%2C%20clean%20editorial%20illustration%2C%20no%20people%2C%20professional%20energy%20sector%20aesthetic%2C%20soft%20gradient%20background&width=600&height=400&seq=energy-sector-2026&orientation=landscape',
+} as const;
