@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { cmsApi, getToken } from '../api/client';
 import type { Review, ReviewProgramme } from '@/services/testimonialsApi';
 import { fetchReviewProgrammes } from '@/services/testimonialsApi';
+import Modal from '@/components/base/Modal';
 
 interface Submission extends Review { status: 'pending' | 'approved' | 'rejected'; consent: boolean; is_featured: boolean; order: number; moderation_notes: string; reviewed_at: string | null; created_at: string }
 interface Results { count: number; next: string | null; previous: string | null; results: Submission[] }
@@ -20,7 +21,7 @@ function PrivatePhoto({ url, name }: { url: string; name: string }) {
     fetch(url, { headers: { Authorization: `Token ${getToken() || ''}` }, signal: controller.signal }).then(async response => { if (!response.ok) throw new Error(); return response.blob(); }).then(blob => { if (!controller.signal.aborted) { objectUrl = URL.createObjectURL(blob); setSource(objectUrl); } }).catch(() => { if (!controller.signal.aborted) setError(true); });
     return () => { controller.abort(); if (objectUrl) URL.revokeObjectURL(objectUrl); };
   }, [url]);
-  return source ? <img src={source} alt={name} className="aspect-square w-full rounded-xl object-cover" /> : <p role="status" className="rounded-xl bg-background-100 p-4 text-sm">{error ? 'Photo could not be loaded. Refresh to retry.' : 'Loading photo…'}</p>;
+  return source ? <img src={source} alt={name} className="aspect-square w-full rounded-xl object-cover" /> : <p role="status" className="rounded-xl bg-background-100 p-4 text-sm">{error ? 'Photo could not be loaded. Refresh to retry.' : 'Loading photo...'}</p>;
 }
 
 function ReviewPhoto({ url, name }: { url: string; name: string }) {
@@ -75,16 +76,15 @@ function AddTestimonialForm({ onCreated, revision }: { onCreated: () => void; re
   };
 
   return (
-    <form onSubmit={submit} aria-busy={adding} className="mb-8 rounded-xl border border-background-200 bg-white p-5 md:p-6">
-      <h2 className="text-lg font-bold">Add a testimonial manually</h2>
-      <p className="mt-1 text-sm text-foreground-600">Use this when you already have someone's words and consent — for example a quote gathered by email or at an event.</p>
-      <div className="mt-5 grid gap-4 md:grid-cols-2">
+    <form onSubmit={submit} aria-busy={adding} className="space-y-5">
+      <p className="text-sm text-foreground-600">Use this when you already have someone's words and consent - for example a quote gathered by email or at an event.</p>
+      <div className="grid gap-4 md:grid-cols-2">
         <label className="text-sm font-semibold">Name
           <input value={name} onChange={e => setName(e.target.value)} required className="mt-1.5 w-full rounded-lg border border-background-200 px-3 py-2.5 text-sm font-normal focus:border-primary-400 focus:outline-none" />
         </label>
         <label className="text-sm font-semibold">Programme
           <select value={programme} onChange={e => setProgramme(e.target.value)} required className="mt-1.5 w-full rounded-lg border border-background-200 px-3 py-2.5 text-sm font-normal focus:border-primary-400 focus:outline-none">
-            {!programmes.length && <option value="">Loading…</option>}
+            {!programmes.length && <option value="">Loading...</option>}
             {programmes.map(p => <option key={p.slug} value={p.slug}>{p.name}</option>)}
           </select>
         </label>
@@ -96,9 +96,9 @@ function AddTestimonialForm({ onCreated, revision }: { onCreated: () => void; re
         </label>
         <label className="text-sm font-semibold">Publish as
           <select value={status} onChange={e => setStatus(e.target.value as typeof status)} className="mt-1.5 w-full rounded-lg border border-background-200 px-3 py-2.5 text-sm font-normal focus:border-primary-400 focus:outline-none">
-            <option value="approved">Approved — live on the website</option>
+            <option value="approved">Approved - live on the website</option>
             <option value="pending">Pending review</option>
-            <option value="rejected">Rejected — hidden</option>
+            <option value="rejected">Rejected - hidden</option>
           </select>
         </label>
         <label className="text-sm font-semibold md:col-span-2">Review
@@ -128,7 +128,7 @@ function AddTestimonialForm({ onCreated, revision }: { onCreated: () => void; re
         <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={consent} onChange={e => setConsent(e.target.checked)} required />I have this person's consent to publish their name, photo, programme and review</label>
       </div>
       {error && <p role="alert" className="mt-3 text-sm text-red-700">{error}</p>}
-      <button type="submit" disabled={!canSubmit} className="btn-primary mt-4 px-6 py-3 text-sm font-bold disabled:opacity-40">{adding ? 'Saving…' : 'Add testimonial'}</button>
+      <button type="submit" disabled={!canSubmit} className="btn-primary mt-4 px-6 py-3 text-sm font-bold disabled:opacity-40">{adding ? 'Saving...' : 'Add testimonial'}</button>
     </form>
   );
 }
@@ -205,7 +205,7 @@ function TestimonialProgrammeManager({ onChanged }: { onChanged: () => void }) {
   };
 
   return (
-    <section className="dashboard-panel mb-8 mt-6 p-4 md:p-5">
+    <section className="dashboard-panel p-4 md:p-5 xl:sticky xl:top-4">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <p className="dashboard-label">Dropdown content</p>
@@ -241,7 +241,7 @@ function TestimonialProgrammeManager({ onChanged }: { onChanged: () => void }) {
       {error && <p role="alert" className="mt-4 rounded-lg bg-red-50 p-3 text-sm text-red-700">{error}</p>}
       {message && <p role="status" className="mt-4 rounded-lg bg-green-50 p-3 text-sm text-green-800">{message}</p>}
 
-      <form onSubmit={addProgramme} className="mt-5 grid gap-3 rounded-lg border border-background-200 bg-background-50 p-3 lg:grid-cols-[minmax(220px,1fr)_minmax(180px,.8fr)_92px_auto]">
+      <form onSubmit={addProgramme} className="mt-5 grid gap-3 rounded-lg border border-background-200 bg-background-50 p-3">
         <label className="text-sm font-semibold">Programme name
           <input required value={name} onChange={e => { setName(e.target.value); setSlug(current => current ? current : slugify(e.target.value)); }} className="dashboard-field mt-1.5" />
         </label>
@@ -257,7 +257,7 @@ function TestimonialProgrammeManager({ onChanged }: { onChanged: () => void }) {
         </button>
       </form>
 
-      <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+      <div className="mt-5 grid gap-3">
         {programmes.map(programme => (
           <details key={programme.id} className={`dashboard-disclosure ${programme.is_active ? '' : 'border-amber-200 bg-amber-50/80'}`}>
             <summary className="dashboard-disclosure-summary">
@@ -329,23 +329,66 @@ function TestimonialProgrammeManager({ onChanged }: { onChanged: () => void }) {
   );
 }
 export default function TestimonialsPage() {
-  const [programmeRevision, setProgrammeRevision] = useState(0); const [filter, setFilter] = useState('pending'); const [page, setPage] = useState(1); const [data, setData] = useState<Results | null>(null); const [error, setError] = useState(''); const [revision, setRevision] = useState(0); const [notice, setNotice] = useState('');
+  const [programmeRevision, setProgrammeRevision] = useState(0);
+  const [filter, setFilter] = useState('pending');
+  const [page, setPage] = useState(1);
+  const [data, setData] = useState<Results | null>(null);
+  const [error, setError] = useState('');
+  const [revision, setRevision] = useState(0);
+  const [notice, setNotice] = useState('');
+  const [manualOpen, setManualOpen] = useState(false);
+
   useEffect(() => {
     let active = true; setData(null); setError('');
     cmsApi.get<Results>(`/testimonials/?status=${filter}&page=${page}`).then(result => { if (active) setData(result); }).catch(e => { if (active) setError(e.message); });
     return () => { active = false; };
   }, [filter, page, revision]);
+
   const saved = (status: string) => { setNotice(status === 'approved' ? 'Review approved and published on the website.' : status === 'rejected' ? 'Review rejected and hidden from the website.' : 'Review is pending and hidden from the website.'); setPage(1); setRevision(v => v + 1); };
-  const created = () => { setNotice('Testimonial added.'); setFilter(''); setPage(1); setRevision(v => v + 1); };
+  const created = () => { setNotice('Testimonial added.'); setFilter(''); setPage(1); setRevision(v => v + 1); setManualOpen(false); };
   const deleted = () => { setNotice('Testimonial deleted.'); setPage(1); setRevision(v => v + 1); };
-  return <div><div className="flex flex-wrap items-start justify-between gap-4"><div><h1 className="text-2xl font-bold">Testimonials & reviews</h1><p className="mt-2 max-w-3xl text-sm leading-relaxed text-foreground-600">Review each submission before publishing, or add one yourself below. Approved reviews appear on the home page and the matching programme page. Returning a review to pending or rejecting it removes it from public display.</p></div><button onClick={() => setRevision(v => v + 1)} className="dashboard-action-secondary"><i className="ri-refresh-line" aria-hidden="true" />Refresh</button></div>
-    <TestimonialProgrammeManager onChanged={() => setProgrammeRevision(v => v + 1)} />
-    <AddTestimonialForm onCreated={created} revision={programmeRevision} />
-    <div className="my-6 flex flex-wrap gap-2" aria-label="Filter reviews">{[['pending', 'Pending review'], ['approved', 'Approved'], ['rejected', 'Rejected'], ['', 'All reviews']].map(([value, label]) => <button key={value} aria-pressed={filter === value} onClick={() => { setFilter(value); setPage(1); setNotice(''); }} className={`rounded-lg px-4 py-3 text-sm font-semibold ${filter === value ? 'bg-primary-800 text-white' : 'border bg-white text-primary-800'}`}>{label}</button>)}</div>
-    {notice && <p role="status" className="mb-5 rounded-lg bg-green-50 p-4 text-sm text-green-800">{notice}</p>}{error ? <p role="alert" className="rounded-lg bg-red-50 p-4 text-red-800">{error}</p> : !data ? <p role="status">Loading submissions…</p> : <><p className="mb-5 text-sm text-foreground-600">{data.count} {data.count === 1 ? 'submission' : 'submissions'}</p><div className="grid gap-3 xl:grid-cols-2 2xl:grid-cols-3">{data.results.map(item => <ReviewEditor key={item.id} item={item} onSaved={saved} onDeleted={deleted} />)}{!data.results.length && <div className="rounded-xl border bg-white p-8 text-center"><p>No reviews in this category.</p><a href="/contact?review=1" target="_blank" rel="noreferrer" className="mt-3 inline-block text-sm font-semibold text-primary-700 underline">Open the public submission form</a></div>}</div>{data.count > 20 && <div className="mt-6 flex items-center gap-4"><button disabled={!data.previous} onClick={() => setPage(p => p - 1)} className="rounded border px-4 py-2 disabled:opacity-40">Previous</button><span>Page {page}</span><button disabled={!data.next} onClick={() => setPage(p => p + 1)} className="rounded border px-4 py-2 disabled:opacity-40">Next</button></div>}</>}
+
+  return <div>
+    <div className="flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 className="text-2xl font-bold">Testimonials & reviews</h1>
+        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-foreground-600">Review each submission before publishing. Approved reviews appear on the home page and the matching programme page. Returning a review to pending or rejecting it removes it from public display.</p>
+      </div>
+      <div className="ml-auto flex flex-wrap gap-2">
+        <button type="button" onClick={() => setManualOpen(true)} className="btn-primary min-h-10 px-4 text-sm font-bold">
+          <i className="ri-add-line" aria-hidden="true" />
+          Add testimonial manually
+        </button>
+        <button onClick={() => setRevision(v => v + 1)} className="dashboard-action-secondary">
+          <i className="ri-refresh-line" aria-hidden="true" />
+          Refresh
+        </button>
+      </div>
+    </div>
+
+    {manualOpen && (
+      <Modal
+        open={manualOpen}
+        onClose={() => setManualOpen(false)}
+        title="Add a testimonial manually"
+        panelClassName="max-w-5xl rounded-xl"
+        bodyClassName="p-5 md:p-6"
+      >
+        <AddTestimonialForm onCreated={created} revision={programmeRevision} />
+      </Modal>
+    )}
+
+    <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,2fr)_minmax(320px,1fr)] xl:items-start">
+      <section className="min-w-0 xl:order-1">
+        <div className="mb-6 flex flex-wrap gap-2" aria-label="Filter reviews">{[['pending', 'Pending review'], ['approved', 'Approved'], ['rejected', 'Rejected'], ['', 'All reviews']].map(([value, label]) => <button key={value} aria-pressed={filter === value} onClick={() => { setFilter(value); setPage(1); setNotice(''); }} className={`rounded-lg px-4 py-3 text-sm font-semibold ${filter === value ? 'bg-primary-800 text-white' : 'border bg-white text-primary-800'}`}>{label}</button>)}</div>
+        {notice && <p role="status" className="mb-5 rounded-lg bg-green-50 p-4 text-sm text-green-800">{notice}</p>}{error ? <p role="alert" className="rounded-lg bg-red-50 p-4 text-red-800">{error}</p> : !data ? <p role="status">Loading submissions...</p> : <><p className="mb-5 text-sm text-foreground-600">{data.count} {data.count === 1 ? 'submission' : 'submissions'}</p><div className="grid gap-3 2xl:grid-cols-2">{data.results.map(item => <ReviewEditor key={item.id} item={item} onSaved={saved} onDeleted={deleted} />)}{!data.results.length && <div className="rounded-xl border bg-white p-8 text-center"><p>No reviews in this category.</p><a href="/contact?review=1" target="_blank" rel="noreferrer" className="mt-3 inline-block text-sm font-semibold text-primary-700 underline">Open the public submission form</a></div>}</div>{data.count > 20 && <div className="mt-6 flex items-center gap-4"><button disabled={!data.previous} onClick={() => setPage(p => p - 1)} className="rounded border px-4 py-2 disabled:opacity-40">Previous</button><span>Page {page}</span><button disabled={!data.next} onClick={() => setPage(p => p + 1)} className="rounded border px-4 py-2 disabled:opacity-40">Next</button></div>}</>}
+      </section>
+      <aside className="min-w-0 xl:order-2">
+        <TestimonialProgrammeManager onChanged={() => setProgrammeRevision(v => v + 1)} />
+      </aside>
+    </div>
   </div>;
 }
-
 function ReviewEditor({ item, onSaved, onDeleted }: { item: Submission; onSaved: (status: string) => void; onDeleted: () => void }) {
   const [notes, setNotes] = useState(item.moderation_notes); const [featured, setFeatured] = useState(item.is_featured); const [order, setOrder] = useState(item.order); const [busy, setBusy] = useState(false); const [error, setError] = useState('');
   const save = async (status: Submission['status']) => { if (busy) return; setBusy(true); setError(''); try { await cmsApi.patch(`/testimonials/${item.id}/`, { status, moderation_notes: notes, is_featured: featured, order }); onSaved(status); } catch (e) { setError(e instanceof Error ? e.message : 'Unable to save.'); } finally { setBusy(false); } };

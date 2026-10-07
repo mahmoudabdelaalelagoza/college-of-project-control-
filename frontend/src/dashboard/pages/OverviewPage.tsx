@@ -126,16 +126,16 @@ const overviewGroups: OverviewGroup[] = [
 
 function OverviewCard({ item, value, failed }: { item: OverviewItem; value: number | undefined; failed: boolean }) {
   return (
-    <Link to={item.href} className="group flex min-h-32 items-start gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
-        <i className={`${item.icon} text-xl`} aria-hidden="true" />
+    <Link to={item.href} className="group flex min-h-24 items-start gap-3 rounded-xl border border-slate-200 bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md">
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
+        <i className={`${item.icon} text-lg`} aria-hidden="true" />
       </span>
       <span className="min-w-0 flex-1">
-        <span className="block text-sm font-semibold text-slate-950">{item.label}</span>
+        <span className="block truncate text-sm font-bold text-slate-950">{item.label}</span>
         {item.countUrl && (
-          <span className="mt-3 block text-3xl font-bold leading-none text-slate-950">{failed ? '-' : value ?? '...'}</span>
+          <span className="mt-2 block text-2xl font-bold leading-none text-slate-950">{failed ? '-' : value ?? '...'}</span>
         )}
-        <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-blue-600">
+        <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-blue-600">
           Open area <i className="ri-arrow-right-line transition group-hover:translate-x-0.5" aria-hidden="true" />
         </span>
       </span>
@@ -186,17 +186,10 @@ export default function OverviewPage() {
       <DashboardPageHeader
         eyebrow="Business workspace"
         title="Dashboard overview"
-        description="A practical view of enquiries, content offers and relationship assets that support acquisition, conversion and delivery operations."
       />
       <div className="space-y-8">
         <section>
-          <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-            <div>
-              <h2 className="text-xs font-bold uppercase tracking-[.16em] text-slate-500">Business development snapshot</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600">
-                Use this first to identify leads that need action, offers that support revenue and trust assets that can improve conversion.
-              </p>
-            </div>
+          <div className="flex justify-end">
             <Link to="/dashboard/enquiries" className="dashboard-action-secondary">
               Open enquiry pipeline <i className="ri-arrow-right-line" aria-hidden="true" />
             </Link>
@@ -242,7 +235,7 @@ export default function OverviewPage() {
         {overviewGroups.map((group) => (
           <section key={group.label}>
             <h2 className="text-xs font-bold uppercase tracking-[.16em] text-slate-500">{group.label}</h2>
-            <div className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-5 2xl:grid-cols-6">
               {group.items.map((item) => (
                 <OverviewCard key={item.label} item={item} value={counts[item.label]} failed={!!failed[item.label]} />
               ))}

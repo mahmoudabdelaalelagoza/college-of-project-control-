@@ -1,6 +1,7 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import { cmsApi } from '../api/client';
 import ArticleBody from '@/components/feature/ArticleBody';
+import { DashboardEmptyState, DashboardPageHeader, DashboardSkeletonList, StatusBadge } from '../components/DashboardPrimitives';
 
 interface ArticleRecord {
   id: number; title: string; slug: string; excerpt: string; content: string; category: string;
@@ -50,7 +51,7 @@ function Editor({ article, onSaved, onCancel }: { article: Partial<ArticleRecord
       </div>
       {values.image && <div className="flex items-center gap-4"><img src={values.image} alt="Current cover" className="h-20 w-32 rounded object-cover" /><label className="text-sm"><input type="checkbox" checked={removeImage} onChange={e => setRemoveImage(e.target.checked)} /> Remove uploaded image</label></div>}
       <label className="flex items-center gap-3 text-sm font-semibold"><input type="checkbox" checked={values.is_published} onChange={e => setValues(v => ({ ...v, is_published: e.target.checked }))} /> Publish article (uncheck to save as draft)</label>
-      <div className="flex gap-4"><button type="submit" className="btn-primary min-h-11 px-6 font-semibold">{busy ? 'Saving…' : 'Save article'}</button><button type="button" onClick={onCancel} className="min-h-11 px-4 underline">Cancel</button></div>
+      <div className="flex gap-4"><button type="submit" className="btn-primary min-h-11 px-6 font-semibold">{busy ? 'Saving...' : 'Save article'}</button><button type="button" onClick={onCancel} className="min-h-11 px-4 underline">Cancel</button></div>
     </fieldset>
   </form>;
 }
@@ -65,14 +66,76 @@ export default function ArticlesDashboardPage() {
   const [message, setMessage] = useState('');
   useEffect(() => { let active = true; setLoading(true); setError(''); cmsApi.get<ArticleRecord[]>('/articles/').then(data => { if (active) setArticles(data); }).catch(() => { if (active) setError('Unable to load articles.'); }).finally(() => { if (active) setLoading(false); }); return () => { active = false; }; }, [revision]);
   const remove = async (article: ArticleRecord) => {
-    if (!window.confirm(`Delete “${article.title}”? This cannot be undone.`)) return;
+    if (!window.confirm(`Delete "${article.title}"? This cannot be undone.`)) return;
     setDeleting(article.id); setError('');
     try { await cmsApi.del(`/articles/${article.id}/`); setRevision(v => v + 1); setMessage('Article deleted.'); } catch { setError('Unable to delete this article.'); } finally { setDeleting(null); }
   };
   if (editing) return <Editor key={editing.id ?? 'new'} article={editing} onCancel={() => setEditing(null)} onSaved={() => { setEditing(null); setRevision(v => v + 1); setMessage('Article saved.'); }} />;
-  return <div><div className="mb-8 flex flex-wrap items-center justify-between gap-4"><div><h1 className="text-3xl font-bold">Articles</h1><p className="mt-2 text-sm text-foreground-600">Manage the article library, individual pages and shared carousel.</p></div><button onClick={() => { setEditing({}); setMessage(''); }} className="btn-primary min-h-11 px-6 font-semibold">Add article</button></div>
+  return <div>
+    <DashboardPageHeader
+      eyebrow="Website content"
+      title="Articles"
+      description="Manage the article library, individual pages and shared carousel."
+      meta={<StatusBadge tone="info">{articles.length} articles</StatusBadge>}
+      actions={<button onClick={() => { setEditing({}); setMessage(''); }} className="btn-primary min-h-11 px-6 font-semibold">Add article</button>}
+    />
     {message && <p role="status" className="mb-5 text-primary-700">{message}</p>}
     {error && <div role="alert" className="mb-5 text-red-700">{error} <button onClick={() => setRevision(v => v + 1)} className="underline">Try again</button></div>}
-    {loading ? <p role="status">Loading articles…</p> : articles.length === 0 ? <p>No articles yet. Add your first article to get started.</p> : <div className="space-y-4">{articles.map(article => <div key={article.id} className="flex flex-wrap items-center justify-between gap-5 rounded-xl border border-background-200 bg-white p-5"><div className="min-w-0 flex-1"><p className="text-xs font-bold text-primary-600">{article.is_published ? article.published_at && new Date(article.published_at) > new Date() ? 'Scheduled' : 'Published' : 'Draft'} · {article.category || 'Uncategorised'}</p><h2 className="mt-2 text-lg font-bold">{article.title}</h2><p className="mt-1 break-all text-xs text-foreground-600">/articles/{article.slug}</p></div><div className="flex flex-wrap gap-4"><button onClick={() => setEditing(article)} className="min-h-11 font-semibold text-primary-700">Edit</button>{article.is_published && <a href={`/articles/${article.slug}`} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center text-primary-700 underline">View</a>}<button disabled={deleting !== null} onClick={() => remove(article)} className="min-h-11 text-red-700 disabled:opacity-40">{deleting === article.id ? 'Deleting…' : 'Delete'}</button></div></div>)}</div>}
+    {loading ? (
+      <DashboardSkeletonList rows={6} />
+    ) : articles.length === 0 ? (
+      <DashboardEmptyState title="No articles yet" description="Add your first article to get started." action={<button onClick={() => { setEditing({}); setMessage(''); }} className="btn-primary px-5 py-3">Add article</button>} />
+    ) : (
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-5">
+        {articles.map(article => {
+          const state = article.is_published ? article.published_at && new Date(article.published_at) > new Date() ? 'Scheduled' : 'Published' : 'Draft';
+          return (
+            <details key={article.id} className={`dashboard-disclosure ${article.is_published ? '' : 'border-amber-200 bg-amber-50/70'}`}>
+              <summary className="dashboard-disclosure-summary">
+                <span className="dashboard-icon-chip">
+                  <i className="ri-article-line" aria-hidden="true" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="flex flex-wrap items-center gap-2">
+                    <span className="truncate text-sm font-bold text-slate-950">{article.title || 'Untitled article'}</span>
+                    <StatusBadge tone={state === 'Published' ? 'success' : state === 'Scheduled' ? 'warning' : 'neutral'}>{state}</StatusBadge>
+                  </span>
+                  <span className="mt-1 block truncate text-xs font-semibold text-blue-600">{article.category || 'Uncategorised'}</span>
+                  <span className="mt-1 block break-all text-xs text-slate-500">/articles/{article.slug}</span>
+                </span>
+                <i className="dashboard-disclosure-icon ri-arrow-down-s-line" aria-hidden="true" />
+              </summary>
+              <div className="dashboard-disclosure-body">
+                <p className="line-clamp-3 text-sm leading-relaxed text-slate-700">{article.excerpt || 'No excerpt added yet.'}</p>
+                <dl className="mt-4 grid gap-3 sm:grid-cols-3">
+                  <div className="rounded-lg border border-slate-200 bg-white p-3">
+                    <dt className="dashboard-label">Author</dt>
+                    <dd className="mt-1 text-sm font-semibold text-slate-900">{article.author || '-'}</dd>
+                  </div>
+                  <div className="rounded-lg border border-slate-200 bg-white p-3">
+                    <dt className="dashboard-label">Read time</dt>
+                    <dd className="mt-1 text-sm font-semibold text-slate-900">{article.read_minutes} min</dd>
+                  </div>
+                  <div className="rounded-lg border border-slate-200 bg-white p-3">
+                    <dt className="dashboard-label">Order</dt>
+                    <dd className="mt-1 text-sm font-semibold text-slate-900">{article.order}</dd>
+                  </div>
+                </dl>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <button onClick={() => setEditing(article)} className="btn-primary min-h-10 px-4 text-sm font-semibold">
+                    <i className="ri-edit-line" aria-hidden="true" />
+                    Edit
+                  </button>
+                  {article.is_published && <a href={`/articles/${article.slug}`} target="_blank" rel="noreferrer" className="dashboard-action-secondary min-h-10">View</a>}
+                  <button disabled={deleting !== null} onClick={() => remove(article)} className="rounded-lg border border-red-200 px-4 py-2 text-sm font-semibold text-red-700 transition hover:bg-red-50 disabled:opacity-40">
+                    {deleting === article.id ? 'Deleting...' : 'Delete'}
+                  </button>
+                </div>
+              </div>
+            </details>
+          );
+        })}
+      </div>
+    )}
   </div>;
 }

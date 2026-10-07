@@ -161,7 +161,7 @@ export default function EventsManager() {
             ))}
           </div>
 
-          <div className="space-y-4">
+          <div className="grid gap-3 xl:grid-cols-2 2xl:grid-cols-3">
             {filteredEvents.map((event) => (
               <Editor key={`${event.id}-${JSON.stringify(event)}`} event={event} categories={categories} reload={reload} />
             ))}
@@ -206,15 +206,22 @@ function Editor({ event, categories, reload }: { event: ManagedEvent; categories
   );
 
   return (
-    <details className="rounded-xl border bg-white p-5">
-      <summary className="cursor-pointer font-semibold">
-        {event.title}
-        <span className={`ml-3 inline-block rounded px-2 py-1 text-xs ${event.public_visible ? 'bg-green-50 text-green-800' : 'bg-background-100 text-foreground-600'}`}>
-          {event.public_visible ? 'Visible' : 'Hidden'}
+    <details className={`dashboard-disclosure ${event.public_visible ? '' : 'border-amber-200 bg-amber-50/70'}`}>
+      <summary className="dashboard-disclosure-summary">
+        <span className="dashboard-icon-chip">
+          <i className="ri-calendar-event-line" aria-hidden="true" />
         </span>
-        <span className="ml-3 text-xs font-normal">{imported ? 'Eventbrite' : 'Manual'} · {event.remote_status}</span>
+        <span className="min-w-0 flex-1">
+          <span className="flex flex-wrap items-center gap-2">
+            <span className="truncate text-sm font-bold text-slate-950">{event.title}</span>
+            <StatusBadge tone={event.public_visible ? 'success' : 'neutral'}>{event.public_visible ? 'Visible' : 'Hidden'}</StatusBadge>
+          </span>
+          <span className="mt-1 block truncate text-xs font-semibold text-blue-600">{imported ? 'Eventbrite' : 'Manual'} - {event.remote_status}</span>
+          <span className="mt-1 block truncate text-xs text-slate-500">{event.starts_at ? new Date(event.starts_at).toLocaleDateString('en-GB') : 'No date'} - {event.location || 'No location'}</span>
+        </span>
+        <i className="dashboard-disclosure-icon ri-arrow-down-s-line" aria-hidden="true" />
       </summary>
-      <form onSubmit={(e) => { e.preventDefault(); save(); }} className="mt-5">
+      <form onSubmit={(e) => { e.preventDefault(); save(); }} className="dashboard-disclosure-body">
         {imported && <p className="mb-5 rounded-lg bg-background-100 p-4 text-sm">Edit the title, description, date, location and ticket details in Eventbrite. Local display settings below are preserved during sync.</p>}
         {error && <p role="alert" className="mb-4 text-sm text-red-700">{error}</p>}
         {message && <p role="status" className="mb-4 text-sm text-green-700">{message}</p>}

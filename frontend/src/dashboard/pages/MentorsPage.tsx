@@ -83,7 +83,7 @@ export default function MentorsPage() {
         </button>
       </div>
 
-      <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+      <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 xl:grid-cols-6">
         {mentors === null ? (
           <p className="col-span-full text-sm text-foreground-400">Loading…</p>
         ) : mentors.length === 0 ? (
@@ -114,13 +114,13 @@ function MentorCard({ mentor, onEdit }: { mentor: Mentor; onEdit: () => void }) 
     <button
       type="button"
       onClick={onEdit}
-      className="interactive-surface flex flex-col items-center gap-2 rounded-xl border border-background-200/70 bg-white p-4 text-center shadow-sm hover:border-primary-300 hover:shadow-md"
+      className="interactive-surface flex flex-col items-center gap-3 rounded-xl border border-background-200/70 bg-white p-4 text-center shadow-sm hover:border-primary-300 hover:shadow-md"
     >
-      <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-full bg-background-100">
+      <div className="flex aspect-square w-full max-w-44 items-center justify-center overflow-hidden rounded-full bg-background-100">
         {imageSrc ? (
           <img loading="lazy" decoding="async" src={imageSrc} alt={mentor.name} className="h-full w-full object-cover" />
         ) : (
-          <i className="ri-user-3-line text-2xl text-foreground-300" />
+          <i className="ri-user-3-line text-5xl text-foreground-300" />
         )}
       </div>
       <div className="min-w-0 w-full">

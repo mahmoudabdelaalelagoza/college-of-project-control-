@@ -23,7 +23,7 @@ interface Enquiry {
 }
 
 const states = ['new', 'contacted', 'qualified', 'closed'];
-const fieldClass = 'mt-2 w-full rounded-lg border border-background-200 bg-white p-3 text-base focus:border-primary-400 focus:outline-none';
+const fieldClass = 'dashboard-field mt-2';
 const announce = () => window.dispatchEvent(new Event('enquiries-updated'));
 
 function statusTone(status: string) {
@@ -88,11 +88,11 @@ function Detail({ id, onSaved }: { id: string; onSaved: () => void }) {
   }
 
   return (
-    <section className="mt-6 rounded-xl border border-background-200 bg-white p-5 shadow-sm md:p-6" aria-label="Enquiry details">
+    <div className="dashboard-disclosure-body" aria-label="Enquiry details">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[.16em] text-primary-700">Selected enquiry</p>
-          <h2 className="mt-1 text-xl font-bold">Enquiry #{id}</h2>
+          <p className="dashboard-label">Selected enquiry</p>
+          <h2 className="mt-1 text-lg font-bold text-slate-950">Enquiry #{id}</h2>
         </div>
         {item && <StatusBadge tone={statusTone(item.status)}>{item.status}</StatusBadge>}
       </div>
@@ -115,16 +115,16 @@ function Detail({ id, onSaved }: { id: string; onSaved: () => void }) {
               ['Source page', item.sourcePath],
               ['Received', new Date(item.created_at).toLocaleString('en-GB')],
             ].map(([label, value]) => (
-              <div key={label} className="min-w-0 rounded-lg bg-background-50 p-3">
-                <dt className="text-xs font-bold uppercase tracking-wide text-foreground-500">{label}</dt>
-                <dd className="mt-1 break-words text-sm text-foreground-900">{value || '-'}</dd>
+              <div key={label} className="min-w-0 rounded-lg border border-slate-200 bg-white p-3">
+                <dt className="dashboard-label">{label}</dt>
+                <dd className="mt-1 break-words text-sm text-slate-900">{value || '-'}</dd>
               </div>
             ))}
           </dl>
 
           <div className="mt-6">
             <h3 className="font-bold">Message</h3>
-            <p className="mt-2 whitespace-pre-wrap break-words rounded-lg border border-background-200 bg-background-50 p-4 text-sm leading-relaxed">
+            <p className="mt-2 whitespace-pre-wrap break-words rounded-lg border border-slate-200 bg-white p-4 text-sm leading-relaxed text-slate-700">
               {item.message || 'No message provided.'}
             </p>
           </div>
@@ -162,7 +162,7 @@ function Detail({ id, onSaved }: { id: string; onSaved: () => void }) {
           </form>
         </>
       )}
-    </section>
+    </div>
   );
 }
 
@@ -221,8 +221,8 @@ export default function EnquiriesPage() {
         }
       />
 
-      <form onSubmit={(event) => { event.preventDefault(); setFilter('search', search); }} className="rounded-xl border border-background-200 bg-white p-4 shadow-sm">
-        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_220px_auto_auto_auto] lg:items-end">
+      <form onSubmit={(event) => { event.preventDefault(); setFilter('search', search); }} className="dashboard-panel p-4">
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-[minmax(260px,1fr)_220px_auto_auto_auto] xl:items-end">
           <label className="min-w-0 text-sm font-semibold">
             Search enquiries
             <input type="search" value={search} onChange={(event) => setSearch(event.target.value)} className={fieldClass} placeholder="Name, email, organisation or message" />
@@ -234,61 +234,65 @@ export default function EnquiriesPage() {
               {states.map((state) => <option key={state}>{state}</option>)}
             </select>
           </label>
-          <label className="flex min-h-12 items-center gap-2 rounded-lg border border-background-200 px-3 text-sm">
+          <label className="flex min-h-10 items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700">
             <input type="checkbox" checked={params.get('unread') === 'true'} onChange={(event) => setFilter('unread', event.target.checked ? 'true' : '')} />
             Unread only
           </label>
-          <label className="flex min-h-12 items-center gap-2 rounded-lg border border-background-200 px-3 text-sm">
+          <label className="flex min-h-10 items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700">
             <input type="checkbox" checked={params.get('due') === 'true'} onChange={(event) => setFilter('due', event.target.checked ? 'true' : '')} />
             Follow-up due
           </label>
           <div className="flex gap-2">
             <button className="btn-secondary px-4 py-3">Search</button>
-            <button type="button" className="rounded-lg border border-background-300 bg-white px-4 py-3 text-sm font-semibold" onClick={() => setRevision((value) => value + 1)}>Refresh</button>
+            <button type="button" className="dashboard-action-secondary" onClick={() => setRevision((value) => value + 1)}>Refresh</button>
           </div>
         </div>
       </form>
 
       {error && <div className="mt-4"><DashboardAlert tone="error">{error}</DashboardAlert></div>}
-      {selected && <Detail key={selected} id={selected} onSaved={() => setRevision((value) => value + 1)} />}
 
-      <div className="mt-6 overflow-x-auto rounded-xl border border-background-200 bg-white shadow-sm">
-        <table className="w-full text-left text-sm">
-          <caption className="sr-only">Dashboard enquiries</caption>
-          <thead className="bg-background-50 text-xs uppercase tracking-wide text-foreground-500">
-            <tr>
-              {['Name', 'Type', 'Received', 'Status', 'Assigned to', 'Follow-up'].map((heading) => (
-                <th key={heading} scope="col" className="px-4 py-3 font-bold">{heading}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {loading ? (
-              <tr><td colSpan={6} className="p-6 text-foreground-600">Loading enquiries...</td></tr>
-            ) : rows.length === 0 ? (
-              <tr>
-                <td colSpan={6} className="p-6">
-                  <DashboardEmptyState title="No enquiries match these filters" description="Try a broader search, clear one of the status filters, or refresh the list." />
-                </td>
-              </tr>
-            ) : rows.map((enquiry) => (
-              <tr key={enquiry.id} className={`border-t border-background-200 align-top ${!enquiry.read_at ? 'bg-primary-50/50' : ''}`}>
-                <td className="min-w-64 px-4 py-3">
-                  <button className="min-h-11 text-left font-semibold text-primary-800 underline-offset-4 hover:underline" onClick={() => { const next = new URLSearchParams(params); next.set('enquiry', String(enquiry.id)); setParams(next); }}>
-                    {enquiry.name || 'Unnamed enquiry'}
-                  </button>
-                  <p className="mt-1 text-xs text-foreground-600">{enquiry.email}</p>
-                  {!enquiry.read_at && <span className="mt-2 inline-block"><StatusBadge tone="warning">Unread</StatusBadge></span>}
-                </td>
-                <td className="px-4 py-3">{enquiry.enquiryType || 'General'}</td>
-                <td className="whitespace-nowrap px-4 py-3">{new Date(enquiry.created_at).toLocaleDateString('en-GB')}</td>
-                <td className="px-4 py-3"><StatusBadge tone={statusTone(enquiry.status)}>{enquiry.status}</StatusBadge></td>
-                <td className="px-4 py-3">{enquiry.assigned_name || 'Unassigned'}</td>
-                <td className="px-4 py-3">{enquiry.follow_up_at ? new Date(enquiry.follow_up_at).toLocaleString('en-GB') : '-'}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="mt-6 grid gap-3 xl:grid-cols-2 2xl:grid-cols-3">
+        {loading ? (
+          <p role="status" className="dashboard-panel p-6 text-sm text-slate-600">Loading enquiries...</p>
+        ) : rows.length === 0 ? (
+          <div className="xl:col-span-2 2xl:col-span-3">
+            <DashboardEmptyState title="No enquiries match these filters" description="Try a broader search, clear one of the status filters, or refresh the list." />
+          </div>
+        ) : rows.map((enquiry) => {
+          const id = String(enquiry.id);
+          const isOpen = selected === id;
+          return (
+            <details
+              key={enquiry.id}
+              open={isOpen}
+              className={`dashboard-disclosure ${!enquiry.read_at ? 'border-blue-200 bg-blue-50/70' : ''}`}
+              onToggle={(event) => {
+                const next = new URLSearchParams(params);
+                if (event.currentTarget.open) next.set('enquiry', id);
+                else if (selected === id) next.delete('enquiry');
+                setParams(next);
+              }}
+            >
+              <summary className="dashboard-disclosure-summary">
+                <span className="dashboard-icon-chip">
+                  <i className="ri-mail-open-line" aria-hidden="true" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="flex flex-wrap items-center gap-2">
+                    <span className="truncate text-sm font-bold text-slate-950">{enquiry.name || 'Unnamed enquiry'}</span>
+                    {!enquiry.read_at && <StatusBadge tone="warning">Unread</StatusBadge>}
+                  </span>
+                  <span className="mt-1 block truncate text-xs font-semibold text-blue-600">{enquiry.email || 'No email supplied'}</span>
+                  <span className="mt-1 block truncate text-xs text-slate-500">{enquiry.enquiryType || 'General'} - {new Date(enquiry.created_at).toLocaleDateString('en-GB')}</span>
+                </span>
+                <span className="hidden shrink-0 sm:inline-flex"><StatusBadge tone={statusTone(enquiry.status)}>{enquiry.status}</StatusBadge></span>
+                <span className="hidden rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-600 lg:inline-flex">{enquiry.assigned_name || 'Unassigned'}</span>
+                <i className="dashboard-disclosure-icon ri-arrow-down-s-line" aria-hidden="true" />
+              </summary>
+              {isOpen && <Detail id={id} onSaved={() => setRevision((value) => value + 1)} />}
+            </details>
+          );
+        })}
       </div>
     </div>
   );

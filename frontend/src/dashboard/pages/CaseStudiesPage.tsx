@@ -212,20 +212,20 @@ export default function CaseStudiesDashboardPage() {
       ) : items.length === 0 ? (
         <DashboardEmptyState icon="ri-briefcase-4-line" title="No case studies yet" description="Add the first case study, then publish it to show it on the public case studies page." action={<button onClick={() => setEditing({})} className="btn-primary px-5 py-3">Add case study</button>} />
       ) : (
-        <div className="grid gap-4 xl:grid-cols-2">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
           {items.map((item) => (
-            <article key={item.id} className="flex flex-col gap-4 rounded-xl border border-background-200 bg-white p-5 shadow-sm md:flex-row">
-              <img src={item.image || item.image_url || '/assets/images/employer-capability-team.webp'} alt="" className="aspect-[16/10] w-full rounded-lg object-cover md:w-56" />
-              <div className="min-w-0 flex-1">
+            <article key={item.id} className="overflow-hidden rounded-xl border border-background-200 bg-white shadow-sm">
+              <img src={item.image || item.image_url || '/assets/images/employer-capability-team.webp'} alt="" className="aspect-[16/10] w-full object-cover" />
+              <div className="min-w-0 p-4">
                 <div className="flex flex-wrap gap-2">
                   <StatusBadge tone={item.is_published ? 'success' : 'neutral'}>{item.is_published ? 'Published' : 'Draft'}</StatusBadge>
                   {item.is_featured && <StatusBadge tone="warning">Featured</StatusBadge>}
                 </div>
                 <p className="mt-3 text-xs font-bold uppercase tracking-[.14em] text-primary-700">{item.sector || 'Uncategorised'}</p>
-                <h2 className="mt-1 text-lg font-bold text-foreground-950">{item.title}</h2>
+                <h2 className="mt-1 line-clamp-2 text-base font-bold leading-snug text-foreground-950">{item.title}</h2>
                 <p className="mt-2 line-clamp-2 text-sm text-foreground-600">{item.headline || item.summary}</p>
                 <p className="mt-2 break-all text-xs text-foreground-500">/case-studies/{item.slug}</p>
-                <div className="mt-4 flex flex-wrap gap-4">
+                <div className="mt-4 flex flex-wrap gap-3">
                   <button onClick={() => setEditing(item)} className="min-h-10 font-semibold text-primary-700">Edit</button>
                   {item.is_published && <a href={`/case-studies/${item.slug}`} target="_blank" rel="noreferrer" className="inline-flex min-h-10 items-center text-primary-700 underline">View</a>}
                   <button disabled={deleting !== null} onClick={() => remove(item)} className="min-h-10 text-red-700 disabled:opacity-40">{deleting === item.id ? 'Deleting...' : 'Delete'}</button>
