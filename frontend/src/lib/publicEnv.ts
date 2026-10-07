@@ -17,5 +17,6 @@ const publicEnv: EnvMap = {
 };
 
 export function getPublicEnv(viteKey: string, nextKey: string, fallback = '') {
-  return publicEnv[viteKey] ?? publicEnv[nextKey] ?? fallback;
+  // Values pasted into CI secrets often carry a trailing newline, which breaks URLs and auth headers.
+  return (publicEnv[viteKey]?.trim() || publicEnv[nextKey]?.trim() || fallback).trim();
 }
