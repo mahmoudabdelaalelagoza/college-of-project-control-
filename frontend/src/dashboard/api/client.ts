@@ -51,6 +51,8 @@ function prepareRow(config: RouteConfig, raw: Record<string, unknown>) {
   const { remove_image: removeImage, ...row } = stripUndefined(config.toDb ? config.toDb(raw) : raw) as Record<string, unknown>;
   if (removeImage === true) row.image_url = '';
   for (const [key, value] of Object.entries(row)) if (key.endsWith('_at') && value === '') row[key] = null;
+  // "Leave blank to publish now": the public site only shows published rows that have a publish date.
+  if (row.is_published === true && 'published_at' in row && !row.published_at) row.published_at = new Date().toISOString();
   if (typeof row.metrics === 'string') row.metrics = JSON.parse(row.metrics || '[]');
   return row;
 }
