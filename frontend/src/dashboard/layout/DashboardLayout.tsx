@@ -172,7 +172,7 @@ export default function DashboardLayout() {
             </button>
           </div>
         </div>
-        <div className="w-full px-4 py-6 md:px-8 md:py-10 xl:px-10">
+        <div className="mx-auto w-full max-w-[1480px] px-4 py-5 md:px-6 md:py-7 xl:px-8">
           {requestError && (
             <div className="mb-6">
               <DashboardAlert tone="error" title="Request failed" onDismiss={() => setRequestError('')}>
