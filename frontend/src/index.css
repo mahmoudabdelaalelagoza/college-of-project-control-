@@ -221,7 +221,7 @@
     background-color: transparent !important;
   }
   .dashboard-shell .btn-primary {
-    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-signal-500 px-6 py-3 text-sm font-bold text-primary-950 transition-colors hover:bg-signal-400 disabled:cursor-wait disabled:opacity-60;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60;
     position: static;
     isolation: auto;
     overflow: visible;
@@ -235,25 +235,25 @@
     content: none;
   }
   .dashboard-panel {
-    @apply rounded-xl border border-background-200 bg-white shadow-sm;
+    @apply rounded-xl border border-slate-200 bg-white shadow-sm;
   }
   .dashboard-panel-compact {
-    @apply rounded-lg border border-background-200 bg-background-50 shadow-sm;
+    @apply rounded-xl border border-slate-200 bg-slate-50 shadow-sm;
   }
   .dashboard-field {
-    @apply w-full rounded-lg border border-background-200 bg-white px-3 py-2 text-sm font-normal text-foreground-900 transition-colors focus:border-primary-400 focus:outline-none;
+    @apply w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-normal text-slate-900 transition-colors placeholder:text-slate-400 focus:border-blue-400 focus:outline-none;
   }
   .dashboard-label {
-    @apply text-[11px] font-bold uppercase tracking-[.14em] text-foreground-500;
+    @apply text-[11px] font-bold uppercase tracking-[.14em] text-slate-500;
   }
   .dashboard-action-secondary {
-    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-background-300 bg-white px-4 text-sm font-semibold text-primary-800 transition-colors hover:border-primary-300 hover:bg-primary-50 disabled:cursor-wait disabled:opacity-40;
+    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 transition-colors hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 disabled:cursor-wait disabled:opacity-40;
   }
   .dashboard-action-danger {
-    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-red-200 bg-red-50 px-4 text-sm font-semibold text-red-700 transition-colors hover:border-red-300 hover:bg-red-100 disabled:cursor-wait disabled:opacity-40;
+    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-red-200 bg-red-50 px-4 text-sm font-semibold text-red-700 transition-colors hover:border-red-300 hover:bg-red-100 hover:text-red-800 disabled:cursor-wait disabled:opacity-40;
   }
   .dashboard-action-success {
-    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-green-200 bg-green-50 px-4 text-sm font-semibold text-green-800 transition-colors hover:border-green-300 hover:bg-green-100 disabled:cursor-wait disabled:opacity-40;
+    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-4 text-sm font-semibold text-emerald-700 transition-colors hover:border-emerald-300 hover:bg-emerald-100 hover:text-emerald-800 disabled:cursor-wait disabled:opacity-40;
   }
   .form-control { @apply w-full min-h-12 rounded-md border border-foreground-500 bg-white px-3 py-2 text-base text-foreground-900; }
   .form-control:focus-visible { outline: 3px solid oklch(var(--secondary-500)); outline-offset: 2px; }

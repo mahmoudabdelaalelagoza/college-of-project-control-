@@ -76,63 +76,62 @@ export default function DashboardLayout() {
   };
 
   const navigation = (
-      <div className="flex h-full flex-col bg-primary-950 text-white">
-        <div className="flex shrink-0 items-center gap-2.5 px-5 py-6">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-signal-500 text-primary-950">
+      <div className="flex h-full flex-col border-r border-slate-200 bg-white text-slate-900">
+        <div className="flex shrink-0 items-center gap-2.5 px-5 py-5">
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-white shadow-sm">
             <i className="ri-layout-grid-line text-lg" aria-hidden="true" />
           </span>
-          <span className="font-heading text-sm font-bold">CPCM Dashboard</span>
+          <span className="font-heading text-sm font-bold">CPCM CMS</span>
         </div>
         <nav aria-label="Dashboard" className="min-h-0 flex-1 space-y-5 overflow-y-auto px-3 pb-5">
           {navGroups.map((group) => (
             <div key={group.label} role="group" aria-label={group.label}>
-              <p className="mb-2 px-3 text-[10px] font-semibold uppercase tracking-widest text-white/50">{group.label}</p>
+              <p className="mb-2 px-3 text-[10px] font-bold uppercase tracking-widest text-slate-400">{group.label}</p>
               <div className="space-y-1">
-          {group.items.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              onClick={() => setMenuOpen(false)}
-              end={item.end}
-              className={({ isActive }) =>
-                `flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200 ${
-                  isActive ? 'bg-white/10 text-white shadow-[inset_3px_0_0_rgb(255_169_83)]' : 'text-white/70 hover:bg-white/5 hover:text-white'
-                }`
-              }
-            >
-              <i className={`${item.icon} text-base`} aria-hidden="true" />
-              {item.label}
-              {item.to === '/dashboard/enquiries' && !!notifications.data?.unread_count && <span aria-label={`${notifications.data.unread_count} unread enquiries`} className="ml-auto rounded-full bg-signal-500 px-2 py-0.5 text-xs font-bold text-primary-950">{notifications.data.unread_count}</span>}
-            </NavLink>
-          ))}
+                {group.items.map((item) => (
+                  <NavLink
+                    key={item.to}
+                    to={item.to}
+                    onClick={() => setMenuOpen(false)}
+                    end={item.end}
+                    className={({ isActive }) =>
+                      `flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold transition-all duration-200 ${
+                        isActive ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950'
+                      }`
+                    }
+                  >
+                    <i className={`${item.icon} text-base`} aria-hidden="true" />
+                    <span className="min-w-0 flex-1 truncate">{item.label}</span>
+                    {item.to === '/dashboard/enquiries' && !!notifications.data?.unread_count && <span aria-label={`${notifications.data.unread_count} unread enquiries`} className="ml-auto rounded-full bg-blue-100 px-2 py-0.5 text-xs font-bold text-blue-700">{notifications.data.unread_count}</span>}
+                  </NavLink>
+                ))}
               </div>
             </div>
           ))}
         </nav>
-        <div className="mx-3 mb-2 shrink-0 border-t border-white/10 pt-3">
-          <a
-            href="/"
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-3 rounded-lg px-3 py-2 text-left text-sm font-medium text-white/70 transition-all hover:bg-white/5 hover:text-white"
-          >
-            <i className="ri-external-link-line text-base" aria-hidden="true" />
-            View Live Website
-          </a>
+        <div className="mx-3 mb-3 shrink-0 rounded-xl border border-blue-100 bg-blue-50 p-3">
+          <div className="flex items-center gap-3">
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-white">
+              <i className="ri-external-link-line text-base" aria-hidden="true" />
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="text-xs font-bold text-slate-950">Live website</p>
+              <a href="/" target="_blank" rel="noreferrer" className="text-xs font-semibold text-blue-700 hover:underline">Open public site</a>
+            </div>
+          </div>
         </div>
         <button
           type="button"
           onClick={handleLogout}
-          className="mx-3 mb-5 flex shrink-0 items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm font-medium text-white/70 transition-all hover:bg-white/5 hover:text-white"
+          className="mx-3 mb-5 flex shrink-0 items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm font-semibold text-slate-600 transition-all hover:bg-red-50 hover:text-red-700"
         >
           <i className="ri-logout-box-line text-base" aria-hidden="true" />
           Log out
         </button>
       </div>
   );
-
   return (
-    <div className="dashboard-shell flex min-h-screen bg-background-50">
+    <div className="dashboard-shell flex min-h-screen bg-slate-100">
       <RouteScroll />
       <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 lg:block">{navigation}</aside>
       {menuOpen && !desktopViewport && (
@@ -150,7 +149,7 @@ export default function DashboardLayout() {
             <button
               type="button"
               onClick={() => setMenuOpen(false)}
-              className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-white transition-colors hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal-500"
+              className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-700 transition-colors hover:bg-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
               aria-label="Close dashboard menu"
             >
               <i className="ri-close-line text-2xl" aria-hidden="true" />
@@ -160,16 +159,34 @@ export default function DashboardLayout() {
         </div>
       )}
       <main id="main-content" tabIndex={-1} className="min-w-0 flex-1 overflow-y-auto">
-        <div className="sticky top-0 z-30 border-b border-background-200 bg-background-50/95 px-4 py-3 backdrop-blur lg:hidden">
+        <div className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 px-4 py-3 backdrop-blur lg:hidden">
           <div className="flex items-center justify-between gap-3">
             <div className="min-w-0">
-              <p className="text-[11px] font-bold uppercase tracking-[.16em] text-foreground-500">CPCM Dashboard</p>
-              <p className="truncate text-sm font-semibold text-foreground-950">{currentPage}</p>
+              <p className="text-[11px] font-bold uppercase tracking-[.16em] text-slate-400">CPCM Dashboard</p>
+              <p className="truncate text-sm font-semibold text-slate-950">{currentPage}</p>
             </div>
-            <button type="button" onClick={() => setMenuOpen(true)} className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-background-300 bg-white px-4 text-sm font-semibold text-primary-800 transition-all hover:border-primary-200 hover:bg-background-50 hover:shadow-sm">
+            <button type="button" onClick={() => setMenuOpen(true)} className="dashboard-action-secondary">
               <i className="ri-menu-line text-lg" aria-hidden="true" />
               Menu
             </button>
+          </div>
+        </div>
+        <div className="sticky top-0 z-20 hidden border-b border-slate-200 bg-white/95 px-4 py-3 backdrop-blur lg:block">
+          <div className="mx-auto flex w-full max-w-[1480px] items-center justify-between gap-4">
+            <div className="min-w-0">
+              <p className="text-[11px] font-bold uppercase tracking-[.16em] text-slate-400">Dashboard</p>
+              <p className="truncate text-sm font-bold text-slate-950">{currentPage}</p>
+            </div>
+            <div className="flex items-center gap-3">
+              <a href="/" target="_blank" rel="noreferrer" className="dashboard-action-secondary min-h-9 px-3">
+                <i className="ri-external-link-line" aria-hidden="true" />
+                Live site
+              </a>
+              <button type="button" onClick={handleLogout} className="dashboard-action-secondary min-h-9 px-3">
+                <i className="ri-logout-box-line" aria-hidden="true" />
+                Log out
+              </button>
+            </div>
           </div>
         </div>
         <div className="mx-auto w-full max-w-[1480px] px-4 py-5 md:px-6 md:py-7 xl:px-8">

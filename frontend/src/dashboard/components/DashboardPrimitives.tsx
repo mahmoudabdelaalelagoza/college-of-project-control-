@@ -10,12 +10,12 @@ interface DashboardPageHeaderProps {
 
 export function DashboardPageHeader({ eyebrow, title, description, actions, meta }: DashboardPageHeaderProps) {
   return (
-    <header className="mb-6 border-b border-background-200/80 pb-6">
+    <header className="mb-5">
       <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-3xl">
-          {eyebrow && <p className="text-xs font-bold uppercase tracking-[.16em] text-primary-700">{eyebrow}</p>}
-          <h1 className="mt-2 font-heading text-2xl font-bold leading-tight text-foreground-950 md:text-3xl">{title}</h1>
-          {description && <p className="mt-2 text-sm leading-relaxed text-foreground-600">{description}</p>}
+          {eyebrow && <p className="text-xs font-bold uppercase tracking-[.16em] text-blue-600">{eyebrow}</p>}
+          <h1 className="mt-2 font-heading text-2xl font-bold leading-tight text-slate-950 md:text-3xl">{title}</h1>
+          {description && <p className="mt-2 text-sm leading-relaxed text-slate-600">{description}</p>}
           {meta && <div className="mt-4">{meta}</div>}
         </div>
         {actions && <div className="flex shrink-0 flex-wrap gap-3">{actions}</div>}
@@ -32,7 +32,7 @@ interface DashboardAlertProps {
 }
 
 const alertStyles = {
-  info: 'border-primary-200 bg-primary-50 text-primary-900',
+  info: 'border-blue-200 bg-blue-50 text-blue-900',
   success: 'border-green-200 bg-green-50 text-green-900',
   warning: 'border-amber-200 bg-amber-50 text-amber-950',
   error: 'border-red-200 bg-red-50 text-red-900',
@@ -73,12 +73,12 @@ interface DashboardEmptyStateProps {
 
 export function DashboardEmptyState({ icon = 'ri-inbox-line', title, description, action }: DashboardEmptyStateProps) {
   return (
-    <section className="rounded-xl border border-dashed border-background-300 bg-white p-8 text-center shadow-sm">
-      <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-700">
+    <section className="rounded-xl border border-dashed border-slate-300 bg-white p-8 text-center shadow-sm">
+      <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
         <i className={`${icon} text-2xl`} aria-hidden="true" />
       </span>
-      <h2 className="mt-4 text-xl font-bold text-foreground-950">{title}</h2>
-      {description && <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-foreground-600">{description}</p>}
+      <h2 className="mt-4 text-xl font-bold text-slate-950">{title}</h2>
+      {description && <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-slate-600">{description}</p>}
       {action && <div className="mt-5 flex justify-center">{action}</div>}
     </section>
   );
@@ -88,11 +88,11 @@ export function DashboardSkeletonList({ rows = 4 }: { rows?: number }) {
   return (
     <div role="status" aria-label="Loading content" className="space-y-3">
       {Array.from({ length: rows }).map((_, index) => (
-        <div key={index} className="overflow-hidden rounded-xl border border-background-200 bg-white p-5">
-          <div className="relative h-4 w-2/5 overflow-hidden rounded bg-background-200">
+        <div key={index} className="overflow-hidden rounded-xl border border-slate-200 bg-white p-5">
+          <div className="relative h-4 w-2/5 overflow-hidden rounded bg-slate-200">
             <span className="skeleton-shimmer" />
           </div>
-          <div className="relative mt-4 h-3 w-4/5 overflow-hidden rounded bg-background-100">
+          <div className="relative mt-4 h-3 w-4/5 overflow-hidden rounded bg-slate-100">
             <span className="skeleton-shimmer" />
           </div>
         </div>
@@ -108,11 +108,11 @@ interface StatusBadgeProps {
 }
 
 const badgeStyles = {
-  neutral: 'bg-background-100 text-foreground-700 ring-background-200',
+  neutral: 'bg-slate-100 text-slate-700 ring-slate-200',
   success: 'bg-green-50 text-green-800 ring-green-200',
   warning: 'bg-amber-50 text-amber-900 ring-amber-200',
   error: 'bg-red-50 text-red-800 ring-red-200',
-  info: 'bg-primary-50 text-primary-800 ring-primary-200',
+  info: 'bg-blue-50 text-blue-800 ring-blue-200',
 };
 
 export function StatusBadge({ tone = 'neutral', children }: StatusBadgeProps) {

@@ -126,16 +126,16 @@ const overviewGroups: OverviewGroup[] = [
 
 function OverviewCard({ item, value, failed }: { item: OverviewItem; value: number | undefined; failed: boolean }) {
   return (
-    <Link to={item.href} className="group flex min-h-32 items-start gap-4 rounded-xl border border-background-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-primary-300 hover:shadow-card">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-700 transition group-hover:bg-primary-700 group-hover:text-white">
+    <Link to={item.href} className="group flex min-h-32 items-start gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
         <i className={`${item.icon} text-xl`} aria-hidden="true" />
       </span>
       <span className="min-w-0 flex-1">
-        <span className="block text-sm font-semibold text-foreground-950">{item.label}</span>
+        <span className="block text-sm font-semibold text-slate-950">{item.label}</span>
         {item.countUrl && (
-          <span className="mt-3 block text-3xl font-bold leading-none text-foreground-950">{failed ? '-' : value ?? '...'}</span>
+          <span className="mt-3 block text-3xl font-bold leading-none text-slate-950">{failed ? '-' : value ?? '...'}</span>
         )}
-        <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-primary-700">
+        <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-blue-600">
           Open area <i className="ri-arrow-right-line transition group-hover:translate-x-0.5" aria-hidden="true" />
         </span>
       </span>
@@ -145,19 +145,19 @@ function OverviewCard({ item, value, failed }: { item: OverviewItem; value: numb
 
 function BusinessSignalCard({ item, value, failed }: { item: BusinessSignal; value: number | undefined; failed: boolean }) {
   return (
-    <Link to={item.href} className="group rounded-xl border border-background-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-primary-300 hover:shadow-card">
+    <Link to={item.href} className="group rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md">
       <div className="flex items-start justify-between gap-4">
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-700 transition group-hover:bg-primary-700 group-hover:text-white">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
           <i className={`${item.icon} text-lg`} aria-hidden="true" />
         </span>
         <StatusBadge tone={item.tone}>{item.signal}</StatusBadge>
       </div>
       <div className="mt-5">
-        <p className="text-sm font-semibold text-foreground-700">{item.label}</p>
-        <p className="mt-2 text-4xl font-bold leading-none text-foreground-950">{failed ? '-' : value ?? '...'}</p>
-        <p className="mt-3 text-sm leading-relaxed text-foreground-600">{item.summary}</p>
+        <p className="text-sm font-semibold text-slate-700">{item.label}</p>
+        <p className="mt-2 text-4xl font-bold leading-none text-slate-950">{failed ? '-' : value ?? '...'}</p>
+        <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.summary}</p>
       </div>
-      <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary-700">
+      <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-blue-600">
         Review now <i className="ri-arrow-right-line transition group-hover:translate-x-0.5" aria-hidden="true" />
       </span>
     </Link>
@@ -192,12 +192,12 @@ export default function OverviewPage() {
         <section>
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className="text-xs font-bold uppercase tracking-[.16em] text-foreground-500">Business development snapshot</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-foreground-600">
+              <h2 className="text-xs font-bold uppercase tracking-[.16em] text-slate-500">Business development snapshot</h2>
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600">
                 Use this first to identify leads that need action, offers that support revenue and trust assets that can improve conversion.
               </p>
             </div>
-            <Link to="/dashboard/enquiries" className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-background-300 bg-white px-4 text-sm font-semibold text-primary-800 hover:border-primary-300 hover:bg-primary-50">
+            <Link to="/dashboard/enquiries" className="dashboard-action-secondary">
               Open enquiry pipeline <i className="ri-arrow-right-line" aria-hidden="true" />
             </Link>
           </div>
@@ -229,10 +229,10 @@ export default function OverviewPage() {
               label: 'Review events workflow',
             },
           ].map((item) => (
-            <article key={item.title} className="rounded-xl border border-background-200 bg-primary-950 p-5 text-white shadow-sm">
+            <article key={item.title} className="rounded-xl border border-slate-200 bg-white p-5 text-slate-950 shadow-sm">
               <h2 className="font-heading text-lg font-bold">{item.title}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-white/75">{item.body}</p>
-              <Link to={item.href} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-signal-300">
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.body}</p>
+              <Link to={item.href} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blue-600">
                 {item.label} <i className="ri-arrow-right-line" aria-hidden="true" />
               </Link>
             </article>
@@ -241,7 +241,7 @@ export default function OverviewPage() {
 
         {overviewGroups.map((group) => (
           <section key={group.label}>
-            <h2 className="text-xs font-bold uppercase tracking-[.16em] text-foreground-500">{group.label}</h2>
+            <h2 className="text-xs font-bold uppercase tracking-[.16em] text-slate-500">{group.label}</h2>
             <div className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {group.items.map((item) => (
                 <OverviewCard key={item.label} item={item} value={counts[item.label]} failed={!!failed[item.label]} />
