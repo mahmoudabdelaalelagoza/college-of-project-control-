@@ -1,7 +1,8 @@
 import SiteLink from '@/components/base/SiteLink';
 import PathwayMegaMenu from './PathwayMegaMenu';
 import SectorMegaMenu from './SectorMegaMenu';
-import { pathwayCards, sectorCards } from './navMegaMenuData';
+import { pathwayCards } from './navMegaMenuData';
+import useSectorCards from '@/hooks/useSectorCards';
 import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 /* Route groups for the mega dropdown */
@@ -78,6 +79,7 @@ export default function Navbar() {
   const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const sectorCards = useSectorCards();
   const [routesOpen, setRoutesOpen] = useState(false);
   const [openPanel, setOpenPanel] = useState<MegaMenuPanel | null>(null);
   const [desktopViewport, setDesktopViewport] = useState(false);
@@ -430,7 +432,7 @@ export default function Navbar() {
                         key={sector.href}
                         href={sector.href}
                         onClick={() => setMobileOpen(false)}
-                        className="group overflow-hidden rounded-lg border border-background-200 bg-white"
+                        className="group overflow-hidden rounded-lg border border-background-200 bg-white last:odd:col-span-2"
                       >
                         <img
                           src={sector.image}

@@ -1,32 +1,9 @@
-import { useEffect, useState } from 'react';
 import SiteLink from '@/components/base/SiteLink';
-import { fetchSectors } from '@/services/sectorsApi';
-import { sectorCards } from './navMegaMenuData';
+import useSectorCards from '@/hooks/useSectorCards';
 
 /** Desktop mega menu for the Sectors header item. */
 export default function SectorMegaMenu() {
-  const [cmsImages, setCmsImages] = useState<Record<string, string>>({});
-
-  useEffect(() => {
-    let active = true;
-
-    fetchSectors()
-      .then((items) => {
-        if (!active) return;
-        setCmsImages(
-          Object.fromEntries(
-            items
-              .filter((item) => item.slug && item.imageUrl)
-              .map((item) => [item.slug, item.imageUrl])
-          )
-        );
-      })
-      .catch(() => {});
-
-    return () => {
-      active = false;
-    };
-  }, []);
+  const cards = useSectorCards();
 
   return (
     <div className="p-5">
@@ -42,18 +19,15 @@ export default function SectorMegaMenu() {
           <i className="ri-arrow-right-line" aria-hidden="true" />
         </SiteLink>
       </div>
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {sectorCards.map((sector) => {
-          const image = (sector.slug ? cmsImages[sector.slug] : '') || sector.image;
-
-          return (
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-flow-col xl:auto-cols-fr xl:grid-cols-none">
+        {cards.map((sector) => (
             <SiteLink
               key={sector.href}
               href={sector.href}
               className="group flex flex-col overflow-hidden rounded-xl border border-background-200 bg-white transition-colors duration-200 hover:border-primary-300"
             >
               <img
-                src={image}
+                src={sector.image}
                 alt={sector.imageAlt}
                 loading="lazy"
                 decoding="async"
@@ -68,8 +42,7 @@ export default function SectorMegaMenu() {
                 </span>
               </span>
             </SiteLink>
-          );
-        })}
+        ))}
       </div>
     </div>
   );
