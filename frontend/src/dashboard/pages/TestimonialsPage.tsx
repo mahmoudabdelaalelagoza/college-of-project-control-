@@ -257,11 +257,28 @@ function TestimonialProgrammeManager({ onChanged }: { onChanged: () => void }) {
         </button>
       </form>
 
-      <div className="mt-5 grid gap-3 xl:grid-cols-2 2xl:grid-cols-3">
+      <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {programmes.map(programme => (
-          <article key={programme.id} className={`dashboard-panel-compact p-3 ${programme.is_active ? '' : 'border-amber-200 bg-amber-50/70'}`}>
-            <div className="flex items-start justify-between gap-3">
-              <label className="min-w-0 flex-1">
+          <details key={programme.id} className={`dashboard-disclosure ${programme.is_active ? '' : 'border-amber-200 bg-amber-50/80'}`}>
+            <summary className="dashboard-disclosure-summary">
+              <span className="dashboard-icon-chip">
+                <i className="ri-edit-2-line" aria-hidden="true" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block truncate text-sm font-bold text-slate-950">{programme.name}</span>
+                <span className="mt-1 flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-500">
+                  <span className="truncate">{programme.slug}</span>
+                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-slate-600">Order {programme.order}</span>
+                </span>
+              </span>
+              <span className={`inline-flex shrink-0 rounded-full px-2.5 py-1 text-xs font-bold ${programme.is_active ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}`}>
+                {programme.is_active ? 'Active' : 'Hidden'}
+              </span>
+              <i className="dashboard-disclosure-icon ri-arrow-down-s-line" aria-hidden="true" />
+            </summary>
+
+            <div className="dashboard-disclosure-body space-y-3">
+              <label className="block">
                 <span className="dashboard-label">Name</span>
                 <input
                   value={programme.name}
@@ -270,46 +287,43 @@ function TestimonialProgrammeManager({ onChanged }: { onChanged: () => void }) {
                   className="dashboard-field mt-1.5 font-semibold"
                 />
               </label>
-              <span className={`mt-6 inline-flex shrink-0 rounded-full px-2.5 py-1 text-xs font-bold ${programme.is_active ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'}`}>
-                {programme.is_active ? 'Active' : 'Hidden'}
-              </span>
-            </div>
 
-            <div className="mt-3 grid gap-3 sm:grid-cols-[minmax(0,1fr)_84px]">
-              <label>
-                <span className="dashboard-label">Slug</span>
-                <input
-                  value={programme.slug}
-                  onChange={e => setProgrammes(list => list.map(item => item.id === programme.id ? { ...item, slug: slugify(e.target.value) } : item))}
-                  onBlur={e => updateProgramme(programme, { slug: slugify(e.target.value) || programme.slug })}
-                  className="dashboard-field mt-1.5"
-                />
-              </label>
-              <label>
-                <span className="dashboard-label">Order</span>
-                <input
-                  type="number"
-                  value={programme.order}
-                  onChange={e => setProgrammes(list => list.map(item => item.id === programme.id ? { ...item, order: Number(e.target.value) } : item))}
-                  onBlur={e => updateProgramme(programme, { order: Number(e.target.value) })}
-                  className="dashboard-field mt-1.5"
-                />
-              </label>
-            </div>
+              <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_92px]">
+                <label>
+                  <span className="dashboard-label">Slug</span>
+                  <input
+                    value={programme.slug}
+                    onChange={e => setProgrammes(list => list.map(item => item.id === programme.id ? { ...item, slug: slugify(e.target.value) } : item))}
+                    onBlur={e => updateProgramme(programme, { slug: slugify(e.target.value) || programme.slug })}
+                    className="dashboard-field mt-1.5"
+                  />
+                </label>
+                <label>
+                  <span className="dashboard-label">Order</span>
+                  <input
+                    type="number"
+                    value={programme.order}
+                    onChange={e => setProgrammes(list => list.map(item => item.id === programme.id ? { ...item, order: Number(e.target.value) } : item))}
+                    onBlur={e => updateProgramme(programme, { order: Number(e.target.value) })}
+                    className="dashboard-field mt-1.5"
+                  />
+                </label>
+              </div>
 
-            <div className="mt-3 flex items-center justify-between gap-3 border-t border-background-200 pt-3">
-              <label className="inline-flex items-center gap-2 text-sm font-semibold text-foreground-700">
-                <input type="checkbox" checked={programme.is_active} onChange={e => updateProgramme(programme, { is_active: e.target.checked })} />
-                Show in dropdown
-              </label>
-              <button type="button" disabled={busy} onClick={() => deleteProgramme(programme)} className="dashboard-action-danger min-h-9 px-3">
-                <i className="ri-delete-bin-line" aria-hidden="true" />
-                Delete
-              </button>
+              <div className="flex items-center justify-between gap-3 pt-1">
+                <label className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700">
+                  <input type="checkbox" checked={programme.is_active} onChange={e => updateProgramme(programme, { is_active: e.target.checked })} />
+                  Show in dropdown
+                </label>
+                <button type="button" disabled={busy} onClick={() => deleteProgramme(programme)} className="dashboard-action-danger min-h-9 px-3">
+                  <i className="ri-delete-bin-line" aria-hidden="true" />
+                  Delete
+                </button>
+              </div>
             </div>
-          </article>
+          </details>
         ))}
-        {!programmes.length && <p className="rounded-lg border border-dashed border-background-300 p-4 text-sm text-foreground-600">No programmes yet. Add the first one above.</p>}
+        {!programmes.length && <p className="rounded-lg border border-dashed border-slate-300 p-4 text-sm text-slate-600">No programmes yet. Add the first one above.</p>}
       </div>
     </section>
   );
@@ -328,7 +342,7 @@ export default function TestimonialsPage() {
     <TestimonialProgrammeManager onChanged={() => setProgrammeRevision(v => v + 1)} />
     <AddTestimonialForm onCreated={created} revision={programmeRevision} />
     <div className="my-6 flex flex-wrap gap-2" aria-label="Filter reviews">{[['pending', 'Pending review'], ['approved', 'Approved'], ['rejected', 'Rejected'], ['', 'All reviews']].map(([value, label]) => <button key={value} aria-pressed={filter === value} onClick={() => { setFilter(value); setPage(1); setNotice(''); }} className={`rounded-lg px-4 py-3 text-sm font-semibold ${filter === value ? 'bg-primary-800 text-white' : 'border bg-white text-primary-800'}`}>{label}</button>)}</div>
-    {notice && <p role="status" className="mb-5 rounded-lg bg-green-50 p-4 text-sm text-green-800">{notice}</p>}{error ? <p role="alert" className="rounded-lg bg-red-50 p-4 text-red-800">{error}</p> : !data ? <p role="status">Loading submissions…</p> : <><p className="mb-5 text-sm text-foreground-600">{data.count} {data.count === 1 ? 'submission' : 'submissions'}</p><div className="space-y-5">{data.results.map(item => <ReviewEditor key={item.id} item={item} onSaved={saved} onDeleted={deleted} />)}{!data.results.length && <div className="rounded-xl border bg-white p-8 text-center"><p>No reviews in this category.</p><a href="/contact?review=1" target="_blank" rel="noreferrer" className="mt-3 inline-block text-sm font-semibold text-primary-700 underline">Open the public submission form</a></div>}</div>{data.count > 20 && <div className="mt-6 flex items-center gap-4"><button disabled={!data.previous} onClick={() => setPage(p => p - 1)} className="rounded border px-4 py-2 disabled:opacity-40">Previous</button><span>Page {page}</span><button disabled={!data.next} onClick={() => setPage(p => p + 1)} className="rounded border px-4 py-2 disabled:opacity-40">Next</button></div>}</>}
+    {notice && <p role="status" className="mb-5 rounded-lg bg-green-50 p-4 text-sm text-green-800">{notice}</p>}{error ? <p role="alert" className="rounded-lg bg-red-50 p-4 text-red-800">{error}</p> : !data ? <p role="status">Loading submissions…</p> : <><p className="mb-5 text-sm text-foreground-600">{data.count} {data.count === 1 ? 'submission' : 'submissions'}</p><div className="grid gap-3 xl:grid-cols-2 2xl:grid-cols-3">{data.results.map(item => <ReviewEditor key={item.id} item={item} onSaved={saved} onDeleted={deleted} />)}{!data.results.length && <div className="rounded-xl border bg-white p-8 text-center"><p>No reviews in this category.</p><a href="/contact?review=1" target="_blank" rel="noreferrer" className="mt-3 inline-block text-sm font-semibold text-primary-700 underline">Open the public submission form</a></div>}</div>{data.count > 20 && <div className="mt-6 flex items-center gap-4"><button disabled={!data.previous} onClick={() => setPage(p => p - 1)} className="rounded border px-4 py-2 disabled:opacity-40">Previous</button><span>Page {page}</span><button disabled={!data.next} onClick={() => setPage(p => p + 1)} className="rounded border px-4 py-2 disabled:opacity-40">Next</button></div>}</>}
   </div>;
 }
 
@@ -336,7 +350,59 @@ function ReviewEditor({ item, onSaved, onDeleted }: { item: Submission; onSaved:
   const [notes, setNotes] = useState(item.moderation_notes); const [featured, setFeatured] = useState(item.is_featured); const [order, setOrder] = useState(item.order); const [busy, setBusy] = useState(false); const [error, setError] = useState('');
   const save = async (status: Submission['status']) => { if (busy) return; setBusy(true); setError(''); try { await cmsApi.patch(`/testimonials/${item.id}/`, { status, moderation_notes: notes, is_featured: featured, order }); onSaved(status); } catch (e) { setError(e instanceof Error ? e.message : 'Unable to save.'); } finally { setBusy(false); } };
   const remove = async () => { if (busy || !window.confirm('Delete this testimonial? This cannot be undone.')) return; setBusy(true); setError(''); try { await cmsApi.del(`/testimonials/${item.id}/`); onDeleted(); } catch (e) { setError(e instanceof Error ? e.message : 'Unable to delete.'); setBusy(false); } };
-  return <article className="rounded-xl border border-background-200 bg-white p-5 md:p-6"><div className="grid gap-6 md:grid-cols-[160px_minmax(0,1fr)]"><div><ReviewPhoto url={item.photo_url} name={item.name} /><p className="mt-3 text-xs text-foreground-500">Submitted {new Date(item.created_at).toLocaleDateString('en-GB')}</p></div><div className="min-w-0"><div className="flex flex-wrap items-center gap-3"><h2 className="text-xl font-bold">{item.name}</h2><span className="rounded-full bg-background-100 px-3 py-1 text-xs font-semibold">{item.status}</span></div><p className="mt-2 text-sm font-semibold text-primary-700">{item.programme_label}</p><p className="mt-1 text-xs text-foreground-500">{item.reviewer_type === 'professional' ? 'Professional / learner' : 'Employer'} · {item.consent ? 'Publication consent given' : 'No publication consent'}</p><blockquote className="mt-5 whitespace-pre-line break-words rounded-lg bg-background-50 p-4 text-sm leading-relaxed">{item.review}</blockquote>{item.reviewed_at && <p className="mt-3 text-xs text-foreground-500">Last reviewed: {new Date(item.reviewed_at).toLocaleString('en-GB')}</p>}
-      <fieldset disabled={busy} className="mt-5 space-y-4"><label className="block text-sm font-semibold">Internal moderation notes<textarea value={notes} onChange={e => setNotes(e.target.value)} rows={2} maxLength={2000} className="mt-2 w-full rounded-lg border p-3 font-normal" /></label><div className="flex flex-wrap items-center gap-5"><label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={featured} onChange={e => setFeatured(e.target.checked)} />Featured</label><label className="flex items-center gap-2 text-sm">Order<input type="number" min={0} max={32767} value={order} onChange={e => setOrder(Number(e.target.value))} className="w-24 rounded border p-2" /></label></div>{error && <p role="alert" className="text-sm text-red-700">{error}</p>}<div className="flex flex-wrap gap-3"><button onClick={() => save('approved')} disabled={!item.consent || busy} className="btn-primary px-5 py-3 text-sm font-bold disabled:opacity-40">{item.status === 'approved' ? 'Save approved review' : 'Approve & publish'}</button><button onClick={() => save('rejected')} className="dashboard-action-danger">Reject</button><button onClick={() => save('pending')} className="dashboard-action-secondary">Return to pending</button><button type="button" onClick={remove} className="dashboard-action-danger ml-auto">Delete</button></div></fieldset>
-    </div></div></article>;
+  const statusClass = item.status === 'approved' ? 'bg-emerald-100 text-emerald-800' : item.status === 'rejected' ? 'bg-red-100 text-red-800' : 'bg-amber-100 text-amber-800';
+
+  return (
+    <details className="dashboard-disclosure">
+      <summary className="dashboard-disclosure-summary">
+        <span className="dashboard-icon-chip">
+          <i className="ri-chat-quote-line" aria-hidden="true" />
+        </span>
+        <span className="min-w-0 flex-1">
+          <span className="flex flex-wrap items-center gap-2">
+            <span className="truncate text-sm font-bold text-slate-950">{item.name}</span>
+            <span className={`inline-flex rounded-full px-2.5 py-1 text-xs font-bold ${statusClass}`}>{item.status}</span>
+          </span>
+          <span className="mt-1 block truncate text-xs font-semibold text-blue-600">{item.programme_label}</span>
+          <span className="mt-1 block text-xs text-slate-500">{item.reviewer_type === 'professional' ? 'Professional / learner' : 'Employer'} - Submitted {new Date(item.created_at).toLocaleDateString('en-GB')}</span>
+        </span>
+        {item.is_featured && <span className="hidden rounded-full bg-blue-100 px-2.5 py-1 text-xs font-bold text-blue-700 sm:inline-flex">Featured</span>}
+        <span className="hidden rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-600 sm:inline-flex">Order {item.order}</span>
+        <i className="dashboard-disclosure-icon ri-arrow-down-s-line" aria-hidden="true" />
+      </summary>
+
+      <div className="dashboard-disclosure-body">
+        <div className="grid gap-5">
+          <div>
+            <ReviewPhoto url={item.photo_url} name={item.name} />
+            <p className="mt-3 text-xs text-slate-500">Submitted {new Date(item.created_at).toLocaleDateString('en-GB')}</p>
+          </div>
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-3">
+              <h2 className="text-lg font-bold text-slate-950">{item.name}</h2>
+              <span className={`rounded-full px-3 py-1 text-xs font-bold ${statusClass}`}>{item.status}</span>
+            </div>
+            <p className="mt-2 text-sm font-semibold text-blue-600">{item.programme_label}</p>
+            <p className="mt-1 text-xs text-slate-500">{item.reviewer_type === 'professional' ? 'Professional / learner' : 'Employer'} - {item.consent ? 'Publication consent given' : 'No publication consent'}</p>
+            <blockquote className="mt-5 whitespace-pre-line break-words rounded-lg border border-slate-200 bg-white p-4 text-sm leading-relaxed text-slate-700">{item.review}</blockquote>
+            {item.reviewed_at && <p className="mt-3 text-xs text-slate-500">Last reviewed: {new Date(item.reviewed_at).toLocaleString('en-GB')}</p>}
+            <fieldset disabled={busy} className="mt-5 space-y-4">
+              <label className="block text-sm font-semibold text-slate-800">Internal moderation notes<textarea value={notes} onChange={e => setNotes(e.target.value)} rows={2} maxLength={2000} className="dashboard-field mt-2" /></label>
+              <div className="flex flex-wrap items-center gap-5">
+                <label className="flex items-center gap-2 text-sm font-semibold text-slate-700"><input type="checkbox" checked={featured} onChange={e => setFeatured(e.target.checked)} />Featured</label>
+                <label className="flex items-center gap-2 text-sm font-semibold text-slate-700">Order<input type="number" min={0} max={32767} value={order} onChange={e => setOrder(Number(e.target.value))} className="dashboard-field w-24" /></label>
+              </div>
+              {error && <p role="alert" className="text-sm text-red-700">{error}</p>}
+              <div className="flex flex-wrap gap-3">
+                <button onClick={() => save('approved')} disabled={!item.consent || busy} className="btn-primary px-5 py-3 text-sm font-bold disabled:opacity-40">{item.status === 'approved' ? 'Save approved review' : 'Approve & publish'}</button>
+                <button onClick={() => save('rejected')} className="dashboard-action-danger">Reject</button>
+                <button onClick={() => save('pending')} className="dashboard-action-secondary">Return to pending</button>
+                <button type="button" onClick={remove} className="dashboard-action-danger ml-auto">Delete</button>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </details>
+  );
 }
