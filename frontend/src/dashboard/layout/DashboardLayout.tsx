@@ -77,11 +77,12 @@ export default function DashboardLayout() {
 
   const navigation = (
       <div className="flex h-full flex-col border-r border-slate-200 bg-white text-slate-900">
-        <div className="flex shrink-0 items-center gap-2.5 px-5 py-5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-white shadow-sm">
-            <i className="ri-layout-grid-line text-lg" aria-hidden="true" />
-          </span>
-          <span className="font-heading text-sm font-bold">CPCM CMS</span>
+        <div className="flex shrink-0 items-center px-5 py-4">
+          <img
+            src="/assets/images/cpcm-logo-dark.webp"
+            alt="College of Project Controls"
+            className="h-14 w-auto max-w-[170px] object-contain"
+          />
         </div>
         <nav aria-label="Dashboard" className="min-h-0 flex-1 space-y-5 overflow-y-auto px-3 pb-5">
           {navGroups.map((group) => (
