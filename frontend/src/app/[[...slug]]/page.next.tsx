@@ -1,4 +1,5 @@
-﻿import NoSsrApp from '@/next/NoSsrApp.next';
+/* eslint-disable react-refresh/only-export-components */
+import NoSsrApp from '@/next/NoSsrApp.next';
 import { nextStaticRoutes } from '@/next/staticRoutes';
 
 export const dynamic = 'force-static';

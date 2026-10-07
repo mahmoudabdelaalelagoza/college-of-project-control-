@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import SiteLink from '@/components/base/SiteLink';
 import EventCard from './EventCard';

@@ -1,9 +1,8 @@
 import { useState, type FormEvent } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { confirmPasswordReset } from '../api/client';
 
 export default function ResetPasswordPage() {
-  const { uid, token } = useParams();
   const navigate = useNavigate();
   const [password, setPassword] = useState('');
   const [confirmation, setConfirmation] = useState('');
@@ -15,11 +14,10 @@ export default function ResetPasswordPage() {
   const submit = async (event: FormEvent) => {
     event.preventDefault();
     setError('');
-    if (!uid || !token) { setError('This password-reset link is invalid.'); return; }
     if (password !== confirmation) { setError('The passwords do not match.'); return; }
     setSubmitting(true);
     try {
-      await confirmPasswordReset(uid, token, password);
+      await confirmPasswordReset(password);
       navigate('/dashboard/login', { replace: true });
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : 'We could not reset your password.');

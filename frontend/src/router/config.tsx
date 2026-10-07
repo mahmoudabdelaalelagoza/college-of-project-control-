@@ -2,6 +2,7 @@ import { lazy, type ReactNode } from 'react';
 import type { RouteObject } from 'react-router-dom';
 
 function routeAliases(paths: string[], element: ReactNode): RouteObject[] {
+  // eslint-disable-next-line local-route/route-element-jsx -- callers already pass JSX
   return paths.map((path) => ({ path, element }));
 }
 

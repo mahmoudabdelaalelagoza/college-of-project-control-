@@ -98,13 +98,11 @@ const overviewGroups: OverviewGroup[] = [
   {
     label: 'Website content',
     items: [
-      { label: 'Pages & sections', icon: 'ri-layout-line', href: '/dashboard/pages', countUrl: '/page-content/' },
       { label: 'Articles', icon: 'ri-article-line', href: '/dashboard/articles', countUrl: '/articles/' },
       { label: 'Case studies', icon: 'ri-briefcase-4-line', href: '/dashboard/case-studies', countUrl: '/case-studies/' },
       { label: 'Events', icon: 'ri-calendar-event-line', href: '/dashboard/events', countUrl: '/events/' },
       { label: 'Short courses', icon: 'ri-book-open-line', href: '/dashboard/short-courses', countUrl: '/short-courses/' },
       { label: 'Sectors', icon: 'ri-building-4-line', href: '/dashboard/sectors', countUrl: '/sectors/' },
-      { label: 'Media library', icon: 'ri-image-2-line', href: '/dashboard/media', countUrl: '/media/' },
       { label: 'IPC images', icon: 'ri-gallery-line', href: '/dashboard/ipc-images', countUrl: '/ipc-images/' },
     ],
   },
@@ -122,12 +120,6 @@ const overviewGroups: OverviewGroup[] = [
       },
       { label: 'Partner logos', icon: 'ri-award-line', href: '/dashboard/partners', countUrl: '/partners/' },
       { label: 'Professional credentials', icon: 'ri-medal-2-line', href: '/dashboard/professional-credentials', countUrl: '/professional-credentials/' },
-    ],
-  },
-  {
-    label: 'Tools & guidance',
-    items: [
-      { label: 'Programme assistant', icon: 'ri-robot-2-line', href: '/dashboard/chatbot', countUrl: '/chatbot/sources/' },
     ],
   },
 ];
@@ -221,7 +213,7 @@ export default function OverviewPage() {
             {
               title: 'Sales enablement',
               body: 'Keep programme pages, short courses, events and articles current so advisers can explain the offer without rebuilding information manually.',
-              href: '/dashboard/pages',
+              href: '/dashboard/articles',
               label: 'Review website content',
             },
             {
@@ -232,7 +224,7 @@ export default function OverviewPage() {
             },
             {
               title: 'Operational efficiency',
-              body: 'Use Eventbrite sync, media uploads and structured course records to reduce repeated content handling across the website.',
+              body: 'Use event records, image uploads and structured course records to reduce repeated content handling across the website.',
               href: '/dashboard/events',
               label: 'Review events workflow',
             },

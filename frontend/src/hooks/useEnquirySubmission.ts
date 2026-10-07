@@ -1,6 +1,6 @@
 import { useRef, useState, type FormEvent } from 'react';
 import { submitEnquiry } from '@/services/enquiryApi';
-export interface EnquiryReceipt { id: number; }
+export interface EnquiryReceipt { id?: number; }
 export default function useEnquirySubmission(enquiryType: string) {
   const [receipt, setReceipt] = useState<EnquiryReceipt | null>(null);
   const [pending, setPending] = useState(false);

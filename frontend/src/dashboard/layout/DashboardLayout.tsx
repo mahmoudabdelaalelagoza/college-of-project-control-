@@ -12,13 +12,11 @@ const navGroups = [
     { to: '/dashboard/enquiries', label: 'Enquiries', icon: 'ri-mail-line', end: false },
   ] },
   { label: 'Website content', items: [
-    { to: '/dashboard/pages', label: 'Pages & sections', icon: 'ri-layout-line', end: false },
     { to: '/dashboard/articles', label: 'Articles', icon: 'ri-article-line', end: false },
     { to: '/dashboard/case-studies', label: 'Case studies', icon: 'ri-briefcase-4-line', end: false },
     { to: '/dashboard/events', label: 'Events', icon: 'ri-calendar-event-line', end: false },
     { to: '/dashboard/short-courses', label: 'Short courses', icon: 'ri-book-open-line', end: false },
     { to: '/dashboard/sectors', label: 'Sectors', icon: 'ri-building-4-line', end: false },
-    { to: '/dashboard/media', label: 'Media library', icon: 'ri-image-2-line', end: false },
     { to: '/dashboard/ipc-images', label: 'IPC images', icon: 'ri-gallery-line', end: false },
   ] },
   { label: 'People & recognition', items: [
@@ -27,10 +25,6 @@ const navGroups = [
     { to: '/dashboard/testimonials', label: 'Testimonials & reviews', icon: 'ri-chat-quote-line', end: false },
     { to: '/dashboard/partners', label: 'Partner logos', icon: 'ri-award-line', end: false },
     { to: '/dashboard/professional-credentials', label: 'Professional credentials', icon: 'ri-medal-2-line', end: false },
-  ] },
-  { label: 'Tools & guidance', items: [
-    { to: '/dashboard/chatbot', label: 'Programme assistant', icon: 'ri-robot-2-line', end: false },
-    { to: '/dashboard/maintenance', label: 'Maintenance mode', icon: 'ri-lock-password-line', end: false },
   ] },
 ];
 

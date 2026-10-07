@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import type { EventCategory } from '@/services/eventsApi';
 import { cmsApi } from '../api/client';
 import EventCategories from './EventCategories';
-import EventbriteSettings from './EventbriteSettings';
 import { DashboardAlert, DashboardEmptyState, DashboardPageHeader, DashboardSkeletonList, StatusBadge } from '../components/DashboardPrimitives';
 
 interface ManagedEvent {
@@ -33,14 +32,6 @@ interface ManagedEvent {
   public_visible: boolean;
 }
 
-interface SyncResult {
-  job_id: number;
-  status: string;
-  result: Record<string, number>;
-  error: string;
-  worker_ran: boolean;
-}
-
 const localKeys = ['summary', 'image_alt', 'is_active', 'is_featured', 'order', 'classifications', 'highlights_url'] as const;
 type EventScope = 'all' | 'upcoming' | 'past' | 'hidden';
 
@@ -58,7 +49,6 @@ export default function EventsManager() {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
-  const [busy, setBusy] = useState(false);
 
   const reload = async () => {
     const [items, terms] = await Promise.all([
@@ -72,24 +62,6 @@ export default function EventsManager() {
   useEffect(() => {
     reload().catch((e) => setError(e.message)).finally(() => setLoading(false));
   }, []);
-
-  const syncNow = async () => {
-    setBusy(true);
-    setError('');
-    setMessage('');
-    try {
-      const result = await cmsApi.post<SyncResult>('/eventbrite/sync/', {});
-      await reload();
-      const imported = Object.entries(result.result || {})
-        .map(([key, value]) => `${key}: ${value}`)
-        .join(' · ');
-      setMessage(result.error ? `Sync ${result.status}: ${result.error}` : `Sync ${result.status}${imported ? ` · ${imported}` : ''}`);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Unable to sync Eventbrite events. Check the connection settings and try again.');
-    } finally {
-      setBusy(false);
-    }
-  };
 
   const switchTab = (key: string) => {
     setTab(key);
@@ -121,7 +93,7 @@ export default function EventsManager() {
       <DashboardPageHeader
         eyebrow="Website content"
         title="Events"
-        description="Manage events, publication rules and your Eventbrite connection."
+        description="Manage events and publication rules."
         meta={<StatusBadge tone={eventCounts.upcoming ? 'info' : 'neutral'}>{eventCounts.upcoming} public upcoming</StatusBadge>}
       />
 
@@ -129,8 +101,6 @@ export default function EventsManager() {
         {[
           ['events', 'Events'],
           ['categories', 'Categories & visibility'],
-          ['connection', 'Eventbrite connection'],
-          ['history', 'Sync history'],
         ].map(([key, label]) => (
           <button
             key={key}
@@ -148,9 +118,7 @@ export default function EventsManager() {
       {error && <div className="mb-5"><DashboardAlert tone="error">{error}</DashboardAlert></div>}
       {message && <div className="mb-5"><DashboardAlert tone="success">{message}</DashboardAlert></div>}
 
-      {tab === 'connection' || tab === 'history' ? (
-        <EventbriteSettings key={tab} history={tab === 'history'} />
-      ) : loading ? (
+      {loading ? (
         <DashboardSkeletonList rows={4} />
       ) : tab === 'categories' ? (
         <EventCategories categories={categories} reload={reload} />
@@ -166,13 +134,6 @@ export default function EventsManager() {
               onChange={(e) => setSearch(e.target.value)}
               className="min-w-0 flex-1 rounded-lg border p-3"
             />
-            <button
-              disabled={busy}
-              onClick={syncNow}
-              className="rounded-lg border border-primary-700 bg-primary-50 px-5 py-3 font-semibold text-primary-800 disabled:opacity-40"
-            >
-              Sync Eventbrite
-            </button>
             <button onClick={() => reload().catch((e) => setError(e.message))} className="rounded-lg border bg-white px-5 py-3">
               Refresh
             </button>
@@ -205,9 +166,9 @@ export default function EventsManager() {
               <Editor key={`${event.id}-${JSON.stringify(event)}`} event={event} categories={categories} reload={reload} />
             ))}
             {eventbriteEvents.length === 0 && (
-              <DashboardEmptyState icon="ri-calendar-event-line" title="No Eventbrite events yet" description="Connect Eventbrite, then run sync to import the events that should appear on the website." action={<button disabled={busy} onClick={syncNow} className="btn-primary px-5 py-3">{busy ? 'Syncing...' : 'Sync Eventbrite'}</button>} />
+              <DashboardEmptyState icon="ri-calendar-event-line" title="No Eventbrite events yet" description="Events imported from Eventbrite will appear here once they are in the database." />
             )}
-            {eventbriteEvents.length > 0 && scopedEvents.length === 0 && <DashboardEmptyState title="No events in this filter" description="Choose another status filter or sync Eventbrite to refresh the event list." />}
+            {eventbriteEvents.length > 0 && scopedEvents.length === 0 && <DashboardEmptyState title="No events in this filter" description="Choose another status filter or refresh the event list." />}
             {scopedEvents.length > 0 && filteredEvents.length === 0 && <DashboardEmptyState title="No events match your search" description="Try a shorter search term or clear the search box." />}
           </div>
         </>
@@ -350,11 +311,7 @@ function Editor({ event, categories, reload }: { event: ManagedEvent; categories
         <div className="mt-6 flex flex-wrap items-center gap-4">
           <button disabled={busy} className="btn-primary px-5 py-3 disabled:opacity-40">Save event</button>
           {event.public_visible && <a href={`/events/${event.slug}`} target="_blank" rel="noreferrer" className="text-sm underline">View event</a>}
-          {imported ? (
-            <button type="button" disabled={busy} onClick={() => act(() => cmsApi.post(`/events/${event.id}/sync/`, {}), 'Sync queued.')} className="text-sm underline">
-              Sync this event
-            </button>
-          ) : (
+          {!imported && (
             <button type="button" disabled={busy} onClick={() => { if (window.confirm('Delete this manual event? It will be removed from the website events list. This action cannot be undone.')) act(() => cmsApi.del(`/events/${event.id}/`), 'Manual event deleted.'); }} className="text-sm text-red-700 underline">
               Delete event
             </button>

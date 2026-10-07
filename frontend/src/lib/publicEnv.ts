@@ -1,17 +1,19 @@
 type EnvMap = Record<string, string | undefined>;
 
-declare const process: { env?: EnvMap } | undefined;
+declare const process: { env: EnvMap } | undefined;
 
 const viteEnv = (import.meta as ImportMeta & { env?: EnvMap }).env;
-const nodeEnv = typeof process === 'undefined' ? undefined : process.env;
+const hasProcess = typeof process !== 'undefined';
 
+// Next only inlines NEXT_PUBLIC_* values for literal `process.env.NAME` reads,
+// so each key must be spelled out in full here.
 const publicEnv: EnvMap = {
   VITE_GTM_ID: viteEnv?.VITE_GTM_ID,
   VITE_SUPABASE_URL: viteEnv?.VITE_SUPABASE_URL,
   VITE_SUPABASE_ANON_KEY: viteEnv?.VITE_SUPABASE_ANON_KEY,
-  NEXT_PUBLIC_GTM_ID: nodeEnv?.NEXT_PUBLIC_GTM_ID,
-  NEXT_PUBLIC_SUPABASE_URL: nodeEnv?.NEXT_PUBLIC_SUPABASE_URL,
-  NEXT_PUBLIC_SUPABASE_ANON_KEY: nodeEnv?.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+  NEXT_PUBLIC_GTM_ID: hasProcess ? process.env.NEXT_PUBLIC_GTM_ID : undefined,
+  NEXT_PUBLIC_SUPABASE_URL: hasProcess ? process.env.NEXT_PUBLIC_SUPABASE_URL : undefined,
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: hasProcess ? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY : undefined,
 };
 
 export function getPublicEnv(viteKey: string, nextKey: string, fallback = '') {

@@ -70,7 +70,7 @@ export default function Footer() {
                 <h2 id="newsletter-heading" className="text-sm font-semibold text-white">Programme &amp; event updates</h2>
                 <p className="mt-2 text-xs leading-relaxed text-background-50/65">Request updates from our team. No automatic subscription.</p>
                 {receipt ? (
-                  <p role="status" className="mt-3 text-xs leading-relaxed text-accent-200">Request received. Reference {receipt.id}.</p>
+                  <p role="status" className="mt-3 text-xs leading-relaxed text-accent-200">Request received.{receipt.id ? ` Reference ${receipt.id}.` : ''}</p>
                 ) : (
                   <form id="newsletter-form" onSubmit={handleSubmit} aria-busy={pending} className="mt-3 flex flex-wrap gap-2">
                     <label htmlFor="newsletter-email" className="sr-only">Email address (required)</label>
