@@ -201,8 +201,9 @@ test('the ST0845 band is described as a maximum, not as cash paid or a guarantee
 });
 
 
-test('testimonial programme selector has default options before reviews exist', () => {
+test('testimonial programme selector is dashboard-managed with safe fallback defaults', () => {
   const source = readSrc('src/services/testimonialsApi.ts');
+  const sql = readSrc('../docs/migration/SUPABASE_TESTIMONIAL_PROGRAMMES.sql');
   for (const slug of [
     'associate-project-manager-level-4',
     'pcp-level-6',
@@ -210,8 +211,10 @@ test('testimonial programme selector has default options before reviews exist', 
     'operational-pcp',
     'strategic-pcp',
   ]) {
-    assert.match(source, new RegExp(`slug: '${slug}'`), `${slug} must be available in the review selector`);
+    assert.match(source, new RegExp(`slug: '${slug}'`), `${slug} must remain available as a local fallback`);
+    assert.match(sql, new RegExp(`'${slug}'`), `${slug} must be seeded in Supabase`);
   }
-  assert.match(source, /new Map\(defaultReviewProgrammes\.map/, 'review selector must start with defaults, not approved reviews only');
-  assert.match(source, /defaultProgrammeLabelBySlug\.get\(programme\)/, 'submitted reviews must store a readable programme label');
+  assert.match(source, /from\('testimonial_programmes'\)/, 'review selector must read dashboard-managed programmes');
+  assert.match(source, /eq\('is_active', true\)/, 'public selector must only show active programmes');
+  assert.match(source, /resolveProgrammeLabel\(programme\)/, 'submitted reviews must store a readable programme label');
 });

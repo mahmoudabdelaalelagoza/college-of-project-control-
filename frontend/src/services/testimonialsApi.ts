@@ -1,4 +1,4 @@
-import { isSupabaseConfigured, requireSupabaseClient } from '@/lib/supabase';
+import { isSupabaseConfigured, requireSupabaseClient, supabase } from '@/lib/supabase';
 import { fromSupabase } from './supabaseFallback';
 
 export interface Review {
@@ -49,9 +49,13 @@ function fromRow(row: Record<string, unknown>): Review {
   };
 }
 
+function isMissingProgrammesTable(error: { code?: string; message?: string } | null | undefined) {
+  return error?.code === '42P01' || /testimonial_programmes/i.test(error?.message ?? '');
+}
+
 async function fetchReviewsFromSupabase(programme?: string) {
-  const supabase = requireSupabaseClient();
-  let query = supabase
+  const supabaseClient = requireSupabaseClient();
+  let query = supabaseClient
     .from('testimonials')
     .select('*')
     .eq('status', 'approved')
@@ -68,6 +72,37 @@ async function fetchReviewsFromSupabase(programme?: string) {
   return (data ?? []).map((row) => fromRow(row));
 }
 
+async function fetchProgrammesFromSupabase(): Promise<ReviewProgramme[]> {
+  const supabaseClient = requireSupabaseClient();
+  const { data, error } = await supabaseClient
+    .from('testimonial_programmes')
+    .select('slug,name')
+    .eq('is_active', true)
+    .order('order', { ascending: true })
+    .order('name', { ascending: true });
+
+  if (error) {
+    if (isMissingProgrammesTable(error)) return defaultReviewProgrammes;
+    throw error;
+  }
+
+  return (data ?? []).map((row) => ({ slug: String(row.slug ?? ''), name: String(row.name ?? '') })).filter((row) => row.slug && row.name);
+}
+
+async function resolveProgrammeLabel(programme: string) {
+  if (!programme) return '';
+  if (!isSupabaseConfigured || !supabase) return defaultProgrammeLabelBySlug.get(programme) || programme;
+
+  const { data, error } = await supabase
+    .from('testimonial_programmes')
+    .select('name')
+    .eq('slug', programme)
+    .maybeSingle();
+
+  if (error && !isMissingProgrammesTable(error)) throw error;
+  return String(data?.name || defaultProgrammeLabelBySlug.get(programme) || programme);
+}
+
 export const fetchReviews = (programme?: string, _signal?: AbortSignal) =>
   fromSupabase(() => fetchReviewsFromSupabase(programme), 'testimonials');
 
@@ -75,33 +110,19 @@ export async function fetchReviewProgrammes(_signal?: AbortSignal) {
   if (!isSupabaseConfigured) return defaultReviewProgrammes;
 
   try {
-    const reviews = await fetchReviewsFromSupabase();
-    const map = new Map(defaultReviewProgrammes.map((programme) => [programme.slug, programme.name]));
-
-    for (const review of reviews) {
-      if (review.programme) {
-        map.set(
-          review.programme,
-          review.programme_label || defaultProgrammeLabelBySlug.get(review.programme) || review.programme,
-        );
-      }
-    }
-
-    return [...map].map(([slug, name]) => ({ slug, name }));
+    return await fetchProgrammesFromSupabase();
   } catch {
     return defaultReviewProgrammes;
   }
 }
 
 export async function submitReview(data: FormData) {
-  const supabase = requireSupabaseClient();
+  const supabaseClient = requireSupabaseClient();
   const programme = String(data.get('programme') ?? '').trim();
   const payload = {
     name: String(data.get('name') ?? '').trim(),
     programme,
-    programme_label: String(
-      data.get('programme_label') || defaultProgrammeLabelBySlug.get(programme) || programme,
-    ).trim(),
+    programme_label: String(data.get('programme_label') || await resolveProgrammeLabel(programme)).trim(),
     reviewer_type: String(data.get('reviewer_type') ?? 'professional').trim(),
     review: String(data.get('review') ?? data.get('message') ?? '').trim(),
     photo_url: String(data.get('photo_url') ?? '').trim(),
@@ -109,7 +130,7 @@ export async function submitReview(data: FormData) {
     status: 'pending',
   };
 
-  const { error } = await supabase.from('testimonials').insert(payload);
+  const { error } = await supabaseClient.from('testimonials').insert(payload);
   if (error) throw error;
 }
 

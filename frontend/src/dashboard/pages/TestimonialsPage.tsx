@@ -5,6 +5,11 @@ import { fetchReviewProgrammes } from '@/services/testimonialsApi';
 
 interface Submission extends Review { status: 'pending' | 'approved' | 'rejected'; consent: boolean; is_featured: boolean; order: number; moderation_notes: string; reviewed_at: string | null; created_at: string }
 interface Results { count: number; next: string | null; previous: string | null; results: Submission[] }
+interface TestimonialProgrammeRecord extends ReviewProgramme { id: number; order: number; is_active: boolean; created_at?: string }
+
+function slugify(value: string) {
+  return value.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
 
 const isPrivatePhotoUrl = (url: string) => /\/testimonials\/\d+\/photo\/?(\?.*)?$/.test(url);
 
@@ -23,7 +28,7 @@ function ReviewPhoto({ url, name }: { url: string; name: string }) {
   return isPrivatePhotoUrl(url) ? <PrivatePhoto url={url} name={name} /> : <img src={url} alt={name} loading="lazy" className="aspect-square w-full rounded-xl object-cover" />;
 }
 
-function AddTestimonialForm({ onCreated }: { onCreated: () => void }) {
+function AddTestimonialForm({ onCreated, revision }: { onCreated: () => void; revision: number }) {
   const [programmes, setProgrammes] = useState<ReviewProgramme[]>([]);
   const [name, setName] = useState('');
   const [programme, setProgramme] = useState('');
@@ -38,7 +43,7 @@ function AddTestimonialForm({ onCreated }: { onCreated: () => void }) {
   const [error, setError] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => { fetchReviewProgrammes().then(list => { setProgrammes(list); setProgramme(current => current || list[0]?.slug || ''); }).catch(() => {}); }, []);
+  useEffect(() => { fetchReviewProgrammes().then(list => { setProgrammes(list); setProgramme(current => list.some(item => item.slug === current) ? current : list[0]?.slug || ''); }).catch(() => {}); }, [revision]);
 
   const canSubmit = name.trim() && programme && review.trim().length >= 20 && (photoFile || imageUrl.trim()) && consent && !adding;
 
@@ -50,6 +55,7 @@ function AddTestimonialForm({ onCreated }: { onCreated: () => void }) {
       const data = new FormData();
       data.append('name', name.trim());
       data.append('programme', programme);
+      data.append('programme_label', programmes.find(item => item.slug === programme)?.name || programme);
       data.append('reviewer_type', reviewerType);
       data.append('review', review.trim());
       data.append('consent', String(consent));
@@ -127,8 +133,110 @@ function AddTestimonialForm({ onCreated }: { onCreated: () => void }) {
   );
 }
 
+function TestimonialProgrammeManager({ onChanged }: { onChanged: () => void }) {
+  const [programmes, setProgrammes] = useState<TestimonialProgrammeRecord[]>([]);
+  const [name, setName] = useState('');
+  const [slug, setSlug] = useState('');
+  const [order, setOrder] = useState(0);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
+
+  const load = () => cmsApi.get<TestimonialProgrammeRecord[]>('/testimonial-programmes/').then(setProgrammes);
+
+  useEffect(() => {
+    let active = true;
+    cmsApi.get<TestimonialProgrammeRecord[]>('/testimonial-programmes/')
+      .then(data => { if (active) setProgrammes(data); })
+      .catch(e => { if (active) setError(e instanceof Error ? e.message : 'Programme list could not be loaded.'); });
+    return () => { active = false; };
+  }, []);
+
+  const addProgramme = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const nextName = name.trim();
+    const nextSlug = slugify(slug || nextName);
+    if (!nextName || !nextSlug || busy) return;
+    setBusy(true); setError(''); setMessage('');
+    try {
+      await cmsApi.post('/testimonial-programmes/', { name: nextName, slug: nextSlug, order, is_active: true });
+      setName(''); setSlug(''); setOrder(0);
+      await load();
+      onChanged();
+      setMessage('Programme added to the public dropdown.');
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Programme could not be added.');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const updateProgramme = async (programme: TestimonialProgrammeRecord, patch: Partial<TestimonialProgrammeRecord>) => {
+    if (busy) return;
+    setBusy(true); setError(''); setMessage('');
+    try {
+      await cmsApi.patch(`/testimonial-programmes/${programme.id}/`, patch);
+      await load();
+      onChanged();
+      setMessage('Programme list updated.');
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Programme could not be updated.');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const deleteProgramme = async (programme: TestimonialProgrammeRecord) => {
+    if (busy || !window.confirm(`Delete "${programme.name}" from the testimonial dropdown? Existing testimonials keep their saved label.`)) return;
+    setBusy(true); setError(''); setMessage('');
+    try {
+      await cmsApi.del(`/testimonial-programmes/${programme.id}/`);
+      await load();
+      onChanged();
+      setMessage('Programme deleted from the public dropdown.');
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Programme could not be deleted.');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <section className="mb-8 rounded-xl border border-background-200 bg-white p-5 md:p-6">
+      <div className="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h2 className="text-lg font-bold">Review programme dropdown</h2>
+          <p className="mt-1 text-sm text-foreground-600">Add, hide or delete the programmes visitors can choose in the public review form.</p>
+        </div>
+        <button type="button" disabled={busy} onClick={() => { setError(''); setMessage(''); load().catch(e => setError(e instanceof Error ? e.message : 'Programme list could not be refreshed.')); }} className="rounded-lg border bg-white px-4 py-2 text-sm font-semibold disabled:opacity-40">Refresh list</button>
+      </div>
+      {error && <p role="alert" className="mt-4 rounded-lg bg-red-50 p-3 text-sm text-red-700">{error}</p>}
+      {message && <p role="status" className="mt-4 rounded-lg bg-green-50 p-3 text-sm text-green-800">{message}</p>}
+      <form onSubmit={addProgramme} className="mt-5 grid gap-4 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_120px_auto]">
+        <label className="text-sm font-semibold">Programme name<input required value={name} onChange={e => { setName(e.target.value); setSlug(current => current ? current : slugify(e.target.value)); }} className="mt-1.5 w-full rounded-lg border border-background-200 px-3 py-2.5 text-sm font-normal focus:border-primary-400 focus:outline-none" /></label>
+        <label className="text-sm font-semibold">Slug<input required pattern="[a-z0-9-]+" value={slug} onChange={e => setSlug(slugify(e.target.value))} className="mt-1.5 w-full rounded-lg border border-background-200 px-3 py-2.5 text-sm font-normal focus:border-primary-400 focus:outline-none" /></label>
+        <label className="text-sm font-semibold">Order<input type="number" value={order} onChange={e => setOrder(Number(e.target.value))} className="mt-1.5 w-full rounded-lg border border-background-200 px-3 py-2.5 text-sm font-normal focus:border-primary-400 focus:outline-none" /></label>
+        <button disabled={busy || !name.trim() || !slugify(slug || name)} className="btn-primary self-end px-5 py-3 text-sm font-bold disabled:opacity-40">Add programme</button>
+      </form>
+      <div className="mt-6 space-y-3">
+        {programmes.map(programme => (
+          <article key={programme.id} className="grid gap-3 rounded-lg border border-background-200 bg-background-50 p-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_96px_auto]">
+            <label className="text-xs font-semibold uppercase tracking-[.12em] text-foreground-500">Name<input value={programme.name} onChange={e => setProgrammes(list => list.map(item => item.id === programme.id ? { ...item, name: e.target.value } : item))} onBlur={e => updateProgramme(programme, { name: e.target.value.trim() || programme.name })} className="mt-1.5 w-full rounded border border-background-200 bg-white px-3 py-2 text-sm normal-case tracking-normal text-foreground-900" /></label>
+            <label className="text-xs font-semibold uppercase tracking-[.12em] text-foreground-500">Slug<input value={programme.slug} onChange={e => setProgrammes(list => list.map(item => item.id === programme.id ? { ...item, slug: slugify(e.target.value) } : item))} onBlur={e => updateProgramme(programme, { slug: slugify(e.target.value) || programme.slug })} className="mt-1.5 w-full rounded border border-background-200 bg-white px-3 py-2 text-sm normal-case tracking-normal text-foreground-900" /></label>
+            <label className="text-xs font-semibold uppercase tracking-[.12em] text-foreground-500">Order<input type="number" value={programme.order} onChange={e => setProgrammes(list => list.map(item => item.id === programme.id ? { ...item, order: Number(e.target.value) } : item))} onBlur={e => updateProgramme(programme, { order: Number(e.target.value) })} className="mt-1.5 w-full rounded border border-background-200 bg-white px-3 py-2 text-sm normal-case tracking-normal text-foreground-900" /></label>
+            <div className="flex flex-wrap items-end gap-3">
+              <label className="flex min-h-10 items-center gap-2 text-sm font-semibold"><input type="checkbox" checked={programme.is_active} onChange={e => updateProgramme(programme, { is_active: e.target.checked })} />Active</label>
+              <button type="button" disabled={busy} onClick={() => deleteProgramme(programme)} className="rounded-lg border border-red-200 px-4 py-2 text-sm font-semibold text-red-700 disabled:opacity-40">Delete</button>
+            </div>
+          </article>
+        ))}
+        {!programmes.length && <p className="rounded-lg border border-dashed border-background-300 p-4 text-sm text-foreground-600">No programmes yet. Add the first one above.</p>}
+      </div>
+    </section>
+  );
+}
 export default function TestimonialsPage() {
-  const [filter, setFilter] = useState('pending'); const [page, setPage] = useState(1); const [data, setData] = useState<Results | null>(null); const [error, setError] = useState(''); const [revision, setRevision] = useState(0); const [notice, setNotice] = useState('');
+  const [programmeRevision, setProgrammeRevision] = useState(0); const [filter, setFilter] = useState('pending'); const [page, setPage] = useState(1); const [data, setData] = useState<Results | null>(null); const [error, setError] = useState(''); const [revision, setRevision] = useState(0); const [notice, setNotice] = useState('');
   useEffect(() => {
     let active = true; setData(null); setError('');
     cmsApi.get<Results>(`/testimonials/?status=${filter}&page=${page}`).then(result => { if (active) setData(result); }).catch(e => { if (active) setError(e.message); });
@@ -138,7 +246,8 @@ export default function TestimonialsPage() {
   const created = () => { setNotice('Testimonial added.'); setFilter(''); setPage(1); setRevision(v => v + 1); };
   const deleted = () => { setNotice('Testimonial deleted.'); setPage(1); setRevision(v => v + 1); };
   return <div><div className="flex flex-wrap items-start justify-between gap-4"><div><h1 className="text-2xl font-bold">Testimonials & reviews</h1><p className="mt-2 max-w-3xl text-sm leading-relaxed text-foreground-600">Review each submission before publishing, or add one yourself below. Approved reviews appear on the home page and the matching programme page. Returning a review to pending or rejecting it removes it from public display.</p></div><button onClick={() => setRevision(v => v + 1)} className="rounded-lg border bg-white px-5 py-3 text-sm font-semibold">Refresh</button></div>
-    <AddTestimonialForm onCreated={created} />
+    <TestimonialProgrammeManager onChanged={() => setProgrammeRevision(v => v + 1)} />
+    <AddTestimonialForm onCreated={created} revision={programmeRevision} />
     <div className="my-6 flex flex-wrap gap-2" aria-label="Filter reviews">{[['pending', 'Pending review'], ['approved', 'Approved'], ['rejected', 'Rejected'], ['', 'All reviews']].map(([value, label]) => <button key={value} aria-pressed={filter === value} onClick={() => { setFilter(value); setPage(1); setNotice(''); }} className={`rounded-lg px-4 py-3 text-sm font-semibold ${filter === value ? 'bg-primary-800 text-white' : 'border bg-white text-primary-800'}`}>{label}</button>)}</div>
     {notice && <p role="status" className="mb-5 rounded-lg bg-green-50 p-4 text-sm text-green-800">{notice}</p>}{error ? <p role="alert" className="rounded-lg bg-red-50 p-4 text-red-800">{error}</p> : !data ? <p role="status">Loading submissions…</p> : <><p className="mb-5 text-sm text-foreground-600">{data.count} {data.count === 1 ? 'submission' : 'submissions'}</p><div className="space-y-5">{data.results.map(item => <ReviewEditor key={item.id} item={item} onSaved={saved} onDeleted={deleted} />)}{!data.results.length && <div className="rounded-xl border bg-white p-8 text-center"><p>No reviews in this category.</p><a href="/contact?review=1" target="_blank" rel="noreferrer" className="mt-3 inline-block text-sm font-semibold text-primary-700 underline">Open the public submission form</a></div>}</div>{data.count > 20 && <div className="mt-6 flex items-center gap-4"><button disabled={!data.previous} onClick={() => setPage(p => p - 1)} className="rounded border px-4 py-2 disabled:opacity-40">Previous</button><span>Page {page}</span><button disabled={!data.next} onClick={() => setPage(p => p + 1)} className="rounded border px-4 py-2 disabled:opacity-40">Next</button></div>}</>}
   </div>;

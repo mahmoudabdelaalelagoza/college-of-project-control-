@@ -28,6 +28,7 @@ const routes: Record<string, RouteConfig> = {
   articles: { table: 'articles', order: ['order', 'id'] },
   'case-studies': { table: 'case_studies', order: ['order', 'id'] },
   testimonials: { table: 'testimonials', order: ['order', 'id'], toDb: ({ image_url, ...p }) => ({ ...p, photo_url: p.photo_url ?? image_url }), fromDb: (r) => ({ ...r, moderation_notes: r.moderation_notes ?? '', reviewed_at: r.reviewed_at ?? null }) },
+  'testimonial-programmes': { table: 'testimonial_programmes', order: ['order', 'name'] },
   'event-categories': { table: 'event_categories', order: ['order', 'name'] },
   events: { table: 'events', order: ['order', 'starts_at', 'id'], toDb: ({ classifications: _classifications, public_visible: _publicVisible, sync_error: _syncError, ...p }) => p, fromDb: (r) => ({ ...r, classifications: [], sync_error: '', public_visible: isEventPublic(r) }) },
   enquiries: { table: 'enquiries', order: ['created_at'], toDb: (p) => ({ ...p, follow_up_at: p.follow_up_at || null }), fromDb: (r) => ({ ...r, roleTitle: r.role_title ?? '', enquiryType: r.enquiry_type ?? '', sourcePath: r.source_path ?? '', read_at: r.read_at ?? null, internal_notes: r.internal_notes ?? '', assigned_to: r.assigned_to ?? null, assigned_name: null, follow_up_at: r.follow_up_at ?? null }) },

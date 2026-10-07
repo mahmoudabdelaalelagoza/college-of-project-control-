@@ -55,6 +55,7 @@ begin
     'articles',
     'case_studies',
     'testimonials',
+    'testimonial_programmes',
     'event_categories',
     'events',
     'event_classifications',
