@@ -19,7 +19,7 @@ function isEventPublic(r: Record<string, unknown>) {
 
 const routes: Record<string, RouteConfig> = {
   'ipc-images': { table: 'ipc_images', order: ['order', 'id'] },
-  partners: { table: 'partners', order: ['order', 'id'], toDb: (p) => ({ ...p, image_url: p.logo_url ?? p.image_url }), fromDb: (r) => ({ ...r, logo: r.logo ?? r.image_url ?? '', logo_url: r.image_url ?? '' }) },
+  partners: { table: 'partners', order: ['order', 'id'], toDb: ({ logo_url, ...p }) => ({ ...p, image_url: logo_url ?? p.image_url }), fromDb: (r) => ({ ...r, logo: r.logo ?? r.image_url ?? '', logo_url: r.image_url ?? '' }) },
   sectors: { table: 'sectors', order: ['order', 'id'], fromDb: (r) => ({ ...r, image: r.image ?? r.image_url ?? '' }) },
   'professional-credentials': { table: 'professional_credentials', order: ['order', 'id'] },
   coaches: { table: 'coaches', order: ['order', 'id'], toDb: (p) => ({ ...p, image_url: p.image_url ?? p.image }), fromDb: (r) => ({ ...r, image: r.image_url ?? '' }) },
@@ -27,7 +27,7 @@ const routes: Record<string, RouteConfig> = {
   'short-courses': { table: 'short_courses', order: ['order', 'title'] },
   articles: { table: 'articles', order: ['order', 'id'] },
   'case-studies': { table: 'case_studies', order: ['order', 'id'] },
-  testimonials: { table: 'testimonials', order: ['order', 'id'] },
+  testimonials: { table: 'testimonials', order: ['order', 'id'], toDb: ({ image_url, ...p }) => ({ ...p, photo_url: p.photo_url ?? image_url }), fromDb: (r) => ({ ...r, moderation_notes: r.moderation_notes ?? '', reviewed_at: r.reviewed_at ?? null }) },
   'event-categories': { table: 'event_categories', order: ['order', 'name'] },
   events: { table: 'events', order: ['order', 'starts_at', 'id'], toDb: ({ classifications: _classifications, public_visible: _publicVisible, sync_error: _syncError, ...p }) => p, fromDb: (r) => ({ ...r, classifications: [], sync_error: '', public_visible: isEventPublic(r) }) },
   enquiries: { table: 'enquiries', order: ['created_at'], toDb: (p) => ({ ...p, follow_up_at: p.follow_up_at || null }), fromDb: (r) => ({ ...r, roleTitle: r.role_title ?? '', enquiryType: r.enquiry_type ?? '', sourcePath: r.source_path ?? '', read_at: r.read_at ?? null, internal_notes: r.internal_notes ?? '', assigned_to: r.assigned_to ?? null, assigned_name: null, follow_up_at: r.follow_up_at ?? null }) },
@@ -45,6 +45,30 @@ function mapRow(config: RouteConfig, row: Record<string, unknown>) { return conf
 function normalisePayload(body: Body): Record<string, unknown> { if (!body) return {}; if (body instanceof FormData) return Object.fromEntries(body.entries()); if (typeof body === 'string') return JSON.parse(body || '{}') as Record<string, unknown>; return body; }
 function coerce(value: unknown): unknown { if (value instanceof File) return undefined; if (value === 'true') return true; if (value === 'false') return false; return value; }
 async function uploadImageIfPresent(resource: string, payload: Record<string, unknown>) { if (!supabase) return payload; const fileEntry = Object.entries(payload).find(([, value]) => value instanceof File && value.size > 0); if (!fileEntry) return payload; const [field, file] = fileEntry as [string, File]; const safeName = file.name.replace(/[^a-z0-9._-]+/gi, '-').toLowerCase(); const target = `dashboard/${resource}/${Date.now()}-${safeName}`; const { error } = await supabase.storage.from('images').upload(target, file, { upsert: false, contentType: file.type || undefined }); if (error) throw error; const { data } = supabase.storage.from('images').getPublicUrl(target); const next = { ...payload }; delete next[field]; next.image_url = data.publicUrl; if (field === 'logo') next.logo_url = data.publicUrl; if (field === 'photo') next.photo_url = data.publicUrl; return next; }
+// Shapes form values the way Postgres expects: cleared dates become null, the "remove image" tick clears the URL,
+// and JSON sent as text (case study metrics) is parsed back into JSON.
+function prepareRow(config: RouteConfig, raw: Record<string, unknown>) {
+  const { remove_image: removeImage, ...row } = stripUndefined(config.toDb ? config.toDb(raw) : raw) as Record<string, unknown>;
+  if (removeImage === true) row.image_url = '';
+  for (const [key, value] of Object.entries(row)) if (key.endsWith('_at') && value === '') row[key] = null;
+  if (typeof row.metrics === 'string') row.metrics = JSON.parse(row.metrics || '[]');
+  return row;
+}
+
+type WriteResult = { data: Record<string, unknown> | null; error: { code: string; message: string } | null };
+
+// Some dashboard forms still send fields that are not table columns; drop the one PostgREST names and retry.
+async function writeRow(row: Record<string, unknown>, run: (row: Record<string, unknown>) => PromiseLike<WriteResult>): Promise<WriteResult> {
+  let current = row;
+  for (let attempt = 0; attempt < 12; attempt++) {
+    const result = await run(current);
+    const column = result.error?.code === 'PGRST204' ? /'([^']+)' column/.exec(result.error.message)?.[1] : undefined;
+    if (!column || !(column in current)) return result;
+    current = Object.fromEntries(Object.entries(current).filter(([key]) => key !== column));
+  }
+  return run(current);
+}
+
 function stripUndefined(payload: Record<string, unknown>) { return Object.fromEntries(Object.entries(payload).map(([key, value]) => [key, coerce(value)]).filter(([, value]) => value !== undefined)); }
 
 async function ensureAdmin() { if (!supabase) throw new Error('Supabase is not configured.'); const { data: sessionData, error: sessionError } = await supabase.auth.getSession(); if (sessionError) throw sessionError; if (!sessionData.session) throw new Error('Dashboard session expired. Please sign in again.'); return sessionData.session; }
@@ -106,9 +130,8 @@ async function supabaseRequest<T>(path: string, method: Method, body?: Body): Pr
 
   if (method === 'POST') {
     const raw = await uploadImageIfPresent(resource, normalisePayload(body));
-    const payload = stripUndefined(config.toDb ? config.toDb(raw) : raw);
-    const { data, error } = await supabase.from(config.table).insert(payload).select('*').single();
-    if (error) throw error;
+    const { data, error } = await writeRow(prepareRow(config, raw), (row) => supabase!.from(config.table).insert(row).select('*').single());
+    if (error || !data) throw error ?? new Error('The record was not saved.');
     if (resource === 'events') await saveEventClassifications(Number(data.id), raw.classifications);
     return mapRow(config, data as Record<string, unknown>) as T;
   }
@@ -116,9 +139,8 @@ async function supabaseRequest<T>(path: string, method: Method, body?: Body): Pr
   if (method === 'PATCH') {
     if (!id) throw new Error('Missing record id.');
     const raw = await uploadImageIfPresent(resource, normalisePayload(body));
-    const payload = stripUndefined(config.toDb ? config.toDb(raw) : raw);
-    const { data, error } = await supabase.from(config.table).update(payload).eq('id', id).select('*').single();
-    if (error) throw error;
+    const { data, error } = await writeRow(prepareRow(config, raw), (row) => supabase!.from(config.table).update(row).eq('id', id).select('*').single());
+    if (error || !data) throw error ?? new Error('The record was not saved.');
     if (resource === 'events') await saveEventClassifications(id, raw.classifications);
     return mapRow(config, data as Record<string, unknown>) as T;
   }
