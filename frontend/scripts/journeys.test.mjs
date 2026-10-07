@@ -200,3 +200,18 @@ test('the ST0845 band is described as a maximum, not as cash paid or a guarantee
   assert.match(source, /not a payment to the learner or a guaranteed saving/);
 });
 
+
+test('testimonial programme selector has default options before reviews exist', () => {
+  const source = readSrc('src/services/testimonialsApi.ts');
+  for (const slug of [
+    'associate-project-manager-level-4',
+    'pcp-level-6',
+    'pmo-pcp',
+    'operational-pcp',
+    'strategic-pcp',
+  ]) {
+    assert.match(source, new RegExp(`slug: '${slug}'`), `${slug} must be available in the review selector`);
+  }
+  assert.match(source, /new Map\(defaultReviewProgrammes\.map/, 'review selector must start with defaults, not approved reviews only');
+  assert.match(source, /defaultProgrammeLabelBySlug\.get\(programme\)/, 'submitted reviews must store a readable programme label');
+});
