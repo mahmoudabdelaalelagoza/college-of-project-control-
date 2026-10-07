@@ -27,10 +27,10 @@ export default function ResetPasswordPage() {
   };
 
   return (
-    <div id="main-content" tabIndex={-1} className="flex min-h-screen items-center justify-center bg-primary-950 px-4">
+    <div id="main-content" tabIndex={-1} className="flex min-h-screen items-center justify-center bg-[#05232E] px-4">
       <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-white/[.04] p-8">
         <div className="mb-6 text-center">
-          <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-signal-500 text-primary-950"><i className="ri-lock-password-line text-2xl" aria-hidden="true" /></span>
+          <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-signal-500 text-[#05232E]"><i className="ri-lock-password-line text-2xl" aria-hidden="true" /></span>
           <h1 className="mt-4 font-heading text-xl font-bold text-white">Choose a new password</h1>
           <p className="mt-1 text-sm text-white/60">CPCM Dashboard</p>
         </div>

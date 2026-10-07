@@ -114,7 +114,7 @@ function MentorCard({ mentor, onEdit }: { mentor: Mentor; onEdit: () => void }) 
     <button
       type="button"
       onClick={onEdit}
-      className="interactive-surface flex flex-col items-center gap-3 rounded-xl border border-background-200/70 bg-white p-4 text-center shadow-sm hover:border-primary-300 hover:shadow-md"
+      className="interactive-surface flex flex-col items-center gap-3 rounded-xl border border-background-200/70 bg-white p-4 text-center shadow-sm hover:border-[#05232E]/30 hover:shadow-md"
     >
       <div className="flex aspect-square w-full max-w-44 items-center justify-center overflow-hidden rounded-full bg-background-100">
         {imageSrc ? (
@@ -128,7 +128,7 @@ function MentorCard({ mentor, onEdit }: { mentor: Mentor; onEdit: () => void }) 
         <p className="truncate text-xs text-foreground-500">{mentor.role_title}</p>
       </div>
       {!mentor.is_active && <span className="text-[10px] font-semibold uppercase tracking-wide text-background-600">Draft</span>}
-      <span className="text-xs font-semibold text-primary-600">Edit</span>
+      <span className="text-xs font-semibold text-[#05232E]">Edit</span>
     </button>
   );
 }
@@ -196,7 +196,7 @@ function MentorEditor({ mentor, onDelete, onSaved }: { mentor: Mentor; onDelete:
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="text-xs font-semibold text-primary-600 hover:text-primary-700"
+            className="text-xs font-semibold text-[#05232E] hover:text-[#05232E]"
           >
             Upload photo
           </button>
@@ -232,7 +232,7 @@ function MentorEditor({ mentor, onDelete, onSaved }: { mentor: Mentor; onDelete:
                 type="number"
                 value={form.order}
                 onChange={(e) => set('order', Number(e.target.value))}
-                className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400"
+                className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-[#05232E]/40"
               />
             </div>
             <label className="flex items-center gap-2 py-2 text-sm text-foreground-700">
@@ -247,7 +247,7 @@ function MentorEditor({ mentor, onDelete, onSaved }: { mentor: Mentor; onDelete:
               value={form.biography}
               onChange={(e) => set('biography', e.target.value)}
               rows={3}
-              className="w-full resize-y rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400"
+              className="w-full resize-y rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-[#05232E]/40"
             />
           </div>
         </div>
@@ -280,7 +280,7 @@ function TextField({ id, label, value, onChange, className = '', placeholder }: 
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400"
+        className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-[#05232E]/40"
       />
     </div>
   );

@@ -104,7 +104,7 @@ function CoachCard({ coach, onEdit }: { coach: Coach; onEdit: () => void }) {
     <button
       type="button"
       onClick={onEdit}
-      className="interactive-surface flex flex-col items-center gap-3 rounded-xl border border-background-200/70 bg-white p-4 text-center shadow-sm hover:border-primary-300 hover:shadow-md"
+      className="interactive-surface flex flex-col items-center gap-3 rounded-xl border border-background-200/70 bg-white p-4 text-center shadow-sm hover:border-[#05232E]/30 hover:shadow-md"
     >
       <div className="flex aspect-square w-full max-w-44 items-center justify-center overflow-hidden rounded-full bg-background-100">
         {coach.image ? (
@@ -118,7 +118,7 @@ function CoachCard({ coach, onEdit }: { coach: Coach; onEdit: () => void }) {
         <p className="truncate text-xs text-foreground-500">{coach.qualification}</p>
       </div>
       {!coach.is_active && <span className="text-[10px] font-semibold uppercase tracking-wide text-background-600">Draft</span>}
-      <span className="text-xs font-semibold text-primary-600">Edit</span>
+      <span className="text-xs font-semibold text-[#05232E]">Edit</span>
     </button>
   );
 }
@@ -180,7 +180,7 @@ function CoachEditor({ coach, onDelete, onSaved }: { coach: Coach; onDelete: () 
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="text-xs font-semibold text-primary-600 hover:text-primary-700"
+            className="text-xs font-semibold text-[#05232E] hover:text-[#05232E]"
           >
             Upload photo
           </button>
@@ -200,7 +200,7 @@ function CoachEditor({ coach, onDelete, onSaved }: { coach: Coach; onDelete: () 
               id={`coach-name-${coach.id}`}
               value={form.name}
               onChange={(e) => set('name', e.target.value)}
-              className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400"
+              className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-[#05232E]/40"
             />
           </div>
           <div>
@@ -209,7 +209,7 @@ function CoachEditor({ coach, onDelete, onSaved }: { coach: Coach; onDelete: () 
               id={`coach-qual-${coach.id}`}
               value={form.qualification}
               onChange={(e) => set('qualification', e.target.value)}
-              className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400"
+              className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-[#05232E]/40"
             />
           </div>
           <div>
@@ -219,7 +219,7 @@ function CoachEditor({ coach, onDelete, onSaved }: { coach: Coach; onDelete: () 
               value={form.focus}
               onChange={(e) => set('focus', e.target.value)}
               rows={3}
-              className="w-full resize-y rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400"
+              className="w-full resize-y rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-[#05232E]/40"
             />
           </div>
           <div className="flex items-end gap-3">
@@ -230,7 +230,7 @@ function CoachEditor({ coach, onDelete, onSaved }: { coach: Coach; onDelete: () 
                 type="number"
                 value={form.order}
                 onChange={(e) => set('order', Number(e.target.value))}
-                className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400"
+                className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-[#05232E]/40"
               />
             </div>
             <label className="flex items-center gap-2 py-2 text-sm text-foreground-700">

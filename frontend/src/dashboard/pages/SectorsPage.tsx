@@ -248,8 +248,8 @@ function SectorEditor({ sector, onDelete, onSaved }: { sector: Sector; onDelete:
             <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-bold text-slate-600">#{form.order}</span>
           </div>
           <h2 className="mt-3 line-clamp-2 text-sm font-bold leading-snug text-slate-950">{form.title || 'Untitled sector'}</h2>
-          <p className="mt-1 truncate text-xs font-semibold text-primary-700">{form.slug || 'No slug'}</p>
-          <span className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-primary-700">
+          <p className="mt-1 truncate text-xs font-semibold text-[#05232E]">{form.slug || 'No slug'}</p>
+          <span className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-[#05232E]">
             Edit <i className="ri-arrow-down-s-line dashboard-disclosure-icon" aria-hidden="true" />
           </span>
         </div>
@@ -273,7 +273,7 @@ function SectorEditor({ sector, onDelete, onSaved }: { sector: Sector; onDelete:
                 </div>
               )}
             </div>
-            <button type="button" onClick={() => fileInputRef.current?.click()} className="mt-2 text-xs font-semibold text-primary-600 hover:text-primary-700">
+            <button type="button" onClick={() => fileInputRef.current?.click()} className="mt-2 text-xs font-semibold text-[#05232E] hover:text-[#05232E]">
               Upload sector image
             </button>
             <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={(e) => onFileChange(e.target.files?.[0] || null)} />
@@ -287,12 +287,12 @@ function SectorEditor({ sector, onDelete, onSaved }: { sector: Sector; onDelete:
             <TextField id={`image-url-${sector.id}`} label="Image link (used if no upload)" value={form.image_url} onChange={(v) => set('image_url', v)} className="sm:col-span-2" />
             <div className="sm:col-span-2">
               <label htmlFor={`description-${sector.id}`} className="mb-1 block text-xs font-semibold text-foreground-600">Description</label>
-              <textarea id={`description-${sector.id}`} value={form.description} onChange={(e) => set('description', e.target.value)} rows={2} className="w-full resize-y rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400" />
+              <textarea id={`description-${sector.id}`} value={form.description} onChange={(e) => set('description', e.target.value)} rows={2} className="w-full resize-y rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-[#05232E]/40" />
             </div>
             <div className="flex items-end gap-3">
               <div className="flex-1">
                 <label htmlFor={`order-${sector.id}`} className="mb-1 block text-xs font-semibold text-foreground-600">Order</label>
-                <input id={`order-${sector.id}`} type="number" value={form.order} onChange={(e) => set('order', Number(e.target.value))} className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400" />
+                <input id={`order-${sector.id}`} type="number" value={form.order} onChange={(e) => set('order', Number(e.target.value))} className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-[#05232E]/40" />
               </div>
               <label className="flex items-center gap-2 py-2 text-sm text-foreground-700">
                 <input type="checkbox" checked={form.is_active} onChange={(e) => set('is_active', e.target.checked)} />
@@ -321,7 +321,7 @@ function TextField({ id, label, value, onChange, className = '' }: { id: string;
         id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400"
+        className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-[#05232E]/40"
       />
     </div>
   );

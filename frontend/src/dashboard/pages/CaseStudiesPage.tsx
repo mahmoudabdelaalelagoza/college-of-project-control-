@@ -100,10 +100,10 @@ function Editor({ item, onSaved, onCancel }: { item: Partial<CaseStudyRecord>; o
     <form onSubmit={save} className="rounded-2xl border border-background-200 bg-white p-6 md:p-8">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <p className="font-label text-xs font-bold uppercase tracking-[.16em] text-primary-700">Case studies</p>
+          <p className="font-label text-xs font-bold uppercase tracking-[.16em] text-[#05232E]">Case studies</p>
           <h2 className="mt-1 text-2xl font-bold">{item.id ? 'Edit case study' : 'New case study'}</h2>
         </div>
-        {values.slug && <a href={`/case-studies/${values.slug}`} target="_blank" rel="noreferrer" className="text-sm font-semibold text-primary-700 underline">View page</a>}
+        {values.slug && <a href={`/case-studies/${values.slug}`} target="_blank" rel="noreferrer" className="text-sm font-semibold text-[#05232E] underline">View page</a>}
       </div>
       {error && <p role="alert" className="mt-5 whitespace-pre-wrap text-sm text-red-700">{error}</p>}
 
@@ -205,7 +205,7 @@ export default function CaseStudiesDashboardPage() {
         meta={items && <StatusBadge tone="info">{items.length} case studies</StatusBadge>}
         actions={<button onClick={() => { setEditing({}); setMessage(''); }} className="btn-primary min-h-11 px-6 font-semibold">Add case study</button>}
       />
-      {message && <p role="status" className="mb-5 text-primary-700">{message}</p>}
+      {message && <p role="status" className="mb-5 text-[#05232E]">{message}</p>}
       {error && <div role="alert" className="mb-5 text-red-700">{error} <button onClick={() => setRevision((value) => value + 1)} className="underline">Try again</button></div>}
       {items === null ? (
         <DashboardSkeletonList rows={6} />
@@ -221,13 +221,13 @@ export default function CaseStudiesDashboardPage() {
                   <StatusBadge tone={item.is_published ? 'success' : 'neutral'}>{item.is_published ? 'Published' : 'Draft'}</StatusBadge>
                   {item.is_featured && <StatusBadge tone="warning">Featured</StatusBadge>}
                 </div>
-                <p className="mt-3 text-xs font-bold uppercase tracking-[.14em] text-primary-700">{item.sector || 'Uncategorised'}</p>
+                <p className="mt-3 text-xs font-bold uppercase tracking-[.14em] text-[#05232E]">{item.sector || 'Uncategorised'}</p>
                 <h2 className="mt-1 line-clamp-2 text-base font-bold leading-snug text-foreground-950">{item.title}</h2>
                 <p className="mt-2 line-clamp-2 text-sm text-foreground-600">{item.headline || item.summary}</p>
                 <p className="mt-2 break-all text-xs text-foreground-500">/case-studies/{item.slug}</p>
                 <div className="mt-4 flex flex-wrap gap-3">
-                  <button onClick={() => setEditing(item)} className="min-h-10 font-semibold text-primary-700">Edit</button>
-                  {item.is_published && <a href={`/case-studies/${item.slug}`} target="_blank" rel="noreferrer" className="inline-flex min-h-10 items-center text-primary-700 underline">View</a>}
+                  <button onClick={() => setEditing(item)} className="min-h-10 font-semibold text-[#05232E]">Edit</button>
+                  {item.is_published && <a href={`/case-studies/${item.slug}`} target="_blank" rel="noreferrer" className="inline-flex min-h-10 items-center text-[#05232E] underline">View</a>}
                   <button disabled={deleting !== null} onClick={() => remove(item)} className="min-h-10 text-red-700 disabled:opacity-40">{deleting === item.id ? 'Deleting...' : 'Delete'}</button>
                 </div>
               </div>

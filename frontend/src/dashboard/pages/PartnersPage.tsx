@@ -75,7 +75,7 @@ export default function PartnersPage() {
             value={newLogoUrl}
             onChange={(e) => setNewLogoUrl(e.target.value)}
             placeholder="https://example.com/logo.png"
-            className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400"
+            className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-[#05232E]/40"
           />
         </div>
         <button
@@ -135,11 +135,11 @@ function PartnerCard({ partner, onEdit, onDelete }: { partner: Partner; onEdit: 
       <div className="space-y-3 p-3">
         <div className="min-w-0">
           <p className="truncate text-sm font-bold text-foreground-900">{partner.name || 'Partner logo'}</p>
-          <p className="mt-1 text-xs font-semibold text-primary-700">Order #{partner.order}</p>
+          <p className="mt-1 text-xs font-semibold text-[#05232E]">Order #{partner.order}</p>
           {!partner.is_active && <p className="mt-1 text-[10px] font-bold uppercase tracking-wide text-amber-700">Draft</p>}
         </div>
         <div className="grid grid-cols-2 gap-2">
-          <button type="button" onClick={onEdit} className="rounded-lg border border-primary-200 px-3 py-2 text-xs font-bold text-primary-800 transition hover:bg-primary-50">Edit</button>
+          <button type="button" onClick={onEdit} className="rounded-lg border border-[#05232E]/20 px-3 py-2 text-xs font-bold text-[#05232E] transition hover:bg-[#05232E]/5">Edit</button>
           <button type="button" onClick={onDelete} className="rounded-lg border border-red-200 px-3 py-2 text-xs font-bold text-red-700 transition hover:bg-red-50">Delete</button>
         </div>
       </div>
@@ -204,7 +204,7 @@ function PartnerEditor({ partner, onDelete, onSaved }: { partner: Partner; onDel
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="text-xs font-semibold text-primary-600 hover:text-primary-700"
+            className="text-xs font-semibold text-[#05232E] hover:text-[#05232E]"
           >
             Upload logo
           </button>
@@ -225,7 +225,7 @@ function PartnerEditor({ partner, onDelete, onSaved }: { partner: Partner; onDel
               value={form.name}
               onChange={(e) => set('name', e.target.value)}
               placeholder="e.g. APM"
-              className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400"
+              className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-[#05232E]/40"
             />
           </div>
           <div>
@@ -235,7 +235,7 @@ function PartnerEditor({ partner, onDelete, onSaved }: { partner: Partner; onDel
               value={form.logo_url}
               onChange={(e) => set('logo_url', e.target.value)}
               placeholder="https://..."
-              className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400"
+              className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-[#05232E]/40"
             />
           </div>
           <div>
@@ -245,7 +245,7 @@ function PartnerEditor({ partner, onDelete, onSaved }: { partner: Partner; onDel
               value={form.link_url}
               onChange={(e) => set('link_url', e.target.value)}
               placeholder="https://..."
-              className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400"
+              className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-[#05232E]/40"
             />
           </div>
           <div className="flex items-end gap-3">
@@ -256,7 +256,7 @@ function PartnerEditor({ partner, onDelete, onSaved }: { partner: Partner; onDel
                 type="number"
                 value={form.order}
                 onChange={(e) => set('order', Number(e.target.value))}
-                className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400"
+                className="w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:outline-none focus:border-[#05232E]/40"
               />
             </div>
             <label className="flex items-center gap-2 py-2 text-sm text-foreground-700">

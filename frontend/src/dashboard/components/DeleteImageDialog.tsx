@@ -32,7 +32,7 @@ export default function DeleteImageDialog({ busy, error, message, onCancel, onCo
         event.preventDefault();
         if (!busy) onCancel();
       }}
-      className="modal-panel fixed inset-0 m-auto w-[calc(100%-2rem)] max-w-md rounded-2xl border border-background-200 bg-white p-6 text-foreground-900 shadow-2xl backdrop:bg-primary-950/60 backdrop:backdrop-blur-sm"
+      className="modal-panel fixed inset-0 m-auto w-[calc(100%-2rem)] max-w-md rounded-2xl border border-background-200 bg-white p-6 text-foreground-900 shadow-2xl backdrop:bg-[#05232E]/60 backdrop:backdrop-blur-sm"
     >
       <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-50 text-red-700">
         <i className="ri-delete-bin-line text-2xl" aria-hidden="true" />

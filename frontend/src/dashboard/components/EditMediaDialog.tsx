@@ -38,7 +38,7 @@ export default function EditMediaDialog({ item, onClose, onSaveAlt, onDelete }: 
 
   return <dialog ref={ref} aria-labelledby={titleId}
     onCancel={event => { event.preventDefault(); onClose(); }}
-    className="modal-panel fixed inset-0 m-auto w-[calc(100%-2rem)] max-w-lg rounded-2xl border border-background-200 bg-white p-6 text-foreground-900 shadow-2xl backdrop:bg-primary-950/60 backdrop:backdrop-blur-sm">
+    className="modal-panel fixed inset-0 m-auto w-[calc(100%-2rem)] max-w-lg rounded-2xl border border-background-200 bg-white p-6 text-foreground-900 shadow-2xl backdrop:bg-[#05232E]/60 backdrop:backdrop-blur-sm">
     <div className="flex items-start justify-between gap-4">
       <h2 id={titleId} className="text-xl font-bold">Edit image</h2>
       <button type="button" onClick={onClose} aria-label="Close" className="rounded-lg p-2 text-foreground-600 transition-colors hover:bg-background-100 focus-visible:outline focus-visible:outline-2">

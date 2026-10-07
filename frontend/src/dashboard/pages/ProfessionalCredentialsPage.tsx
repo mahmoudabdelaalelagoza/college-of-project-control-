@@ -57,7 +57,7 @@ export default function ProfessionalCredentialsPage() {
 
       <section className="rounded-xl border border-background-200/70 bg-white p-5">
         <div className="flex items-center gap-2">
-          <i className="ri-add-circle-line text-lg text-primary-600" aria-hidden="true" />
+          <i className="ri-add-circle-line text-lg text-[#05232E]" aria-hidden="true" />
           <h2 className="font-heading text-base font-bold text-foreground-900">Add credential logo</h2>
         </div>
         <div className="mt-4 flex flex-wrap items-end gap-3">
@@ -67,7 +67,7 @@ export default function ProfessionalCredentialsPage() {
               value={imageUrl}
               onChange={(event) => setImageUrl(event.target.value)}
               placeholder="https://example.com/logo.png"
-              className="mt-1 w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none"
+              className="mt-1 w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:border-[#05232E]/40 focus:outline-none"
             />
           </label>
           <button
@@ -142,7 +142,7 @@ function LogoEditor({
             type="number"
             value={order}
             onChange={(event) => setOrder(Number(event.target.value))}
-            className="mt-1 w-full rounded-md border border-background-200 px-2 py-1.5 text-sm focus:border-primary-400 focus:outline-none"
+            className="mt-1 w-full rounded-md border border-background-200 px-2 py-1.5 text-sm focus:border-[#05232E]/40 focus:outline-none"
           />
         </label>
         <button type="button" onClick={save} disabled={saving} className="btn-primary px-3 py-1.5 text-xs font-semibold disabled:opacity-50">

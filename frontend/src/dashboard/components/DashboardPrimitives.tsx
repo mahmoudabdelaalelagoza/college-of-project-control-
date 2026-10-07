@@ -13,7 +13,7 @@ export function DashboardPageHeader({ eyebrow, title, description, actions, meta
     <header className="mb-5">
       <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-3xl">
-          {eyebrow && <p className="text-xs font-bold uppercase tracking-[.16em] text-primary-700">{eyebrow}</p>}
+          {eyebrow && <p className="text-xs font-bold uppercase tracking-[.16em] text-[#05232E]">{eyebrow}</p>}
           <h1 className="mt-2 font-heading text-2xl font-bold leading-tight text-slate-950 md:text-3xl">{title}</h1>
           {description && <p className="mt-2 text-sm leading-relaxed text-slate-600">{description}</p>}
           {meta && <div className="mt-4">{meta}</div>}
@@ -32,7 +32,7 @@ interface DashboardAlertProps {
 }
 
 const alertStyles = {
-  info: 'border-primary-200 bg-primary-50 text-primary-950',
+  info: 'border-[#05232E]/20 bg-[#05232E]/5 text-[#05232E]',
   success: 'border-green-200 bg-green-50 text-green-900',
   warning: 'border-amber-200 bg-amber-50 text-amber-950',
   error: 'border-red-200 bg-red-50 text-red-900',
@@ -74,7 +74,7 @@ interface DashboardEmptyStateProps {
 export function DashboardEmptyState({ icon = 'ri-inbox-line', title, description, action }: DashboardEmptyStateProps) {
   return (
     <section className="rounded-xl border border-dashed border-slate-300 bg-white p-8 text-center shadow-sm">
-      <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-700">
+      <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#05232E]/5 text-[#05232E]">
         <i className={`${icon} text-2xl`} aria-hidden="true" />
       </span>
       <h2 className="mt-4 text-xl font-bold text-slate-950">{title}</h2>
@@ -112,7 +112,7 @@ const badgeStyles = {
   success: 'bg-green-50 text-green-800 ring-green-200',
   warning: 'bg-amber-50 text-amber-900 ring-amber-200',
   error: 'bg-red-50 text-red-800 ring-red-200',
-  info: 'bg-primary-50 text-primary-900 ring-primary-200',
+  info: 'bg-[#05232E]/5 text-[#05232E] ring-[#05232E]/20',
 };
 
 export function StatusBadge({ tone = 'neutral', children }: StatusBadgeProps) {

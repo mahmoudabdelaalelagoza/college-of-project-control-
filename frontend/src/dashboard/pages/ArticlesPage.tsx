@@ -79,7 +79,7 @@ export default function ArticlesDashboardPage() {
       meta={<StatusBadge tone="info">{articles.length} articles</StatusBadge>}
       actions={<button onClick={() => { setEditing({}); setMessage(''); }} className="btn-primary min-h-11 px-6 font-semibold">Add article</button>}
     />
-    {message && <p role="status" className="mb-5 text-primary-700">{message}</p>}
+    {message && <p role="status" className="mb-5 text-[#05232E]">{message}</p>}
     {error && <div role="alert" className="mb-5 text-red-700">{error} <button onClick={() => setRevision(v => v + 1)} className="underline">Try again</button></div>}
     {loading ? (
       <DashboardSkeletonList rows={6} />
@@ -100,7 +100,7 @@ export default function ArticlesDashboardPage() {
                     <span className="truncate text-sm font-bold text-slate-950">{article.title || 'Untitled article'}</span>
                     <StatusBadge tone={state === 'Published' ? 'success' : state === 'Scheduled' ? 'warning' : 'neutral'}>{state}</StatusBadge>
                   </span>
-                  <span className="mt-1 block truncate text-xs font-semibold text-primary-700">{article.category || 'Uncategorised'}</span>
+                  <span className="mt-1 block truncate text-xs font-semibold text-[#05232E]">{article.category || 'Uncategorised'}</span>
                   <span className="mt-1 block break-all text-xs text-slate-500">/articles/{article.slug}</span>
                 </span>
                 <i className="dashboard-disclosure-icon ri-arrow-down-s-line" aria-hidden="true" />

@@ -108,7 +108,7 @@ export default function EventsManager() {
             role="tab"
             aria-selected={tab === key}
             onClick={() => switchTab(key)}
-            className={`rounded-lg px-4 py-3 text-sm font-semibold ${tab === key ? 'bg-primary-800 text-white' : 'border bg-white text-primary-800'}`}
+            className={`rounded-lg px-4 py-3 text-sm font-semibold ${tab === key ? 'bg-[#05232E] text-white' : 'border bg-white text-[#05232E]'}`}
           >
             {label}
           </button>
@@ -153,7 +153,7 @@ export default function EventsManager() {
                 role="tab"
                 aria-selected={eventScope === key}
                 onClick={() => setEventScope(key as EventScope)}
-                className={`rounded-xl border p-4 text-left transition ${eventScope === key ? 'border-primary-800 bg-primary-800 text-white shadow-sm' : 'border-background-200 bg-white text-foreground-800 hover:border-primary-300'}`}
+                className={`rounded-xl border p-4 text-left transition ${eventScope === key ? 'border-[#05232E] bg-[#05232E] text-white shadow-sm' : 'border-background-200 bg-white text-foreground-800 hover:border-[#05232E]/30'}`}
               >
                 <span className={`block text-xs font-bold uppercase tracking-[.14em] ${eventScope === key ? 'text-white/65' : 'text-foreground-500'}`}>{label}</span>
                 <span className="mt-2 block text-3xl font-bold">{count}</span>
@@ -216,7 +216,7 @@ function Editor({ event, categories, reload }: { event: ManagedEvent; categories
             <span className="truncate text-sm font-bold text-slate-950">{event.title}</span>
             <StatusBadge tone={event.public_visible ? 'success' : 'neutral'}>{event.public_visible ? 'Visible' : 'Hidden'}</StatusBadge>
           </span>
-          <span className="mt-1 block truncate text-xs font-semibold text-primary-700">{imported ? 'Eventbrite' : 'Manual'} - {event.remote_status}</span>
+          <span className="mt-1 block truncate text-xs font-semibold text-[#05232E]">{imported ? 'Eventbrite' : 'Manual'} - {event.remote_status}</span>
           <span className="mt-1 block truncate text-xs text-slate-500">{event.starts_at ? new Date(event.starts_at).toLocaleDateString('en-GB') : 'No date'} - {event.location || 'No location'}</span>
         </span>
         <i className="dashboard-disclosure-icon ri-arrow-down-s-line" aria-hidden="true" />

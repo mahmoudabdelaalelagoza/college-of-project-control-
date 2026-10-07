@@ -148,7 +148,7 @@ export default function ChatbotPage() {
     </div>
 
     {error && <p role="alert" className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800">{error}</p>}
-    {notice && <p role="status" className="rounded-lg border border-primary-200 bg-primary-50 p-4 text-sm">{notice}</p>}
+    {notice && <p role="status" className="rounded-lg border border-[#05232E]/20 bg-[#05232E]/5 p-4 text-sm">{notice}</p>}
 
     <div className="grid gap-4 rounded-xl border border-background-200 bg-white p-5 md:grid-cols-4">
       <div>
@@ -178,7 +178,7 @@ export default function ChatbotPage() {
           <h2 className="text-xl font-bold">Assistant API settings</h2>
           <p className="mt-2 text-sm text-foreground-600">Choose the provider, model and saved API key used by the public assistant.</p>
         </div>
-        <span className={`rounded-full px-3 py-1 text-xs font-bold ${settings?.configured ? 'bg-primary-50 text-primary-800' : 'bg-red-50 text-red-700'}`}>
+        <span className={`rounded-full px-3 py-1 text-xs font-bold ${settings?.configured ? 'bg-[#05232E]/5 text-[#05232E]' : 'bg-red-50 text-red-700'}`}>
           {settings?.configured ? 'Configured' : 'Not configured'}
         </span>
       </div>
@@ -202,7 +202,7 @@ export default function ChatbotPage() {
           <input type="checkbox" checked={clearApiKey} onChange={(event) => { setClearApiKey(event.target.checked); if (event.target.checked) setApiKey(''); }} />
           Remove saved dashboard key when saving
         </label>}
-        <button type="submit" disabled={settingsBusy} className="rounded-lg bg-primary-700 px-5 py-3 text-sm font-bold text-white disabled:opacity-50">
+        <button type="submit" disabled={settingsBusy} className="rounded-lg bg-[#05232E] px-5 py-3 text-sm font-bold text-white disabled:opacity-50">
           {settingsBusy ? 'Saving...' : 'Save API settings'}
         </button>
       </div>
@@ -218,12 +218,12 @@ export default function ChatbotPage() {
         <label className="block text-sm">Find a source
           <input className={field} value={filter} onChange={(event) => setFilter(event.target.value)} />
         </label>
-        <label className="block rounded-lg border border-dashed border-primary-300 p-4 text-sm">Upload a document
+        <label className="block rounded-lg border border-dashed border-[#05232E]/30 p-4 text-sm">Upload a document
           <input type="file" accept=".pdf,.docx,.txt,.md" disabled={busy} className="mt-2 block w-full text-xs" onChange={(event) => { void upload(event.target.files?.[0]); event.target.value = ''; }} />
           <span className="mt-2 block text-xs text-foreground-500">PDF, DOCX, TXT, Markdown - up to 5 MB</span>
         </label>
         <div className="max-h-[600px] space-y-2 overflow-y-auto">
-          {filteredSources.map((item) => <button key={item.id} type="button" disabled={busy} onClick={() => { setEditing(item.id); setForm(item); setError(''); setNotice(''); }} className={`block w-full rounded-lg border p-3 text-left ${editing === item.id ? 'border-primary-500 bg-primary-50' : 'border-background-200'}`}>
+          {filteredSources.map((item) => <button key={item.id} type="button" disabled={busy} onClick={() => { setEditing(item.id); setForm(item); setError(''); setNotice(''); }} className={`block w-full rounded-lg border p-3 text-left ${editing === item.id ? 'border-[#05232E]/50 bg-[#05232E]/5' : 'border-background-200'}`}>
             <strong className="block text-sm">{item.title}</strong>
             <span className="text-xs text-foreground-500">{item.kind} - {item.is_active ? 'Active' : 'Draft'} - {new Date(item.updated_at).toLocaleDateString('en-GB')}</span>
           </button>)}
@@ -255,7 +255,7 @@ export default function ChatbotPage() {
           <span>Active - allow the assistant to use this information in public answers.</span>
         </label>
         <div className="flex gap-3">
-          <button type="submit" disabled={busy} className="rounded-lg bg-primary-700 px-5 py-3 text-sm font-bold text-white disabled:opacity-50">{busy ? 'Saving...' : 'Save source'}</button>
+          <button type="submit" disabled={busy} className="rounded-lg bg-[#05232E] px-5 py-3 text-sm font-bold text-white disabled:opacity-50">{busy ? 'Saving...' : 'Save source'}</button>
           {editing && <button type="button" disabled={busy} className="rounded-lg border border-background-300 px-5 py-3 text-sm" onClick={() => { setEditing(null); setForm(blank); }}>Cancel</button>}
         </div>
         <p className="text-xs text-foreground-500">Deactivate an outdated source and save to stop using it immediately. Do not upload private learner or staff records.</p>

@@ -150,7 +150,7 @@ export default function MediaLibraryPage() {
               className="group relative aspect-square overflow-hidden rounded-card border border-background-200 bg-white focus-visible:outline focus-visible:outline-2"
             >
               <img src={item.url} alt={item.alt_text} loading="lazy" decoding="async" className="h-full w-full object-cover" />
-              <span className="absolute inset-0 hidden items-center justify-center bg-primary-950/50 group-hover:flex group-focus-visible:flex">
+              <span className="absolute inset-0 hidden items-center justify-center bg-[#05232E]/50 group-hover:flex group-focus-visible:flex">
                 <i className="ri-pencil-line text-2xl text-white" aria-hidden="true" />
               </span>
             </button>

@@ -100,10 +100,10 @@ export default function MaintenancePage() {
           </div>
 
           <div className="mt-6 flex flex-wrap gap-3">
-            <button type="submit" disabled={busy || (form.enabled && !settings.pinSet && form.pin.length !== 6)} className="rounded-lg bg-primary-700 px-5 py-3 text-sm font-bold text-white disabled:opacity-50">
+            <button type="submit" disabled={busy || (form.enabled && !settings.pinSet && form.pin.length !== 6)} className="rounded-lg bg-[#05232E] px-5 py-3 text-sm font-bold text-white disabled:opacity-50">
               {busy ? 'Saving...' : 'Save maintenance settings'}
             </button>
-            <a href="/" target="_blank" rel="noreferrer" className="rounded-lg border border-background-300 px-5 py-3 text-sm font-bold text-primary-800 transition hover:border-primary-300 hover:bg-background-50">
+            <a href="/" target="_blank" rel="noreferrer" className="rounded-lg border border-background-300 px-5 py-3 text-sm font-bold text-[#05232E] transition hover:border-[#05232E]/30 hover:bg-background-50">
               Preview public site
             </a>
           </div>

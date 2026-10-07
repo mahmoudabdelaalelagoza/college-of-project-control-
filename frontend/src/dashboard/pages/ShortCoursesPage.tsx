@@ -135,7 +135,7 @@ export default function ShortCoursesDashboardPage() {
 
 function CourseCard({ course, onEdit, onDelete }: { course: DashboardShortCourse; onEdit: () => void; onDelete: () => void }) {
   return (
-    <article className="interactive-surface group flex h-full flex-col overflow-hidden rounded-xl border border-background-200/80 bg-white shadow-sm hover:border-primary-200 hover:shadow-md">
+    <article className="interactive-surface group flex h-full flex-col overflow-hidden rounded-xl border border-background-200/80 bg-white shadow-sm hover:border-[#05232E]/20 hover:shadow-md">
       <div className="relative aspect-[4/3] bg-background-100">
         {course.image_url ? (
           <img loading="lazy" decoding="async" src={course.image_url} alt={course.title} className="h-full w-full object-cover" />
@@ -153,7 +153,7 @@ function CourseCard({ course, onEdit, onDelete }: { course: DashboardShortCourse
       <div className="flex flex-1 flex-col p-4">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <p className="text-xs font-bold uppercase tracking-[.14em] text-primary-700">{course.category || 'Uncategorised'}</p>
+            <p className="text-xs font-bold uppercase tracking-[.14em] text-[#05232E]">{course.category || 'Uncategorised'}</p>
             <h2 className="mt-2 font-heading text-base font-bold leading-tight text-foreground-950">{course.title || 'Untitled course'}</h2>
           </div>
           <span className="shrink-0 rounded-full bg-background-100 px-2.5 py-1 text-xs font-bold text-foreground-600">#{course.order}</span>
@@ -203,9 +203,9 @@ function CourseEditModal({ course, onClose, onDelete, onSaved }: { course: Dashb
         <section className="modal-panel w-full overflow-hidden rounded-2xl border border-background-200 bg-white shadow-2xl">
           <header className="flex flex-col gap-4 border-b border-background-200 bg-background-50 px-5 py-4 md:flex-row md:items-start md:justify-between md:px-7">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[.16em] text-primary-700">Edit short course</p>
+              <p className="text-xs font-bold uppercase tracking-[.16em] text-[#05232E]">Edit short course</p>
               <h2 id="short-course-edit-title" className="mt-1 font-heading text-2xl font-bold text-foreground-950">{course.title || 'Untitled course'}</h2>
-              <a href={`/short-courses/${course.slug}`} target="_blank" rel="noreferrer" className="mt-2 inline-flex text-xs font-semibold text-primary-700 underline">
+              <a href={`/short-courses/${course.slug}`} target="_blank" rel="noreferrer" className="mt-2 inline-flex text-xs font-semibold text-[#05232E] underline">
                 View course page
               </a>
             </div>
@@ -311,7 +311,7 @@ function CourseEditor({ course, onSaved }: { course: DashboardShortCourse; onSav
           <TextField id={`icon-${course.id}`} label="Icon class" value={form.icon} onChange={(value) => set('icon', value)} />
           <label className="text-xs font-semibold text-foreground-600">
             Order
-            <input type="number" value={form.order} onChange={(event) => set('order', Number(event.target.value))} className="mt-1 w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+            <input type="number" value={form.order} onChange={(event) => set('order', Number(event.target.value))} className="mt-1 w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:border-[#05232E]/40 focus:outline-none" />
           </label>
 
           <TextArea id={`summary-${course.id}`} label="Summary" value={form.summary} rows={3} onChange={(value) => set('summary', value)} className="sm:col-span-2" />
@@ -339,7 +339,7 @@ function TextField({ id, label, value, onChange }: { id: string; label: string; 
   return (
     <label htmlFor={id} className="text-xs font-semibold text-foreground-600">
       {label}
-      <input id={id} value={value} onChange={(event) => onChange(event.target.value)} className="mt-1 w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+      <input id={id} value={value} onChange={(event) => onChange(event.target.value)} className="mt-1 w-full rounded-md border border-background-200 px-3 py-2 text-sm focus:border-[#05232E]/40 focus:outline-none" />
     </label>
   );
 }
@@ -348,7 +348,7 @@ function TextArea({ id, label, value, rows, onChange, className = '' }: { id: st
   return (
     <label htmlFor={id} className={`text-xs font-semibold text-foreground-600 ${className}`}>
       {label}
-      <textarea id={id} value={value} rows={rows} onChange={(event) => onChange(event.target.value)} className="mt-1 w-full resize-y rounded-md border border-background-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+      <textarea id={id} value={value} rows={rows} onChange={(event) => onChange(event.target.value)} className="mt-1 w-full resize-y rounded-md border border-background-200 px-3 py-2 text-sm focus:border-[#05232E]/40 focus:outline-none" />
     </label>
   );
 }
