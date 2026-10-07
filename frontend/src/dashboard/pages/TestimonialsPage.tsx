@@ -406,10 +406,10 @@ function ReviewEditor({ item, onSaved, onDeleted }: { item: Submission; onSaved:
             <span className="truncate text-sm font-bold text-slate-950">{item.name}</span>
             <span className={`inline-flex rounded-full px-2.5 py-1 text-xs font-bold ${statusClass}`}>{item.status}</span>
           </span>
-          <span className="mt-1 block truncate text-xs font-semibold text-blue-600">{item.programme_label}</span>
+          <span className="mt-1 block truncate text-xs font-semibold text-primary-700">{item.programme_label}</span>
           <span className="mt-1 block text-xs text-slate-500">{item.reviewer_type === 'professional' ? 'Professional / learner' : 'Employer'} - Submitted {new Date(item.created_at).toLocaleDateString('en-GB')}</span>
         </span>
-        {item.is_featured && <span className="hidden rounded-full bg-blue-100 px-2.5 py-1 text-xs font-bold text-blue-700 sm:inline-flex">Featured</span>}
+        {item.is_featured && <span className="hidden rounded-full bg-primary-100 px-2.5 py-1 text-xs font-bold text-primary-800 sm:inline-flex">Featured</span>}
         <span className="hidden rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-600 sm:inline-flex">Order {item.order}</span>
         <i className="dashboard-disclosure-icon ri-arrow-down-s-line" aria-hidden="true" />
       </summary>
@@ -425,7 +425,7 @@ function ReviewEditor({ item, onSaved, onDeleted }: { item: Submission; onSaved:
               <h2 className="text-lg font-bold text-slate-950">{item.name}</h2>
               <span className={`rounded-full px-3 py-1 text-xs font-bold ${statusClass}`}>{item.status}</span>
             </div>
-            <p className="mt-2 text-sm font-semibold text-blue-600">{item.programme_label}</p>
+            <p className="mt-2 text-sm font-semibold text-primary-700">{item.programme_label}</p>
             <p className="mt-1 text-xs text-slate-500">{item.reviewer_type === 'professional' ? 'Professional / learner' : 'Employer'} - {item.consent ? 'Publication consent given' : 'No publication consent'}</p>
             <blockquote className="mt-5 whitespace-pre-line break-words rounded-lg border border-slate-200 bg-white p-4 text-sm leading-relaxed text-slate-700">{item.review}</blockquote>
             {item.reviewed_at && <p className="mt-3 text-xs text-slate-500">Last reviewed: {new Date(item.reviewed_at).toLocaleString('en-GB')}</p>}

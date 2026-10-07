@@ -100,7 +100,7 @@ export default function ArticlesDashboardPage() {
                     <span className="truncate text-sm font-bold text-slate-950">{article.title || 'Untitled article'}</span>
                     <StatusBadge tone={state === 'Published' ? 'success' : state === 'Scheduled' ? 'warning' : 'neutral'}>{state}</StatusBadge>
                   </span>
-                  <span className="mt-1 block truncate text-xs font-semibold text-blue-600">{article.category || 'Uncategorised'}</span>
+                  <span className="mt-1 block truncate text-xs font-semibold text-primary-700">{article.category || 'Uncategorised'}</span>
                   <span className="mt-1 block break-all text-xs text-slate-500">/articles/{article.slug}</span>
                 </span>
                 <i className="dashboard-disclosure-icon ri-arrow-down-s-line" aria-hidden="true" />

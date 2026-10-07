@@ -265,7 +265,7 @@ export default function EnquiriesPage() {
             <details
               key={enquiry.id}
               open={isOpen}
-              className={`dashboard-disclosure ${!enquiry.read_at ? 'border-blue-200 bg-blue-50/70' : ''}`}
+              className={`dashboard-disclosure ${!enquiry.read_at ? 'border-primary-200 bg-primary-50/70' : ''}`}
               onToggle={(event) => {
                 const next = new URLSearchParams(params);
                 if (event.currentTarget.open) next.set('enquiry', id);
@@ -282,7 +282,7 @@ export default function EnquiriesPage() {
                     <span className="truncate text-sm font-bold text-slate-950">{enquiry.name || 'Unnamed enquiry'}</span>
                     {!enquiry.read_at && <StatusBadge tone="warning">Unread</StatusBadge>}
                   </span>
-                  <span className="mt-1 block truncate text-xs font-semibold text-blue-600">{enquiry.email || 'No email supplied'}</span>
+                  <span className="mt-1 block truncate text-xs font-semibold text-primary-700">{enquiry.email || 'No email supplied'}</span>
                   <span className="mt-1 block truncate text-xs text-slate-500">{enquiry.enquiryType || 'General'} - {new Date(enquiry.created_at).toLocaleDateString('en-GB')}</span>
                 </span>
                 <span className="hidden shrink-0 sm:inline-flex"><StatusBadge tone={statusTone(enquiry.status)}>{enquiry.status}</StatusBadge></span>

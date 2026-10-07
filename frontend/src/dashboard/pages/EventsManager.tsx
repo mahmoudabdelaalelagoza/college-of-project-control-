@@ -216,7 +216,7 @@ function Editor({ event, categories, reload }: { event: ManagedEvent; categories
             <span className="truncate text-sm font-bold text-slate-950">{event.title}</span>
             <StatusBadge tone={event.public_visible ? 'success' : 'neutral'}>{event.public_visible ? 'Visible' : 'Hidden'}</StatusBadge>
           </span>
-          <span className="mt-1 block truncate text-xs font-semibold text-blue-600">{imported ? 'Eventbrite' : 'Manual'} - {event.remote_status}</span>
+          <span className="mt-1 block truncate text-xs font-semibold text-primary-700">{imported ? 'Eventbrite' : 'Manual'} - {event.remote_status}</span>
           <span className="mt-1 block truncate text-xs text-slate-500">{event.starts_at ? new Date(event.starts_at).toLocaleDateString('en-GB') : 'No date'} - {event.location || 'No location'}</span>
         </span>
         <i className="dashboard-disclosure-icon ri-arrow-down-s-line" aria-hidden="true" />

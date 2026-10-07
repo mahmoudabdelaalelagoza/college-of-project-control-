@@ -97,27 +97,27 @@ export default function DashboardLayout() {
                     end={item.end}
                     className={({ isActive }) =>
                       `flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold transition-all duration-200 ${
-                        isActive ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950'
+                        isActive ? 'bg-primary-950 text-white shadow-sm' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950'
                       }`
                     }
                   >
                     <i className={`${item.icon} text-base`} aria-hidden="true" />
                     <span className="min-w-0 flex-1 truncate">{item.label}</span>
-                    {item.to === '/dashboard/enquiries' && !!notifications.data?.unread_count && <span aria-label={`${notifications.data.unread_count} unread enquiries`} className="ml-auto rounded-full bg-blue-100 px-2 py-0.5 text-xs font-bold text-blue-700">{notifications.data.unread_count}</span>}
+                    {item.to === '/dashboard/enquiries' && !!notifications.data?.unread_count && <span aria-label={`${notifications.data.unread_count} unread enquiries`} className="ml-auto rounded-full bg-primary-100 px-2 py-0.5 text-xs font-bold text-primary-800">{notifications.data.unread_count}</span>}
                   </NavLink>
                 ))}
               </div>
             </div>
           ))}
         </nav>
-        <div className="mx-3 mb-3 shrink-0 rounded-xl border border-blue-100 bg-blue-50 p-3">
+        <div className="mx-3 mb-3 shrink-0 rounded-xl border border-primary-100 bg-primary-50 p-3">
           <div className="flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-white">
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-950 text-white">
               <i className="ri-external-link-line text-base" aria-hidden="true" />
             </span>
             <div className="min-w-0 flex-1">
               <p className="text-xs font-bold text-slate-950">Live website</p>
-              <a href="/" target="_blank" rel="noreferrer" className="text-xs font-semibold text-blue-700 hover:underline">Open public site</a>
+              <a href="/" target="_blank" rel="noreferrer" className="text-xs font-semibold text-primary-800 hover:underline">Open public site</a>
             </div>
           </div>
         </div>
@@ -150,7 +150,7 @@ export default function DashboardLayout() {
             <button
               type="button"
               onClick={() => setMenuOpen(false)}
-              className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-700 transition-colors hover:bg-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+              className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-700 transition-colors hover:bg-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
               aria-label="Close dashboard menu"
             >
               <i className="ri-close-line text-2xl" aria-hidden="true" />

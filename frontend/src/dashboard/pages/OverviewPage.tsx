@@ -126,8 +126,8 @@ const overviewGroups: OverviewGroup[] = [
 
 function OverviewCard({ item, value, failed }: { item: OverviewItem; value: number | undefined; failed: boolean }) {
   return (
-    <Link to={item.href} className="group flex min-h-24 items-start gap-3 rounded-xl border border-slate-200 bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md">
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
+    <Link to={item.href} className="group flex min-h-24 items-start gap-3 rounded-xl border border-slate-200 bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-primary-200 hover:shadow-md">
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-700 transition group-hover:bg-primary-950 group-hover:text-white">
         <i className={`${item.icon} text-lg`} aria-hidden="true" />
       </span>
       <span className="min-w-0 flex-1">
@@ -135,7 +135,7 @@ function OverviewCard({ item, value, failed }: { item: OverviewItem; value: numb
         {item.countUrl && (
           <span className="mt-2 block text-2xl font-bold leading-none text-slate-950">{failed ? '-' : value ?? '...'}</span>
         )}
-        <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-blue-600">
+        <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-primary-700">
           Open area <i className="ri-arrow-right-line transition group-hover:translate-x-0.5" aria-hidden="true" />
         </span>
       </span>
@@ -145,9 +145,9 @@ function OverviewCard({ item, value, failed }: { item: OverviewItem; value: numb
 
 function BusinessSignalCard({ item, value, failed }: { item: BusinessSignal; value: number | undefined; failed: boolean }) {
   return (
-    <Link to={item.href} className="group rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md">
+    <Link to={item.href} className="group rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-primary-200 hover:shadow-md">
       <div className="flex items-start justify-between gap-4">
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-700 transition group-hover:bg-primary-950 group-hover:text-white">
           <i className={`${item.icon} text-lg`} aria-hidden="true" />
         </span>
         <StatusBadge tone={item.tone}>{item.signal}</StatusBadge>
@@ -157,7 +157,7 @@ function BusinessSignalCard({ item, value, failed }: { item: BusinessSignal; val
         <p className="mt-2 text-4xl font-bold leading-none text-slate-950">{failed ? '-' : value ?? '...'}</p>
         <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.summary}</p>
       </div>
-      <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-blue-600">
+      <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary-700">
         Review now <i className="ri-arrow-right-line transition group-hover:translate-x-0.5" aria-hidden="true" />
       </span>
     </Link>
@@ -225,7 +225,7 @@ export default function OverviewPage() {
             <article key={item.title} className="rounded-xl border border-slate-200 bg-white p-5 text-slate-950 shadow-sm">
               <h2 className="font-heading text-lg font-bold">{item.title}</h2>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.body}</p>
-              <Link to={item.href} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blue-600">
+              <Link to={item.href} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary-700">
                 {item.label} <i className="ri-arrow-right-line" aria-hidden="true" />
               </Link>
             </article>

@@ -248,8 +248,8 @@ function SectorEditor({ sector, onDelete, onSaved }: { sector: Sector; onDelete:
             <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-bold text-slate-600">#{form.order}</span>
           </div>
           <h2 className="mt-3 line-clamp-2 text-sm font-bold leading-snug text-slate-950">{form.title || 'Untitled sector'}</h2>
-          <p className="mt-1 truncate text-xs font-semibold text-blue-600">{form.slug || 'No slug'}</p>
-          <span className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-blue-600">
+          <p className="mt-1 truncate text-xs font-semibold text-primary-700">{form.slug || 'No slug'}</p>
+          <span className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-primary-700">
             Edit <i className="ri-arrow-down-s-line dashboard-disclosure-icon" aria-hidden="true" />
           </span>
         </div>
