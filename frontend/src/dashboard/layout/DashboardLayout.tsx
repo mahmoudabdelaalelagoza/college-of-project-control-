@@ -172,7 +172,7 @@ export default function DashboardLayout() {
           </div>
         </div>
         <div className="sticky top-0 z-20 hidden border-b border-slate-200 bg-white/95 px-4 py-3 backdrop-blur lg:block">
-          <div className="mx-auto flex w-full max-w-[1480px] items-center justify-between gap-4">
+          <div className="flex w-full max-w-[1480px] items-center justify-between gap-4">
             <div className="min-w-0">
               <p className="text-[11px] font-bold uppercase tracking-[.16em] text-slate-400">Dashboard</p>
               <p className="truncate text-sm font-bold text-slate-950">{currentPage}</p>
@@ -189,7 +189,7 @@ export default function DashboardLayout() {
             </div>
           </div>
         </div>
-        <div className="mx-auto w-full max-w-[1480px] px-4 py-5 md:px-6 md:py-7 xl:px-8">
+        <div className="w-full max-w-[1480px] px-4 py-5 md:px-6 md:py-7 xl:px-8">
           {requestError && (
             <div className="mb-6">
               <DashboardAlert tone="error" title="Request failed" onDismiss={() => setRequestError('')}>

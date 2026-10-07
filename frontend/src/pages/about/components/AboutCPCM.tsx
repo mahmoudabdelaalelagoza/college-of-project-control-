@@ -170,21 +170,21 @@ export default function AboutCPCM() {
         <img
           src="/assets/images/hero-professional.webp"
           alt="Project professionals learning together in a professional programme setting"
-          className="absolute inset-0 h-full w-full object-cover opacity-50"
+          className="absolute inset-0 h-full w-full object-cover opacity-45"
         />
         <div className="pattern-cubes-overlay pattern-cubes-overlay-dark absolute inset-0 opacity-70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-950 via-primary-950/80 to-primary-950/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary-950/90 via-primary-950/78 to-primary-950/92" />
 
-        <div className="relative mx-auto flex min-h-[760px] max-w-7xl flex-col justify-end px-6 pb-16 pt-40 lg:px-8">
-          <div className="max-w-4xl">
+        <div className="relative mx-auto flex min-h-[760px] max-w-7xl flex-col items-center justify-center px-6 pb-16 pt-40 text-center lg:px-8">
+          <div className="mx-auto max-w-5xl">
             <Eyebrow light>About the College</Eyebrow>
-            <h1 className="mt-5 max-w-5xl font-heading text-5xl font-black leading-[0.92] md:text-7xl lg:text-8xl">
+            <h1 className="mx-auto mt-5 max-w-5xl font-heading text-4xl font-black leading-[1.02] text-white md:text-6xl lg:text-7xl">
               A specialist college for project control, delivery confidence and professional judgement.
             </h1>
-            <p className="mt-7 max-w-3xl text-xl leading-9 text-white/80">
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/80 md:text-xl md:leading-9">
               We develop professionals and employers who need clearer plans, better evidence, stronger governance and more confident decisions in complex project environments.
             </p>
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="mt-9 flex flex-wrap justify-center gap-4">
               <SiteLink href="/programmes" className="btn-primary btn-primary--pattern">
                 Explore programmes
                 <i className="ri-arrow-right-line" aria-hidden="true" />
@@ -195,7 +195,7 @@ export default function AboutCPCM() {
             </div>
           </div>
 
-          <div className="mt-14 grid gap-px overflow-hidden border border-white/20 bg-white/20 md:grid-cols-3">
+          <div className="mt-14 grid w-full max-w-6xl gap-px overflow-hidden border border-white/20 bg-white/20 text-left md:grid-cols-3">
             {heroStats.map(([title, body]) => (
               <div key={title} className="bg-primary-950/70 p-6 backdrop-blur">
                 <p className="font-heading text-2xl font-black">{title}</p>
