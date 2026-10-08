@@ -10,12 +10,14 @@ interface DashboardUser {
   role: DashboardRole;
   permissions: string[];
   is_active: boolean;
+  auth_linked?: boolean;
   notes: string;
   created_at?: string;
   updated_at?: string;
 }
 
 type DashboardRole = 'owner' | 'admin' | 'editor' | 'viewer';
+type DashboardUserForm = Omit<DashboardUser, 'id' | 'auth_linked' | 'created_at' | 'updated_at'> & { password: string };
 
 const permissionOptions = [
   { key: 'dashboard.read', label: 'Dashboard access', description: 'Can sign in and open the dashboard.' },
@@ -33,8 +35,9 @@ const roleDefaults: Record<DashboardRole, string[]> = {
   viewer: ['dashboard.read'],
 };
 
-const emptyForm: Omit<DashboardUser, 'id'> = {
+const emptyForm: DashboardUserForm = {
   email: '',
+  password: '',
   full_name: '',
   role: 'viewer',
   permissions: roleDefaults.viewer,
@@ -60,6 +63,9 @@ function usersErrorMessage(event: unknown) {
   const message = event instanceof Error ? event.message : 'Could not load dashboard users.';
   if (message.toLowerCase().includes('get_dashboard_users')) {
     return 'Dashboard users are not installed in Supabase yet. Run docs/migration/SUPABASE_DASHBOARD_USERS.sql in the Supabase SQL editor, then refresh this page.';
+  }
+  if (message.toLowerCase().includes('dashboard-users') || message.toLowerCase().includes('function not found') || message.toLowerCase().includes('non-2xx')) {
+    return 'The dashboard-users Edge Function is not deployed or returned an error. Deploy supabase/functions/dashboard-users and set SUPABASE_SERVICE_ROLE_KEY.';
   }
   if (message === 'Not allowed') return 'Your dashboard role does not include Users permission.';
   return message;
@@ -91,6 +97,7 @@ export default function UsersPage() {
     if (selectedUser) {
       setForm({
         email: selectedUser.email,
+        password: '',
         full_name: selectedUser.full_name ?? '',
         role: selectedUser.role,
         permissions: selectedUser.permissions?.length ? selectedUser.permissions : roleDefaults[selectedUser.role],
@@ -120,9 +127,19 @@ export default function UsersPage() {
     setError('');
     setNotice('');
     try {
+      const password = form.password.trim();
+      if (selectedId === 'new' && password.length < 8) {
+        setError('Set a password with at least 8 characters.');
+        return;
+      }
+      if (selectedId !== 'new' && password && password.length < 8) {
+        setError('New password must be at least 8 characters.');
+        return;
+      }
       const payload = {
         ...form,
         email: form.email.trim().toLowerCase(),
+        password,
         full_name: form.full_name.trim(),
         notes: form.notes.trim(),
       };
@@ -131,7 +148,7 @@ export default function UsersPage() {
         : await cmsApi.patch<DashboardUser>(`/users/${selectedId}/`, payload);
       setSelectedId(saved.id);
       await load();
-      setNotice('Dashboard user saved. Make sure a matching Supabase Auth account exists for this email.');
+      setNotice(selectedId === 'new' || password ? 'Dashboard login account saved. Share the email and password with the user.' : 'Dashboard user saved. Existing password was kept.');
     } catch (eventError) {
       setError(usersErrorMessage(eventError));
     } finally {
@@ -140,7 +157,7 @@ export default function UsersPage() {
   }
 
   async function deleteUser(user: DashboardUser) {
-    if (!window.confirm(`Delete ${user.email} from dashboard users? This does not delete the Supabase Auth account.`)) return;
+    if (!window.confirm(`Delete ${user.email} from dashboard users and the linked Supabase Auth account if available?`)) return;
     setBusy(true);
     setError('');
     setNotice('');
@@ -161,13 +178,13 @@ export default function UsersPage() {
       <DashboardPageHeader
         eyebrow="Administration"
         title="Users"
-        description="Manage dashboard access, roles and permission labels. A matching Supabase Auth account with the same email is still required before a user can sign in."
+        description="Create dashboard login accounts, roles and permission labels."
         actions={<button type="button" className="btn-primary" onClick={() => setSelectedId('new')}><i className="ri-user-add-line" aria-hidden="true" /> Add user</button>}
         meta={users && <StatusBadge tone="info">{users.length} dashboard users</StatusBadge>}
       />
 
-      <DashboardAlert tone="warning" title="Auth account required">
-        <p>Add the user here first, then create a matching account in Supabase Authentication with the same email address. Do not put the Supabase service-role key in the frontend.</p>
+      <DashboardAlert tone="warning" title="Secure user creation">
+        <p>Passwords are sent to a Supabase Edge Function and are never stored in the dashboard database. Deploy the dashboard-users function and set SUPABASE_SERVICE_ROLE_KEY before using this form.</p>
       </DashboardAlert>
 
       {error && <DashboardAlert tone="error" title="Users error" onDismiss={() => setError('')}><p>{error}</p></DashboardAlert>}
@@ -192,6 +209,7 @@ export default function UsersPage() {
                   </div>
                   <div className="mt-4 flex flex-wrap gap-2">
                     <StatusBadge tone={roleTone(user.role)}>{user.role}</StatusBadge>
+                    <StatusBadge tone={user.auth_linked ? 'success' : 'warning'}>{user.auth_linked ? 'Auth linked' : 'No Auth'}</StatusBadge>
                     <span className="rounded-full bg-background-100 px-2.5 py-1 text-xs font-semibold text-foreground-600">{user.permissions?.length ?? 0} permissions</span>
                   </div>
                   <p className="mt-4 text-xs text-foreground-500">Updated {formatDate(user.updated_at)}</p>
@@ -218,6 +236,19 @@ export default function UsersPage() {
 
             <label className="block text-sm font-semibold">Name
               <input value={form.full_name} onChange={(event) => setForm({ ...form, full_name: event.target.value })} className={inputClass} placeholder="Full name" />
+            </label>
+
+            <label className="block text-sm font-semibold">{selectedId === 'new' ? 'Password' : 'New password (optional)'}
+              <input
+                required={selectedId === 'new'}
+                type="password"
+                minLength={8}
+                value={form.password}
+                onChange={(event) => setForm({ ...form, password: event.target.value })}
+                className={inputClass}
+                placeholder={selectedId === 'new' ? 'Temporary password' : 'Leave blank to keep current password'}
+              />
+              <span className="mt-1 block text-xs font-normal text-foreground-500">Use at least 8 characters. Existing users keep their password when this field is blank.</span>
             </label>
 
             <label className="block text-sm font-semibold">Role

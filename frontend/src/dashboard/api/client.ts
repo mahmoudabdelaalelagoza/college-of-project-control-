@@ -76,6 +76,18 @@ function stripUndefined(payload: Record<string, unknown>) { return Object.fromEn
 
 async function ensureAdmin() { if (!supabase) throw new Error('Supabase is not configured.'); const { data: sessionData, error: sessionError } = await supabase.auth.getSession(); if (sessionError) throw sessionError; if (!sessionData.session) throw new Error('Dashboard session expired. Please sign in again.'); return sessionData.session; }
 
+async function functionErrorMessage(error: unknown, fallback: string) {
+  const baseMessage = error instanceof Error ? error.message : fallback;
+  const context = (error as { context?: { clone?: () => { json?: () => Promise<unknown> }; json?: () => Promise<unknown> } } | null)?.context;
+  try {
+    const response = typeof context?.clone === 'function' ? context.clone() : context;
+    const body = response && typeof response.json === 'function' ? await response.json() : null;
+    if (body && typeof body === 'object' && 'error' in body) return String((body as { error?: unknown }).error);
+  } catch {
+    // Fall back to the Supabase Functions error message.
+  }
+  return baseMessage || fallback;
+}
 async function getMaintenanceSettings<T>(): Promise<T> {
   if (!isSupabaseConfigured || !supabase) throw new Error('Supabase dashboard is not configured.');
   await ensureAdmin();
@@ -136,32 +148,44 @@ async function getDashboardUsers<T>(): Promise<T> {
 
 async function saveDashboardUser<T>(body?: Body, id?: number | null): Promise<T> {
   if (!isSupabaseConfigured || !supabase) throw new Error('Supabase dashboard is not configured.');
-  await ensureAdmin();
+  const session = await ensureAdmin();
   const payload = normalisePayload(body);
   const permissions = Array.isArray(payload.permissions)
     ? payload.permissions.map(String)
     : typeof payload.permissions === 'string'
       ? String(payload.permissions).split(',').map((item) => item.trim()).filter(Boolean)
       : [];
-  const { data, error } = await supabase.rpc('set_dashboard_user', {
-    p_id: id ?? null,
-    p_email: String(payload.email ?? ''),
-    p_full_name: String(payload.full_name ?? ''),
-    p_role: String(payload.role ?? 'viewer'),
-    p_permissions: permissions,
-    p_is_active: payload.is_active !== false,
-    p_notes: String(payload.notes ?? ''),
+  const { data, error } = await supabase.functions.invoke('dashboard-users', {
+    body: {
+      action: 'save',
+      id: id ?? null,
+      email: String(payload.email ?? ''),
+      password: String(payload.password ?? ''),
+      full_name: String(payload.full_name ?? ''),
+      role: String(payload.role ?? 'viewer'),
+      permissions,
+      is_active: payload.is_active !== false,
+      notes: String(payload.notes ?? ''),
+    },
+    headers: { Authorization: `Bearer ${session.access_token}` },
   });
-  if (error) throw new Error(error.message || 'Could not save dashboard user.');
-  return data as T;
+  if (error) throw new Error(await functionErrorMessage(error, 'Could not save dashboard user.'));
+  const result = data as { user?: unknown; error?: string } | null;
+  if (result?.error) throw new Error(result.error);
+  return (result?.user ?? data) as T;
 }
 
 async function deleteDashboardUser<T>(id?: number | null): Promise<T> {
   if (!isSupabaseConfigured || !supabase) throw new Error('Supabase dashboard is not configured.');
-  await ensureAdmin();
+  const session = await ensureAdmin();
   if (!id) throw new Error('Missing dashboard user id.');
-  const { data, error } = await supabase.rpc('delete_dashboard_user', { p_id: id });
-  if (error) throw new Error(error.message || 'Could not delete dashboard user.');
+  const { data, error } = await supabase.functions.invoke('dashboard-users', {
+    body: { action: 'delete', id },
+    headers: { Authorization: `Bearer ${session.access_token}` },
+  });
+  if (error) throw new Error(await functionErrorMessage(error, 'Could not delete dashboard user.'));
+  const result = data as { error?: string } | null;
+  if (result?.error) throw new Error(result.error);
   return data as T;
 }
 

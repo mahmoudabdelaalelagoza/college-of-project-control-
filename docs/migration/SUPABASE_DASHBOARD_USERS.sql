@@ -1,11 +1,14 @@
 -- Dashboard user management with roles and permissions.
 -- Run once in Supabase SQL editor after SUPABASE_DASHBOARD_ADMIN.sql.
--- This manages dashboard access records. A matching Supabase Auth user must still exist for login.
+-- This manages dashboard access records and links them to Supabase Auth users.
+-- To create passwords from the dashboard, deploy supabase/functions/dashboard-users
+-- and set SUPABASE_SERVICE_ROLE_KEY as an Edge Function secret.
 
 alter table public.dashboard_admin_users
   add column if not exists full_name text not null default '',
   add column if not exists role text not null default 'admin',
   add column if not exists permissions text[] not null default array['dashboard.read','content.manage','people.manage','enquiries.manage','maintenance.manage','users.manage']::text[],
+  add column if not exists auth_user_id uuid,
   add column if not exists notes text not null default '',
   add column if not exists updated_at timestamptz not null default now();
 
@@ -184,6 +187,7 @@ create policy "Dashboard users delete images"
   for delete
   to authenticated
   using (bucket_id = 'images' and (public.dashboard_has_permission('content.manage') or public.dashboard_has_permission('people.manage')));
+
 create or replace function public.get_dashboard_users()
 returns jsonb
 language sql
@@ -201,6 +205,7 @@ as $$
       'role', role,
       'permissions', permissions,
       'is_active', is_active,
+      'auth_linked', auth_user_id is not null,
       'notes', notes,
       'created_at', created_at,
       'updated_at', updated_at
@@ -281,6 +286,7 @@ begin
     'role', saved.role,
     'permissions', saved.permissions,
     'is_active', saved.is_active,
+    'auth_linked', saved.auth_user_id is not null,
     'notes', saved.notes,
     'created_at', saved.created_at,
     'updated_at', saved.updated_at
