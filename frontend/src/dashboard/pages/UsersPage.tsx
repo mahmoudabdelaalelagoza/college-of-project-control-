@@ -183,9 +183,6 @@ export default function UsersPage() {
         meta={users && <StatusBadge tone="info">{users.length} dashboard users</StatusBadge>}
       />
 
-      <DashboardAlert tone="warning" title="Secure user creation">
-        <p>Passwords are sent to a Supabase Edge Function and are never stored in the dashboard database. Deploy the dashboard-users function and set DASHBOARD_SERVICE_ROLE_KEY before using this form.</p>
-      </DashboardAlert>
 
       {error && <DashboardAlert tone="error" title="Users error" onDismiss={() => setError('')}><p>{error}</p></DashboardAlert>}
       {notice && <DashboardAlert tone="success" title="Saved" onDismiss={() => setNotice('')}><p>{notice}</p></DashboardAlert>}
