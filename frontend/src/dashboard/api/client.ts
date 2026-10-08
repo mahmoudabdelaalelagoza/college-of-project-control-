@@ -76,6 +76,56 @@ function stripUndefined(payload: Record<string, unknown>) { return Object.fromEn
 
 async function ensureAdmin() { if (!supabase) throw new Error('Supabase is not configured.'); const { data: sessionData, error: sessionError } = await supabase.auth.getSession(); if (sessionError) throw sessionError; if (!sessionData.session) throw new Error('Dashboard session expired. Please sign in again.'); return sessionData.session; }
 
+async function getMaintenanceSettings<T>(): Promise<T> {
+  if (!isSupabaseConfigured || !supabase) throw new Error('Supabase dashboard is not configured.');
+  await ensureAdmin();
+  const { data, error } = await supabase.rpc('get_maintenance_settings');
+  if (error) throw error;
+  const settings = (data ?? {}) as Record<string, unknown>;
+  return {
+    enabled: settings.enabled === true,
+    site_wide: settings.site_wide !== false,
+    protected_paths: Array.isArray(settings.protected_paths) ? settings.protected_paths : [],
+    heading: String(settings.heading ?? 'Website under maintenance'),
+    message: String(settings.message ?? 'We are making updates. Please check back soon.'),
+    pinSet: settings.pin_required === true,
+    updated_at: String(settings.updated_at ?? ''),
+  } as T;
+}
+
+async function saveMaintenanceSettings<T>(body?: Body): Promise<T> {
+  if (!isSupabaseConfigured || !supabase) throw new Error('Supabase dashboard is not configured.');
+  await ensureAdmin();
+  const payload = normalisePayload(body);
+  const pin = String(payload.pin ?? '').trim();
+  if (pin && !/^\d{6}$/.test(pin)) throw new Error('The preview PIN must be exactly 6 digits.');
+  const protectedPaths = Array.isArray(payload.protected_paths)
+    ? payload.protected_paths
+    : typeof payload.protected_paths === 'string'
+      ? String(payload.protected_paths).split('\n').map((item) => item.trim()).filter(Boolean)
+      : [];
+  const { data, error } = await supabase.rpc('set_maintenance_settings', {
+    p_enabled: payload.enabled === true,
+    p_site_wide: payload.site_wide !== false,
+    p_protected_paths: protectedPaths,
+    p_heading: String(payload.heading ?? ''),
+    p_message: String(payload.message ?? ''),
+    p_pin: pin || null,
+    p_clear_pin: payload.clear_pin === true,
+  });
+  if (error) throw error;
+  const settings = (data ?? {}) as Record<string, unknown>;
+  return {
+    enabled: settings.enabled === true,
+    site_wide: settings.site_wide !== false,
+    protected_paths: Array.isArray(settings.protected_paths) ? settings.protected_paths : [],
+    heading: String(settings.heading ?? 'Website under maintenance'),
+    message: String(settings.message ?? 'We are making updates. Please check back soon.'),
+    pinSet: settings.pin_required === true,
+    updated_at: String(settings.updated_at ?? ''),
+  } as T;
+}
+
 // Event categories live in the event_classifications join table, not on the events row.
 async function saveEventClassifications(eventId: number, categoryIds: unknown) {
   if (!supabase || !Array.isArray(categoryIds)) return;
