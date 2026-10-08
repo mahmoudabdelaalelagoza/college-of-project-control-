@@ -52,6 +52,7 @@ export default function MaintenancePage() {
     clearPin: false,
   });
   const [customPath, setCustomPath] = useState('');
+  const [editingPin, setEditingPin] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
@@ -69,6 +70,7 @@ export default function MaintenancePage() {
           pin: '',
           clearPin: false,
         });
+        setEditingPin(!data.pinSet);
       })
       .catch((event) => setError(event instanceof Error ? event.message : 'Could not load maintenance settings.'));
   }, []);
@@ -129,6 +131,7 @@ export default function MaintenancePage() {
         pin: '',
         clearPin: false,
       });
+      setEditingPin(!data.pinSet);
       setNotice('Maintenance settings saved. The public gate updates immediately.');
     } catch (saveError) {
       setError(saveError instanceof Error ? saveError.message : 'Could not save maintenance settings.');
@@ -226,25 +229,61 @@ export default function MaintenancePage() {
 
           <aside className="space-y-6">
             <section className="rounded-xl border border-background-200 bg-white p-6 shadow-sm">
-              <h2 className="font-heading text-xl font-bold text-foreground-950">Preview code</h2>
-              <p className="mt-2 text-sm text-foreground-600">The code is saved as a hash and never shown again. Set a new code anytime.</p>
-              <label className="mt-4 block text-sm font-semibold">6-digit code
-                <input
-                  value={form.pin}
-                  onChange={(event) => setForm({ ...form, pin: event.target.value.replace(/\D/g, '').slice(0, 6), clearPin: false })}
-                  inputMode="numeric"
-                  pattern="\d{6}"
-                  maxLength={6}
-                  autoComplete="new-password"
-                  placeholder={settings.pinSet ? 'Code saved - leave blank to keep it' : 'Set a 6-digit code'}
-                  className={input}
-                />
-              </label>
-              {settings.pinSet && (
-                <label className="mt-4 flex items-start gap-2 rounded-lg border border-red-100 bg-red-50 p-3 text-sm font-semibold text-red-800">
-                  <input type="checkbox" checked={form.clearPin} onChange={(event) => setForm({ ...form, clearPin: event.target.checked, pin: '' })} />
-                  Delete saved code
-                </label>
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <h2 className="font-heading text-xl font-bold text-foreground-950">Access code</h2>
+                  <p className="mt-2 text-sm text-foreground-600">The 6-digit code is saved as a hash and never shown again.</p>
+                </div>
+                <StatusBadge tone={settings.pinSet ? 'success' : 'warning'}>{settings.pinSet ? 'Code saved' : 'No code'}</StatusBadge>
+              </div>
+
+              {settings.pinSet && !editingPin && !form.clearPin ? (
+                <div className="mt-5 rounded-xl border border-background-200 bg-background-50 p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <p className="text-sm font-bold text-foreground-950">Current code is active</p>
+                      <p className="mt-1 text-sm text-foreground-600">Create a new 6-digit code whenever you want to replace it.</p>
+                    </div>
+                    <span className="rounded-lg bg-white px-3 py-2 font-mono text-sm font-bold tracking-[0.25em] text-foreground-500">******</span>
+                  </div>
+                  <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+                    <button type="button" className="dashboard-action-secondary flex-1" onClick={() => setEditingPin(true)}>
+                      Change access code
+                    </button>
+                    <button type="button" className="dashboard-link-danger flex-1 justify-center rounded-lg border border-red-100 bg-red-50 px-4 py-2 text-sm font-bold" onClick={() => setForm({ ...form, clearPin: true, pin: '' })}>
+                      Delete saved code
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="mt-5">
+                  {form.clearPin ? (
+                    <div className="rounded-lg border border-red-100 bg-red-50 p-3 text-sm text-red-800">
+                      <p className="font-bold">Saved code will be deleted when you save.</p>
+                      <button type="button" className="mt-2 font-bold underline" onClick={() => setForm({ ...form, clearPin: false })}>Keep current code</button>
+                    </div>
+                  ) : (
+                    <>
+                      <label className="block text-sm font-semibold">{settings.pinSet ? 'New 6-digit code' : '6-digit code'}
+                        <input
+                          value={form.pin}
+                          onChange={(event) => setForm({ ...form, pin: event.target.value.replace(/\D/g, '').slice(0, 6), clearPin: false })}
+                          inputMode="numeric"
+                          pattern="\d{6}"
+                          maxLength={6}
+                          autoComplete="new-password"
+                          placeholder={settings.pinSet ? 'Enter a new 6-digit code' : 'Set a 6-digit code'}
+                          className={input}
+                        />
+                      </label>
+                      {settings.pinSet && (
+                        <button type="button" className="dashboard-action-secondary mt-3 w-full" onClick={() => { setEditingPin(false); setForm({ ...form, pin: '', clearPin: false }); }}>
+                          Keep current code
+                        </button>
+                      )}
+                    </>
+                  )}
+                </div>
               )}
             </section>
 
