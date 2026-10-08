@@ -218,6 +218,8 @@ async function uploadMedia<T>(body?: Body): Promise<T> {
 async function request<T>(path: string, method: Method, body?: Body, _options: RequestOptions = {}): Promise<T> {
   const { resource } = parsePath(path);
   if (resource === 'media' && method === 'POST') return uploadMedia<T>(body);
+  if (resource === 'maintenance' && method === 'GET') return getMaintenanceSettings<T>();
+  if (resource === 'maintenance' && method === 'PATCH') return saveMaintenanceSettings<T>(body);
   if (!routes[resource]) throw new Error(`Unsupported Supabase dashboard route: ${resource}`);
   return supabaseRequest<T>(path, method, body);
 }

@@ -10,7 +10,7 @@ const navGroups = [
   { label: 'Workspace', items: [
     { to: '/dashboard', label: 'Overview', icon: 'ri-dashboard-3-line', end: true },
     { to: '/dashboard/enquiries', label: 'Enquiries', icon: 'ri-mail-line', end: false },
-    { to: '/dashboard/maintenance', label: 'وضع الصيانة', icon: 'ri-shield-keyhole-line', end: false },
+    { to: '/dashboard/maintenance', label: 'Maintenance mode', icon: 'ri-shield-keyhole-line', end: false },
   ] },
   { label: 'Website content', items: [
     { to: '/dashboard/articles', label: 'Articles', icon: 'ri-article-line', end: false },

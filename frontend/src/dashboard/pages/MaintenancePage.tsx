@@ -141,8 +141,8 @@ export default function MaintenancePage() {
     <div className="space-y-6">
       <DashboardPageHeader
         eyebrow="Website access"
-        title="وضع الصيانة"
-        description="اقفل الموقع كله أو صفحات معينة أثناء الشغل، وادّي أي شخص كود 6 أرقام عشان يقدر يشوف النسخة العامة. الداش بورد يفضل مفتوح دائمًا."
+        title="Maintenance mode"
+        description="Control whole-site or page-level maintenance while you work. Share a 6-digit access code with anyone who needs to preview the public site. The dashboard stays available."
         meta={<StatusBadge tone={settings?.enabled ? 'warning' : 'success'}>{settings?.enabled ? 'Maintenance enabled' : 'Website public'}</StatusBadge>}
       />
 
