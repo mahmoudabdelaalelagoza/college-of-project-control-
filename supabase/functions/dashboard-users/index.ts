@@ -30,6 +30,19 @@ function cleanPermissions(value: unknown, role: string) {
   const cleaned = Array.from(new Set(raw.filter((permission) => permissionKeys.includes(permission))));
   return cleaned.length ? cleaned : ['dashboard.read'];
 }
+function jwtEmail(authorization: string) {
+  const token = authorization.replace(/^Bearer\s+/i, '');
+  const payload = token.split('.')[1];
+  if (!payload) return '';
+  try {
+    const normalized = payload.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonText = atob(normalized.padEnd(Math.ceil(normalized.length / 4) * 4, '='));
+    const data = JSON.parse(jsonText) as { email?: unknown; sub?: unknown };
+    return String(data.email ?? '').trim().toLowerCase();
+  } catch {
+    return '';
+  }
+}
 
 async function findAuthUserByEmail(adminClient: any, email: string) {
   for (let page = 1; page <= 10; page += 1) {
@@ -74,9 +87,11 @@ Deno.serve(async (req) => {
     const adminClient = createClient(supabaseUrl, serviceRoleKey, { auth: { persistSession: false, autoRefreshToken: false } });
 
     const { data: sessionUser, error: userError } = await userClient.auth.getUser();
-    if (userError || !sessionUser.user?.email) return json({ error: 'Dashboard session expired. Please sign in again.' }, 401);
+    const requesterEmail = sessionUser.user?.email?.toLowerCase() || jwtEmail(authorization);
+    if (userError && !requesterEmail) return json({ error: 'Dashboard session expired. Please sign in again.' }, 401);
+    if (!requesterEmail) return json({ error: 'Dashboard session expired. Please sign in again.' }, 401);
 
-    const allowed = await requireUsersManager(adminClient, sessionUser.user.email.toLowerCase());
+    const allowed = await requireUsersManager(adminClient, requesterEmail);
     if (!allowed) return json({ error: 'Your dashboard role does not include Users permission.' }, 403);
 
     const body = await req.json();
@@ -93,7 +108,7 @@ Deno.serve(async (req) => {
         .maybeSingle();
       if (rowError) throw rowError;
       if (!row) return json({ ok: true });
-      if (String(row.email).toLowerCase() === sessionUser.user.email.toLowerCase()) return json({ error: 'You cannot delete your own dashboard user.' }, 400);
+      if (String(row.email).toLowerCase() === requesterEmail) return json({ error: 'You cannot delete your own dashboard user.' }, 400);
 
       const { error: deleteRowError } = await adminClient.from('dashboard_admin_users').delete().eq('id', id);
       if (deleteRowError) throw deleteRowError;

@@ -74,7 +74,21 @@ async function writeRow(row: Record<string, unknown>, run: (row: Record<string, 
 
 function stripUndefined(payload: Record<string, unknown>) { return Object.fromEntries(Object.entries(payload).map(([key, value]) => [key, coerce(value)]).filter(([, value]) => value !== undefined)); }
 
-async function ensureAdmin() { if (!supabase) throw new Error('Supabase is not configured.'); const { data: sessionData, error: sessionError } = await supabase.auth.getSession(); if (sessionError) throw sessionError; if (!sessionData.session) throw new Error('Dashboard session expired. Please sign in again.'); return sessionData.session; }
+async function ensureAdmin() {
+  if (!supabase) throw new Error('Supabase is not configured.');
+  const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+  if (sessionError) throw sessionError;
+  let session = sessionData.session;
+  if (!session) throw new Error('Dashboard session expired. Please sign in again.');
+  const expiresAt = session.expires_at ? session.expires_at * 1000 : 0;
+  if (expiresAt && expiresAt - Date.now() < 120000) {
+    const { data: refreshed, error: refreshError } = await supabase.auth.refreshSession();
+    if (refreshError) throw refreshError;
+    session = refreshed.session;
+  }
+  if (!session) throw new Error('Dashboard session expired. Please sign in again.');
+  return session;
+}
 
 async function functionErrorMessage(error: unknown, fallback: string) {
   const baseMessage = error instanceof Error ? error.message : fallback;
