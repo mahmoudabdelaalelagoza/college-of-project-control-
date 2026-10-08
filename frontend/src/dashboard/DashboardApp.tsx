@@ -18,6 +18,7 @@ const IpcImagesPage = lazy(() => import('./pages/IpcImagesPage'));
 const SectorsPage = lazy(() => import('./pages/SectorsPage'));
 const ShortCoursesPage = lazy(() => import('./pages/ShortCoursesPage'));
 const MaintenancePage = lazy(() => import('./pages/MaintenancePage'));
+const UsersPage = lazy(() => import('./pages/UsersPage'));
 
 function ProtectedLayout() {
   const { isAuthenticated } = useAuth();
@@ -45,6 +46,7 @@ function DashboardRoutes() {
         <Route path="events" element={<EventsPage />} />
         <Route path="enquiries" element={<EnquiriesPage />} />
         <Route path="maintenance" element={<MaintenancePage />} />
+        <Route path="users" element={<UsersPage />} />
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Route>
       <Route path="*" element={<Navigate to="/dashboard" replace />} />

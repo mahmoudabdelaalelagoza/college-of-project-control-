@@ -27,6 +27,9 @@ const navGroups = [
     { to: '/dashboard/partners', label: 'Partner logos', icon: 'ri-award-line', end: false },
     { to: '/dashboard/professional-credentials', label: 'Professional credentials', icon: 'ri-medal-2-line', end: false },
   ] },
+  { label: 'Administration', items: [
+    { to: '/dashboard/users', label: 'Users', icon: 'ri-user-settings-line', end: false },
+  ] },
 ];
 
 export default function DashboardLayout() {

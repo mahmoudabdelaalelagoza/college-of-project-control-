@@ -125,6 +125,45 @@ async function saveMaintenanceSettings<T>(body?: Body): Promise<T> {
     updated_at: String(settings.updated_at ?? ''),
   } as T;
 }
+async function getDashboardUsers<T>(): Promise<T> {
+  if (!isSupabaseConfigured || !supabase) throw new Error('Supabase dashboard is not configured.');
+  await ensureAdmin();
+  const { data, error } = await supabase.rpc('get_dashboard_users');
+  if (error) throw error;
+  if (data && typeof data === 'object' && !Array.isArray(data) && 'error' in data) throw new Error(String((data as { error?: unknown }).error));
+  return (Array.isArray(data) ? data : []) as T;
+}
+
+async function saveDashboardUser<T>(body?: Body, id?: number | null): Promise<T> {
+  if (!isSupabaseConfigured || !supabase) throw new Error('Supabase dashboard is not configured.');
+  await ensureAdmin();
+  const payload = normalisePayload(body);
+  const permissions = Array.isArray(payload.permissions)
+    ? payload.permissions.map(String)
+    : typeof payload.permissions === 'string'
+      ? String(payload.permissions).split(',').map((item) => item.trim()).filter(Boolean)
+      : [];
+  const { data, error } = await supabase.rpc('set_dashboard_user', {
+    p_id: id ?? null,
+    p_email: String(payload.email ?? ''),
+    p_full_name: String(payload.full_name ?? ''),
+    p_role: String(payload.role ?? 'viewer'),
+    p_permissions: permissions,
+    p_is_active: payload.is_active !== false,
+    p_notes: String(payload.notes ?? ''),
+  });
+  if (error) throw error;
+  return data as T;
+}
+
+async function deleteDashboardUser<T>(id?: number | null): Promise<T> {
+  if (!isSupabaseConfigured || !supabase) throw new Error('Supabase dashboard is not configured.');
+  await ensureAdmin();
+  if (!id) throw new Error('Missing dashboard user id.');
+  const { data, error } = await supabase.rpc('delete_dashboard_user', { p_id: id });
+  if (error) throw error;
+  return data as T;
+}
 
 // Event categories live in the event_classifications join table, not on the events row.
 async function saveEventClassifications(eventId: number, categoryIds: unknown) {
@@ -220,6 +259,10 @@ async function request<T>(path: string, method: Method, body?: Body, _options: R
   if (resource === 'media' && method === 'POST') return uploadMedia<T>(body);
   if (resource === 'maintenance' && method === 'GET') return getMaintenanceSettings<T>();
   if (resource === 'maintenance' && method === 'PATCH') return saveMaintenanceSettings<T>(body);
+  if (resource === 'users' && method === 'GET') return getDashboardUsers<T>();
+  if (resource === 'users' && method === 'POST') return saveDashboardUser<T>(body);
+  if (resource === 'users' && method === 'PATCH') return saveDashboardUser<T>(body, parsePath(path).id);
+  if (resource === 'users' && method === 'DELETE') return deleteDashboardUser<T>(parsePath(path).id);
   if (!routes[resource]) throw new Error(`Unsupported Supabase dashboard route: ${resource}`);
   return supabaseRequest<T>(path, method, body);
 }
@@ -233,9 +276,10 @@ export const cmsApi = {
 
 export async function login(username: string, password: string): Promise<string> {
   if (!isSupabaseConfigured || !supabase) throw new Error('Supabase dashboard is not configured.');
-  const { data, error } = await supabase.auth.signInWithPassword({ email: username, password });
+  const email = username.trim().toLowerCase();
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
   if (error || !data.session) throw new Error('Invalid email or password.');
-  const { data: admin, error: adminError } = await supabase.from('dashboard_admin_users').select('email').eq('email', username).eq('is_active', true).maybeSingle();
+  const { data: admin, error: adminError } = await supabase.from('dashboard_admin_users').select('email').ilike('email', email).eq('is_active', true).maybeSingle();
   if (adminError || !admin) { await supabase.auth.signOut(); throw new Error('This email is not enabled for the dashboard.'); }
   return data.session.access_token;
 }
