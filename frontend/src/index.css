@@ -808,21 +808,21 @@ body:has(#sticky-actions) { padding-bottom: 132px; }
 dialog:not([open]) { display: none !important; }
 dialog::backdrop { background: oklch(var(--foreground-950) / 0.6); }
 
-.trusted-logos { background: rgb(var(--surface-rgb)); color: oklch(var(--foreground-950)); padding-block: 14px; }
+.trusted-logos { background: rgb(var(--surface-rgb)); color: oklch(var(--foreground-950)); padding-block: 16px; }
 .trusted-logos-window {
   flex: 1;
   min-width: 0;
   overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
 }
 .trusted-logos-track {
   display: flex;
   width: max-content;
   direction: ltr;
   will-change: transform;
-  animation: trusted-logos-scroll var(--logos-duration) linear infinite;
+  animation: trusted-logos-scroll var(--logos-duration, 42s) linear infinite;
   /* This strip is explicitly configured to move continuously. */
-  animation-duration: var(--logos-duration) !important;
+  animation-duration: var(--logos-duration, 42s) !important;
   animation-iteration-count: infinite !important;
 }
 .trusted-logos-group { display: flex; flex-shrink: 0; align-items: center; }
@@ -831,12 +831,15 @@ dialog::backdrop { background: oklch(var(--foreground-950) / 0.6); }
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 160px;
-  height: 72px;
-  margin-right: 24px;
-  padding: 4px 8px;
+  width: 156px;
+  height: 78px;
+  margin-right: 16px;
+  padding: 10px 18px;
+  border: 1px solid oklch(var(--background-200));
+  border-radius: 8px;
+  background: white;
 }
-.trusted-logo-image { width: 144px; height: 64px; max-width: 100%; max-height: 100%; object-fit: contain; }
+.trusted-logo-image { width: 144px; height: 58px; max-width: 100%; max-height: 100%; object-fit: contain; }
 @keyframes trusted-logos-scroll {
   from { transform: translate3d(0, 0, 0); }
   to { transform: translate3d(-50%, 0, 0); }
