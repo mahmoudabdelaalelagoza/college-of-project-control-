@@ -64,8 +64,8 @@ function usersErrorMessage(event: unknown) {
   if (message.toLowerCase().includes('get_dashboard_users')) {
     return 'Dashboard users are not installed in Supabase yet. Run docs/migration/SUPABASE_DASHBOARD_USERS.sql in the Supabase SQL editor, then refresh this page.';
   }
-  if (message.toLowerCase().includes('dashboard-users') || message.toLowerCase().includes('function not found') || message.toLowerCase().includes('non-2xx')) {
-    return 'The dashboard-users Edge Function is not deployed or returned an error. Deploy supabase/functions/dashboard-users and set SUPABASE_SERVICE_ROLE_KEY.';
+  if (message.toLowerCase().includes('dashboard-users') || message.toLowerCase().includes('function not found') || message.toLowerCase().includes('non-2xx') || message.toLowerCase().includes('failed to send a request')) {
+    return 'Could not reach the dashboard-users Edge Function. Make sure it is deployed, named dashboard-users, and has DASHBOARD_SERVICE_ROLE_KEY saved in Edge Function secrets.';
   }
   if (message === 'Not allowed') return 'Your dashboard role does not include Users permission.';
   return message;
@@ -184,7 +184,7 @@ export default function UsersPage() {
       />
 
       <DashboardAlert tone="warning" title="Secure user creation">
-        <p>Passwords are sent to a Supabase Edge Function and are never stored in the dashboard database. Deploy the dashboard-users function and set SUPABASE_SERVICE_ROLE_KEY before using this form.</p>
+        <p>Passwords are sent to a Supabase Edge Function and are never stored in the dashboard database. Deploy the dashboard-users function and set DASHBOARD_SERVICE_ROLE_KEY before using this form.</p>
       </DashboardAlert>
 
       {error && <DashboardAlert tone="error" title="Users error" onDismiss={() => setError('')}><p>{error}</p></DashboardAlert>}

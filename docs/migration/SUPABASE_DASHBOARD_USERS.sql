@@ -2,7 +2,7 @@
 -- Run once in Supabase SQL editor after SUPABASE_DASHBOARD_ADMIN.sql.
 -- This manages dashboard access records and links them to Supabase Auth users.
 -- To create passwords from the dashboard, deploy supabase/functions/dashboard-users
--- and set SUPABASE_SERVICE_ROLE_KEY as an Edge Function secret.
+-- and set DASHBOARD_SERVICE_ROLE_KEY as an Edge Function secret.
 
 alter table public.dashboard_admin_users
   add column if not exists full_name text not null default '',

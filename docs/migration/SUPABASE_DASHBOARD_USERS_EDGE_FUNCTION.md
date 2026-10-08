@@ -12,7 +12,7 @@ supabase functions deploy dashboard-users
 3. Add the service role key as an Edge Function secret. Keep this key out of frontend `.env` files.
 
 ```bash
-supabase secrets set SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+supabase secrets set DASHBOARD_SERVICE_ROLE_KEY=your-service-role-key
 ```
 
 4. If your Supabase project does not provide them automatically, also set:
