@@ -129,7 +129,7 @@ async function getDashboardUsers<T>(): Promise<T> {
   if (!isSupabaseConfigured || !supabase) throw new Error('Supabase dashboard is not configured.');
   await ensureAdmin();
   const { data, error } = await supabase.rpc('get_dashboard_users');
-  if (error) throw error;
+  if (error) throw new Error(error.message || 'Could not load dashboard users.');
   if (data && typeof data === 'object' && !Array.isArray(data) && 'error' in data) throw new Error(String((data as { error?: unknown }).error));
   return (Array.isArray(data) ? data : []) as T;
 }
@@ -152,7 +152,7 @@ async function saveDashboardUser<T>(body?: Body, id?: number | null): Promise<T>
     p_is_active: payload.is_active !== false,
     p_notes: String(payload.notes ?? ''),
   });
-  if (error) throw error;
+  if (error) throw new Error(error.message || 'Could not save dashboard user.');
   return data as T;
 }
 
@@ -161,7 +161,7 @@ async function deleteDashboardUser<T>(id?: number | null): Promise<T> {
   await ensureAdmin();
   if (!id) throw new Error('Missing dashboard user id.');
   const { data, error } = await supabase.rpc('delete_dashboard_user', { p_id: id });
-  if (error) throw error;
+  if (error) throw new Error(error.message || 'Could not delete dashboard user.');
   return data as T;
 }
 

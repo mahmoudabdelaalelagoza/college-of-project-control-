@@ -56,6 +56,15 @@ function formatDate(value?: string) {
   return new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(value));
 }
 
+function usersErrorMessage(event: unknown) {
+  const message = event instanceof Error ? event.message : 'Could not load dashboard users.';
+  if (message.toLowerCase().includes('get_dashboard_users')) {
+    return 'Dashboard users are not installed in Supabase yet. Run docs/migration/SUPABASE_DASHBOARD_USERS.sql in the Supabase SQL editor, then refresh this page.';
+  }
+  if (message === 'Not allowed') return 'Your dashboard role does not include Users permission.';
+  return message;
+}
+
 export default function UsersPage() {
   const [users, setUsers] = useState<DashboardUser[] | null>(null);
   const [selectedId, setSelectedId] = useState<number | 'new'>('new');
@@ -71,7 +80,10 @@ export default function UsersPage() {
       setUsers(data);
       if (selectedId !== 'new' && !data.some((user) => user.id === selectedId)) setSelectedId('new');
     })
-    .catch((event) => setError(event instanceof Error ? event.message : 'Could not load dashboard users.'));
+    .catch((event) => {
+      setUsers([]);
+      setError(usersErrorMessage(event));
+    });
 
   useEffect(() => { load(); }, []);
 
@@ -121,7 +133,7 @@ export default function UsersPage() {
       await load();
       setNotice('Dashboard user saved. Make sure a matching Supabase Auth account exists for this email.');
     } catch (eventError) {
-      setError(eventError instanceof Error ? eventError.message : 'Could not save dashboard user.');
+      setError(usersErrorMessage(eventError));
     } finally {
       setBusy(false);
     }
@@ -138,7 +150,7 @@ export default function UsersPage() {
       await load();
       setNotice('Dashboard user deleted.');
     } catch (eventError) {
-      setError(eventError instanceof Error ? eventError.message : 'Could not delete dashboard user.');
+      setError(usersErrorMessage(eventError));
     } finally {
       setBusy(false);
     }
