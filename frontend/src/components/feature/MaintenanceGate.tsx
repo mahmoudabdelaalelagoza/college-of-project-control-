@@ -1,5 +1,5 @@
 import type { FormEvent, ReactNode } from 'react';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { fetchMaintenanceSettings, verifyMaintenancePin, type MaintenancePublicSettings } from '@/services/maintenanceApi';
 
@@ -43,6 +43,7 @@ export default function MaintenanceGate({ children }: { children: ReactNode }) {
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const [pin, setPin] = useState('');
   const [checking, setChecking] = useState(false);
+  const [accessGranted, setAccessGranted] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -52,6 +53,7 @@ export default function MaintenanceGate({ children }: { children: ReactNode }) {
       .then((data) => {
         if (!active) return;
         setSettings(data);
+        setAccessGranted(hasStoredAccess(data));
         setStatus('ready');
       })
       .catch(() => {
@@ -63,7 +65,7 @@ export default function MaintenanceGate({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  const locked = useMemo(() => Boolean(settings && isProtected(settings, pathname) && !hasStoredAccess(settings)), [settings, pathname]);
+  const locked = Boolean(settings && isProtected(settings, pathname) && !accessGranted);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -80,6 +82,7 @@ export default function MaintenanceGate({ children }: { children: ReactNode }) {
         return;
       }
       localStorage.setItem(ACCESS_KEY, JSON.stringify({ updated_at: settings?.updated_at }));
+      setAccessGranted(true);
       setPin('');
     } catch {
       setError('Could not check the code. Please try again.');
