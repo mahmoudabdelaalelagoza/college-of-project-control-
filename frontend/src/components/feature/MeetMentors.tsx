@@ -43,15 +43,6 @@ function MentorCard({ mentor }: { mentor: DisplayMentor }) {
           {/* Gradient overlay at bottom */}
           <div className="absolute inset-0 bg-gradient-to-t from-foreground-950/40 via-transparent to-transparent pointer-events-none" />
 
-          {/* Stat badge floating on image */}
-          <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
-            <div className="px-3 py-1.5 rounded-full bg-background-50/90 backdrop-blur-sm border border-background-200/50">
-              <span className="text-sm font-semibold text-foreground-700 tracking-wide">
-                {mentor.affiliation}
-              </span>
-            </div>
-          </div>
-
           {/* Corner accent on hover */}
           <div className={`pointer-events-none absolute top-0 right-0 w-16 h-16 transition-all duration-500 ${
             hovered ? 'opacity-100' : 'opacity-0'
