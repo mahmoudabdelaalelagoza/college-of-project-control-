@@ -171,8 +171,8 @@ export default function AboutCPCM() {
           alt="Project professionals learning together in a professional programme setting"
           className="absolute inset-0 h-full w-full object-cover opacity-45"
         />
-        <div className="pattern-cubes-overlay pattern-cubes-overlay-dark absolute inset-0 opacity-70" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary-950/90 via-primary-950/78 to-primary-950/92" />
+        <div className="pattern-dots-overlay pattern-dots-dark absolute inset-0" aria-hidden="true" />
 
         <div className="relative mx-auto flex min-h-[760px] max-w-7xl flex-col items-center justify-center px-6 pb-16 pt-40 text-center lg:px-8">
           <div className="mx-auto max-w-5xl">
@@ -230,7 +230,7 @@ export default function AboutCPCM() {
         </div>
       </section>
       <section id="controls" className="relative overflow-hidden bg-primary-950 py-24 text-white">
-        <div className="pattern-cubes-overlay pattern-cubes-overlay-dark absolute inset-0 opacity-50" />
+        <div className="pattern-dots-overlay pattern-dots-dark absolute inset-0" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="Controls"

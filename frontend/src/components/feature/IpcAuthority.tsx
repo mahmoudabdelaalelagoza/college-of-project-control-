@@ -44,7 +44,20 @@ function PortraitSet({ variant, images }: { variant: 'primary' | 'duplicate'; im
   );
 }
 
-export default function IpcAuthority() {
+interface IpcAuthorityContent {
+  name: string;
+  heading: string;
+  description: string;
+  features: readonly { icon: string; title: string; copy: string }[];
+  recognitionCta: string;
+  aboutCta: string;
+  strapline: string;
+  recognitionHref: string;
+  aboutHref: string;
+}
+
+export default function IpcAuthority({ content }: { content?: IpcAuthorityContent } = {}) {
+  const sectionFeatures = content?.features ?? features;
   const { items: images, loading, error, retry } = useCollection(fetchIpcImages);
   // Repeat short collections to fill the viewport, then duplicate the full track
   // for a seamless -50% loop even when only one image is published.
@@ -101,7 +114,7 @@ export default function IpcAuthority() {
             IPC
           </p>
           <p className="mt-1 font-heading text-2xl font-bold md:text-3xl lg:text-[34px]" style={{ color: '#D8B36E' }}>
-            Institute of Project Controls
+            {content?.name ?? 'Institute of Project Controls'}
           </p>
 
           <div className="relative mx-auto mt-5 h-px w-36 lg:mx-0" style={{ background: 'linear-gradient(90deg, #D7B46C, rgba(215,180,108,0))' }}>
@@ -111,17 +124,19 @@ export default function IpcAuthority() {
             />
           </div>
 
+          {content && <h2 className="mx-auto mt-6 max-w-[500px] font-heading text-xl font-bold leading-snug text-white lg:mx-0 md:text-2xl">{content.heading}</h2>}
+
           <p className="mx-auto mt-6 max-w-[500px] text-base leading-relaxed md:text-lg lg:mx-0" style={{ color: 'rgba(245,245,245,0.72)' }}>
-            IPC is a trusted accreditation body dedicated to advancing project controls capability and professional development across the global project delivery community.
+            {content?.description ?? 'IPC is a trusted accreditation body dedicated to advancing project controls capability and professional development across the global project delivery community.'}
           </p>
-          <p className="mx-auto mt-3 max-w-[500px] text-sm leading-relaxed text-white/70 lg:mx-0">
+          {!content && <p className="mx-auto mt-3 max-w-[500px] text-sm leading-relaxed text-white/70 lg:mx-0">
             IPC tuition fee support: up to <strong className="text-[#D8B36E]">75%</strong> for eligible unemployed or self-employed learners, or up to <strong className="text-[#D8B36E]">50%</strong> for eligible employed learners, with employers contributing the remainder. Subject to approval.
-          </p>
+          </p>}
 
           {/* Feature items */}
-          <div className="mt-8 flex flex-col items-center justify-center gap-6 sm:flex-row lg:items-start lg:justify-start">
-            {features.map((feature, i) => (
-              <div key={feature.title} className={`flex items-start gap-3 text-left ${i === 1 ? 'sm:border-l sm:pl-6' : ''}`} style={i === 1 ? { borderColor: 'rgba(201,154,73,0.20)' } : undefined}>
+          <div className={content ? "mt-8 grid gap-5" : "mt-8 flex flex-col items-center justify-center gap-6 sm:flex-row lg:items-start lg:justify-start"}>
+            {sectionFeatures.map((feature, i) => (
+              <div key={feature.title} className={`flex items-start gap-3 text-left ${!content && i === 1 ? 'sm:border-l sm:pl-6' : ''}`} style={!content && i === 1 ? { borderColor: 'rgba(201,154,73,0.20)' } : undefined}>
                 <span
                   className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
                   style={{ border: '1px solid rgba(201,154,73,0.45)' }}
@@ -139,11 +154,11 @@ export default function IpcAuthority() {
           </div>
 
           {/* CTAs */}
-          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
+          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap lg:justify-start">
             <SiteLink
-              href={IPC_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={content?.recognitionHref ?? IPC_URL}
+              target={content ? undefined : '_blank'}
+              rel={content ? undefined : 'noopener noreferrer'}
               className="cta-button inline-flex items-center justify-center gap-2 rounded-lg px-7 py-3.5 text-sm font-semibold transition-transform duration-200 hover:-translate-y-0.5 whitespace-nowrap"
               style={{
                 backgroundImage: 'linear-gradient(135deg, #9C6813, #C6953B)',
@@ -151,17 +166,17 @@ export default function IpcAuthority() {
                 boxShadow: '0 14px 30px -16px rgba(178,119,21,0.55)',
               }}
             >
-              Explore Accreditation
+              {content?.recognitionCta ?? 'Explore Accreditation'}
               <i className="ri-arrow-right-line text-sm" />
             </SiteLink>
             <SiteLink
-              href={IPC_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={content?.aboutHref ?? IPC_URL}
+              target={content ? undefined : '_blank'}
+              rel={content ? undefined : 'noopener noreferrer'}
               className="cta-button inline-flex items-center justify-center gap-2 rounded-lg px-7 py-3.5 text-sm font-semibold transition-colors duration-200 whitespace-nowrap"
               style={{ border: '1px solid rgba(215,180,108,0.35)', color: '#F3EEE4' }}
             >
-              Learn About IPC
+              {content?.aboutCta ?? 'Learn About IPC'}
               <i className="ri-arrow-right-line text-sm" style={{ color: '#D7B46C' }} />
             </SiteLink>
           </div>
@@ -202,7 +217,7 @@ export default function IpcAuthority() {
           {error && <div role="alert" className="mt-6 text-center text-sm text-white/70"><p>IPC images could not be loaded.</p><button type="button" onClick={retry} className="mt-2 underline">Try again</button></div>}
 
           <p className="mt-8 px-2 text-center text-[10px] font-semibold uppercase tracking-[0.12em] sm:text-xs sm:tracking-[0.2em] md:text-sm md:tracking-[0.25em]" style={{ color: '#C99A49' }}>
-            <span aria-hidden="true">&#9670;</span> Recognised. Respected. Relied Upon. <span aria-hidden="true">&#9670;</span>
+            <span aria-hidden="true">&#9670;</span> {content?.strapline ?? 'Recognised. Respected. Relied Upon.'} <span aria-hidden="true">&#9670;</span>
           </p>
         </div>
       </div>

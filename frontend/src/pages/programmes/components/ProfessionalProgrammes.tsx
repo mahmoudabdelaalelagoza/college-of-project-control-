@@ -14,7 +14,7 @@ export default function ProfessionalProgrammes() {
         }}
       />
       <div className="hero-contrast-overlay absolute inset-0 -z-20" />
-      <div className="signal-pattern absolute inset-0 -z-10 opacity-20 [mask-image:linear-gradient(90deg,black,transparent_70%)]" />
+      <div className="pattern-dots pattern-dots-dark absolute inset-0 -z-10 [mask-image:linear-gradient(90deg,black,transparent_70%)]" aria-hidden="true" />
 
       <div className="container-site relative z-10 h-full">
         <div className="flex items-center h-full py-10 md:py-12 lg:py-16">

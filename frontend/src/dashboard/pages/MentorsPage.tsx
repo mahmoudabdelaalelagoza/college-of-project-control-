@@ -18,7 +18,10 @@ interface Mentor {
   is_active: boolean;
 }
 
-const emptyMentor = {
+type MentorForm = Omit<Mentor, 'id'> & { id?: number };
+
+const emptyMentor: MentorForm = {
+  image: null,
   name: '',
   initials: '',
   role_title: '',
@@ -33,7 +36,7 @@ const emptyMentor = {
 
 export default function MentorsPage() {
   const [mentors, setMentors] = useState<Mentor[] | null>(null);
-  const [adding, setAdding] = useState(false);
+  const [creating, setCreating] = useState(false);
   const [editingId, setEditingId] = useState<number | null>(null);
 
   const load = () => cmsApi.get<Mentor[]>('/mentors/').then(setMentors).catch(reportCmsError);
@@ -42,17 +45,14 @@ export default function MentorsPage() {
     load();
   }, []);
 
-  const createMentor = async () => {
-    try {
-      setAdding(true);
-      try {
-        const created = await cmsApi.post<Mentor>('/mentors/', { ...emptyMentor, name: 'New Mentor', biography: 'Add a short biography.' });
-        await load();
-        setEditingId(created.id);
-      } finally {
-        setAdding(false);
-      }
-    } catch (error) { reportCmsError(error); }
+  const createMentor = () => {
+    setEditingId(null);
+    setCreating(true);
+  };
+
+  const closeEditor = () => {
+    setCreating(false);
+    setEditingId(null);
   };
 
   const deleteMentor = async (id: number) => {
@@ -64,7 +64,7 @@ export default function MentorsPage() {
     } catch (error) { reportCmsError(error); }
   };
 
-  const editingMentor = mentors?.find((mentor) => mentor.id === editingId) ?? null;
+  const editingMentor = creating ? emptyMentor : mentors?.find((mentor) => mentor.id === editingId) ?? null;
 
   return (
     <div>
@@ -76,7 +76,6 @@ export default function MentorsPage() {
         <button
           type="button"
           onClick={createMentor}
-          disabled={adding}
           className="btn-primary px-4 py-2 text-sm font-semibold disabled:opacity-50"
         >
           + Add Mentor
@@ -90,17 +89,18 @@ export default function MentorsPage() {
           <p className="col-span-full text-sm text-foreground-400">No mentors yet.</p>
         ) : (
           mentors.map((mentor) => (
-            <MentorCard key={mentor.id} mentor={mentor} onEdit={() => setEditingId(mentor.id)} />
+            <MentorCard key={mentor.id} mentor={mentor} onEdit={() => { setCreating(false); setEditingId(mentor.id); }} />
           ))
         )}
       </div>
 
-      <Modal open={!!editingMentor} onClose={() => setEditingId(null)} title={editingMentor?.name || 'Edit mentor'}>
+      <Modal open={!!editingMentor} onClose={closeEditor} title={creating ? 'Add mentor' : editingMentor?.name || 'Edit mentor'}>
         {editingMentor && (
           <MentorEditor
+            key={editingMentor.id ?? 'new'}
             mentor={editingMentor}
-            onDelete={() => deleteMentor(editingMentor.id)}
-            onSaved={() => { load(); setEditingId(null); }}
+            onDelete={editingMentor.id === undefined ? undefined : () => deleteMentor(editingMentor.id!)}
+            onSaved={() => { load(); closeEditor(); }}
           />
         )}
       </Modal>
@@ -133,21 +133,27 @@ function MentorCard({ mentor, onEdit }: { mentor: Mentor; onEdit: () => void }) 
   );
 }
 
-function MentorEditor({ mentor, onDelete, onSaved }: { mentor: Mentor; onDelete: () => void; onSaved: () => void }) {
+function MentorEditor({ mentor, onDelete, onSaved }: { mentor: MentorForm; onDelete?: () => void; onSaved: () => void }) {
   const [form, setForm] = useState(mentor);
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const set = <K extends keyof Mentor>(key: K, value: Mentor[K]) => setForm((prev) => ({ ...prev, [key]: value }));
+  const set = <K extends keyof MentorForm>(key: K, value: MentorForm[K]) => setForm((prev) => ({ ...prev, [key]: value }));
 
   const onFileChange = (file: File | null) => {
     setImageFile(file);
     setPreview(file ? URL.createObjectURL(file) : null);
   };
 
+  useEffect(() => () => { if (preview) URL.revokeObjectURL(preview); }, [preview]);
+
   const save = async () => {
+    if (saving) return;
+    const persist = (payload: FormData | Record<string, unknown>) => mentor.id === undefined
+      ? cmsApi.post('/mentors/', payload)
+      : cmsApi.patch(`/mentors/${mentor.id}/`, payload);
     try {
       setSaving(true);
       try {
@@ -164,10 +170,10 @@ function MentorEditor({ mentor, onDelete, onSaved }: { mentor: Mentor; onDelete:
           data.append('order', String(form.order));
           data.append('is_active', String(form.is_active));
           data.append('image', imageFile);
-          await cmsApi.patch(`/mentors/${mentor.id}/`, data);
+          await persist(data);
         } else {
-          const { image: _image, ...rest } = form;
-          await cmsApi.patch(`/mentors/${mentor.id}/`, {
+          const { image: _image, id: _id, ...rest } = form;
+          await persist({
             ...rest,
             ...(form.image_url.trim() && form.image_url !== mentor.image_url ? { image: null } : {}),
           });
@@ -263,9 +269,9 @@ function MentorEditor({ mentor, onDelete, onSaved }: { mentor: Mentor; onDelete:
           {saving ? 'Saving…' : 'Save Mentor'}
         </button>
         {!form.is_active && <span className="text-xs font-semibold text-background-600">Draft — hidden from the live site</span>}
-        <button type="button" onClick={onDelete} className="ml-auto text-xs font-semibold text-red-600 hover:text-red-700">
+        {onDelete && <button type="button" onClick={onDelete} disabled={saving} className="ml-auto text-xs font-semibold text-red-600 hover:text-red-700">
           Delete mentor
-        </button>
+        </button>}
       </div>
     </div>
   );

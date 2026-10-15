@@ -1,7 +1,7 @@
 import SiteLink from '@/components/base/SiteLink';
 import { useEffect,useState } from 'react';
 
-export default function StickyProgrammeCta() {
+export default function StickyProgrammeCta({ secondaryLabel = 'Commercial PMO', secondaryHref = '/commercial-project-controls-route' }: { secondaryLabel?: string; secondaryHref?: string }) {
   const [stickyVisible, setStickyVisible] = useState(false);
 
   useEffect(() => {
@@ -29,10 +29,10 @@ export default function StickyProgrammeCta() {
                 Check Eligibility
               </SiteLink>
               <SiteLink
-                href="/commercial-project-controls-route"
+                href={secondaryHref}
                 className="w-full sm:w-auto min-h-[3.25rem] inline-flex items-center justify-center gap-2 px-6 py-2.5 text-sm font-label font-semibold text-primary-500 border border-primary-500 rounded-full bg-transparent hover:bg-primary-500/5 transition-colors whitespace-nowrap"
               >
-                Commercial PMO
+                {secondaryLabel}
                 <i className="ri-arrow-right-line" aria-hidden="true"></i>
               </SiteLink>
             </div>

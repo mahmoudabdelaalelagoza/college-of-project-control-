@@ -218,3 +218,33 @@ test('testimonial programme selector is dashboard-managed with safe fallback def
   assert.match(source, /eq\('is_active', true\)/, 'public selector must only show active programmes');
   assert.match(source, /resolveProgrammeLabel\(programme\)/, 'submitted reviews must store a readable programme label');
 });
+
+const {selectHomepageEvents}=await moduleFrom('src/pages/home/eventSelection.ts');
+function homepageEvent(id,title,starts_at,state='upcoming'){return {id,title,starts_at,state,display_summary:'',category:'',classifications:[]};}
+test('homepage events prefer upcoming project sessions and fill remaining places with recent distinct sessions',()=>{
+ const events=[homepageEvent(1,'Project controls briefing','2026-09-01','ended'),homepageEvent(2,'Risk management workshop','2026-11-01'),homepageEvent(3,'Portfolio management masterclass','2026-08-01','ended'),homepageEvent(4,'Project controls briefing','2026-07-01','ended'),homepageEvent(5,'Project management webinar','2026-12-01')];
+ assert.deepEqual(selectHomepageEvents(events,Date.parse('2026-10-15')).map(e=>e.id),[2,5,1]);
+ assert.deepEqual(selectHomepageEvents(events.filter(e=>e.state==='ended'),Date.parse('2026-10-15')).map(e=>e.id),[1,3]);
+});
+test('homepage events exclude unrelated, cancelled and placeholder sessions without changing the source library',()=>{
+ const events=[homepageEvent(1,'Digital marketing and project management','2026-11-01'),homepageEvent(2,'Project controls demo','2026-11-02'),homepageEvent(3,'PMO masterclass','2026-11-03','cancelled'),homepageEvent(4,'Scheduling workshop','2026-11-04')];
+ assert.deepEqual(selectHomepageEvents(events,Date.parse('2026-10-15')).map(e=>e.id),[4]);
+ assert.deepEqual(events.map(e=>e.id),[1,2,3,4]);
+});
+
+const { coachPortrait } = await moduleFrom('src/data/coachPortraits.ts');
+test('coach photo fallbacks resolve the published short names and full official names', () => {
+  for (const [names, file] of [
+    [['Adeyomi', 'Adeyemi Adeshina'], 'adeyemi-adeshina'],
+    [['Patryck', 'Patryk Zajac'], 'patryk-zajac'],
+    [['Aryan', 'Aryan Harikumar'], 'aryan-harikumar'],
+    [['Dr Randa', 'Randa Elabd', 'Dr. Randa Elabd'], 'randa-elabd'],
+  ]) {
+    for (const name of names) assert.equal(coachPortrait(name), `/assets/images/coaches/${file}.webp`);
+  }
+});
+test('unknown coach names do not inherit another coach portrait or object properties', () => {
+  assert.equal(coachPortrait('A new coach'), '');
+  assert.equal(coachPortrait('constructor'), '');
+  assert.equal(coachPortrait(''), '');
+});

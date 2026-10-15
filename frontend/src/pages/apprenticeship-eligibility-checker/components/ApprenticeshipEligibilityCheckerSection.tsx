@@ -5,7 +5,7 @@ import ApprenticeshipEligibilityChecker from "./ApprenticeshipEligibilityChecker
 export default function ApprenticeshipEligibilityCheckerSection() {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-primary-950 via-primary-800 to-primary-950 py-28 md:py-36" aria-labelledby="eligibility-title">
-          <div className="pattern-cubes-overlay pattern-cubes-overlay-dark pointer-events-none opacity-[0.06]" aria-hidden="true" />
+          <div className="pattern-dots-overlay pattern-dots-dark pointer-events-none" aria-hidden="true" />
           <div className="container-site relative z-10 grid w-full items-center gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
             <div>
               <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-label font-semibold uppercase tracking-wider text-accent-200">

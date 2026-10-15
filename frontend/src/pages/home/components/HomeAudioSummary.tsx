@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 
-const audioSrc = '/assets/audio/home-summary.mp3';
+const audioSrc = '/assets/audio/home-summary.mp3?v=704aca07532b';
 
 export default function HomeAudioSummary() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -37,11 +37,11 @@ export default function HomeAudioSummary() {
 
   return (
     <div className="reveal-fade-up is-visible mt-5 max-w-xl">
-      <p className="mb-2 text-xs font-semibold text-background-50/75">If you are busy, listen to the summary</p>
+      <p className="mb-2 text-xs font-semibold text-background-50/75">Prefer to listen? Hear a quick overview.</p>
       <div className="flex items-center gap-3 rounded-full border border-white/15 bg-white/[0.07] p-2 pr-3 backdrop-blur-sm">
       <audio
         ref={audioRef}
-        // The file is 4.6 MB. "none" keeps it out of the critical path entirely; the
+        // Load audio on first play to keep it out of the critical rendering path; the
         // duration is read from the loadedmetadata event on first play instead.
         preload="none"
         src={audioSrc}

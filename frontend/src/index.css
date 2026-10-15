@@ -342,13 +342,6 @@
     background: linear-gradient(to right, transparent, rgb(var(--surface-rgb) / 0.7), transparent);
   }
 
-  .signal-pattern {
-    background-image:
-      radial-gradient(circle at 16% 20%, rgb(var(--signal-500) / 0.20) 0 2px, transparent 3px),
-      radial-gradient(circle at 84% 72%, rgb(var(--signal-500) / 0.14) 0 1.5px, transparent 2.5px);
-    background-size: 42px 42px, 56px 56px;
-  }
-
   /* Gold micro-accent line */
 
   /* Lavender section divider */
@@ -529,35 +522,37 @@
   transform: scale(1);
 }
 
-.pattern-cubes-overlay {
+/* Shared static dotted grid with a subtle paper texture. */
+.pattern-dots,
+.pattern-dots-overlay {
+  --pattern-ink: var(--primary-rgb);
+  --pattern-dot-opacity: 0.08;
+  --pattern-fiber-opacity: 0.018;
+  --pattern-cross-fiber-opacity: 0.012;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgb(var(--pattern-ink) / var(--pattern-dot-opacity)) 0.8px, transparent 1px),
+    repeating-linear-gradient(0deg, rgb(var(--pattern-ink) / var(--pattern-fiber-opacity)) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgb(var(--pattern-ink) / var(--pattern-cross-fiber-opacity)) 0 1px, transparent 1px 5px);
+  background-size: 22px 22px, 100% 100%, 100% 100%;
+  background-repeat: repeat;
+  background-position: 0 0;
+}
+
+.pattern-dots-overlay {
   position: absolute;
   inset: 0;
-  pointer-events: none;
   z-index: 0;
-  background-image: url('https://storage.readdy-site.link/project_files/2c065606-36c7-4cac-81e4-2edb67f93f84/8c6d5361-a544-46cc-bda3-258e3264c4ec_compressed_ChatGPT-Image-Jun-26-2026-08_14_07-PM-1.webp');
-  background-size: 500px;
-  background-repeat: repeat;
-  background-position: center;
 }
 
-/* Dark sections — pattern shows as-is at low opacity */
-.pattern-cubes-overlay-dark {
-  opacity: 0.10;
+.pattern-dots-light {
+  --pattern-ink: var(--primary-rgb);
 }
 
-/* Light sections — inverted pattern */
-.pattern-cubes-overlay-light {
-  opacity: 0.06;
-  filter: invert(1);
-}
-
-@keyframes pattern-drift {
-  0% { background-position: 0% 0%; }
-  50% { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
-}
-.pattern-cubes-animate {
-  animation: pattern-drift 60s linear infinite;
+.pattern-dots-dark {
+  --pattern-ink: var(--surface-rgb);
+  --pattern-fiber-opacity: 0.012;
+  --pattern-cross-fiber-opacity: 0.008;
 }
 
 .nav-underline-slide {

@@ -10,7 +10,7 @@ const nextSteps = [
 export default function FindYourNextStep() {
   return (
 <section id="enquiry-form" className="relative overflow-hidden bg-gradient-to-br from-primary-800 via-primary-700 to-primary-900 py-16 md:py-24">
-          <div className="pattern-cubes-overlay pattern-cubes-overlay-dark pattern-cubes-animate" style={{ opacity: 0.08 }} />
+          <div className="pattern-dots-overlay pattern-dots-dark" aria-hidden="true" />
 
           <div className="container-site relative z-10">
             <div className="mx-auto mb-10 max-w-3xl text-center">

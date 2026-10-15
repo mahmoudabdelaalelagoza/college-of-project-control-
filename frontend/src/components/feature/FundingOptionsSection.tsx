@@ -12,6 +12,15 @@ export interface FundingSupportCard { title: string; description: string; }
 export interface FundingCtaContent { title: string; description: string; label: string; href: string; }
 
 interface FundingOptionsSectionProps {
+  id?: string;
+  tag?: string;
+  includedSupport?: { title: string; description: ReactNode };
+  supportNote?: string;
+  contributionCards?: FundingSupportCard[];
+  contributionTitle?: string;
+  contributionNote?: string;
+  footerNote?: ReactNode;
+  secondaryCta?: { label: string; href: string };
   title?: string;
   description?: string;
   overviewCards?: FundingOverviewCard[];
@@ -116,6 +125,15 @@ const defaultCta: FundingCtaContent = {
 };
 
 export default function FundingOptionsSection({
+  id,
+  tag = 'Funding and costs',
+  includedSupport,
+  supportNote,
+  contributionCards = apprenticeshipContributionCards,
+  contributionTitle,
+  contributionNote,
+  footerNote,
+  secondaryCta,
   title = 'Funding options',
   description =
     'Apprenticeships and professional study are funded differently. The right route depends on programme fit, learner status and employer eligibility.',
@@ -123,17 +141,17 @@ export default function FundingOptionsSection({
   includedBenefits = defaultIncludedBenefits,
   supportCards = defaultSupportCards,
   ctaContent = defaultCta,
-  imageSrc = 'https://jokdxsdbxorzciulkdyl.supabase.co/storage/v1/object/public/images/acf27d01133741779494ccc02a3edb89.png',
+  imageSrc = '/assets/images/funding/funding-options.webp',
   imageAlt = 'Construction professional wearing a hard hat at a city building site',
 }: FundingOptionsSectionProps) {
   return (
-    <section className="bg-background-50 py-12 md:py-16" aria-labelledby="funding-options-title">
+    <section id={id} className="bg-background-50 py-12 md:py-16" aria-labelledby="funding-options-title">
       <header className="relative isolate flex min-h-80 w-full min-w-0 items-end overflow-hidden bg-primary-950 md:aspect-[3/1]">
-            <img src={imageSrc} alt={imageAlt} width={2172} height={724} className="absolute inset-0 -z-20 h-full w-full object-cover object-[65%_center] md:object-center" loading="lazy" decoding="async" />
-            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary-950/90 via-primary-950/55 to-primary-950/10 md:via-primary-950/20" aria-hidden="true" />
-            <div className="container-site flex items-end justify-between gap-8 pb-24 pt-8 md:pb-28">
+            <img src={imageSrc} alt={imageAlt} width={2172} height={724} className="absolute inset-0 z-0 h-full w-full object-cover object-[65%_center] md:object-center" loading="lazy" decoding="async" />
+            <div className="absolute inset-0 z-10 bg-gradient-to-r from-primary-950/90 via-primary-950/55 to-primary-950/10 md:via-primary-950/20" aria-hidden="true" />
+            <div className="container-site relative z-20 flex items-end justify-between gap-8 pb-24 pt-8 md:pb-28">
             <div className="max-w-md lg:max-w-lg">
-              <p className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.24em] text-white/90"><span className="h-0.5 w-10 bg-highlight-400" aria-hidden="true" />Funding and costs</p>
+              <p className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.24em] text-white/90"><span className="h-0.5 w-10 bg-highlight-400" aria-hidden="true" />{tag}</p>
               <h2 id="funding-options-title" className="mt-4 text-4xl font-bold leading-tight tracking-tight text-white lg:text-5xl">{title}</h2>
               <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/90">{description}</p>
             </div>
@@ -158,13 +176,13 @@ export default function FundingOptionsSection({
             <article className="flex items-start gap-4 rounded-xl border border-accent-100 bg-accent-50/50 p-5">
               <span className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent-100 text-2xl text-primary-800 sm:flex"><i className="ri-box-3-line" aria-hidden="true" /></span>
               <div>
-                <h3 className="text-sm font-bold text-primary-900 sm:text-base">Included professional support</h3>
-                <p className="mt-1 text-xs text-foreground-600">Your course and programme package is designed to include:</p>
-                <div className="mt-3 flex flex-wrap gap-2">{includedBenefits.map(benefit => <span key={benefit} className="rounded-full border border-accent-200 bg-white px-3 py-1 text-[11px] font-semibold leading-relaxed text-primary-800">{benefit}</span>)}</div>
+                <h3 className="text-sm font-bold text-primary-900 sm:text-base">{includedSupport?.title ?? 'Included professional support'}</h3>
+                <div className="mt-1 space-y-2 text-xs leading-relaxed text-foreground-600">{includedSupport?.description ?? 'Your course and programme package is designed to include:'}</div>
+                {includedBenefits.length > 0 && <div className="mt-3 flex flex-wrap gap-2">{includedBenefits.map(benefit => <span key={benefit} className="rounded-full border border-accent-200 bg-white px-3 py-1 text-[11px] font-semibold leading-relaxed text-primary-800">{benefit}</span>)}</div>}
               </div>
             </article>
 
-            <div className="grid divide-y divide-accent-300/25 overflow-hidden rounded-xl bg-primary-900 text-white lg:grid-cols-3 lg:divide-x lg:divide-y-0">
+            <div className={`grid divide-y divide-accent-300/25 overflow-hidden rounded-xl bg-primary-900 text-white lg:divide-x lg:divide-y-0 ${supportCards.length === 2 ? 'lg:grid-cols-2' : 'lg:grid-cols-3'}`}>
               {supportCards.map((card, index) => (
                 <article key={card.title} className="flex items-start gap-4 p-5 lg:p-6">
                   <i className={`${index === 0 ? 'ri-graduation-cap-line' : index === 1 ? 'ri-bar-chart-grouped-line' : 'ri-team-fill'} shrink-0 text-3xl text-accent-100`} aria-hidden="true" />
@@ -176,10 +194,13 @@ export default function FundingOptionsSection({
               ))}
             </div>
 
+            {supportNote && <p className="px-1 text-xs leading-relaxed text-foreground-600">{supportNote}</p>}
+
             {/* Employer-side apprenticeship funding positions. Same card treatment as
                 the support cards above; the values come from the canonical policy. */}
-            <div className="grid divide-y divide-accent-300/25 overflow-hidden rounded-xl bg-primary-900 text-white lg:grid-cols-3 lg:divide-x lg:divide-y-0">
-              {apprenticeshipContributionCards.map((card) => (
+            {contributionTitle && <h3 className="pt-3 text-base font-bold text-primary-900">{contributionTitle}</h3>}
+            <div className={`grid divide-y divide-accent-300/25 overflow-hidden rounded-xl bg-primary-900 text-white ${contributionCards.length === 4 ? 'lg:grid-cols-2' : 'lg:grid-cols-3 lg:divide-x lg:divide-y-0'}`}>
+              {contributionCards.map((card) => (
                 <article key={card.title} className="flex items-start gap-4 p-5 lg:p-6">
                   <i className="ri-percent-line shrink-0 text-3xl text-accent-100" aria-hidden="true" />
                   <div>
@@ -190,11 +211,14 @@ export default function FundingOptionsSection({
               ))}
             </div>
 
-            <div className="flex flex-col gap-3 lg:flex-row lg:items-stretch">
+            {contributionNote && <p className="px-1 text-xs leading-relaxed text-foreground-600">{contributionNote}</p>}
+
+            <div className="flex flex-col gap-3 lg:flex-row lg:flex-wrap lg:items-stretch">
               <aside className="flex flex-1 items-center gap-3 rounded-xl border border-background-200 bg-background-50 px-4 py-3" aria-label="Funding eligibility information">
                 <i className="ri-information-line shrink-0 text-xl text-accent-700" aria-hidden="true" />
-                <p className="text-xs leading-relaxed text-foreground-600">Funding eligibility can vary. Visit the <SiteLink href="/institute-of-project-controls" className="font-medium text-primary-700 underline underline-offset-2 hover:text-primary-900">Institute of Project Controls</SiteLink> or speak to the Kent Business College team.</p>
+                <p className="text-xs leading-relaxed text-foreground-600">{footerNote ?? <>Funding eligibility can vary. Visit the <SiteLink href="/institute-of-project-controls" className="font-medium text-primary-700 underline underline-offset-2 hover:text-primary-900">Institute of Project Controls</SiteLink> or speak to the Kent Business College team.</>}</p>
               </aside>
+              {secondaryCta && <SiteLink href={secondaryCta.href} className="inline-flex min-h-12 shrink-0 items-center justify-center gap-3 rounded-full border border-primary-200 px-5 py-3 text-xs font-bold text-primary-800 hover:bg-primary-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700">{secondaryCta.label}<i className="ri-arrow-right-line text-base" aria-hidden="true" /></SiteLink>}
               <SiteLink href={ctaContent.href} className="btn-primary inline-flex min-h-12 shrink-0 items-center justify-center gap-3 px-5 py-3 text-xs font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700">{ctaContent.label}<i className="ri-arrow-right-line text-base" aria-hidden="true" /></SiteLink>
             </div>
           </div>

@@ -4,7 +4,7 @@ import TestimonialSubmission from '@/components/feature/TestimonialSubmission';
 export default function GetInTouch() {
   return (
 <section className="relative overflow-hidden bg-primary-950">
-          <div className="pattern-cubes-overlay pattern-cubes-overlay-dark pattern-cubes-animate" style={{ opacity: 0.08 }} />
+          <div className="pattern-dots-overlay pattern-dots-dark" aria-hidden="true" />
 
           <div className="container-site relative z-10 grid items-center gap-12 pb-16 pt-28 md:pb-20 md:pt-36 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             <div>

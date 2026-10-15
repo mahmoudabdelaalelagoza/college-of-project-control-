@@ -9,7 +9,7 @@ interface PageNotFoundProps {
 export default function PageNotFound({ location }: PageNotFoundProps) {
   return (
     <main className="hero-image-project relative isolate flex min-h-[90vh] items-center justify-center overflow-hidden bg-primary-950 px-4 pb-16 pt-28 text-center text-white">
-      <div className="signal-pattern absolute inset-0 -z-10 opacity-25" />
+      <div className="pattern-dots pattern-dots-dark absolute inset-0 -z-10" aria-hidden="true" />
       <div className="absolute -right-20 top-20 -z-10 h-80 w-80 rounded-full bg-signal-500/15 blur-3xl" />
       <span className="pointer-events-none absolute bottom-[-4rem] select-none font-heading text-[12rem] font-black leading-none text-white/[0.035] md:text-[20rem]">
         404

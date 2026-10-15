@@ -44,7 +44,7 @@ export default function ForApprenticesProfessionals() {
           </div>
 
           {/* Dot pattern overlay */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+          <div className="pattern-dots-overlay pattern-dots-dark" aria-hidden="true" />
 
           <div className="container-site relative z-10 w-full pt-28 md:pt-36 pb-16 md:pb-20">
             <div

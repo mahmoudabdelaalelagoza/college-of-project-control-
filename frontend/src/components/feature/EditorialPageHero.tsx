@@ -12,7 +12,7 @@ export default function EditorialPageHero({ eyebrow, icon, title, description, a
   return (
     <section className="relative isolate overflow-hidden bg-primary-950 pb-16 pt-32 text-white md:pb-20 md:pt-40">
       <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_82%_28%,oklch(var(--accent-500)/0.16),transparent_28%)]" />
-      <div className="signal-pattern absolute inset-0 -z-10 opacity-15" />
+      <div className="pattern-dots pattern-dots-dark absolute inset-0 -z-10" aria-hidden="true" />
       <div className="absolute inset-y-0 right-[12%] -z-10 hidden w-px bg-gradient-to-b from-transparent via-white/15 to-transparent lg:block" />
 
       <div className="container-site">

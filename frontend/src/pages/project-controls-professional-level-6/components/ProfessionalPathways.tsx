@@ -1,8 +1,6 @@
-import ProfessionalPathwaysSection from '@/components/feature/ProfessionalPathwaysSection';
+import { level6Copy } from '../pageCopy';
+import ProgrammeContentSection, { CopyBody, CopyNote, CopyCallout } from './ProgrammeContentSection';
+import SiteLink from '@/components/base/SiteLink';
+import { PCP_L6 } from '@/data/programmeFacts';
 
-/** Section: Professional pathways. */
-export default function ProfessionalPathways() {
-  return (
-    <ProfessionalPathwaysSection />
-  );
-}
+export default function ProfessionalPathways(){const copy=level6Copy.pathways;return <ProgrammeContentSection id="pathways" copy={copy}><CopyNote text={copy.note} /><div className="mt-10 grid gap-6 xl:grid-cols-3">{copy.cards.map((pathway,index)=><article key={pathway.title} className="flex min-w-0 flex-col rounded-xl border border-background-200 bg-white p-5 md:p-6"><p className="text-xs font-bold leading-6 text-accent-700">{pathway.subtitle}</p><h3 className="mt-3 text-2xl">{pathway.title}</h3><CopyBody body={pathway.body} /><h4 className="mt-6 text-sm font-bold text-primary-800">{pathway.tableTitle}</h4><table className="mt-4 w-full table-fixed border-collapse text-left text-sm"><caption className="sr-only">{pathway.title} — {pathway.tableTitle}</caption><colgroup><col /><col className="w-16" /></colgroup><thead className="bg-background-100"><tr><th scope="col" className="p-3">Module</th><th scope="col" className="p-3 text-right">Credits</th></tr></thead><tbody>{pathway.modules.map(module=><tr key={module.title} className="border-b border-background-200"><th scope="row" className="break-words px-3 py-4 font-normal leading-6 text-foreground-700">{module.title}</th><td className="px-3 py-4 text-right font-semibold text-primary-700">{module.credits}</td></tr>)}</tbody></table>{pathway.selectionNote&&<CopyNote text={pathway.selectionNote} />}<h4 className="mt-6 text-sm font-bold text-primary-800">{pathway.developsTitle}</h4><CopyBody body={pathway.develops} /><div className="mt-auto pt-5"><SiteLink href={PCP_L6!.internalPathways![index].href} className="inline-flex min-h-12 items-center text-sm font-bold text-primary-700">{pathway.cta}</SiteLink></div></article>)}</div><CopyCallout block={copy.tailored}><SiteLink href="/book-a-session" className="mt-6 inline-flex min-h-12 items-center text-sm font-bold text-primary-700 hover:text-primary-900">{copy.cta}</SiteLink></CopyCallout></ProgrammeContentSection>;}

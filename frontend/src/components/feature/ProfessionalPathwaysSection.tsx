@@ -43,7 +43,7 @@ export default function ProfessionalPathwaysSection({
 }: ProfessionalPathwaysSectionProps) {
   return (
     <section id={id} className={`relative overflow-hidden bg-gradient-to-br from-primary-950 via-primary-800 to-primary-950 py-16 md:py-24 ${className}`}>
-      <div className="pattern-cubes-overlay pointer-events-none opacity-[0.06]" aria-hidden="true" />
+      <div className="pattern-dots-overlay pattern-dots-dark pointer-events-none" aria-hidden="true" />
       <div className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-accent-400/10 blur-3xl" aria-hidden="true" />
       <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-accent-300/10 blur-3xl" aria-hidden="true" />
 

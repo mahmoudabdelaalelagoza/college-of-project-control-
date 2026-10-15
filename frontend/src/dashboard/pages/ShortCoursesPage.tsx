@@ -21,6 +21,8 @@ interface DashboardShortCourse {
   is_active: boolean;
 }
 
+type ShortCourseForm = Omit<DashboardShortCourse, 'id'> & { id?: number };
+
 interface MediaUploadResponse {
   url: string;
 }
@@ -44,7 +46,7 @@ const emptyCourse = {
 
 export default function ShortCoursesDashboardPage() {
   const [courses, setCourses] = useState<DashboardShortCourse[] | null>(null);
-  const [adding, setAdding] = useState(false);
+  const [draftCourse, setDraftCourse] = useState<ShortCourseForm | null>(null);
   const [editingCourseId, setEditingCourseId] = useState<number | null>(null);
 
   const load = () => cmsApi.get<DashboardShortCourse[]>('/short-courses/').then(setCourses).catch(reportCmsError);
@@ -53,21 +55,25 @@ export default function ShortCoursesDashboardPage() {
     load();
   }, []);
 
-  const createCourse = async () => {
-    setAdding(true);
-    try {
-      const created = await cmsApi.post<DashboardShortCourse>('/short-courses/', {
-        ...emptyCourse,
-        slug: `short-course-${Date.now()}`,
-        order: (courses?.length ?? 0) * 10 + 10,
-      });
-      await load();
-      setEditingCourseId(created.id);
-    } catch (error) {
-      reportCmsError(error);
-    } finally {
-      setAdding(false);
-    }
+  const createCourse = () => {
+    setEditingCourseId(null);
+    setDraftCourse({
+      ...emptyCourse,
+      slug: `short-course-${Date.now()}`,
+      order: (courses?.length ?? 0) * 10 + 10,
+    });
+  };
+
+  const closeEditor = () => {
+    setDraftCourse(null);
+    setEditingCourseId(null);
+  };
+
+  const courseSaved = (course: DashboardShortCourse) => {
+    setCourses(current => [...(current ?? []).filter(item => item.id !== course.id), course]);
+    setDraftCourse(null);
+    setEditingCourseId(course.id);
+    void load();
   };
 
   const deleteCourse = async (id: number) => {
@@ -81,7 +87,7 @@ export default function ShortCoursesDashboardPage() {
     }
   };
 
-  const editingCourse = courses?.find((course) => course.id === editingCourseId) ?? null;
+  const editingCourse = draftCourse ?? courses?.find((course) => course.id === editingCourseId) ?? null;
 
   return (
     <div>
@@ -91,8 +97,8 @@ export default function ShortCoursesDashboardPage() {
         description="Manage the short-course catalogue, page content and hero images. Uploaded images are stored in the Media Library and saved here as image links."
         meta={courses && <StatusBadge tone="info">{courses.length} courses</StatusBadge>}
         actions={
-        <button type="button" onClick={createCourse} disabled={adding} className="btn-primary px-4 py-2 text-sm font-semibold disabled:opacity-50">
-          {adding ? 'Adding...' : 'Add course'}
+        <button type="button" onClick={createCourse} className="btn-primary px-4 py-2 text-sm font-semibold disabled:opacity-50">
+          Add course
         </button>
         }
       />
@@ -105,7 +111,7 @@ export default function ShortCoursesDashboardPage() {
             icon="ri-book-open-line"
             title="No short courses yet"
             description="Create the first short course, then add its page summary, audience, focus items and hero image."
-            action={<button type="button" onClick={createCourse} disabled={adding} className="btn-primary px-5 py-3">{adding ? 'Adding...' : 'Add course'}</button>}
+            action={<button type="button" onClick={createCourse} className="btn-primary px-5 py-3">Add course</button>}
           />
         ) : (
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5">
@@ -113,7 +119,7 @@ export default function ShortCoursesDashboardPage() {
               <CourseCard
                 key={course.id}
                 course={course}
-                onEdit={() => setEditingCourseId(course.id)}
+                onEdit={() => { setDraftCourse(null); setEditingCourseId(course.id); }}
                 onDelete={() => deleteCourse(course.id)}
               />
             ))}
@@ -123,10 +129,11 @@ export default function ShortCoursesDashboardPage() {
 
       {editingCourse && (
         <CourseEditModal
+          key={editingCourse.id ?? 'new'}
           course={editingCourse}
-          onClose={() => setEditingCourseId(null)}
-          onDelete={() => deleteCourse(editingCourse.id)}
-          onSaved={load}
+          onClose={closeEditor}
+          onDelete={editingCourse.id === undefined ? undefined : () => deleteCourse(editingCourse.id!)}
+          onSaved={courseSaved}
         />
       )}
     </div>
@@ -183,7 +190,7 @@ function CourseCard({ course, onEdit, onDelete }: { course: DashboardShortCourse
   );
 }
 
-function CourseEditModal({ course, onClose, onDelete, onSaved }: { course: DashboardShortCourse; onClose: () => void; onDelete: () => void; onSaved: () => void }) {
+function CourseEditModal({ course, onClose, onDelete, onSaved }: { course: ShortCourseForm; onClose: () => void; onDelete?: () => void; onSaved: (course: DashboardShortCourse) => void }) {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose();
@@ -203,16 +210,16 @@ function CourseEditModal({ course, onClose, onDelete, onSaved }: { course: Dashb
         <section className="modal-panel w-full overflow-hidden rounded-2xl border border-background-200 bg-white shadow-2xl">
           <header className="flex flex-col gap-4 border-b border-background-200 bg-background-50 px-5 py-4 md:flex-row md:items-start md:justify-between md:px-7">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[.16em] text-[#05232E]">Edit short course</p>
+              <p className="text-xs font-bold uppercase tracking-[.16em] text-[#05232E]">{course.id === undefined ? 'Add short course' : 'Edit short course'}</p>
               <h2 id="short-course-edit-title" className="mt-1 font-heading text-2xl font-bold text-foreground-950">{course.title || 'Untitled course'}</h2>
-              <a href={`/short-courses/${course.slug}`} target="_blank" rel="noreferrer" className="mt-2 inline-flex text-xs font-semibold text-[#05232E] underline">
+              {course.id !== undefined && <a href={`/short-courses/${course.slug}`} target="_blank" rel="noreferrer" className="mt-2 inline-flex text-xs font-semibold text-[#05232E] underline">
                 View course page
-              </a>
+              </a>}
             </div>
             <div className="flex shrink-0 flex-wrap items-center gap-2">
-              <button type="button" onClick={onDelete} className="rounded-lg border border-red-200 px-3 py-2 text-xs font-semibold text-red-700 hover:bg-red-50">
+              {onDelete && <button type="button" onClick={onDelete} className="rounded-lg border border-red-200 px-3 py-2 text-xs font-semibold text-red-700 hover:bg-red-50">
                 Delete course
-              </button>
+              </button>}
               <button type="button" onClick={onClose} className="flex h-10 w-10 items-center justify-center rounded-lg border border-background-200 bg-white text-foreground-700 hover:bg-background-100" aria-label="Close editor">
                 <i className="ri-close-line text-xl" aria-hidden="true" />
               </button>
@@ -227,7 +234,7 @@ function CourseEditModal({ course, onClose, onDelete, onSaved }: { course: Dashb
   );
 }
 
-function CourseEditor({ course, onSaved }: { course: DashboardShortCourse; onSaved: () => void }) {
+function CourseEditor({ course, onSaved }: { course: ShortCourseForm; onSaved: (course: DashboardShortCourse) => void }) {
   const [form, setForm] = useState(course);
   const [focusText, setFocusText] = useState(course.focus.join('\n'));
   const [saving, setSaving] = useState(false);
@@ -241,7 +248,7 @@ function CourseEditor({ course, onSaved }: { course: DashboardShortCourse; onSav
     setSaved(false);
   }, [course]);
 
-  const set = <K extends keyof DashboardShortCourse>(key: K, value: DashboardShortCourse[K]) => {
+  const set = <K extends keyof ShortCourseForm>(key: K, value: ShortCourseForm[K]) => {
     setForm((current) => ({ ...current, [key]: value }));
   };
 
@@ -263,15 +270,20 @@ function CourseEditor({ course, onSaved }: { course: DashboardShortCourse; onSav
   };
 
   const save = async () => {
+    if (saving || uploading) return;
     setSaving(true);
     try {
-      await cmsApi.patch(`/short-courses/${course.id}/`, {
-        ...form,
+      const { id: _id, ...fields } = form;
+      const payload = {
+        ...fields,
         focus: focusText.split('\n').map((item) => item.trim()).filter(Boolean),
-      });
+      };
+      const savedCourse = course.id === undefined
+        ? await cmsApi.post<DashboardShortCourse>('/short-courses/', payload)
+        : await cmsApi.patch<DashboardShortCourse>(`/short-courses/${course.id}/`, payload);
       setSaved(true);
       setTimeout(() => setSaved(false), 2200);
-      onSaved();
+      onSaved(savedCourse);
     } catch (error) {
       reportCmsError(error);
     } finally {

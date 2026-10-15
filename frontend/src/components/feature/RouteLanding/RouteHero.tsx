@@ -81,7 +81,7 @@ export default function RouteHero({
         }}
       />
       <div className="hero-contrast-overlay absolute inset-0 -z-20" />
-      <div className="signal-pattern absolute inset-0 -z-10 opacity-20" />
+      <div className="pattern-dots pattern-dots-dark absolute inset-0 -z-10" aria-hidden="true" />
       <div
         className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgb(252 99 19 / 0.18), transparent 68%)' }}

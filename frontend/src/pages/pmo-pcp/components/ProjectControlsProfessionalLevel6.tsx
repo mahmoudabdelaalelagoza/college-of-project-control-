@@ -13,7 +13,7 @@ export default function ProjectControlsProfessionalLevel6() {
         }}
       />
       <div className="hero-contrast-overlay absolute inset-0 -z-20" />
-      <div className="signal-pattern absolute inset-0 -z-10 opacity-20 [mask-image:linear-gradient(90deg,black,transparent_72%)]" />
+      <div className="pattern-dots pattern-dots-dark absolute inset-0 -z-10 [mask-image:linear-gradient(90deg,black,transparent_72%)]" aria-hidden="true" />
 
       <div className="container-site relative z-10">
         <div className="max-w-4xl">

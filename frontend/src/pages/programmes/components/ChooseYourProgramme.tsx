@@ -242,13 +242,7 @@ function StandardProgrammeFeature({ eyebrow, name, descriptor, headline, copy, c
 export default function ChooseYourProgramme() {
   return (
     <section id="programmes-list" className="py-16 md:py-20 bg-background-50 relative overflow-hidden">
-      <div
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, oklch(var(--background-300) / 0.25) 1px, transparent 0)',
-          backgroundSize: '20px 20px',
-        }}
-      ></div>
+      <div className="pattern-dots-overlay pattern-dots-light" aria-hidden="true" />
 
       <div className="container-site relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14 reveal-blur-in is-visible">

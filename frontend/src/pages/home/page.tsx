@@ -8,7 +8,6 @@ import FromTheJournal from "./components/FromTheJournal";
 import FundingEligibilityAndIPCSupport from "./components/FundingEligibilityAndIPCSupport";
 import LearnFromPractitioners from "./components/LearnFromPractitioners";
 import LearnTogether from "./components/LearnTogether";
-import ProfessionalDevelopmentAndRecognition from "./components/ProfessionalDevelopmentAndRecognition";
 import ProfessionalExperience from "./components/ProfessionalExperience";
 import ProfessionalProgrammes from "./components/ProfessionalProgrammes";
 import ProjectDrivenSectors from "./components/ProjectDrivenSectors";
@@ -32,10 +31,9 @@ export default function Home() {
         <ShortCoursesCarousel />
         <LearnFromPractitioners />
         <CoachingAndSupport />
-        <LearnTogether />
         <FromTheJournal />
+        <LearnTogether />
         <ProfessionalExperience />
-        <ProfessionalDevelopmentAndRecognition />
         <FinalHomepageCta />
       </main>
       <Footer />

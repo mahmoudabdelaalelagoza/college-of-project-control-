@@ -5,23 +5,23 @@ import HomeAudioSummary from './HomeAudioSummary';
 const proofItems = [
   {
     icon: 'ri-briefcase-4-line',
-    title: 'Workplace applied',
-    detail: 'Learning connected to real responsibilities',
+    title: 'Workplace-focused',
+    detail: 'Apply what you learn to real project challenges.',
   },
   {
     icon: 'ri-user-star-line',
-    title: 'Practitioner led',
-    detail: 'Guidance from experienced project professionals',
+    title: 'Practitioner-led',
+    detail: 'Learn from experienced project professionals.',
   },
   {
     icon: 'ri-team-line',
-    title: 'Employer supported',
-    detail: 'Learning aligned with workplace development',
+    title: 'Supported throughout',
+    detail: 'Benefit from live teaching, coaching and personalised guidance.',
   },
   {
     icon: 'ri-route-line',
-    title: 'Progression focused',
-    detail: 'Clear routes for continued professional development',
+    title: 'Progression-focused',
+    detail: 'Develop skills to support your next professional step.',
   },
 ];
 
@@ -37,28 +37,27 @@ export default function CollegeOfProjectControlsAndManagement() {
           fetchPriority="high"
         />
         <div className="hero-contrast-overlay absolute inset-0 -z-20" />
-        <div className="signal-pattern absolute inset-0 -z-10 opacity-25 [mask-image:linear-gradient(90deg,black,transparent_68%)]" />
+        <div className="pattern-dots pattern-dots-dark absolute inset-0 -z-10 [mask-image:linear-gradient(90deg,black,transparent_68%)]" aria-hidden="true" />
         <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-t from-secondary-950/70 to-transparent" />
 
         <div className="relative z-10 container-site h-full">
           <div className="flex h-full items-center py-10 md:py-12 lg:py-16">
             <div className="w-full max-w-3xl lg:w-[58%]">
-              <div className="reveal-blur-in is-visible mb-5 inline-flex max-w-full flex-wrap items-center gap-x-3 gap-y-1 rounded-full border border-signal-400/50 bg-signal-500/15 px-4 py-1.5 text-xs font-label font-semibold uppercase tracking-[0.18em] text-signal-300">
-                <span>College of Project Controls &amp; Management</span>
+              <div className="reveal-blur-in is-visible mb-5 inline-flex max-w-full flex-wrap items-center gap-x-3 gap-y-1 rounded-full border border-signal-400/50 bg-signal-500/15 px-4 py-1.5 text-[11px] font-label font-semibold uppercase tracking-[0.18em] text-signal-300">
                 <span className="hidden h-1 w-1 rounded-full bg-signal-300/70 sm:inline-block" aria-hidden="true" />
                 <span className="text-background-50/78">Part of Kent Business College</span>
               </div>
 
-              <h1 className="reveal-fade-up is-visible text-display font-heading font-bold leading-[1.04] tracking-tight text-background-50">
+              <h1 className="reveal-fade-up is-visible text-display font-heading font-bold leading-[1.08] tracking-tight text-background-50">
                 Project controls and project management apprenticeships
               </h1>
 
               <p className="reveal-fade-up is-visible mt-5 max-w-2xl text-base font-body leading-relaxed text-background-50/84 md:text-lg" style={{ transitionDelay: '100ms' }}>
-                Build the capability to plan, control and deliver projects through practical, work-based learning with Kent Business College.
+                Develop the practical skills and professional judgement to plan, manage and control projects with confidence. Our work-based apprenticeships combine live teaching, expert support and learning you can apply in your role.
               </p>
 
               <p className="reveal-fade-up is-visible mt-3 max-w-2xl text-sm font-body leading-relaxed text-background-50/74 md:text-base" style={{ transitionDelay: '150ms' }}>
-                Explore the apprenticeship that fits your responsibilities, experience and development needs.
+                Explore two apprenticeship routes designed around different responsibilities, experience levels and professional development goals.
               </p>
 
               <p className="reveal-fade-up is-visible mt-3 max-w-2xl text-sm font-label font-semibold leading-relaxed text-signal-300" style={{ transitionDelay: '200ms' }}>

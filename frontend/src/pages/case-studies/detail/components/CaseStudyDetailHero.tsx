@@ -8,7 +8,7 @@ interface CaseStudyDetailHeroProps {
 export default function CaseStudyDetailHero({ item }: CaseStudyDetailHeroProps) {
   return (
     <section className="relative isolate overflow-hidden bg-primary-950 pb-16 pt-36 text-white md:pb-20 md:pt-40">
-      <div className="pattern-cubes-overlay pattern-cubes-overlay-dark" />
+      <div className="pattern-dots-overlay pattern-dots-dark" aria-hidden="true" />
       <div className="absolute inset-0 z-[1] bg-gradient-to-r from-primary-950 via-primary-950/92 to-primary-950/72" aria-hidden="true" />
       <div className="container-site relative z-10 grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(360px,0.7fr)] lg:items-end">
         <div>

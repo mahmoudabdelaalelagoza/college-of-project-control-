@@ -10,7 +10,7 @@ export default function RouteProcess({ heading, subheading, steps }: RouteProces
       className="py-16 md:py-20 relative overflow-hidden"
       style={{ background: 'linear-gradient(135deg, oklch(var(--primary-900)), oklch(var(--primary-950)))' }}
     >
-      <div className="pattern-cubes-overlay pattern-cubes-overlay-dark pattern-cubes-animate" style={{ opacity: 0.06 }}></div>
+      <div className="pattern-dots-overlay pattern-dots-dark" aria-hidden="true"></div>
 
       <div className="container-site relative z-10">
         <div className="flex items-center gap-2 mb-3 justify-center">

@@ -14,7 +14,7 @@ export default function RouteFinalCta({ heading, description, primaryCta, primar
       className="py-16 md:py-20 relative overflow-hidden"
       style={{ background: 'linear-gradient(135deg, oklch(var(--primary-700)), oklch(var(--primary-900)))' }}
     >
-      <div className="pattern-cubes-overlay pattern-cubes-overlay-dark pattern-cubes-animate" style={{ opacity: 0.06 }}></div>
+      <div className="pattern-dots-overlay pattern-dots-dark" aria-hidden="true"></div>
 
       <div className="container-site relative z-10 text-center">
         <h2 className="text-2xl md:text-3xl font-heading font-bold text-background-50 leading-tight mb-3 max-w-xl mx-auto">

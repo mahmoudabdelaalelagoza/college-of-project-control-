@@ -1,50 +1,22 @@
 import SiteLink from '@/components/base/SiteLink';
+import { homeCopy } from '../pageCopy';
 
-const sectors = [
-  {
-    title: 'Construction & Infrastructure',
-    description: 'Planning, controls, cost, contracts and risk across complex capital and infrastructure delivery.',
-    href: '/project-controls-professional/construction-route',
-    image: '/assets/images/construction-sector-hero.webp',
-    alt: 'Construction and infrastructure project environment',
-  },
-  {
-    title: 'Engineering & Manufacturing',
-    description: 'Integration, scheduling, cost and performance control across engineering and manufacturing environments.',
-    href: '/project-controls-professional/engineering-manufacturing-aerospace-route',
-    image: '/assets/images/engineering-sector-hero.webp',
-    alt: 'Engineering and manufacturing project environment',
-  },
-  {
-    title: 'Public Sector',
-    description: 'Governance, assurance, planning and accountable delivery across public programmes and projects.',
-    href: '/project-controls-professional/public-sector-councils-route',
-    image: '/assets/images/public-sector-sector-hero.webp',
-    alt: 'Public sector project delivery environment',
-  },
-  {
-    title: 'Energy & Utilities',
-    description: 'Planning, cost, risk and integrated controls across complex assets, programmes and operational environments.',
-    href: '/project-controls-professional/energy-oil-gas-utilities-route',
-    image: '/assets/images/energy-sector-hero.jpg',
-    alt: 'Energy and utilities project environment',
-  },
-];
+const sectors=homeCopy.sectors.cards;
 
 export default function ProjectDrivenSectors() {
   return (
     <section id="sectors" className="bg-background-50 py-16 md:py-24" aria-labelledby="project-driven-sectors-heading">
       <div className="container-site">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="font-label text-xs font-bold uppercase tracking-[0.18em] text-accent-700">Project-driven sectors</p>
+          <p className="font-label text-xs font-bold uppercase tracking-[0.18em] text-accent-700">{homeCopy.sectors.tag}</p>
           <h2
             id="project-driven-sectors-heading"
             className="mt-4 font-heading text-3xl font-bold leading-tight text-foreground-950 md:text-5xl"
           >
-            Built for complex project environments
+            {homeCopy.sectors.title}
           </h2>
           <p className="mt-5 text-base leading-relaxed text-foreground-600 md:text-lg">
-            Apply project-controls capability where planning, cost, risk, governance and delivery performance matter.
+            {homeCopy.sectors.intro}
           </p>
         </div>
 
@@ -63,9 +35,10 @@ export default function ProjectDrivenSectors() {
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground-600">{sector.description}</p>
                 <SiteLink
                   href={sector.href}
+                  aria-label={`Explore ${sector.title}`}
                   className="mt-5 inline-flex min-h-11 w-fit items-center gap-2 rounded-full border border-primary-200 px-4 text-sm font-bold text-primary-900 transition-colors hover:border-primary-600 hover:bg-primary-50"
                 >
-                  Explore this sector
+                  Explore
                   <i className="ri-arrow-right-line" aria-hidden="true" />
                 </SiteLink>
               </div>
@@ -74,8 +47,7 @@ export default function ProjectDrivenSectors() {
         </div>
 
         <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-foreground-600">
-          Sector context helps illustrate how Project Controls capability can be applied. Programme suitability depends on the
-          learner&apos;s actual role, responsibilities, prior learning and workplace development opportunities.
+          {homeCopy.sectors.note}
         </p>
       </div>
     </section>

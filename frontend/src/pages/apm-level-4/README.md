@@ -8,7 +8,7 @@ Find the label on the page, then open its component below. Shared implementation
 | --- | --- | --- |
 | Sticky Cta | [StickyCta.tsx](components/StickyCta.tsx) | [StickyProgrammeCta.tsx](../../components/feature/StickyProgrammeCta.tsx) |
 | Build Capability That Transfers Directly To Your Role | [BuildCapabilityThatTransfersDirectlyToYourRole.tsx](components/BuildCapabilityThatTransfersDirectlyToYourRole.tsx) | Page-local |
-| Coaching and support | [CoachingAndSupport.tsx](components/CoachingAndSupport.tsx) | [CoachingSupport.tsx](../../components/feature/CoachingSupport.tsx) |
+| Coaching & Learner Support | [CoachingAndSupport.tsx](components/CoachingAndSupport.tsx) | Page-local copy and shared coach portraits |
 | For Employers | [ForEmployers.tsx](components/ForEmployers.tsx) | Page-local |
 | Frequently Asked Questions | [FrequentlyAskedQuestions.tsx](components/FrequentlyAskedQuestions.tsx) | Page-local |
 | Funding eligibility and IPC support | [FundingEligibilityAndIPCSupport.tsx](components/FundingEligibilityAndIPCSupport.tsx) | Page-local |
@@ -18,7 +18,7 @@ Find the label on the page, then open its component below. Shared implementation
 | How You Learn | [HowYouLearn.tsx](components/HowYouLearn.tsx) | Page-local |
 | Key Programme Facts | [KeyProgrammeFacts.tsx](components/KeyProgrammeFacts.tsx) | Page-local |
 | Learn By Building | [LearnByBuilding.tsx](components/LearnByBuilding.tsx) | Page-local |
-| Learn from Practitioners | [LearnFromPractitioners.tsx](components/LearnFromPractitioners.tsx) | [MeetMentors.tsx](../../components/feature/MeetMentors.tsx) |
+| Learner & Employer Feedback | [LearnerEmployerFeedback.tsx](components/LearnerEmployerFeedback.tsx) | [TestimonialsSection.tsx](../../components/feature/TestimonialsSection.tsx) |
 | Level4 Work Based Apprenticeship | [Level4WorkBasedApprenticeship.tsx](components/Level4WorkBasedApprenticeship.tsx) | Page-local |
 | Professional Development | [ProfessionalDevelopment.tsx](components/ProfessionalDevelopment.tsx) | Page-local |
 | Trust And Relevance | [TrustAndRelevance.tsx](components/TrustAndRelevance.tsx) | Page-local |
@@ -30,6 +30,8 @@ Find the label on the page, then open its component below. Shared implementation
 
 Section copy, repeated items and configuration:
 
+- [pageCopy.ts](pageCopy.ts) — current page copy, organised by section.
+- [ProgrammeContentSection.tsx](components/ProgrammeContentSection.tsx) — page-local section and card layouts.
 - [programmeData.ts](programmeData.ts)
 - [sectionData.ts](sectionData.ts)
 

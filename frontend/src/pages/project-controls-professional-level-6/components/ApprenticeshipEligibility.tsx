@@ -1,6 +1,4 @@
-import SharedSection from '@/components/feature/EligibilityCheckerSection';
-
-/** Apprenticeship eligibility. Shared layout and behavior live in EligibilityCheckerSection.tsx. */
-export default function ApprenticeshipEligibility() {
-  return <SharedSection />;
-}
+import { level6Copy } from '../pageCopy';
+import ProgrammeContentSection, { CopyGrid, CopyNote } from './ProgrammeContentSection';
+import SiteLink from '@/components/base/SiteLink';
+export default function ApprenticeshipEligibility(){const copy=level6Copy.eligibility;return <ProgrammeContentSection id="eligibility" copy={copy} light><div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap"><SiteLink href="/apprenticeship-eligibility-checker" className="btn-primary inline-flex min-h-12 items-center justify-center px-6 py-3 text-center text-sm font-bold">{copy.checkCta}</SiteLink><SiteLink href="/book-a-session" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 px-6 py-3 text-center text-sm font-semibold text-white">{copy.teamCta}</SiteLink></div><CopyNote text={copy.initialNote} light /><h3 className="mt-10 text-2xl text-white">{copy.checklistTitle}</h3><CopyGrid blocks={copy.cards} numbered light /><CopyNote text={copy.note} light /></ProgrammeContentSection>;}

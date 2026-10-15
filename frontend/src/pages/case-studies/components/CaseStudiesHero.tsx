@@ -1,7 +1,7 @@
 export default function CaseStudiesHero() {
   return (
     <section className="relative isolate overflow-hidden bg-primary-950 pb-16 pt-36 text-white md:pb-20 md:pt-40">
-      <div className="pattern-cubes-overlay pattern-cubes-overlay-dark" />
+      <div className="pattern-dots-overlay pattern-dots-dark" aria-hidden="true" />
       <div className="absolute inset-0 z-[1] bg-gradient-to-r from-primary-950 via-primary-950/92 to-primary-950/72" aria-hidden="true" />
       <div className="container-site relative z-10">
         <p className="font-label text-xs font-bold uppercase tracking-[.18em] text-signal-300">Project evidence</p>

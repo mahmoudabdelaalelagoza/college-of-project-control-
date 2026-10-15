@@ -1,27 +1,8 @@
 import SiteLink from '@/components/base/SiteLink';
+import { homeCopy } from '../pageCopy';
 
-const capabilityPoints = [
-  {
-    icon: 'ri-crosshair-line',
-    title: 'Identify capability gaps',
-    copy: 'Focus development on the project capabilities your organisation actually needs.',
-  },
-  {
-    icon: 'ri-user-star-line',
-    title: 'Develop existing talent',
-    copy: 'Build on the knowledge and experience already inside your organisation.',
-  },
-  {
-    icon: 'ri-briefcase-line',
-    title: 'Apply learning to live work',
-    copy: 'Connect development with relevant projects, systems and workplace responsibilities.',
-  },
-  {
-    icon: 'ri-route-line',
-    title: 'Support structured progression',
-    copy: 'Create clearer development routes for project, PMO and project-controls professionals.',
-  },
-];
+const icons=['ri-crosshair-line','ri-user-star-line','ri-briefcase-line','ri-route-line'];
+const capabilityPoints=homeCopy.employers.cards.map((card,index)=>({...card,copy:card.body,icon:icons[index]}));
 
 export default function ForEmployers() {
   return (
@@ -34,10 +15,10 @@ export default function ForEmployers() {
               id="employer-capability-heading"
               className="mt-4 max-w-3xl font-heading text-3xl font-bold leading-tight text-foreground-950 md:text-5xl"
             >
-              Build stronger project capability across your organisation
+              {homeCopy.employers.title}
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-foreground-600 md:text-lg">
-              Develop individual specialists, strengthen a PMO or build structured project-controls capability across a wider team.
+              {homeCopy.employers.intro}
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -54,11 +35,11 @@ export default function ForEmployers() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <SiteLink href="/employers" className="btn-primary inline-flex min-h-12 items-center gap-3 px-6 text-sm font-bold">
-                Develop your team
+                {homeCopy.employers.exploreCta}
                 <i className="ri-arrow-right-line text-base" aria-hidden="true" />
               </SiteLink>
               <SiteLink href="/contact" className="cta-button inline-flex min-h-12 items-center gap-3 px-6 text-sm font-bold">
-                Request an employer consultation
+                {homeCopy.employers.talkCta}
                 <i className="ri-arrow-right-line text-base" aria-hidden="true" />
               </SiteLink>
             </div>

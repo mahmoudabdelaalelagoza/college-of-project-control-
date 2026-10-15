@@ -77,6 +77,13 @@ export interface ProgrammeFacts {
    * comparison row.
    */
   responsibilities: string;
+  /** Concise wording for the side-by-side apprenticeship comparison. */
+  comparison?: {
+    bestSuitedTo: string;
+    responsibilities: string;
+    learningApproach: string;
+    assessment: string;
+  };
   /** Facts shown on cards and comparison tables. */
   facts: {
     /** Planned duration, or an explicit statement that it varies. */
@@ -139,13 +146,19 @@ export const PROGRAMMES: ProgrammeFacts[] = [
     level: 4,
     fundingBandMaximum: 7000,
     description:
-      'Plan project activities, work with stakeholders and support successful delivery.',
+      'Develop practical project management skills to plan activities, coordinate teams, manage stakeholders and support successful project delivery.',
     purpose:
       'Build practical capability to plan activities, work with stakeholders and support successful project delivery, through teaching, guided application and feedback connected to your role.',
     roleFit:
-      'Coordinating and delivering project activities: planning work, managing stakeholders, tracking progress and closing tasks out.',
+      'Planning and coordinating project activities, managing stakeholders, monitoring progress and supporting delivery from initiation to completion.',
     learningApproach:
-      'Work-based, with off-job teaching and guided application of the learning in your role, plus feedback on the evidence you produce.',
+      'Live online teaching, PMP preparation and applied AI learning, supported by coaching and workplace application.',
+    comparison: {
+      bestSuitedTo: 'Professionals coordinating project activities, managing stakeholders and supporting project delivery.',
+      responsibilities: 'Plan activities, coordinate teams, manage stakeholders, monitor progress and support delivery through to completion.',
+      learningApproach: 'Work-based learning with live teaching, guided application and feedback on your progress.',
+      assessment: 'Independent assessment against the Level 4 occupational standard, following the applicable assessment plan.',
+    },
     responsibilities:
       'Plan activities, manage stakeholders and information, track progress against the plan, and support delivery through to close.',
     facts: {
@@ -154,7 +167,7 @@ export const PROGRAMMES: ProgrammeFacts[] = [
         'A minimum off-job training commitment applies — confirmed in your offer',
       delivery: 'Work-based, with taught learning and applied evidence from your role',
       assessment:
-        'Work-based assessment against the occupational standard. The assessment version for starts on or after 28 January 2027 must be checked before your EPA is agreed.',
+        'Independent end-point assessment against the occupational standard, following the applicable assessment plan.',
       entry:
         'Suitable employment and development needs are assessed individually. Ask about the work available to develop, not only current competence.',
     },
@@ -180,13 +193,19 @@ export const PROGRAMMES: ProgrammeFacts[] = [
     level: 6,
     fundingBandMaximum: 27000,
     description:
-      'Integrate schedules, cost, risk and performance information so a project team can make and defend control decisions.',
+      'Turn schedule, cost, risk and performance data into reliable insights and recommendations for better project decisions.',
     purpose:
       'Develop the technical and leadership capability to integrate schedules, cost, risk and performance information so a project team can make and defend control decisions.',
     roleFit:
-      'The technical integration of schedules, costs, risks and performance across a project or programme, and the control decisions that follow.',
+      'Integrating project controls information, assuring data quality, analysing performance and recommending actions to support effective project delivery.',
     learningApproach:
-      'Work-based, integrating taught learning with applied project evidence; three internal pathways share the same standard and assessment.',
+      'Work-based learning with live teaching, practical application and an employer-agreed learning pathway.',
+    comparison: {
+      bestSuitedTo: 'Professionals responsible for integrating and assuring project controls information across complex projects.',
+      responsibilities: 'Integrate schedules, costs, risks and performance information, assess project health and recommend corrective actions.',
+      learningApproach: 'Work-based learning combining live teaching, applied project evidence and an agreed Operational, Strategic or Chartered development pathway.',
+      assessment: 'Independent assessment against the Level 6 occupational standard, following the applicable assessment plan.',
+    },
     responsibilities:
       'Build and maintain the project baseline, forecast cost and time to complete, manage risk and change, and report performance so control decisions can be defended.',
     facts: {
@@ -194,7 +213,7 @@ export const PROGRAMMES: ProgrammeFacts[] = [
       offJobHours:
         'A minimum off-job training commitment applies — confirmed in your offer',
       delivery: 'Work-based, with taught learning and applied evidence from your role',
-      assessment: 'Work-based assessment against the occupational standard',
+      assessment: 'Independent end-point assessment against the occupational standard, following the applicable assessment plan.',
       entry:
         'Suitable employment, prior learning and development needs are assessed individually.',
     },
@@ -229,14 +248,14 @@ export const PROFESSIONAL_PROGRAMMES: ProgrammeFacts[] = [
   {
     id: 'pmo-l6',
     officialTitle: 'Certified PMO Professional — Level 6 professional programme',
-    shortTitle: 'Certified PMO Professional Level 6',
+    shortTitle: 'Certified PMO Professional (Level 6)',
     slug: '/pmo-pcp',
     url: '/pmo-pcp',
     offerType: OFFER_TYPE.professional,
     offerTypeLabel: 'Professional programme',
     level: 6,
     description:
-      'Develop the knowledge and practical evidence to strengthen a project management office.',
+      'Develop advanced PMO capabilities in governance, integrated project controls, risk management and evidence-based reporting through practical, professionally focused learning.',
     purpose:
       'Develop the knowledge and practical evidence to strengthen a project management office, and understand how this professional programme relates to the Chartered development pathway within Project Controls Professional Level 6.',
     roleFit:
@@ -246,19 +265,19 @@ export const PROFESSIONAL_PROGRAMMES: ProgrammeFacts[] = [
     responsibilities:
       'Professional development for project management office practice. This is not a distinct qualification level and not a third apprenticeship.',
     facts: {
-      duration: 'Published as 16 months across four modules',
+      duration: '16 months',
       delivery:
-        'Standalone professional study, or a component within the full apprenticeship — your written offer states which',
+        'Four modules · Live online learning',
       assessment: 'Assessed separately from the full apprenticeship',
       entry:
         'Professional study entry conditions apply. This is not a separate apprenticeship and does not carry its own funding entitlement.',
     },
     fundingNote:
-      'This is professional study, not an apprenticeship. Fees, bursary options and any professional-body application support are set out separately and in full in your written offer.',
+      'The programme can be studied independently or included within an agreed Level 6 apprenticeship learning plan. It is not a separate apprenticeship, and its assessments do not replace the apprenticeship’s end-point assessment. Fees and funding arrangements depend on your route and are confirmed in your written offer.',
     recognition: {
       body: 'Association for Project Management (APM)',
       statement:
-        'APM lists KBC’s Certified PMO Professional (Level 6) as a recognised assessment for the technical-knowledge element of ChPP Pathway 2. Chartered status requires a separate application and satisfaction of APM’s remaining requirements.',
+        'APM recognises KBC’s Certified PMO Professional (Level 6) assessment for the technical-knowledge requirement of Chartered Project Professional (ChPP) Pathway 2. Chartered status requires a separate application and assessment by APM.',
       source: '[O07]',
     },
     lastVerified: '2026-09-27',
@@ -341,84 +360,59 @@ export interface ComparisonRow {
   valueById: Readonly<Record<string, string>>;
 }
 
-/**
- * One cell of a comparison row, always resolved through the program record.
- *
- * `undefined` is impossible here: `APPRENTICESHIP_COMPARISON_COLUMNS` is typed as
- * `ProgrammeFacts[]`, so a typo is a compile error rather than a blank cell.
- */
-function columnValue(
+/** Resolve comparison copy by programme id without changing the card wording. */
+function comparisonValue(
   id: (typeof APPRENTICESHIP_COMPARISON_ORDER)[number],
-  field: 'roleFit' | 'responsibilities' | 'learningApproach',
+  field: keyof NonNullable<ProgrammeFacts['comparison']>,
 ): string {
-  return programmeById(id)![field];
+  const comparison = programmeById(id)?.comparison;
+  if (!comparison) {
+    throw new Error(`programmeFacts: comparison copy is missing for "${id}".`);
+  }
+  return comparison[field];
 }
 
-function factsFor(
-  id: (typeof APPRENTICESHIP_COMPARISON_ORDER)[number],
-  field: 'duration' | 'delivery' | 'assessment' | 'entry',
-): string {
-  return programmeById(id)!.facts[field];
+/** Standard code and level always come from the same programme record. */
+function comparisonStandard(id: (typeof APPRENTICESHIP_COMPARISON_ORDER)[number]): string {
+  const programme = programmeById(id)!;
+  return `${standardCode(programme)} — Level ${programme.level}`;
 }
 
-function levelFor(id: (typeof APPRENTICESHIP_COMPARISON_ORDER)[number]): number {
-  return programmeById(id)!.level;
-}
-
-/**
- * The apprenticeship comparison, in a deliberate reading order:
- * what the role is → where it sits → how you learn → how it's assessed.
- * Deliberately short: badge level alone is not a useful discriminator, and a
- * five-row table stops being scannable on a phone.
- *
- * Every cell is keyed by programme id. No value here is typed by array index.
- */
+/** Shared comparison rows, in display order and keyed by programme id. */
 export const APPRENTICESHIP_COMPARISON: readonly ComparisonRow[] = [
   {
-    label: 'Role focus',
-    hint: 'The question that separates the two offers: coordinating delivery, or integrating control information.',
+    label: 'Best suited to',
     valueById: {
-      'apm-l4': columnValue('apm-l4', 'roleFit'),
-      'pcp-l6': columnValue('pcp-l6', 'roleFit'),
+      'apm-l4': comparisonValue('apm-l4', 'bestSuitedTo'),
+      'pcp-l6': comparisonValue('pcp-l6', 'bestSuitedTo'),
     },
   },
   {
-    label: 'Typical responsibilities',
-    hint: 'The work the learning is applied to, in the role itself.',
+    label: 'Core responsibilities',
     valueById: {
-      'apm-l4': columnValue('apm-l4', 'responsibilities'),
-      'pcp-l6': columnValue('pcp-l6', 'responsibilities'),
-    },
-  },
-  {
-    label: 'Level',
-    hint: 'The qualification level of the occupational standard.',
-    valueById: {
-      'apm-l4': `Level ${levelFor('apm-l4')}`,
-      'pcp-l6': `Level ${levelFor('pcp-l6')}`,
-    },
-  },
-  {
-    label: 'Standard reference',
-    hint: 'The occupational standard each offer is assessed against.',
-    valueById: {
-      'apm-l4': standardLabel(APM_L4!),
-      'pcp-l6': standardLabel(PCP_L6!),
+      'apm-l4': comparisonValue('apm-l4', 'responsibilities'),
+      'pcp-l6': comparisonValue('pcp-l6', 'responsibilities'),
     },
   },
   {
     label: 'Learning approach',
     valueById: {
-      'apm-l4': columnValue('apm-l4', 'learningApproach'),
-      'pcp-l6': columnValue('pcp-l6', 'learningApproach'),
+      'apm-l4': comparisonValue('apm-l4', 'learningApproach'),
+      'pcp-l6': comparisonValue('pcp-l6', 'learningApproach'),
+    },
+  },
+  {
+    label: 'Apprenticeship standard',
+    valueById: {
+      'apm-l4': comparisonStandard('apm-l4'),
+      'pcp-l6': comparisonStandard('pcp-l6'),
     },
   },
   {
     label: 'Assessment',
-    hint: 'Both are work-based, each against its own standard.',
     valueById: {
-      'apm-l4': factsFor('apm-l4', 'assessment'),
-      'pcp-l6': factsFor('pcp-l6', 'assessment'),
+      'apm-l4': comparisonValue('apm-l4', 'assessment'),
+      'pcp-l6': comparisonValue('pcp-l6', 'assessment'),
     },
   },
 ];

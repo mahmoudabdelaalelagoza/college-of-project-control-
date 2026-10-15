@@ -1,8 +1,7 @@
-import MeetMentors from '@/components/feature/MeetMentors';
+import { level6Copy } from '../pageCopy';
+import ProgrammeContentSection, { CopyBody, CopyNote } from './ProgrammeContentSection';
+import SiteLink from '@/components/base/SiteLink';
+import useCollection from '@/hooks/useCollection';
+import { fetchMentors } from '@/services/mentorsApi';
 
-/** Section: Learn from Practitioners. */
-export default function LearnFromPractitioners() {
-  return (
-    <MeetMentors />
-  );
-}
+export default function LearnFromPractitioners(){const copy=level6Copy.experts;const {items:mentors}=useCollection(fetchMentors);return <ProgrammeContentSection id="teachers" copy={copy}><div className="mt-10 grid gap-6 md:grid-cols-3">{copy.cards.map(expert=>{const mentor=mentors.find(item=>item.name.toLowerCase().includes(expert.match));return <article key={expert.title} className="flex min-w-0 flex-col rounded-xl border border-background-200 bg-white p-6">{mentor?.imageUrl?<img src={mentor.imageUrl} alt={expert.title} loading="lazy" decoding="async" className="h-24 w-24 rounded-full object-cover" />:<span className="inline-flex h-24 w-24 items-center justify-center rounded-full bg-primary-50 text-2xl font-bold text-primary-700" aria-hidden="true">{expert.title.split(' ').slice(-2).map(p=>p[0]).join('')}</span>}<h3 className="mt-5 text-xl">{expert.title}</h3><p className="mt-2 text-xs font-semibold leading-6 text-accent-700">{expert.subtitle}</p><CopyBody body={expert.body} /><SiteLink href={mentor?'/mentors/'+mentor.id:'/mentors'} className="mt-auto inline-flex min-h-12 items-center pt-5 text-sm font-bold text-primary-700">{expert.cta}</SiteLink></article>;})}</div><SiteLink href="/mentors" className="mt-6 inline-flex min-h-12 items-center text-sm font-bold text-primary-700 hover:text-primary-900">{copy.cta}</SiteLink><CopyNote text={copy.note} /></ProgrammeContentSection>;}

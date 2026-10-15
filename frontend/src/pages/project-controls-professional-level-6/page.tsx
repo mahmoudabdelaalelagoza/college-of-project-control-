@@ -27,7 +27,7 @@ export default function PcpMaster() {
 
 
     <SchemaOrg type="Organization" data={organizationSchema()} />
-    <SchemaOrg type="EducationalOccupationalProgram" data={courseSchema({ name: 'Project Controls Professional Level 6', description: 'A work-based Level 6 pathway for professionals responsible for planning, controlling, forecasting and governing complex projects.', timeToComplete: 'P27M' })} />
+    <SchemaOrg type="EducationalOccupationalProgram" data={{ ...courseSchema({ name: 'Project Controls Professional Level 6', description: 'A work-based Level 6 pathway for professionals responsible for planning, controlling, forecasting and governing complex projects.', educationalLevel: 'Level 6' }), timeToComplete: undefined }} />
 
     <div className="min-h-screen overflow-x-clip bg-background-50"><main>
       <CollegeOfProjectControlsAndProjectManagement />
@@ -55,7 +55,7 @@ export default function PcpMaster() {
 
       <ExpectedWorkload />
 
-      <div id="teachers"><LearnFromPractitioners /></div>
+      <LearnFromPractitioners />
 
       <CoachingAndSupport />
 
@@ -63,9 +63,9 @@ export default function PcpMaster() {
 
       <FundingEligibilityAndIPCSupport />
 
-      <EmployerPartnershipsAcrossProjectDrivenSectors />
-
       <ProgrammeEventsMasterclasses />
+
+      <EmployerPartnershipsAcrossProjectDrivenSectors />
 
       <NextStep />
     </main><Footer /><StickyCta /></div>

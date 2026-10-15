@@ -1,4 +1,5 @@
 import SiteLink from '@/components/base/SiteLink';
+import type { ReactNode } from 'react';
 import ProgrammeTestimonials from './ProgrammeTestimonials';
 import useEnquirySubmission from '@/hooks/useEnquirySubmission';
 
@@ -40,15 +41,15 @@ const linkColumns = [
   },
 ];
 
-export default function Footer() {
+export default function Footer({ testimonials = <ProgrammeTestimonials /> }: { testimonials?: ReactNode }) {
   const { receipt, pending, error, handleSubmit } = useEnquirySubmission('Programme update request');
 
   return (
     <>
-      <ProgrammeTestimonials />
+      {testimonials}
       <footer className="relative overflow-hidden bg-secondary-950 text-background-50">
         <div className="absolute inset-x-0 top-0 z-20 h-1 bg-[linear-gradient(90deg,#3FA7A3_0%,#3FA7A3_70%,#FFA953_70%,#FFA953_100%)]" aria-hidden="true" />
-        <div className="pattern-cubes-overlay pattern-cubes-overlay-dark" style={{ opacity: 0.045 }} />
+        <div className="pattern-dots-overlay pattern-dots-dark" aria-hidden="true" />
 
         <div className="container-site relative z-10 py-12 md:py-16">
           <div className="grid items-start gap-10 md:grid-cols-3 lg:gap-12">

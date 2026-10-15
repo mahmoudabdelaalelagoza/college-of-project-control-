@@ -86,7 +86,7 @@ function ShortCoursesCatalogue({ courses, failed }: { courses: ShortCourse[]; fa
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
                 ) : (
-                  <div className="signal-pattern h-full w-full opacity-30" />
+                  <div className="pattern-dots pattern-dots-dark h-full w-full" aria-hidden="true" />
                 )}
                 <div className="absolute inset-0 bg-primary-950/42" />
                 <span className="absolute left-4 top-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-white/20 bg-white/90 text-primary-700 backdrop-blur">
@@ -127,7 +127,7 @@ function CourseDetailSection({ course }: { course: ShortCourse }) {
     >
       <div className="absolute inset-0 -z-10 bg-primary-950/92" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary-950 via-primary-950/90 to-primary-950/76" />
-      <div className="signal-pattern absolute inset-0 -z-10 opacity-10" />
+      <div className="pattern-dots pattern-dots-dark absolute inset-0 -z-10" aria-hidden="true" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-48 bg-gradient-to-t from-primary-950 to-transparent" />
       <div className="container-site">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,0.72fr)] lg:items-start">

@@ -1,3 +1,4 @@
+import { coachPortrait } from '@/data/coachPortraits';
 import { requireSupabaseClient } from '@/lib/supabase';
 import { fromSupabase } from './supabaseFallback';
 
@@ -38,7 +39,7 @@ function toCoach(item: CoachRow): Coach {
     name,
     qualification: item.qualification ?? '',
     focus: item.focus ?? '',
-    imageUrl: item.image_url ?? '',
+    imageUrl: item.image_url?.trim() || coachPortrait(name),
   };
 }
 

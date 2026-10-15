@@ -1,7 +1,7 @@
 export default function ForEmployers() {
   return (
     <section className="hero-image-documents relative flex min-h-[90vh] items-center overflow-hidden bg-primary-700">
-      <div className="pattern-cubes-overlay pattern-cubes-overlay-dark pattern-cubes-animate" style={{ opacity: 0.08 }} />
+      <div className="pattern-dots-overlay pattern-dots-dark" aria-hidden="true" />
       <div className="container-site relative z-10 w-full pb-16 pt-28 md:pb-20 md:pt-36">
         <div className="mx-auto max-w-3xl text-center">
           <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-highlight-400/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-highlight-300">

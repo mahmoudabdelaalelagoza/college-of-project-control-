@@ -3,28 +3,28 @@ import SectionHeading from '@/components/base/SectionHeading';
 const steps = [
   {
     number: '01',
-    title: 'Understand',
-    body: 'Build knowledge through live teaching, guided learning and programme resources.',
+    title: 'Learn',
+    body: 'Develop new knowledge and skills through live teaching, guided study and learning resources.',
   },
   {
     number: '02',
     title: 'Apply',
-    body: 'Use new learning in relevant workplace activities, responsibilities and project situations.',
+    body: 'Put your learning into practice through relevant project activities and workplace responsibilities.',
   },
   {
     number: '03',
-    title: 'Evidence',
-    body: 'Develop appropriate evidence that demonstrates how your knowledge, skills and behaviours are developing.',
+    title: 'Demonstrate',
+    body: "Gather evidence of your own work and show how you've applied your developing knowledge and skills.",
   },
   {
     number: '04',
     title: 'Review',
-    body: 'Use coaching, feedback and progress reviews to understand what is developing well and what to focus on next.',
+    body: 'Review your progress with your coach and employer, using feedback to identify your next development priorities.',
   },
   {
     number: '05',
-    title: 'Assess',
-    body: 'Complete the assessment requirements that apply to your apprenticeship and assessment plan.',
+    title: 'Complete assessment',
+    body: 'Prepare for and complete the assessment required for your apprenticeship, following the applicable assessment plan.',
   },
 ];
 
@@ -33,8 +33,8 @@ export default function LearningJourney() {
     <section className="mt-14 rounded-xl border border-background-200 bg-white/88 px-5 py-8 md:mt-16 md:px-8 md:py-10" aria-labelledby="learning-journey-heading">
       <SectionHeading
         tag="How learning works"
-        title="Learning connected to your work"
-        subtitle="Build understanding through taught learning, apply it in relevant workplace activities, develop appropriate evidence, review your progress and complete the applicable apprenticeship assessment."
+        title="Learn, apply and demonstrate your progress"
+        subtitle="Our apprenticeships combine live teaching, guided learning and opportunities to apply new skills at work. With coaching and regular progress reviews, you'll develop your capabilities and prepare for your apprenticeship assessment."
         className="max-w-4xl"
       />
 
