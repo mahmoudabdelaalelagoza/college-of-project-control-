@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 
-const audioSrc = '/assets/audio/home-summary.mp3?v=704aca07532b';
+const audioSrc = '/assets/audio/home-summary.mp3?v=fd1ddc8b2a93';
 
 export default function HomeAudioSummary() {
   const audioRef = useRef<HTMLAudioElement | null>(null);

@@ -31,7 +31,7 @@ The page-specific homepage copy for Programme Guidance through Learner Experienc
 - [eventSelection.ts](eventSelection.ts) chooses up to three distinct real project-related events, prioritising upcoming sessions and filling available places with recent ended sessions. Event dates, states, images and detail links remain owned by the events service.
 - Events appear immediately before the Learner Experiences section. The standalone Professional Recognition section is omitted from the homepage.
 - Specialist course imagery and mentor portraits/profile links continue to use the existing services. Supplied homepage editorial copy stays local to this page.
-- The hero retains the supplied `PCP-Guide.mp3` recording through its existing audio player.
+- The hero uses the supplied replacement recording in `public/assets/audio/home-summary.mp3` through `HomeAudioSummary.tsx`. Its URL version is derived from the recording hash so returning visitors receive the updated audio.
 - [ShortCoursesCarousel.tsx](components/ShortCoursesCarousel.tsx) shows the three supplied featured courses first, followed by the remaining catalogue. It supports touch scrolling, keyboard arrows and bottom-right previous/next controls. Each card is one link to its course detail page.
 
 - The home mentor section uses the original large portrait design. On mobile, leading/trailing duplicate runs allow continuous swiping and arrow navigation; duplicates stay hidden from assistive technology and keyboard focus. Desktop keeps the three-column layout.
