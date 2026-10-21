@@ -1,10 +1,6 @@
 import SiteLink from '@/components/base/SiteLink';
 import { useEffect,useRef,useState } from 'react';
 
-interface CapabilityChip {
-  label: string;
-}
-
 function useReveal(threshold = 0.1) {
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -28,12 +24,10 @@ function LargeProgrammeFeature() {
   const capabilities = [
     'Planning & Scheduling',
     'Cost & Earned Value',
-    'Risk',
-    'Project Planning & Control',
-    'PMO',
-    'Governance',
-    'Project Performance',
-    'Professional Progression',
+    'Risk & Change',
+    'Integrated Controls',
+    'Performance Assurance',
+    'Decision Support',
   ];
 
   return (
@@ -61,8 +55,8 @@ function LargeProgrammeFeature() {
           transition: 'opacity 700ms cubic-bezier(0.22, 1, 0.36, 1), transform 700ms cubic-bezier(0.22, 1, 0.36, 1)',
         }}
       >
-        <span className="inline-block px-3 py-1 rounded-full text-sm font-label font-semibold uppercase tracking-wider bg-primary-100 text-primary-700 border border-primary-200 mb-4">
-          Project Controls &middot; Level 6
+        <span className="inline-block max-w-full px-3 py-1 rounded-full text-sm font-label font-semibold uppercase tracking-wider bg-primary-100 text-primary-700 border border-primary-200 mb-4">
+          Apprenticeship &middot; Level 6
         </span>
 
         <p className="text-xs font-label font-semibold uppercase tracking-wider text-foreground-400 mb-1">
@@ -73,17 +67,24 @@ function LargeProgrammeFeature() {
         </h3>
 
         <p className="mt-3 text-lg md:text-xl font-heading font-semibold text-foreground-950 leading-snug">
-          Build advanced capability across complex project environments
+          Advanced project controls for complex project environments
         </p>
 
         <p className="mt-3 text-sm md:text-base text-foreground-600 leading-relaxed">
-          Designed for professionals working across Project Controls, planning, scheduling, cost, risk, PMO and complex project performance.
+          Develop the expertise to integrate planning, cost, risk and performance information into reliable forecasts, effective controls and evidence-based recommendations.
         </p>
+
+        <div className="mt-5">
+          <h4 className="text-sm font-label font-semibold uppercase tracking-wider text-foreground-400 mb-2.5">Who it's for</h4>
+          <p className="text-sm md:text-base text-foreground-600 leading-relaxed">
+            For planners, schedulers, cost professionals and project controls practitioners responsible for analysing, assuring and improving project performance.
+          </p>
+        </div>
 
         {/* Capability areas */}
         <div className="mt-5">
           <p className="text-sm font-label font-semibold uppercase tracking-wider text-foreground-400 mb-2.5">
-            Capability Areas
+            Focus Areas
           </p>
           <div className="flex flex-wrap gap-2">
             {capabilities.map((cap) => (
@@ -101,23 +102,21 @@ function LargeProgrammeFeature() {
         {/* Professional positioning */}
         <div className="mt-5 inline-flex items-start gap-2.5 bg-secondary-100 border border-secondary-200 rounded-lg px-4 py-3">
           <i className="ri-user-star-line text-secondary-600 text-base flex-shrink-0 mt-0.5"></i>
-          <span className="text-sm font-medium text-foreground-800">
-            Build on existing professional experience rather than starting again.
-          </span>
+          <div>
+            <h4 className="text-sm font-semibold text-foreground-800">Your Development</h4>
+            <p className="mt-2 text-sm leading-relaxed text-foreground-800">
+              Explore Operational, Strategic and Chartered development pathways, with a six-credit learning plan agreed around your responsibilities, prior learning and employer needs.
+            </p>
+          </div>
         </div>
-
-        {/* Pathway note */}
-        <p className="mt-4 text-xs text-foreground-600 leading-relaxed">
-          This programme includes different professional-development pathways, allowing participants to align development with their responsibilities and progression.
-        </p>
 
         {/* CTAs */}
         <div className="mt-6 flex flex-col sm:flex-row items-start gap-3">
           <SiteLink
             href="/project-controls-professional-level-6"
-            className="btn-primary inline-flex items-center gap-2 px-6 py-3 font-semibold text-sm cursor-pointer transition-all duration-300 whitespace-nowrap lift-hover"
+            className="btn-primary inline-flex items-center gap-2 px-6 py-3 font-semibold text-sm cursor-pointer transition-all duration-300 w-full whitespace-normal text-center sm:w-auto lift-hover"
           >
-            Explore Project Controls Professional
+            Explore Level 6 Apprenticeship
             <i className="ri-arrow-right-line text-sm"></i>
           </SiteLink>
           
@@ -136,13 +135,15 @@ interface StandardFeatureProps {
   copy: string;
   capabilities: string[];
   positioning: string;
+  audience: string;
+  note?: string;
   cta: string;
   href: string;
   icon: string;
   index: number;
 }
 
-function StandardProgrammeFeature({ eyebrow, name, descriptor, headline, copy, capabilities, positioning, cta, href, icon, index }: StandardFeatureProps) {
+function StandardProgrammeFeature({ eyebrow, name, descriptor, headline, copy, capabilities, positioning, audience, note, cta, href, icon, index }: StandardFeatureProps) {
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -170,7 +171,7 @@ function StandardProgrammeFeature({ eyebrow, name, descriptor, headline, copy, c
       <div className="p-7 md:p-10">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
           <div className="flex-1">
-            <span className="inline-block px-3 py-1 rounded-full text-sm font-label font-semibold uppercase tracking-wider bg-secondary-100 text-secondary-700 border border-secondary-200 mb-4">
+            <span className="inline-block max-w-full px-3 py-1 rounded-full text-sm font-label font-semibold uppercase tracking-wider bg-secondary-100 text-secondary-700 border border-secondary-200 mb-4">
               {eyebrow}
             </span>
 
@@ -199,10 +200,15 @@ function StandardProgrammeFeature({ eyebrow, name, descriptor, headline, copy, c
           </div>
         </div>
 
+        <div className="mt-5">
+          <h4 className="text-sm font-label font-semibold uppercase tracking-wider text-foreground-400 mb-2.5">Who it's for</h4>
+          <p className="text-sm md:text-base text-foreground-600 leading-relaxed">{audience}</p>
+        </div>
+
         {/* Capability areas */}
         <div className="mt-5">
           <p className="text-sm font-label font-semibold uppercase tracking-wider text-foreground-400 mb-2.5">
-            Capability Areas
+            Focus Areas
           </p>
           <div className="flex flex-wrap gap-2">
             {capabilities.map((cap) => (
@@ -220,14 +226,19 @@ function StandardProgrammeFeature({ eyebrow, name, descriptor, headline, copy, c
         {/* Professional positioning */}
         <div className="mt-5 inline-flex items-start gap-2.5 bg-secondary-100 border border-secondary-200 rounded-lg px-4 py-3">
           <i className="ri-user-star-line text-secondary-600 text-base flex-shrink-0 mt-0.5"></i>
-          <span className="text-sm font-medium text-foreground-800">{positioning}</span>
+          <div>
+            <h4 className="text-sm font-semibold text-foreground-800">Your Development</h4>
+            <p className="mt-2 text-sm leading-relaxed text-foreground-800">{positioning}</p>
+          </div>
         </div>
+
+        {note && <p className="mt-4 text-xs text-foreground-600 leading-relaxed">{note}</p>}
 
         {/* CTA */}
         <div className="mt-6">
           <SiteLink
             href={href}
-            className="btn-primary inline-flex items-center gap-2 px-6 py-3 font-semibold text-sm cursor-pointer transition-all duration-300 whitespace-nowrap lift-hover"
+            className="btn-primary inline-flex items-center gap-2 px-6 py-3 font-semibold text-sm cursor-pointer transition-all duration-300 w-full whitespace-normal text-center sm:w-auto lift-hover"
           >
             {cta}
             <i className="ri-arrow-right-line text-sm"></i>
@@ -250,15 +261,13 @@ export default function ChooseYourProgramme() {
             Choose Your Programme
           </span>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight">
-            <span className="block md:whitespace-nowrap">
-              Different responsibilities
-            </span>
-            <span className="block md:whitespace-nowrap">
-              require different development
-            </span>
+            Find the right programme for your role
           </h2>
           <p className="mt-3 text-sm md:text-base text-foreground-600 leading-relaxed">
-            Compare programmes by your current responsibilities and the skills you want to develop.
+            Explore two work-based apprenticeships and a standalone professional programme, designed to strengthen different areas of project management, project controls and PMO practice.
+          </p>
+          <p className="mt-3 text-sm md:text-base text-foreground-600 leading-relaxed">
+            Compare the options based on your responsibilities, existing experience and professional development goals.
           </p>
         </div>
 
@@ -266,46 +275,57 @@ export default function ChooseYourProgramme() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6 md:mt-8 items-stretch">
           <StandardProgrammeFeature
-            eyebrow="Project Management · Level 4"
+            eyebrow="Apprenticeship · Level 4"
             name="Associate Project Manager Level 4"
-            descriptor="with PMP® & AI in Projects Certificate"
-            headline="Build stronger capability across project delivery"
-            copy="Designed for professionals developing greater responsibility across project governance, planning, schedule, cost, risk, stakeholders and delivery."
+            headline="PMP Preparation + AI in Project Controls"
+            copy="Build practical project management skills to plan activities, manage stakeholders, monitor progress and support successful project delivery."
+            audience="For project coordinators, assistant project managers and professionals developing greater responsibility for managing project activities and teams."
             capabilities={[
-              'Project Governance',
               'Project Planning',
-              'Schedule',
-              'Cost',
-              'Risk',
+              'Governance',
               'Stakeholder Management',
+              'Cost & Risk',
               'Project Delivery',
               'Applied AI',
             ]}
-            positioning="Develop practical capability while applying learning directly to real project responsibilities."
-            cta="Explore Associate Project Manager"
+            positioning="Combine project management learning with PMP examination preparation and practical AI development, applying new skills to relevant workplace responsibilities."
+            note="PMP certification is awarded separately by PMI, subject to its eligibility and examination requirements."
+            cta="Explore Level 4 Apprenticeship"
             href="/associate-project-manager-level-4"
             icon="ri-briefcase-line"
             index={0}
           />
           <StandardProgrammeFeature
-            eyebrow="PMO · Level 6"
-            name="Certified PMO Professional Level 6"
-            headline="Develop stronger PMO governance, control and decision support"
-            copy="Designed for experienced professionals working across PMO, Project Controls, projects and programmes who want to strengthen governance, integrated controls, risk, quality, stakeholder leadership and reporting."
+            eyebrow="Professional Programme · Level 6 · 16 Months"
+            name="Certified PMO Professional (Level 6)"
+            headline="Advanced PMO governance and professional practice"
+            copy="Develop advanced PMO expertise in governance, integrated planning and controls, risk, quality, stakeholder engagement and evidence-based reporting."
+            audience="For experienced PMO professionals, project controllers, assurance practitioners and project or programme leaders looking to strengthen organisational governance and PMO performance."
             capabilities={[
-              'Project Management Office',
-              'Project Planning & Control',
-              'Risk, Issue & Quality Management',
+              'PMO Governance',
+              'Integrated Controls',
+              'Risk & Quality',
               'Stakeholder Engagement',
-              'Communications',
-              'Reporting Systems',
+              'Performance Reporting',
+              'Professional Practice',
             ]}
-            positioning="Build structured evidence of advanced PMO and Project Controls knowledge while developing capability relevant to complex organisational environments."
+            positioning="Build a structured portfolio of professional practice through four connected modules. The programme includes an APM-recognised assessment for the technical-knowledge requirement of Chartered Project Professional (ChPP) Pathway 2."
+            note="Chartered status requires a separate application and assessment by APM."
             cta="Explore Certified PMO Professional"
             href="/pmo-pcp"
             icon="ri-organization-chart"
             index={1}
           />
+        </div>
+        <p className="mt-8 text-sm leading-relaxed text-foreground-600">
+          The Level 4 and Project Controls Level 6 programmes are apprenticeships, subject to eligibility and employer support. Certified PMO Professional is a separate professional development programme with its own enrolment and fee arrangements.
+        </p>
+        <div className="mt-8 text-center">
+          <p className="text-lg font-semibold text-foreground-950">Not sure which programme suits your role?</p>
+          <SiteLink href="/contact" className="mt-4 btn-primary inline-flex max-w-full items-center justify-center gap-2 px-6 py-3 text-center text-sm font-semibold">
+            Discuss Your Development Options
+            <i className="ri-arrow-right-line" aria-hidden="true" />
+          </SiteLink>
         </div>
       </div>
     </section>

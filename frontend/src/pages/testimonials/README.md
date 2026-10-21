@@ -10,3 +10,5 @@ Find the label on the page, then open its component below. Shared implementation
 | Professional experience | [ProfessionalExperience.tsx](components/ProfessionalExperience.tsx) | [TestimonialsSection.tsx](../../components/feature/TestimonialsSection.tsx) |
 
 Keep `page.tsx` focused on section order and page state. Add new page-specific sections to `components/`, use the visible label for the filename, and update imports when renaming. Shared navigation and the footer remain in `src/components/feature/`.
+
+The homepage and programme pages use the shared featured section in [LearnerExperiences.tsx](../../components/feature/LearnerExperiences.tsx). Its Read more learner experiences button opens this page, which retains the complete approved-review directory, audience selection and Share your experience journey.

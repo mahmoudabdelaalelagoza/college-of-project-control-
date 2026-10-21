@@ -1,0 +1,23 @@
+/* The four sector pages share the full public header and a 56px nav + 1px border. */
+.sector-page {
+  --header-height: var(--public-header-height, 145px);
+  --section-nav-height: 57px;
+  --sector-content-top: calc(var(--header-height) + var(--section-nav-height) + 24px);
+}
+
+.sector-page [id] {
+  scroll-margin-top: calc(var(--header-height) + var(--section-nav-height) + 16px);
+}
+
+/* A stacked mobile column must scroll with its cards, never cover them. */
+.sector-page .sector-sticky-panel {
+  position: static;
+}
+
+@media (min-width: 1024px) {
+  .sector-page .sector-sticky-panel {
+    position: sticky;
+    top: var(--sector-content-top);
+    align-self: start;
+  }
+}

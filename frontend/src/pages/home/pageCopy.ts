@@ -1,5 +1,3 @@
-import { sectorHeroImages } from '@/data/sectorHeroImages';
-
 /** Supplied homepage content. Programme facts remain in the canonical programme records. */
 export const homeCopy = {
   "guidance": {
@@ -50,42 +48,6 @@ export const homeCopy = {
     ],
     "exploreCta": "Explore employer support",
     "talkCta": "Talk to our team"
-  },
-  "sectors": {
-    "tag": "Sector applications",
-    "title": "Project controls across key sectors",
-    "intro": "Explore how project controls support planning, risk management and informed decision-making across different industries and project environments.",
-    "cards": [
-      {
-        "title": "Construction & Infrastructure",
-        "description": "Manage project schedules, cost forecasts, contractual requirements and risks across complex construction and infrastructure projects.",
-        "href": "/project-controls-professional/construction-route",
-        "image": sectorHeroImages.construction,
-        "alt": "Construction and infrastructure project environment"
-      },
-      {
-        "title": "Engineering & Manufacturing",
-        "description": "Coordinate engineering milestones, production dependencies and performance information across complex technical projects.",
-        "href": "/project-controls-professional/engineering-manufacturing-aerospace-route",
-        "image": sectorHeroImages.engineering,
-        "alt": "Engineering and manufacturing project environment"
-      },
-      {
-        "title": "Public Sector",
-        "description": "Support accountable project delivery through effective governance, assurance, planning and performance reporting.",
-        "href": "/project-controls-professional/public-sector-councils-route",
-        "image": sectorHeroImages.publicSector,
-        "alt": "Public sector project environment"
-      },
-      {
-        "title": "Energy & Utilities",
-        "description": "Apply integrated planning, cost forecasting and risk analysis across major assets, upgrades and energy and utilities projects.",
-        "href": "/project-controls-professional/energy-oil-gas-utilities-route",
-        "image": sectorHeroImages.energy,
-        "alt": "Energy and utilities project environment"
-      }
-    ],
-    "note": "These sectors illustrate how Project Controls Professional Level 6 capabilities can be applied. They are not separate apprenticeship standards. Programme suitability depends on your role, prior learning and workplace development opportunities."
   },
   "modules": {
     "tag": "Specialist Courses & Modules",
@@ -151,48 +113,6 @@ export const homeCopy = {
     "exploreCta": "Explore specialist courses",
     "discussCta": "Discuss your learning options"
   },
-  "funding": {
-    "tag": "Funding & Costs",
-    "title": "Understand your funding options",
-    "intro": "Apprenticeships and professional development follow different funding arrangements. Explore the options available and understand how eligibility, employer contributions and programme choice may affect your costs.",
-    "apprenticeship": {
-      "title": "Apprenticeship funding",
-      "body": "Associate Project Manager Level 4 and Project Controls Professional Level 6 may be eligible for apprenticeship funding in England, subject to learner, employer and programme eligibility."
-    },
-    "headers": [
-      "Funding scenario",
-      "Funding arrangement"
-    ],
-    "note": "Funding applies up to the relevant funding-band maximum. Eligibility, employer contributions and costs above that maximum are confirmed before enrolment.",
-    "professional": {
-      "title": "Professional study and IPC funding",
-      "body": [
-        "Standalone professional courses are commercially priced and are not automatically eligible for government apprenticeship funding.",
-        "The Institute of Project Controls Fund may provide tuition support for eligible professional-study applicants, subject to approval."
-      ],
-      "cards": [
-        {
-          "title": "Up to 75% tuition support",
-          "body": "For eligible unemployed or self-employed learners."
-        },
-        {
-          "title": "Up to 50% tuition support",
-          "body": "For eligible employed learners, with the employer contributing the remaining share."
-        }
-      ],
-      "note": "Commercial course fees and any approved support are confirmed in your written offer."
-    },
-    "support": {
-      "title": "Additional professional support",
-      "body": [
-        "Depending on your agreed programme package, KBC and IPC support may include professional examinations, memberships, London masterclasses and learner wellbeing services.",
-        "These benefits are separate from eligible government-funded apprenticeship training and assessment costs. Your written offer confirms what is included."
-      ]
-    },
-    "finalNote": "Funding is subject to eligibility and approval. KBC will confirm your programme suitability, funding arrangements and any employer contribution before enrolment.",
-    "exploreCta": "Explore funding details",
-    "discussCta": "Discuss your funding options"
-  },
   "eligibility": {
     "tag": "Apprenticeship eligibility",
     "title": "Check your apprenticeship eligibility",
@@ -229,28 +149,6 @@ export const homeCopy = {
     ],
     "note": "Part-time working arrangements and individual circumstances are reviewed as part of the eligibility and programme suitability assessment."
   },
-  "ipc": {
-    "tag": "Institute of Project Controls (IPC)",
-    "title": "Professional recognition and development in project controls",
-    "intro": "The Institute of Project Controls (IPC) supports project controls professionals through competence-based recognition, professional membership and continuing development opportunities.",
-    "cards": [
-      {
-        "title": "Professional Recognition",
-        "body": "Explore membership and recognition pathways that reflect your professional experience, demonstrated competence and development."
-      },
-      {
-        "title": "Professional Community",
-        "body": "Connect with specialist learning events, professional networks and opportunities for continued development in project controls."
-      },
-      {
-        "title": "Support for Professional Study",
-        "body": "The IPC Fund may provide tuition fee support for eligible professional-study applicants, subject to funding criteria and written approval."
-      }
-    ],
-    "recognitionCta": "Explore IPC Recognition",
-    "aboutCta": "Learn About IPC",
-    "strapline": "Professional Recognition. Development. Community."
-  },
   "featured": {
     "tag": "Featured Professional Courses",
     "title": "Develop practical expertise in project controls",
@@ -280,66 +178,4 @@ export const homeCopy = {
       }
     ]
   },
-  "experts": {
-    "tag": "Learn from Practitioners",
-    "title": "Professional experience behind your learning",
-    "intro": "Learn from experienced professionals whose expertise spans portfolio and benefits management, PMO leadership, project controls and professional education.",
-    "cards": [
-      {
-        "title": "Stephen Jenner",
-        "subtitle": "Portfolio & Benefits Management",
-        "body": "Author of Managing Portfolios and Managing Benefits, with senior UK Civil Service experience in portfolio governance and benefits realisation.",
-        "cta": "View Stephen's profile",
-        "match": "jenner"
-      },
-      {
-        "title": "Ray Mead",
-        "subtitle": "PMO & Transformation",
-        "body": "Founding Partner of p3m global and co-author of Delivering Successful PMOs, with international experience in project, programme and portfolio management.",
-        "cta": "View Ray's profile",
-        "match": "mead"
-      },
-      {
-        "title": "Professor Amgad Badewi",
-        "subtitle": "CEO · Project Controls & Management",
-        "body": "CEO of Kent Business College, project benefits researcher and former Reader of Project Controls and Management at Kent Business School.",
-        "cta": "View Amgad's profile",
-        "match": "badewi"
-      }
-    ],
-    "cta": "Meet more KBC experts"
-  },
-  "coaching": {
-    "tag": "Coaching & Support",
-    "title": "Guidance beyond the classroom",
-    "intro": "Our tutors and coaches provide practical guidance, personalised feedback and ongoing support to help you understand new concepts, apply your learning at work and make progress towards your development goals.",
-    "cards": [
-      {
-        "title": "Tutor & Learning Support",
-        "body": "Ask questions, revisit learning resources and access one-to-one guidance to help you understand challenging topics."
-      },
-      {
-        "title": "Workplace Application",
-        "body": "Work with your coach to identify opportunities to apply new skills and develop relevant evidence of your own contribution."
-      },
-      {
-        "title": "Coaching & Progress Reviews",
-        "body": "Receive feedback, review your development and agree clear priorities for your next steps, with employer involvement as part of your apprenticeship."
-      },
-      {
-        "title": "Personalised Learning Support",
-        "body": "Discuss your learning needs, preferences and challenges so appropriate support can be explored and agreed."
-      }
-    ]
-  },
-  "experiences": {
-    "tag": "Learner Experiences",
-    "title": "Real experiences. Practical impact.",
-    "intro": "Discover how professionals are applying their learning, developing new skills and progressing in their roles with Kent Business College.",
-    "programme": "Project Controls Professional Level 6",
-    "name": "James Molloy",
-    "organisation": "MAG (Airports Group)",
-    "quote": "The knowledge and skills I am gaining are already benefiting my day-to-day work and helping me develop professionally.",
-    "cta": "Read more learner experiences"
-  }
 } as const;

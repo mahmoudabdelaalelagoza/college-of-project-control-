@@ -21,7 +21,7 @@ export default function TheConstructionChallenge() {
     <section id="challenge" className="scroll-mt-44 bg-background-50 py-16 md:py-24">
       <div className="container-site">
         <div className="grid items-start gap-10 lg:grid-cols-[.88fr_1.12fr]">
-          <div className="sticky top-32">
+          <div className="sector-sticky-panel">
             <span className="text-xs font-bold uppercase tracking-[.15em] text-accent-700">The construction challenge</span>
             <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl">
               Data exists. Decision confidence often does not.

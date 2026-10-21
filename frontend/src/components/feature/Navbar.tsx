@@ -1,3 +1,4 @@
+import usePublicHeaderHeight from '@/hooks/usePublicHeaderHeight';
 import SiteLink from '@/components/base/SiteLink';
 import PathwayMegaMenu from './PathwayMegaMenu';
 import SectorMegaMenu from './SectorMegaMenu';
@@ -44,7 +45,6 @@ const routeGroups: NavigationRouteGroup[] = [
     color: 'primary',
     note: 'The two work-based programmes we offer.',
     routes: [
-      { label: 'Compare both programmes', href: '/programmes', icon: 'ri-layout-grid-line' },
       { label: 'PCP Level 6', href: '/project-controls-professional-level-6', icon: 'ri-line-chart-line' },
       { label: 'APM Level 4', href: '/associate-project-manager-level-4', icon: 'ri-briefcase-4-line' },
     ],
@@ -56,7 +56,7 @@ const routeGroups: NavigationRouteGroup[] = [
     routes: [
       { label: 'Certified PMO Level 6', href: '/project-controls-professional/pmo-governance-route', icon: 'ri-building-4-line' },
       { label: 'Commercial Project Controls', href: '/commercial-project-controls-route', icon: 'ri-bank-card-line' },
-      { label: 'Short courses', href: '/short-courses', icon: 'ri-graduation-cap-line' },
+      { label: 'Courses', href: '/short-courses', icon: 'ri-graduation-cap-line' },
     ],
   },
 ];
@@ -76,6 +76,7 @@ const aboutRoutes: NavigationRoute[] = [
 ];
 
 export default function Navbar() {
+  usePublicHeaderHeight();
   const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -161,7 +162,7 @@ export default function Navbar() {
      group titles as dead text. */
   const navLinks: NavLink[] = [
     { label: 'Home', href: '/' },
-    { label: 'Apprenticeships', href: '/programmes', panel: 'programmes' },
+    { label: 'Apprenticeships', href: '/#programmes', panel: 'programmes' },
     { label: 'Pathways', href: '/project-controls-professional-level-6', panel: 'pathways' },
     { label: 'Sectors', href: '/sectors', panel: 'sectors' },
     { label: 'How learning works', href: '/how-to-apply' },

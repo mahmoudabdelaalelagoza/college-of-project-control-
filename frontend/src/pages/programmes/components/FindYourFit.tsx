@@ -1,11 +1,12 @@
 import { useEffect,useRef,useState } from 'react';
+import SiteLink from '@/components/base/SiteLink';
 
 const steps = [
-  { number: '01', title: 'Your Role', desc: 'What are you responsible for today?', icon: 'ri-user-line' },
-  { number: '02', title: 'Your Capability', desc: 'What do you need to strengthen?', icon: 'ri-bar-chart-line' },
-  { number: '03', title: 'Your Level', desc: 'How advanced does the development need to be?', icon: 'ri-medal-line' },
-  { number: '04', title: 'Your Format', desc: 'Do you need a complete programme or targeted modules?', icon: 'ri-list-check-2' },
-  { number: '05', title: 'Your Direction', desc: 'What professional responsibility do you want to build towards?', icon: 'ri-road-map-line' },
+  { number: '01', title: 'Your Role', desc: 'What are your current professional responsibilities?', icon: 'ri-user-line' },
+  { number: '02', title: 'Your Development Priorities', desc: 'Which skills or areas of expertise would you like to strengthen?', icon: 'ri-bar-chart-line' },
+  { number: '03', title: 'Your Starting Point', desc: 'What relevant knowledge, qualifications and professional experience do you already have?', icon: 'ri-medal-line' },
+  { number: '04', title: 'Your Learning Route', desc: 'Would a complete programme, a specialist course or a combination of modules best meet your needs?', icon: 'ri-list-check-2' },
+  { number: '05', title: 'Your Professional Goals', desc: 'What responsibilities or professional opportunities would you like to work towards?', icon: 'ri-road-map-line' },
 ];
 
 export default function FindYourFit() {
@@ -31,8 +32,11 @@ export default function FindYourFit() {
             Find Your Fit
           </span>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight">
-            Start with the work you are responsible for
+            Five questions to guide your next step
           </h2>
+          <p className="mt-3 text-sm md:text-base text-foreground-600 leading-relaxed">
+            Not sure which development option is right for you? Start with your current responsibilities, experience and professional goals. Our team can help you explore a suitable learning route.
+          </p>
         </div>
 
         <div ref={ref} className="relative">
@@ -57,6 +61,15 @@ export default function FindYourFit() {
               </div>
             ))}
           </div>
+        </div>
+        <div className="mt-8 text-center">
+          <SiteLink href="/contact" className="btn-primary inline-flex w-full max-w-full items-center justify-center gap-2 px-6 py-3 text-center text-sm font-semibold sm:w-auto">
+            Discuss Your Development Options
+            <i className="ri-arrow-right-line" aria-hidden="true" />
+          </SiteLink>
+          <p className="mt-5 max-w-3xl mx-auto text-xs leading-relaxed text-foreground-600">
+            Programme suitability and any applicable apprenticeship eligibility, funding and employer requirements are confirmed following an individual review.
+          </p>
         </div>
       </div>
     </section>

@@ -69,12 +69,12 @@ export default function RouteHero({
   const acTextLight = accentColor || 'oklch(var(--primary-600))';
 
   return (
-    <section id="hero" className="relative isolate flex min-h-[90vh] items-center overflow-hidden bg-primary-950 pb-14 pt-28 text-white md:pb-20 md:pt-36">
+    <section id="hero" className="relative isolate flex min-h-[90vh] items-center overflow-hidden bg-primary-950 pb-14 pt-28 text-white md:pb-20 md:pt-36 site-hero">
       <img loading="lazy" decoding="async"
         src="https://images.pexels.com/photos/6285078/pexels-photo-6285078.jpeg?auto=compress&cs=tinysrgb&w=1920"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 -z-30 h-full w-full object-cover object-center"
+        className="absolute inset-0 -z-30 h-full w-full object-cover object-center site-hero__image"
         onError={(event) => {
           event.currentTarget.onerror = null;
           event.currentTarget.src = '/assets/images/hero-professional.webp';
@@ -87,8 +87,8 @@ export default function RouteHero({
         style={{ background: 'radial-gradient(circle, rgb(252 99 19 / 0.18), transparent 68%)' }}
       ></div>
 
-      <div className="container-site relative z-10">
-        <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
+      <div className="container-site relative z-10 site-hero__content">
+        <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16 site-hero__grid">
           {/* Left Column */}
           <div className="flex-1 w-full lg:max-w-[560px]">
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-signal-400/50 bg-signal-500/10 px-3 py-1.5 text-xs font-label font-semibold uppercase tracking-wider text-signal-300">
@@ -100,7 +100,7 @@ export default function RouteHero({
               {headline}
             </h1>
 
-            <p className="mb-3 text-base font-body leading-relaxed text-white/85 md:text-lg">
+            <p className="mb-3 text-base font-body leading-relaxed text-white/85 md:text-lg site-hero__lead">
               {subheadline}
             </p>
 
@@ -115,7 +115,7 @@ export default function RouteHero({
               <p className="text-sm font-body leading-relaxed text-white/80">{fundingLine}</p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-6">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-6 site-hero__actions">
               <SiteLink
                 ref={ctaRef}
                 href="/book-a-session"

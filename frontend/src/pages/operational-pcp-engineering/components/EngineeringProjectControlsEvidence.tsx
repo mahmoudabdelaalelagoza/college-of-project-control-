@@ -42,7 +42,7 @@ export default function EngineeringProjectControlsEvidence() {
     <section id="outputs" className="scroll-mt-44 bg-background-100 py-16 md:py-24">
       <div className="container-site">
         <div className="grid gap-10 lg:grid-cols-[390px_minmax(0,1fr)] lg:items-start">
-          <div className="lg:sticky lg:top-32">
+          <div className="sector-sticky-panel">
             <span className="text-xs font-bold uppercase tracking-[.15em] text-accent-700">
               Engineering project-controls evidence
             </span>

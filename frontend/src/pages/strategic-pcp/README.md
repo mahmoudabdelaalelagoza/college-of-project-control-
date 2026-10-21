@@ -1,26 +1,37 @@
-# strategic-pcp sections
+# Strategic Pathway sections
 
 Composition: [page.tsx](page.tsx). Routes: `/project-controls-professional/strategic-route`, `/strategic-pcp`.
 
-Find the label on the page, then open its component below. Shared implementation links are provided where a section is reused. Data and API calls retain their existing ownership.
+The visitor journey moves from understanding the pathway and role fit to learning, workplace application, assessment, expert support, employer commitments, funding and contact. [StrategicPathwayNav.tsx](components/StrategicPathwayNav.tsx) follows the same order and measures the public header so the sticky navigation and anchor destinations stay clear of it on mobile and desktop.
 
-| Label / heading | Component | Shared implementation |
-| --- | --- | --- |
-| AI In Project Controls | [AIInProjectControls.tsx](components/AIInProjectControls.tsx) | Page-local |
-| Eligibility Criteria | [EligibilityCriteria.tsx](components/EligibilityCriteria.tsx) | Page-local |
-| Expert Led Learning | [ExpertLedLearning.tsx](components/ExpertLedLearning.tsx) | Page-local |
-| From Evidence To Action | [FromEvidenceToAction.tsx](components/FromEvidenceToAction.tsx) | Page-local |
-| Funding Scenarios For Starts From1 August2026 | [FundingScenariosForStartsFrom1August2026.tsx](components/FundingScenariosForStartsFrom1August2026.tsx) | Page-local |
-| How You Study | [HowYouStudy.tsx](components/HowYouStudy.tsx) | Page-local |
-| PMIPMOCP Preparation And PMO Leadership | [PMIPMOCPPreparationAndPMOLeadership.tsx](components/PMIPMOCPPreparationAndPMOLeadership.tsx) | Page-local |
-| PMP Exam Preparation And Strategic Project Leadership | [PMPExamPreparationAndStrategicProjectLeadership.tsx](components/PMPExamPreparationAndStrategicProjectLeadership.tsx) | Page-local |
-| PRINCE2 Portfolio Management | [PRINCE2PortfolioManagement.tsx](components/PRINCE2PortfolioManagement.tsx) | Page-local |
-| PRINCE2 Programme Management | [PRINCE2ProgrammeManagement.tsx](components/PRINCE2ProgrammeManagement.tsx) | Page-local |
-| Programme Essentials | [ProgrammeEssentials.tsx](components/ProgrammeEssentials.tsx) | Page-local |
-| Project Controls Professional Level6 | [ProjectControlsProfessionalLevel6.tsx](components/ProjectControlsProfessionalLevel6.tsx) | Page-local |
-| Strategic Pathway Complete | [StrategicPathwayComplete.tsx](components/StrategicPathwayComplete.tsx) | Page-local |
-| Take The Next Step | [TakeTheNextStep.tsx](components/TakeTheNextStep.tsx) | Page-local |
-| Who Should Apply | [WhoShouldApply.tsx](components/WhoShouldApply.tsx) | Page-local |
-| Your Credit Journey | [YourCreditJourney.tsx](components/YourCreditJourney.tsx) | Page-local |
+| Order | Visible section | Component | Shared implementation |
+| --- | --- | --- | --- |
+| 1 | Strategic Pathway hero | [ProjectControlsProfessionalLevel6.tsx](components/ProjectControlsProfessionalLevel6.tsx) | Page-local |
+| 2 | The Strategic Advantage | [FromEvidenceToAction.tsx](components/FromEvidenceToAction.tsx) | [StrategicSection.tsx](components/StrategicSection.tsx) |
+| 3 | Who This Pathway Is For & Eligibility | [WhoShouldApply.tsx](components/WhoShouldApply.tsx) | StrategicSection; `#eligibility` targets the review panel |
+| 4 | Your Learning Pathway | [YourCreditJourney.tsx](components/YourCreditJourney.tsx) | StrategicSection |
+| 5 | How you study | [HowYouStudy.tsx](components/HowYouStudy.tsx) | StrategicSection; includes programme coaching guidance |
+| 6 | From Learning to Practice | [WorkplaceApplication.tsx](components/WorkplaceApplication.tsx) | StrategicSection |
+| 7 | Assessment & Progression | [StrategicPathwayComplete.tsx](components/StrategicPathwayComplete.tsx) | StrategicSection; existing `#completion` anchor |
+| 8 | Learn from Practitioners | [ExpertLedLearning.tsx](components/ExpertLedLearning.tsx) | [MeetMentors.tsx](../../components/feature/MeetMentors.tsx), canonical homepage content, portraits and mobile looping |
+| 9 | Employer Partnership | [EmployerPartnership.tsx](components/EmployerPartnership.tsx) | StrategicSection |
+| 10 | Funding & Costs | [FundingScenariosForStartsFrom1August2026.tsx](components/FundingScenariosForStartsFrom1August2026.tsx) | [FundingOptionsSection.tsx](../../components/feature/FundingOptionsSection.tsx), canonical homepage content and design |
+| 11 | Take the Next Step | [TakeTheNextStep.tsx](components/TakeTheNextStep.tsx) | Page-local; `#apply` |
 
-Keep `page.tsx` focused on section order and page state. Add new page-specific sections to `components/`, use the visible label for the filename, and update imports when renaming. Shared navigation and the footer remain in `src/components/feature/`.
+[StrategicSection.tsx](components/StrategicSection.tsx) uses the site's [SectionHeading.tsx](../../components/base/SectionHeading.tsx), spacing, colour tokens and dotted background. It keeps page-specific copy consistent with the rest of the site. [strategic.css](strategic.css) scopes measured header and section-navigation offsets to this page.
+
+Funding and mentor wrappers only set existing navigation anchors. Edit their shared implementations to change these sections everywhere. There are no Strategic Pathway copy or layout overrides. Funding dates and contribution rates remain owned by `src/data/apprenticeshipFundingPolicy.ts`. Mentor portraits, profile destinations and LinkedIn links come from dashboard-managed records.
+
+The final CTA links to the apprenticeship eligibility checker, pathway consultation booking and `office@kentbusinesscollege.org`.
+
+The following older components remain available in the folder but are no longer rendered separately. Their topics are covered by the updated pathway, learning, audience, assessment and employer sections:
+
+- [AIInProjectControls.tsx](components/AIInProjectControls.tsx)
+- [PMPExamPreparationAndStrategicProjectLeadership.tsx](components/PMPExamPreparationAndStrategicProjectLeadership.tsx)
+- [PRINCE2ProgrammeManagement.tsx](components/PRINCE2ProgrammeManagement.tsx)
+- [PRINCE2PortfolioManagement.tsx](components/PRINCE2PortfolioManagement.tsx)
+- [PMIPMOCPPreparationAndPMOLeadership.tsx](components/PMIPMOCPPreparationAndPMOLeadership.tsx)
+- [ProgrammeEssentials.tsx](components/ProgrammeEssentials.tsx)
+- [EligibilityCriteria.tsx](components/EligibilityCriteria.tsx)
+
+Keep `page.tsx` focused on composition, and keep this guide and the section navigation aligned with the rendered order. Shared public navigation and the footer remain in `src/components/feature/`.

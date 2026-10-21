@@ -20,9 +20,7 @@ export default function Page() {
       <OneProfessionalFoundationAcrossComplexEngineeringEnvironments />
       <ChooseYourProfessionalDirection />
       <EngineeringProjectControlsEvidence />
-      <div id="experts" className="scroll-mt-44">
-        <MeetMentors />
-      </div>
+      <MeetMentors id="experts" />
       <FundingAndBursaryAccess />
       <EligibilityCheckerSection />
     </SectorPageShell>

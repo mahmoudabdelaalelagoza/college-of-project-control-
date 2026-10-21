@@ -1,57 +1,58 @@
 import SectionHeading from '@/components/base/SectionHeading';
 
+const programmeSections = [
+  {
+    title: 'What Your Programme May Include',
+    icon: 'ri-check-line',
+    items: [
+      'Structured project controls learning and one-to-one support',
+      'Live online teaching and flexible delivery options',
+      'Applied assignments and professional portfolio development',
+      'London masterclasses and professional networking opportunities',
+      'Professional examination and membership support, where included',
+      'APM ChPP readiness guidance, where applicable',
+    ],
+  },
+  {
+    title: 'Fees & Financial Support',
+    icon: 'ri-money-pound-circle-line',
+    items: [
+      'Interest-free instalment options, subject to agreed terms',
+      'Potential bursary support, subject to eligibility and approval',
+      'Early-payment discounts, where available',
+      'Clear confirmation of tuition fees, assessment costs and included benefits before enrolment',
+    ],
+  },
+] as const;
+
 export default function CommercialRoute() {
   return (
-<section id="commercial-route" className="py-12 md:py-16 bg-background-100">
-          <div className="container-site max-w-4xl mx-auto">
-            <SectionHeading
-              tag="Commercial Route"
-              title="The Same Professional Development. A Different Funding Route."
-              subtitle="The commercial pathway gives you access to the same structured professional development, tutoring, Master Class Events and APM ChPP readiness support as the apprenticeship-funded route."
-             as="h1" />
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-background-50 border border-background-200/70 rounded-lg p-5">
-                <h4 className="text-sm font-heading font-bold text-foreground-900 mb-3">What is included</h4>
-                <ul className="space-y-2">
-                  {[
-                    'Structured Level 6 professional development',
-                    'One-to-one tutoring and coaching',
-                    'London Master Class Events',
-                    'APM ChPP readiness support',
-                    'Professional exams and memberships covered where applicable',
-                    'Workplace evidence portfolio development',
-                    'Live online delivery with flexible scheduling',
-                    'Interest-free instalment payment options',
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-foreground-700">
-                      <i className="ri-check-line text-highlight-600 mt-0.5 flex-shrink-0"></i>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-background-50 border border-background-200/70 rounded-lg p-5">
-                <h4 className="text-sm font-heading font-bold text-foreground-900 mb-3">Financial support options</h4>
-                <ul className="space-y-2">
-                  {[
-                    'Interest-free monthly instalment plans',
-                    'KBC discretionary bursary — means-tested support',
-                    'Early payment discounts where applicable',
-                    'No hidden fees or additional assessment costs',
-                    'Transparent pricing discussed before enrolment',
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-foreground-700">
-                      <i className="ri-money-pound-circle-line text-primary-500 mt-0.5 flex-shrink-0"></i>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-xs text-foreground-400 italic">
-                  KBC bursary support is discretionary and subject to availability. Speak to an adviser for current options.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+    <section id="commercial-route" className="bg-background-100 py-12 md:py-16">
+      <div className="container-site max-w-4xl">
+        <SectionHeading
+          tag="Commercial Project Controls Route"
+          title="Advanced professional development, with flexible study options"
+          subtitle="Access structured Level 6 professional learning through a commercial route, with expert-led teaching, practical application and professional progression support."
+        />
+        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+          {programmeSections.map(section => (
+            <article key={section.title} className="min-w-0 rounded-xl border border-background-200 bg-background-50 p-5 md:p-6">
+              <h3 className="mb-4 font-heading text-xl font-bold text-foreground-950">{section.title}</h3>
+              <ul className="space-y-3">
+                {section.items.map(item => (
+                  <li key={item} className="flex items-start gap-2 text-sm leading-7 text-foreground-700">
+                    <i className={section.icon + ' mt-0.5 shrink-0 text-primary-600'} aria-hidden="true" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+        <p className="mt-6 border-t border-background-200 pt-5 text-sm leading-7 text-foreground-600">
+          Commercial study is separate from the apprenticeship route. Programme content, assessments, payment arrangements and professional recognition support are confirmed in your written offer. Completion does not automatically award an apprenticeship certificate or Chartered status.
+        </p>
+      </div>
+    </section>
   );
 }

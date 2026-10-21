@@ -2,6 +2,8 @@
 
 Composition: [page.tsx](page.tsx). Routes: `/programmes`.
 
+This page is available by direct URL only. Public navigation, footer links, exploration buttons, breadcrumb references and the sitemap no longer promote it. General apprenticeship exploration links use the homepage programme section (`/#programmes`). Route registration, static generation and dashboard management access remain available.
+
 Find the label on the page, then open its component below. Shared implementation links are provided where a section is reused. Data and API calls retain their existing ownership.
 
 | Label / heading | Component | Shared implementation |
@@ -12,9 +14,13 @@ Find the label on the page, then open its component below. Shared implementation
 | Flexible Professional Development | [FlexibleProfessionalDevelopment.tsx](components/FlexibleProfessionalDevelopment.tsx) | Page-local |
 | For Employers | [ForEmployers.tsx](components/ForEmployers.tsx) | Page-local |
 | Frequently Asked Questions | [FrequentlyAskedQuestions.tsx](components/FrequentlyAskedQuestions.tsx) | Page-local |
-| Learn from Practitioners | [LearnFromPractitioners.tsx](components/LearnFromPractitioners.tsx) | [MeetMentors.tsx](../../components/feature/MeetMentors.tsx) |
+| Learn from Practitioners | [LearnFromPractitioners.tsx](components/LearnFromPractitioners.tsx) | [MeetMentors.tsx](../../components/feature/MeetMentors.tsx), canonical homepage copy, portrait cards and mobile looping |
 | Learn together | [LearnTogether.tsx](components/LearnTogether.tsx) | [EventsTeaser.tsx](../../components/feature/EventsTeaser.tsx) |
 | Professional development and recognition | [ProfessionalDevelopmentAndRecognition.tsx](components/ProfessionalDevelopmentAndRecognition.tsx) | [ProfessionalRecognitionSection.tsx](../../components/feature/ProfessionalRecognitionSection.tsx) |
 | Professional Programmes | [ProfessionalProgrammes.tsx](components/ProfessionalProgrammes.tsx) | Page-local |
 
 Keep `page.tsx` focused on section order and page state. Add new page-specific sections to `components/`, use the visible label for the filename, and update imports when renaming. Shared navigation and the footer remain in `src/components/feature/`.
+
+The page-specific comparison copy is in [programmeComparison.ts](programmeComparison.ts). It compares two apprenticeships with the standalone Certified PMO Professional programme, with headings and cells keyed by canonical programme id. The same seven-row table is shown on desktop and mobile; on mobile it scrolls horizontally with fixed comparison labels.
+
+The mentor section uses the canonical homepage content and portrait-card layout in [MeetMentors.tsx](../../components/feature/MeetMentors.tsx). Changes there apply to every consumer, including mobile looping. Images, profile destinations and LinkedIn links come from the dashboard-managed mentor records; only navigation anchors vary by page.

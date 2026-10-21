@@ -1,106 +1,52 @@
+import SectionHeading from '@/components/base/SectionHeading';
+
+const professionalGroups = [
+  {
+    title: 'Project Controls Professionals',
+    roles: 'Project Controls Managers · Planning & Cost Leads · Performance & Assurance Specialists',
+  },
+  {
+    title: 'PMO & Governance Professionals',
+    roles: 'PMO Managers · Governance Leads · Portfolio Office Professionals',
+  },
+  {
+    title: 'Programme & Delivery Professionals',
+    roles: 'Programme Controls Specialists · Risk & Quality Practitioners · Project Leaders with Controls Responsibilities',
+  },
+];
+
 export default function WhoShouldChooseTheCharteredPathway() {
   return (
-<section id="role-fit" aria-labelledby="role-fit-title" className="scroll-mt-44 py-16 md:py-20 bg-white">
-<div className="container-site space-y-8">
-<div className="max-w-3xl space-y-4">
-<div className="text-xs font-bold uppercase tracking-[.14em] text-accent-700">
-{"Who should choose the Chartered Pathway? "}
-</div>
-<h2 id="role-fit-title" className="text-3xl font-bold leading-tight md:text-4xl">
-{"For professionals who combine controls with leadership "}
-</h2>
-<p className="text-base leading-relaxed">
-{"The route is suited to professionals expected to provide authoritative controls advice, design governance, assure information, influence decision-makers and lead improvement across projects, programmes, portfolios or PMO environments. "}
-</p>
-</div>
-<div className="grid min-w-0 gap-6 lg:grid-cols-2">
-<div className="grid min-w-0 gap-6 lg:grid-cols-2">
-<article className="min-w-0 space-y-4 rounded-2xl border border-background-200 bg-white p-6 text-foreground-800 shadow-sm">
-<h3 className="text-xl font-bold leading-snug">
-{"Project controls leaders "}
-</h3>
-<p className="text-base leading-relaxed">
-{"Project Controls Managers, Heads of Planning, Scheduling Leads and Cost Engineering Leads. "}
-</p>
-</article>
-<article className="min-w-0 space-y-4 rounded-2xl border border-background-200 bg-white p-6 text-foreground-800 shadow-sm">
-<h3 className="text-xl font-bold leading-snug">
-{"PMO professionals "}
-</h3>
-<p className="text-base leading-relaxed">
-{"PMO Managers, PMO Leads, Portfolio Office professionals and governance specialists. "}
-</p>
-</article>
-<article className="min-w-0 space-y-4 rounded-2xl border border-background-200 bg-white p-6 text-foreground-800 shadow-sm">
-<h3 className="text-xl font-bold leading-snug">
-{"Assurance and risk "}
-</h3>
-<p className="text-base leading-relaxed">
-{"Risk, quality, controls-assurance and performance specialists. "}
-</p>
-</article>
-<article className="min-w-0 space-y-4 rounded-2xl border border-background-200 bg-white p-6 text-foreground-800 shadow-sm">
-<h3 className="text-xl font-bold leading-snug">
-{"Programme controls "}
-</h3>
-<p className="text-base leading-relaxed">
-{"Professionals integrating project, programme and portfolio information. "}
-</p>
-</article>
-<article className="min-w-0 space-y-4 rounded-2xl border border-background-200 bg-white p-6 text-foreground-800 shadow-sm">
-<h3 className="text-xl font-bold leading-snug">
-{"Data and reporting "}
-</h3>
-<p className="text-base leading-relaxed">
-{"Senior analysts responsible for trusted dashboards, reporting and forecasting. "}
-</p>
-</article>
-<article className="min-w-0 space-y-4 rounded-2xl border border-background-200 bg-white p-6 text-foreground-800 shadow-sm">
-<h3 className="text-xl font-bold leading-snug">
-{"Professional progression "}
-</h3>
-<p className="text-base leading-relaxed">
-{"Experienced practitioners preparing for senior responsibility and future ChPP application. "}
-</p>
-</article>
-</div>
-<div className="space-y-5">
-<article className="min-w-0 space-y-4 rounded-2xl border border-background-200 bg-white p-6 text-foreground-800 shadow-sm bg-background-100 text-foreground-800">
-<h3 className="text-xl font-bold leading-snug">
-{"Strong applicants can typically access "}
-</h3>
-<ul className="list-disc space-y-2 pl-5">
-<li className="leading-relaxed">
-{"Governance and assurance forums "}
-</li>
-<li className="leading-relaxed">
-{"Integrated schedules, cost and risk information "}
-</li>
-<li className="leading-relaxed">
-{"Programme or portfolio reporting "}
-</li>
-<li className="leading-relaxed">
-{"Senior stakeholders and decision-makers "}
-</li>
-<li className="leading-relaxed">
-{"PMO or controls improvement opportunities "}
-</li>
-<li className="leading-relaxed">
-{"Workplace evidence suitable for professional reflection "}
-</li>
-</ul>
-</article>
-<article className="min-w-0 space-y-4 rounded-2xl border border-background-200 bg-white p-6 text-foreground-800 shadow-sm">
-<h3 className="text-xl font-bold leading-snug">
-{"Chartered ambition needs evidence "}
-</h3>
-<p className="text-base leading-relaxed">
-{"APM expects applicants to be professionally active, current in practice and able to demonstrate experience across projects, programmes, portfolios or key control and enabling functions. "}
-</p>
-</article>
-</div>
-</div>
-</div>
-</section>
+    <section id="role-fit" aria-labelledby="role-fit-title" className="relative isolate overflow-hidden bg-background-50 py-16 md:py-24">
+      <div className="pattern-dots-overlay pattern-dots-light" aria-hidden="true" />
+      <div className="container-site relative z-10">
+        <SectionHeading
+          id="role-fit-title"
+          tag="Who Should Choose This Pathway?"
+          title="For Professionals Combining Project Controls with Governance and Leadership"
+          subtitle="The pathway is designed for employed professionals whose responsibilities provide opportunities to develop and demonstrate advanced project controls competence."
+          className="max-w-4xl"
+        />
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3 md:mt-12">
+          {professionalGroups.map((group) => (
+            <article key={group.title} className="min-w-0 rounded-2xl border border-background-200 bg-white p-6 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold leading-snug text-foreground-950">{group.title}</h3>
+              <p className="text-sm leading-relaxed text-foreground-600">{group.roles}</p>
+            </article>
+          ))}
+        </div>
+
+        <article className="mt-8 rounded-xl border border-l-4 border-accent-200 border-l-accent-600 bg-accent-50 p-5 md:p-6">
+          <h3 className="text-xl font-bold leading-snug text-foreground-950">A Suitable Workplace Role</h3>
+          <p className="mt-3 text-sm leading-relaxed text-foreground-600">
+            Your responsibilities should provide opportunities to analyse delivery information, contribute to governance or assurance, communicate recommendations and demonstrate your own professional judgement.
+          </p>
+          <p className="mt-3 text-sm font-semibold leading-relaxed text-primary-900">
+            Your role must also support the full ST0845 occupational requirements. A senior job title or Chartered ambition alone is not sufficient.
+          </p>
+        </article>
+      </div>
+    </section>
   );
 }

@@ -1,7 +1,6 @@
-import { homeCopy } from '../pageCopy';
-import SiteLink from '@/components/base/SiteLink';
-import HomepageContentSection from './HomepageContentSection';
-export default function ProfessionalExperience(){const copy=homeCopy.experiences;return <HomepageContentSection id="testimonials" copy={copy}>
- <figure className="mx-auto mt-10 grid max-w-5xl gap-8 rounded-2xl border border-background-200 bg-white p-6 md:grid-cols-[240px_minmax(0,1fr)] md:p-10"><figcaption className="flex flex-col items-center text-center md:items-start md:text-left"><span className="inline-flex h-24 w-24 items-center justify-center rounded-full bg-primary-700 text-3xl font-bold text-white" aria-hidden="true">JM</span><p className="mt-5 text-xl font-bold text-foreground-950">{copy.name}</p><p className="mt-2 text-sm font-semibold text-primary-700">{copy.organisation}</p><p className="mt-3 text-xs leading-6 text-foreground-500">{copy.programme}</p></figcaption><blockquote className="min-w-0"><i className="ri-double-quotes-l text-5xl text-primary-500" aria-hidden="true" /><p className="mt-4 text-lg leading-8 text-foreground-700 md:text-xl">{copy.quote}</p></blockquote></figure>
- <div className="mt-8 text-center"><SiteLink href="/testimonials" className="btn-primary inline-flex min-h-12 items-center justify-center gap-2 px-6 py-3 text-sm font-bold">{copy.cta}<i className="ri-arrow-right-line" aria-hidden="true" /></SiteLink></div></HomepageContentSection>;
+import LearnerExperiences from '@/components/feature/LearnerExperiences';
+
+/** Shared homepage learner-experience section. */
+export default function ProfessionalExperience() {
+  return <LearnerExperiences />;
 }

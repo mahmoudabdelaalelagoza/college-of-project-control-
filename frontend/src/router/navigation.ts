@@ -1,6 +1,6 @@
 export const destinations = {
   consultation: '/book-a-session', eligibility: '/apprenticeship-eligibility-checker',
-  programmes: '/programmes', articles: '/articles', events: '/events',
+  programmes: '/#programmes', articles: '/articles', events: '/events',
 } as const;
 const redirectTargets: Record<string, string> = {
   '/apprenticeship-eligibility-checker/': destinations.eligibility,

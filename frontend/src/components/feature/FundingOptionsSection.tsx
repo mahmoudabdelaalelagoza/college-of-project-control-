@@ -1,227 +1,155 @@
 import SiteLink from '@/components/base/SiteLink';
-import {
-  employerContributionPercent,
-  formatPercent,
-  fundingRoutes,
-  fundingWindowPhrase,
-} from '@/data/apprenticeshipFundingPolicy';
-import type { ReactNode } from 'react';
-
-export interface FundingOverviewCard { title: string; content: ReactNode; }
-export interface FundingSupportCard { title: string; description: string; }
-export interface FundingCtaContent { title: string; description: string; label: string; href: string; }
+import { AGE_25_PLUS, employerContributionPercent, fundingContributionPercent, formatPercent, fundingWindowPhrase } from '@/data/apprenticeshipFundingPolicy';
 
 interface FundingOptionsSectionProps {
   id?: string;
-  tag?: string;
-  includedSupport?: { title: string; description: ReactNode };
-  supportNote?: string;
-  contributionCards?: FundingSupportCard[];
-  contributionTitle?: string;
-  contributionNote?: string;
-  footerNote?: ReactNode;
-  secondaryCta?: { label: string; href: string };
-  title?: string;
-  description?: string;
-  overviewCards?: FundingOverviewCard[];
-  includedBenefits?: string[];
-  supportCards?: FundingSupportCard[];
-  ctaContent?: FundingCtaContent;
-  imageSrc?: string;
-  imageAlt?: string;
+  bursaryId?: string;
 }
 
-/** Audit P00.5 / P01.6 / P04.7 / P11.4 (funding gate): the two offers are priced
- *  and funded differently, so they are described separately and never implied to
- *  produce identical outcomes. Every figure below is conditional and must match
- *  the approved offer. */
-const defaultOverviewCards: FundingOverviewCard[] = [
-  {
-    title: 'Apprenticeships: funding is assessed individually',
-    content: (
-      <>
-        <span>
-          Associate Project Manager Level 4 and Project Controls Professional Level 6 are delivered
-          as apprenticeships. Where a learner, employer and programme all meet the conditions, the
-          apprenticeship may be funded through Department for Education apprenticeship funding
-          arrangements.
-        </span>
-        <span className="mt-3 flex items-start gap-2 rounded-lg bg-highlight-50 p-3 text-xs font-semibold text-foreground-700">
-          <i className="ri-information-line mt-0.5 shrink-0 text-highlight-700" aria-hidden="true" />
-          Funding is not guaranteed. It depends on your age band, employer levy status, the standard
-          in effect on your start date and whether you are already funded elsewhere. Your written
-          offer confirms the position for your circumstances.
-        </span>
-      </>
-    ),
+/** Canonical Funding & Costs section: shared homepage design and content.
+ * Funding dates and employer contribution rates remain owned by the funding policy. */
+const sectionCopy = {
+  "tag": "Funding & Costs",
+  "title": "Understand your funding options",
+  "intro": "Apprenticeships and professional development follow different funding arrangements. Explore the options available and understand how eligibility, employer contributions and programme choice may affect your costs.",
+  "apprenticeship": {
+    "title": "Apprenticeship funding",
+    "body": "Associate Project Manager Level 4 and Project Controls Professional Level 6 may be eligible for apprenticeship funding in England, subject to learner, employer and programme eligibility."
   },
-  {
-    title: 'Professional study: commercial fees and separate support',
-    content: (
-      <>
-        <span>
-          Our short courses and professional programmes are commercial study, not apprenticeships.
-          Each four-credit course has a commercial tuition value of{' '}
-          <strong className="font-bold text-primary-800">£4,000 GBP</strong>. The Project Management
-          Professional or Certified Associate in Project Management route is treated as a two-credit
-          course. Most other listed courses are one credit.
-        </span>
-        <span className="mt-3 block">
-          Completing professional study does not by itself produce an apprenticeship certificate or
-          an occupational standard award.
-        </span>
-      </>
-    ),
+  "note": "Funding applies up to the relevant funding-band maximum. Eligibility, employer contributions and costs above that maximum are confirmed before enrolment.",
+  "professional": {
+    "title": "Professional study and IPC funding",
+    "body": [
+      "Standalone professional courses are commercially priced and are not automatically eligible for government apprenticeship funding.",
+      "The Institute of Project Controls Fund may provide tuition support for eligible professional-study applicants, subject to approval."
+    ],
+    "cards": [
+      {
+        "title": "Up to 75% tuition support",
+        "body": "For eligible unemployed or self-employed learners."
+      },
+      {
+        "title": "Up to 50% tuition support",
+        "body": "For eligible employed learners, with the employer contributing the remaining share."
+      }
+    ],
+    "note": "Commercial course fees and any approved support are confirmed in your written offer."
   },
-];
-
-const defaultIncludedBenefits = [
-  'London Masterclass', 'Professional memberships', 'Professional clubs',
-  'Institute of Project Controls membership for two years',
-  'Private healthcare insurance during the programme', 'Access to our mental wellbeing system',
-  'Inclusiveness assessments', 'Optional non-diagnostic education-barrier assessment',
-  'Optional personality traits assessment', 'Job and career fitness psychological tests',
-];
-
-/** Audit P00.5: these are Institute of Project Controls benefits offered against
- *  professional study only. They must not be presented as apprenticeship funding. */
-const defaultSupportCards: FundingSupportCard[] = [
-  {
-    title: 'Institute of Project Controls Fund',
-    description:
-      'The Institute of Project Controls Fund may support eligible applicants towards professional-study tuition fees, subject to pathway, evidence and approval criteria.',
+  "support": {
+    "title": "Additional professional support",
+    "body": [
+      "Depending on your agreed programme package, KBC and IPC support may include professional examinations, memberships, London masterclasses and learner wellbeing services.",
+      "These benefits are separate from eligible government-funded apprenticeship training and assessment costs. Your written offer confirms what is included."
+    ]
   },
-  {
-    title: 'Professional study: up to 75% support',
-    description:
-      'For eligible unemployed or self-employed learners taking professional study, the Institute of Project Controls Fund may cover up to 75% of tuition fees, subject to approval.',
-  },
-  {
-    title: 'Professional study: up to 50% support',
-    description:
-      'For eligible employed learners taking professional study, the Institute of Project Controls Fund may cover up to 50% of tuition fees, with the employer contributing the remaining share, subject to approval.',
-  },
-];
-
-/** Employer-side apprenticeship funding positions, read from the canonical policy
- *  rather than restated here. The funding year and the two percentage splits are
- *  regulatory facts with a single owner in apprenticeshipFundingPolicy.ts. */
-const apprenticeshipContributionCards: FundingSupportCard[] = fundingRoutes.map((route) => {
-  const position = route.contributions[route.contributions.length - 1];
-  const employer = employerContributionPercent(route.id, position.ageBandLabel);
-  return {
-    title: `${route.label}: ${position.ageBandLabel}`,
-    description:
-      employer === undefined
-        ? `${position.description} Applies to starts ${fundingWindowPhrase()}.`
-        : `${position.description} Employer co-investment ${formatPercent(employer)}. Applies to starts ${fundingWindowPhrase()}.`,
-  };
-});
-
-const defaultCta: FundingCtaContent = {
-  title: 'Discuss the funding route for your circumstances',
-  description: 'Confirm programme fit, funding conditions and the next available start date with the Kent Business College team.',
-  label: 'Discuss Your Funding Options', href: '/book-a-session',
-};
+  "discussCta": "Discuss your funding options"
+} as const;
 
 export default function FundingOptionsSection({
-  id,
-  tag = 'Funding and costs',
-  includedSupport,
-  supportNote,
-  contributionCards = apprenticeshipContributionCards,
-  contributionTitle,
-  contributionNote,
-  footerNote,
-  secondaryCta,
-  title = 'Funding options',
-  description =
-    'Apprenticeships and professional study are funded differently. The right route depends on programme fit, learner status and employer eligibility.',
-  overviewCards = defaultOverviewCards,
-  includedBenefits = defaultIncludedBenefits,
-  supportCards = defaultSupportCards,
-  ctaContent = defaultCta,
-  imageSrc = '/assets/images/funding/funding-options.webp',
-  imageAlt = 'Construction professional wearing a hard hat at a city building site',
+  id = 'funding-options',
+  bursaryId,
 }: FundingOptionsSectionProps) {
+  const headingId = `${id}-title`;
+  const overviewCards = [
+    { title: sectionCopy.apprenticeship.title, content: sectionCopy.apprenticeship.body },
+    {
+      title: sectionCopy.professional.title,
+      content: sectionCopy.professional.body.map(text => <p key={text} className="mt-2 first:mt-0">{text}</p>),
+    },
+  ];
+  const supportCards = sectionCopy.professional.cards.map(card => ({ title: card.title, description: card.body }));
+  const rows = [
+    ['Apprentices aged 16–24','Up to 100% of eligible training and assessment costs may be covered, subject to funding rules.'],
+    ['Levy-paying employers with sufficient funds',"Eligible costs can be paid through the employer's apprenticeship service account."],
+    ['Levy-paying employers with insufficient funds — aged 25+',`Government contributes ${formatPercent(fundingContributionPercent('levy-insufficient',AGE_25_PLUS)!)} of eligible costs, with ${formatPercent(employerContributionPercent('levy-insufficient',AGE_25_PLUS)!)} employer co-investment.`],
+    ['Non-levy employers — aged 25+',`Government contributes ${formatPercent(fundingContributionPercent('non-levy',AGE_25_PLUS)!)} of eligible costs, with ${formatPercent(employerContributionPercent('non-levy',AGE_25_PLUS)!)} employer co-investment.`],
+  ];
+  const contributionCards = rows.map(([title, description]) => ({ title, description }));
+
   return (
-    <section id={id} className="bg-background-50 py-12 md:py-16" aria-labelledby="funding-options-title">
+    <section id={id} className="scroll-mt-48 bg-background-50 py-12 md:py-16" aria-labelledby={headingId}>
       <header className="relative isolate flex min-h-80 w-full min-w-0 items-end overflow-hidden bg-primary-950 md:aspect-[3/1]">
-            <img src={imageSrc} alt={imageAlt} width={2172} height={724} className="absolute inset-0 z-0 h-full w-full object-cover object-[65%_center] md:object-center" loading="lazy" decoding="async" />
-            <div className="absolute inset-0 z-10 bg-gradient-to-r from-primary-950/90 via-primary-950/55 to-primary-950/10 md:via-primary-950/20" aria-hidden="true" />
-            <div className="container-site relative z-20 flex items-end justify-between gap-8 pb-24 pt-8 md:pb-28">
-            <div className="max-w-md lg:max-w-lg">
-              <p className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.24em] text-white/90"><span className="h-0.5 w-10 bg-highlight-400" aria-hidden="true" />{tag}</p>
-              <h2 id="funding-options-title" className="mt-4 text-4xl font-bold leading-tight tracking-tight text-white lg:text-5xl">{title}</h2>
-              <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/90">{description}</p>
-            </div>
-            <div className="hidden shrink-0 text-xs font-semibold uppercase leading-7 tracking-[.22em] text-white lg:block" aria-hidden="true"><span className="mb-4 block h-0.5 w-10 bg-highlight-400" />People<br />Projects<br />Progress</div>
-            </div>
-          </header>
+        <img
+          src="/assets/images/funding/funding-options.webp"
+          alt="Construction professional wearing a hard hat at a city building site"
+          width={2172}
+          height={724}
+          className="absolute inset-0 z-0 h-full w-full object-cover object-[65%_center] md:object-center"
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-primary-950/90 via-primary-950/60 to-primary-950/10 md:via-primary-950/20" aria-hidden="true" />
+        <div className="container-site relative z-20 flex items-end justify-between gap-8 pb-24 pt-8 md:pb-28">
+          <div className="max-w-md lg:max-w-lg">
+            <p className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.24em] text-white/90">
+              <span className="h-0.5 w-10 bg-highlight-400" aria-hidden="true" />{sectionCopy.tag}
+            </p>
+            <h2 id={headingId} className="mt-4 text-4xl font-bold leading-tight tracking-tight text-white lg:text-5xl">{sectionCopy.title}</h2>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/90">{sectionCopy.intro}</p>
+          </div>
+          <div className="hidden shrink-0 text-xs font-semibold uppercase leading-7 tracking-[.22em] text-white lg:block" aria-hidden="true">
+            <span className="mb-4 block h-0.5 w-10 bg-highlight-400" />People<br />Projects<br />Progress
+          </div>
+        </div>
+      </header>
 
-          <div className="container-site relative z-10 -mt-12 space-y-4">
-            <div className="grid gap-3 md:grid-cols-2">
-              {overviewCards.map((card, index) => (
-                <article key={card.title} className="flex items-start gap-4 rounded-xl border border-background-200 bg-white p-5 shadow-card">
-                  <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-2xl ${index === 0 ? 'bg-highlight-50 text-highlight-700' : 'bg-accent-50 text-primary-800'}`}><i className={index === 0 ? 'ri-coins-line' : 'ri-team-line'} aria-hidden="true" /></span>
-                  <div className="min-w-0 flex-1">
-                    <h3 className="text-sm font-bold text-foreground-950 sm:text-base">{card.title}</h3>
-                    <div className="mt-2 text-xs leading-relaxed text-foreground-600">{card.content}</div>
-                  </div>
-                  <SiteLink href={ctaContent.href} aria-label={`Discuss ${card.title.toLowerCase()}`} className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-800 transition-colors hover:bg-primary-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700"><i className="ri-arrow-right-s-line text-lg" aria-hidden="true" /></SiteLink>
-                </article>
-              ))}
-            </div>
+      <div className="container-site relative z-10 -mt-12 space-y-4">
+        <div className="grid gap-3 md:grid-cols-2">
+          {overviewCards.map((card, index) => (
+            <article key={card.title} id={index === 1 ? bursaryId : undefined} className="scroll-mt-48 flex items-start gap-4 rounded-xl border border-background-200 bg-white p-5 shadow-card">
+              <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-2xl ${index === 0 ? 'bg-highlight-50 text-highlight-700' : 'bg-accent-50 text-primary-800'}`}><i className={index === 0 ? 'ri-coins-line' : 'ri-team-line'} aria-hidden="true" /></span>
+              <div className="min-w-0 flex-1">
+                <h3 className="text-sm font-bold text-foreground-950 sm:text-base">{card.title}</h3>
+                <div className="mt-2 text-xs leading-relaxed text-foreground-600">{card.content}</div>
+              </div>
+              <SiteLink href="/book-a-session" aria-label={`Discuss ${card.title.toLowerCase()}`} className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-800 transition-colors hover:bg-primary-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700"><i className="ri-arrow-right-s-line text-lg" aria-hidden="true" /></SiteLink>
+            </article>
+          ))}
+        </div>
 
-            <article className="flex items-start gap-4 rounded-xl border border-accent-100 bg-accent-50/50 p-5">
-              <span className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent-100 text-2xl text-primary-800 sm:flex"><i className="ri-box-3-line" aria-hidden="true" /></span>
+        <article className="flex items-start gap-4 rounded-xl border border-accent-100 bg-accent-50/50 p-5">
+          <span className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent-100 text-2xl text-primary-800 sm:flex"><i className="ri-box-3-line" aria-hidden="true" /></span>
+          <div>
+            <h3 className="text-sm font-bold text-primary-900 sm:text-base">{sectionCopy.support.title}</h3>
+            <div className="mt-1 space-y-2 text-xs leading-relaxed text-foreground-600">{sectionCopy.support.body.map(text => <p key={text}>{text}</p>)}</div>
+          </div>
+        </article>
+
+        <div className="grid divide-y divide-accent-300/25 overflow-hidden rounded-xl bg-primary-900 text-white lg:divide-x lg:divide-y-0 lg:grid-cols-2">
+          {supportCards.map((card, index) => (
+            <article key={card.title} className="flex items-start gap-4 p-5 lg:p-6">
+              <i className={`${index === 0 ? 'ri-graduation-cap-line' : 'ri-bar-chart-grouped-line'} shrink-0 text-3xl text-accent-100`} aria-hidden="true" />
               <div>
-                <h3 className="text-sm font-bold text-primary-900 sm:text-base">{includedSupport?.title ?? 'Included professional support'}</h3>
-                <div className="mt-1 space-y-2 text-xs leading-relaxed text-foreground-600">{includedSupport?.description ?? 'Your course and programme package is designed to include:'}</div>
-                {includedBenefits.length > 0 && <div className="mt-3 flex flex-wrap gap-2">{includedBenefits.map(benefit => <span key={benefit} className="rounded-full border border-accent-200 bg-white px-3 py-1 text-[11px] font-semibold leading-relaxed text-primary-800">{benefit}</span>)}</div>}
+                <h3 className="text-sm font-bold leading-snug text-white">{card.title}</h3>
+                <p className="mt-2 text-xs leading-relaxed text-white/75">{card.description}</p>
               </div>
             </article>
+          ))}
+        </div>
 
-            <div className={`grid divide-y divide-accent-300/25 overflow-hidden rounded-xl bg-primary-900 text-white lg:divide-x lg:divide-y-0 ${supportCards.length === 2 ? 'lg:grid-cols-2' : 'lg:grid-cols-3'}`}>
-              {supportCards.map((card, index) => (
-                <article key={card.title} className="flex items-start gap-4 p-5 lg:p-6">
-                  <i className={`${index === 0 ? 'ri-graduation-cap-line' : index === 1 ? 'ri-bar-chart-grouped-line' : 'ri-team-fill'} shrink-0 text-3xl text-accent-100`} aria-hidden="true" />
-                  <div>
-                    <h3 className="text-sm font-bold leading-snug text-white">{card.title.replace('Professional study: up to', 'Up to')}</h3>
-                    <p className="mt-2 text-xs leading-relaxed text-white/75">{card.description}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
+        <p className="px-1 text-xs leading-relaxed text-foreground-600">{sectionCopy.professional.note}</p>
 
-            {supportNote && <p className="px-1 text-xs leading-relaxed text-foreground-600">{supportNote}</p>}
+        {/* Employer-side apprenticeship funding positions. Same card treatment as
+            the support cards above; the values come from the canonical policy. */}
+        <h3 className="pt-3 text-base font-bold text-primary-900">Funding for starts {fundingWindowPhrase()}</h3>
+        <div className="grid divide-y divide-accent-300/25 overflow-hidden rounded-xl bg-primary-900 text-white lg:grid-cols-2">
+          {contributionCards.map((card) => (
+            <article key={card.title} className="flex items-start gap-4 p-5 lg:p-6">
+              <i className="ri-percent-line shrink-0 text-3xl text-accent-100" aria-hidden="true" />
+              <div>
+                <h3 className="text-sm font-bold leading-snug text-white">{card.title}</h3>
+                <p className="mt-2 text-xs leading-relaxed text-white/75">{card.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
 
-            {/* Employer-side apprenticeship funding positions. Same card treatment as
-                the support cards above; the values come from the canonical policy. */}
-            {contributionTitle && <h3 className="pt-3 text-base font-bold text-primary-900">{contributionTitle}</h3>}
-            <div className={`grid divide-y divide-accent-300/25 overflow-hidden rounded-xl bg-primary-900 text-white ${contributionCards.length === 4 ? 'lg:grid-cols-2' : 'lg:grid-cols-3 lg:divide-x lg:divide-y-0'}`}>
-              {contributionCards.map((card) => (
-                <article key={card.title} className="flex items-start gap-4 p-5 lg:p-6">
-                  <i className="ri-percent-line shrink-0 text-3xl text-accent-100" aria-hidden="true" />
-                  <div>
-                    <h3 className="text-sm font-bold leading-snug text-white">{card.title}</h3>
-                    <p className="mt-2 text-xs leading-relaxed text-white/75">{card.description}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
+        <p className="px-1 text-xs leading-relaxed text-foreground-600">{sectionCopy.note}</p>
 
-            {contributionNote && <p className="px-1 text-xs leading-relaxed text-foreground-600">{contributionNote}</p>}
-
-            <div className="flex flex-col gap-3 lg:flex-row lg:flex-wrap lg:items-stretch">
-              <aside className="flex flex-1 items-center gap-3 rounded-xl border border-background-200 bg-background-50 px-4 py-3" aria-label="Funding eligibility information">
-                <i className="ri-information-line shrink-0 text-xl text-accent-700" aria-hidden="true" />
-                <p className="text-xs leading-relaxed text-foreground-600">{footerNote ?? <>Funding eligibility can vary. Visit the <SiteLink href="/institute-of-project-controls" className="font-medium text-primary-700 underline underline-offset-2 hover:text-primary-900">Institute of Project Controls</SiteLink> or speak to the Kent Business College team.</>}</p>
-              </aside>
-              {secondaryCta && <SiteLink href={secondaryCta.href} className="inline-flex min-h-12 shrink-0 items-center justify-center gap-3 rounded-full border border-primary-200 px-5 py-3 text-xs font-bold text-primary-800 hover:bg-primary-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700">{secondaryCta.label}<i className="ri-arrow-right-line text-base" aria-hidden="true" /></SiteLink>}
-              <SiteLink href={ctaContent.href} className="btn-primary inline-flex min-h-12 shrink-0 items-center justify-center gap-3 px-5 py-3 text-xs font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700">{ctaContent.label}<i className="ri-arrow-right-line text-base" aria-hidden="true" /></SiteLink>
-            </div>
-          </div>
+        <div className="flex flex-col gap-3 lg:flex-row lg:flex-wrap lg:items-stretch">
+          <SiteLink href="/book-a-session" className="btn-primary inline-flex min-h-12 shrink-0 items-center justify-center gap-3 px-5 py-3 text-xs font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700">{sectionCopy.discussCta}<i className="ri-arrow-right-line text-base" aria-hidden="true" /></SiteLink>
+        </div>
+      </div>
     </section>
   );
 }

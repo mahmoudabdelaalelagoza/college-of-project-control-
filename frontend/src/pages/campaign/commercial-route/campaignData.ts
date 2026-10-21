@@ -1,27 +1,79 @@
 export const heroBadges = [
-  { icon: 'ri-money-pound-circle-line', text: 'Interest-free instalments available' },
-  { icon: 'ri-star-line', text: 'KBC discretionary bursary options' },
-  { icon: 'ri-award-line', text: 'APM ChPP readiness support' },
+  { icon: 'ri-money-pound-circle-line', text: 'Flexible payment options' },
+  { icon: 'ri-star-line', text: 'Potential bursary support' },
+  { icon: 'ri-award-line', text: 'Professional progression guidance' },
 ];
 
 export const beforeItems = [
-  { icon: 'ri-close-line', title: 'Limited access to funded development', description: 'Self-employed and non-eligible professionals shut out from apprenticeship-funded routes.' },
-  { icon: 'ri-close-line', title: 'Generic online courses with no recognition', description: 'Short courses that do not build professional standing or ChPP readiness.' },
-  { icon: 'ri-close-line', title: 'No employer support or mentoring', description: 'Self-directed learning without structured tutoring, evidence support or peer learning.' },
-  { icon: 'ri-close-line', title: 'Weak professional positioning', description: 'Difficulty demonstrating project controls competence to clients, employers or professional bodies.' },
+  { icon: 'ri-close-line', title: 'Disconnected Learning', description: 'Individual courses without a clear development plan.' },
+  { icon: 'ri-close-line', title: 'Limited Guidance', description: 'Fewer opportunities for personalised feedback and professional support.' },
+  { icon: 'ri-close-line', title: 'Unclear Evidence of Skills', description: 'Difficulty bringing together practical examples of your experience.' },
+  { icon: 'ri-close-line', title: 'Uncertain Progression', description: 'No clearly defined next step towards your professional goals.' },
 ];
 
 export const afterItems = [
-  { icon: 'ri-check-line', title: 'Structured professional development pathway', description: 'A recognised Level 6 programme with workplace evidence, tutoring and professional recognition support.' },
-  { icon: 'ri-check-line', title: 'APM ChPP readiness and membership support', description: 'Professional exams and memberships covered where applicable, with structured ChPP evidence preparation.' },
-  { icon: 'ri-check-line', title: 'One-to-one tutoring and Master Class Events', description: 'Personalised support, peer learning and London-based Master Class Events included in the programme.' },
-  { icon: 'ri-check-line', title: 'Stronger professional credibility', description: 'Demonstrate your project controls capability with a recognised qualification from a professional college.' },
+  { icon: 'ri-check-line', title: 'Structured Development', description: 'A planned approach to advanced project controls learning.' },
+  { icon: 'ri-check-line', title: 'Expert Support', description: 'Tutor guidance, feedback and coaching where included.' },
+  { icon: 'ri-check-line', title: 'Practical Application', description: 'Applied assignments and opportunities to demonstrate professional skills.' },
+  { icon: 'ri-check-line', title: 'Professional Progression', description: 'Guidance on future development and ChPP readiness where applicable.' },
 ];
 
 export const routeFitCards = [
-  { icon: 'ri-dashboard-line', title: 'Operational PCP', description: 'For planners, schedulers, cost engineers and project controllers building hands-on project controls capability.', href: '/project-controls-professional/operational-route', tracking: 'route_selected_operational' },
-  { icon: 'ri-bar-chart-grouped-line', title: 'Strategic PCP', description: 'For experienced professionals moving into governance, assurance and senior decision-support roles.', href: '/strategic-pcp', tracking: 'route_selected_strategic', recommended: true },
-  { icon: 'ri-stack-line', title: 'Strategic + Operational', description: 'For ambitious professionals who want both technical depth and strategic leadership, with OTHM Level 7.', href: '/strategic-operational-pcp', tracking: 'route_selected_hybrid' },
+  {
+    icon: 'ri-dashboard-line',
+    title: 'Operational Pathway',
+    subtitle: 'Strengthen Technical Project Controls',
+    description: 'For planners, schedulers, cost engineers and project controllers developing expertise in planning, forecasting, earned value and performance management.',
+    href: '/project-controls-professional/operational-route',
+    ctaLabel: 'Explore Operational Pathway',
+    tracking: 'route_selected_operational',
+  },
+  {
+    icon: 'ri-bar-chart-grouped-line',
+    title: 'Strategic Pathway',
+    subtitle: 'Develop Governance and Leadership Capability',
+    description: 'For experienced professionals moving into programme management, portfolio oversight, PMO leadership and senior decision-support roles.',
+    href: '/project-controls-professional/strategic-route',
+    ctaLabel: 'Explore Strategic Pathway',
+    tracking: 'route_selected_strategic',
+  },
+  {
+    icon: 'ri-award-line',
+    title: 'Chartered Pathway',
+    subtitle: 'Prepare for Professional Recognition',
+    description: 'For experienced professionals exploring APM Chartered Project Professional progression through relevant technical-knowledge assessment and professional development.',
+    href: '/project-controls-professional/chartered-pmo-pathway',
+    ctaLabel: 'Explore Chartered Pathway',
+    tracking: 'route_selected_chartered',
+  },
+];
+
+export const professionalCapabilities = [
+  {
+    icon: 'ri-bar-chart-grouped-line',
+    title: 'Planning & Scheduling',
+    description: 'Develop realistic project schedules, establish baselines and assess progress against delivery plans.',
+  },
+  {
+    icon: 'ri-money-pound-circle-line',
+    title: 'Cost Engineering & Forecasting',
+    description: 'Strengthen cost estimating, budget monitoring, earned value analysis and forecasting skills.',
+  },
+  {
+    icon: 'ri-alert-line',
+    title: 'Risk & Change Control',
+    description: 'Identify project risks, assess potential impacts and apply structured change control approaches.',
+  },
+  {
+    icon: 'ri-dashboard-line',
+    title: 'Performance Reporting & Data Assurance',
+    description: 'Interpret project data, develop meaningful dashboards and communicate performance insights.',
+  },
+  {
+    icon: 'ri-scales-line',
+    title: 'Governance & Commercial Decision Support',
+    description: 'Strengthen governance, commercial awareness and evidence-based decision-making across project environments.',
+  },
 ];
 
 export const learnerBenefits = [

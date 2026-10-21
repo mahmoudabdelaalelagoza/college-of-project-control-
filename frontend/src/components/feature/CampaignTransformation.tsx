@@ -7,6 +7,8 @@ interface TransformationItem {
 }
 
 interface CampaignTransformationProps {
+  tag?: string;
+  note?: string;
   title?: string;
   subtitle?: string;
   beforeTitle?: string;
@@ -16,6 +18,8 @@ interface CampaignTransformationProps {
 }
 
 export default function CampaignTransformation({
+  tag = 'The Transformation',
+  note,
   title = 'Before and After Project Controls Capability',
   subtitle,
   beforeTitle = 'Without Strong Project Controls',
@@ -26,13 +30,13 @@ export default function CampaignTransformation({
   return (
     <section className="py-16 md:py-20 bg-background-50">
       <div className="container-site">
-        <SectionHeading tag="The Transformation" title={title} subtitle={subtitle} />
+        <SectionHeading tag={tag} title={title} subtitle={subtitle} />
 
         <div className="mt-10 md:mt-14 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
           {/* Before */}
           <div className="bg-background-100 border border-background-200/70 rounded-lg p-6 md:p-8">
             <div className="flex items-center gap-2 mb-5">
-              <div className="w-8 h-8 flex items-center justify-center rounded-full bg-foreground-100">
+              <div className="w-8 h-8 shrink-0 flex items-center justify-center rounded-full bg-foreground-100">
                 <i className="ri-close-line text-foreground-600"></i>
               </div>
               <h4 className="text-sm font-heading font-bold text-foreground-600 uppercase tracking-wider">{beforeTitle}</h4>
@@ -75,6 +79,7 @@ export default function CampaignTransformation({
             </div>
           </div>
         </div>
+        {note && <p className="mx-auto mt-6 max-w-5xl text-center text-xs leading-relaxed text-foreground-600">{note}</p>}
       </div>
     </section>
   );

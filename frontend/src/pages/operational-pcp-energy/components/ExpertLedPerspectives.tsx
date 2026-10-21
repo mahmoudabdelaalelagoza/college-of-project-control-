@@ -1,9 +1,6 @@
 import MeetMentors from '@/components/feature/MeetMentors';
 
+/** Shared homepage mentor design, content and mobile looping. */
 export default function ExpertLedPerspectives() {
-  return (
-    <div id="experts" className="scroll-mt-44">
-      <MeetMentors />
-    </div>
-  );
+  return <MeetMentors id="experts" />;
 }

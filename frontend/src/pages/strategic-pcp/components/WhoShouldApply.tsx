@@ -1,95 +1,78 @@
+import StrategicSection from './StrategicSection';
+import SiteLink from '@/components/base/SiteLink';
+
+const roleGroups = [
+  {
+    title: 'Project Controls Leadership',
+    roles: 'Project Controls Managers · Planning & Cost Leads · Risk & Assurance Professionals',
+  },
+  {
+    title: 'Programme & Portfolio Roles',
+    roles: 'Programme Controls Professionals · Portfolio Analysts · Benefits & Transformation Specialists',
+  },
+  {
+    title: 'PMO & Governance',
+    roles: 'PMO Managers · Governance Professionals · Delivery & Assurance Leads',
+  },
+];
+
+const eligibilityChecks = [
+  'Eligible employment, residency and working arrangements.',
+  'Role suitability and opportunities to meet the full ST0845 standard.',
+  'Previous learning, qualifications and professional experience.',
+  'Employer support and agreed paid training time.',
+  'Any applicable English, maths or additional learning requirements.',
+  'Funding availability and the individual training plan.',
+];
+
 export default function WhoShouldApply() {
   return (
-<section id="who-should-apply" className="scroll-mt-44 py-16 md:py-20 bg-white">
-<div className="container-site space-y-8">
-<div className="max-w-3xl space-y-4">
-<div className="text-xs font-bold uppercase tracking-[.14em] text-accent-700">
-{"Who should apply? "}
-</div>
-<h2 className="text-3xl font-bold leading-tight md:text-4xl">
-{"For professionals who use controls evidence to influence decisions "}
-</h2>
-<p className="text-base leading-relaxed">
-{"The pathway is designed for experienced professionals with access to suitable strategic activity, credible workplace evidence and employer support. "}
-</p>
-</div>
-<div className="grid min-w-0 gap-5 md:grid-cols-2 lg:grid-cols-3">
-<article className="min-w-0 space-y-4 rounded-2xl border border-background-200 bg-white p-6 text-foreground-800 shadow-sm">
-<h3 className="text-xl font-bold leading-snug">
-{"Project-controls leadership "}
-</h3>
-<p className="text-base leading-relaxed">
-{"Professionals responsible for integrated controls, performance, forecasting and delivery confidence. "}
-</p>
-<div className="space-y-3">
-<span>
-{"Heads of project controls "}
-</span>
-<span>
-{"Project controls managers "}
-</span>
-<span>
-{"Senior planning and cost professionals "}
-</span>
-<span>
-{"Risk and assurance practitioners "}
-</span>
-</div>
-</article>
-<article className="min-w-0 space-y-4 rounded-2xl border border-background-200 bg-white p-6 text-foreground-800 shadow-sm">
-<h3 className="text-xl font-bold leading-snug">
-{"Programme and portfolio roles "}
-</h3>
-<p className="text-base leading-relaxed">
-{"Professionals connecting project evidence with programme outcomes, investment priorities and organisational capacity. "}
-</p>
-<div className="space-y-3">
-<span>
-{"Programme-controls professionals "}
-</span>
-<span>
-{"Portfolio governance specialists "}
-</span>
-<span>
-{"Transformation professionals "}
-</span>
-<span>
-{"Benefits and investment roles "}
-</span>
-</div>
-</article>
-<article className="min-w-0 space-y-4 rounded-2xl border border-background-200 bg-white p-6 text-foreground-800 shadow-sm">
-<h3 className="text-xl font-bold leading-snug">
-{"PMO and delivery leadership "}
-</h3>
-<p className="text-base leading-relaxed">
-{"Professionals shaping governance, assurance, decision support and delivery capability. "}
-</p>
-<div className="space-y-3">
-<span>
-{"Heads of PMO "}
-</span>
-<span>
-{"PMO managers "}
-</span>
-<span>
-{"Strategic delivery leaders "}
-</span>
-<span>
-{"Governance and assurance professionals "}
-</span>
-</div>
-</article>
-</div>
-<div className="rounded-xl border border-accent-200 bg-accent-50 p-5 text-primary-950 space-y-3">
-<p className="text-base leading-relaxed">
-<strong className="font-bold">
-{"Role suitability: "}
-</strong>
-{"a senior job title is not enough. The role must provide a substantial link to ST0845, suitable workplace activity and enough scope to develop significant new occupational competence. "}
-</p>
-</div>
-</div>
-</section>
+    <StrategicSection
+      id="who-should-apply"
+      headingId="strategic-who-should-apply-title"
+      tag="Who This Pathway Is For"
+      title="For Professionals Connecting Project Performance with Organisational Priorities"
+      intro={"The Strategic Pathway is designed for employed professionals whose roles involve project controls, programme oversight, portfolio information, governance or PMO decision support."}
+      tone="light"
+    >
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {roleGroups.map((group) => (
+          <article key={group.title} className="min-w-0 rounded-2xl border border-background-200 bg-white p-6 shadow-sm">
+            <h3 className="mb-3 text-xl font-bold leading-snug text-foreground-950">{group.title}</h3>
+            <p className="text-sm leading-relaxed text-foreground-600">{group.roles}</p>
+          </article>
+        ))}
+      </div>
+
+      <article className="mt-8 rounded-xl border border-l-4 border-accent-200 border-l-accent-600 bg-accent-50 p-5 md:p-6">
+        <h3 className="text-xl font-bold leading-snug text-foreground-950">What Makes a Role Suitable?</h3>
+        <p className="mt-3 text-sm leading-relaxed text-foreground-600">
+          Your responsibilities should provide opportunities to develop new Level 6 occupational competence, work with relevant project controls information and demonstrate your own professional contribution.
+        </p>
+        <p className="mt-3 text-sm font-semibold leading-relaxed text-primary-900">
+          A senior job title alone does not determine suitability.
+        </p>
+      </article>
+
+      <article id="eligibility" aria-labelledby="strategic-eligibility-title" className="mt-8 scroll-mt-44 rounded-2xl border border-background-200 bg-background-50 p-5 md:p-6">
+        <h3 id="strategic-eligibility-title" className="text-xl font-bold leading-snug text-foreground-950">How Eligibility Is Checked</h3>
+        <p className="mt-3 text-sm leading-relaxed text-foreground-600">Before enrolment, KBC reviews:</p>
+        <ul className="mt-4 list-disc space-y-3 pl-5 text-sm leading-relaxed text-foreground-600">
+          {eligibilityChecks.map((check) => <li key={check}>{check}</li>)}
+        </ul>
+        <div className="mt-6">
+          <SiteLink
+            href="/apprenticeship-eligibility-checker"
+            className="btn-primary inline-flex min-h-12 items-center justify-center gap-2 text-center text-sm font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700"
+          >
+            <span>Check Apprenticeship Eligibility</span>
+            <i className="ri-arrow-right-line shrink-0" aria-hidden="true" />
+          </SiteLink>
+        </div>
+        <p className="mt-5 border-t border-background-200 pt-5 text-sm leading-relaxed text-foreground-600">
+          The eligibility checker provides an initial indication only. Final eligibility, training requirements and funding are subject to individual assessment and the applicable government rules.
+        </p>
+      </article>
+    </StrategicSection>
   );
 }

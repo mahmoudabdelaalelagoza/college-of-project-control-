@@ -70,21 +70,6 @@ export const workloadItems = [
   { value: '3 hours', title: 'Portfolio-building activities', description: 'Authentic, relevant and professionally presented workplace evidence.' },
 ];
 
-export const experts = [
-  { name: 'Steven Wake', bio: 'Lead author for Earned Value Management through APMG International and contributor to project controls standards and the APM Chartered Status journey.', tags: ['Earned Value Management', 'Project controls standards', 'APM'] },
-  { name: 'Stephen Jenner', bio: 'Lead author of Managing Portfolios for APMG International and an author in benefits and portfolio management.', tags: ['Management of Portfolios', 'Benefits management', 'Portfolio governance'] },
-  { name: 'Dr Amgad Badewi', bio: 'Doctorate in Project Controls from Cranfield University, project management author and experienced professional-development academic.', tags: ['Project controls research', 'Professional development', 'Education'] },
-  { name: 'Ray Mead', bio: 'MBA and author in PMO practice with advisory experience in governance, transformation, agility and stakeholder value.', tags: ['PMO', 'Governance', 'Transformation'] },
-  { name: 'Andrew Millington', bio: 'Strategic leader and Associate Professor with project, programme and portfolio leadership experience across multiple industries.', tags: ['Complex programmes', 'Capability development', 'Project controls'] },
-];
-
-export const coaches = [
-  { name: 'Adeyomi', background: 'MSc Strategic Project Management · MSc Urban Planning', focus: 'PMP, scheduling, earned value and professional evidence.' },
-  { name: 'Patryck', background: 'MSc Strategic Project Management', focus: 'Project management thinking, evidence development and applied study progress.' },
-  { name: 'Aryan', background: 'MSc Strategic Project Management', focus: 'Portfolio evidence, study planning and workplace application.' },
-  { name: 'Dr Randa', background: 'MSc · PhD in Operations Research', focus: 'Analytical thinking, data-informed decisions and structured evidence.' },
-];
-
 export const benefitGroups = [
   { title: 'Wellbeing and learner support', items: ['Benenden Health private healthcare', 'Mental wellbeing system and self-assessment', 'Inclusiveness and optional barriers-to-education assessments', 'AI-powered LMS and learner dashboards', 'Hard-copy and digital learning materials'] },
   { title: 'Know yourself and build your career', items: ['Optional personality-traits assessment', 'RAISEC career-interest assessment', 'Job-fit and career-fit assessments', 'Personal development dashboards', 'Career, pathway and module-selection guidance'] },

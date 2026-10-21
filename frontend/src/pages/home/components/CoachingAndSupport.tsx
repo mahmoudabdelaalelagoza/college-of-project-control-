@@ -1,7 +1,6 @@
 import CoachingSupport from '@/components/feature/CoachingSupport';
-import { homeCopy } from '../pageCopy';
 
-/** Shared coach profiles with the supplied homepage heading and support copy. */
+/** Use the canonical coach section; only the page navigation anchor varies. */
 export default function CoachingAndSupport() {
-  return <CoachingSupport content={homeCopy.coaching} />;
+  return <CoachingSupport />;
 }

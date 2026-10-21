@@ -54,19 +54,6 @@ export const learningSteps = [
   ['Progress', 'Use coaching, feedback and structured reviews to strengthen your capability.'],
 ];
 
-export const experts = [
-  { name: 'Dr. Amgad Badewi', title: 'Project Management Specialist', summary: 'Project and programme management academic and practitioner with a doctorate from Cranfield University.', tags: ['Project management', 'Programme management', 'Professional development'] },
-  { name: 'Dr. Ray Mead', title: 'Project Management Consultant', summary: 'Project, programme and portfolio practitioner with experience in strategic execution, governance and transformation.', tags: ['Project management', 'Strategic execution', 'P3M'] },
-  { name: 'Dr. Stephen Jenner', title: 'Portfolio and Benefits Specialist', summary: 'Experienced portfolio, benefits-management and public-sector practitioner and author.', tags: ['Portfolio management', 'Benefits management', 'Public sector'] },
-];
-
-export const coaches = [
-  { name: 'Adeyomi', background: 'MSc Strategic Project Management · MSc Urban Planning', focus: 'PMP preparation, scheduling and professional evidence.' },
-  { name: 'Patryck', background: 'MSc Strategic Project Management', focus: 'Project management thinking, evidence development and study progress.' },
-  { name: 'Aryan', background: 'MSc Strategic Project Management', focus: 'Portfolio evidence, study planning and workplace application.' },
-  { name: 'Dr Randa', background: 'MSc · PhD in Operations Research', focus: 'Analytical thinking, data-informed decisions and structured evidence.' },
-];
-
 export const faqs = [
   { q: 'What is the Associate Project Manager Level 4 apprenticeship?', a: 'It is a 12-month work-based apprenticeship designed to develop practical project management knowledge, workplace capability and applied AI skills for modern project delivery and project controls.' },
   { q: 'Who is the programme suitable for?', a: 'It is suitable for employed professionals who coordinate, support or manage projects across sectors such as business services, transformation, technology, engineering, construction and infrastructure.' },

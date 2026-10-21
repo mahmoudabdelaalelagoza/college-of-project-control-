@@ -9,6 +9,7 @@ import FundingEligibilityAndIPCSupport from "./components/FundingEligibilityAndI
 import HowYouLearn from './components/HowYouLearn';
 import KeyProgrammeFacts from "./components/KeyProgrammeFacts";
 import LearnByBuilding from "./components/LearnByBuilding";
+import LearnFromPractitioners from "./components/LearnFromPractitioners";
 import LearnerEmployerFeedback from "./components/LearnerEmployerFeedback";
 import Level4WorkBasedApprenticeship from "./components/Level4WorkBasedApprenticeship";
 import ProfessionalDevelopment from "./components/ProfessionalDevelopment";
@@ -23,7 +24,7 @@ export default function ApmLevel4() {
   return <>
     <SchemaOrg type="Organization" data={organizationSchema()} />
     <SchemaOrg type="Course" data={{ ...courseSchema({ name: 'Associate Project Manager Level 4 Apprenticeship', description: 'A planned 12-month learning programme combining project management, PMP exam preparation and responsible AI in project controls, followed by independent apprenticeship assessment.', provider: 'Kent Business College', educationalLevel: 'Level 4', occupationalCategory: 'Associate Project Manager' }), timeToComplete: undefined }} />
-    <SchemaOrg type="WebPage" data={breadcrumbListSchema([{ name: 'Home', item: '/' }, { name: 'Programmes', item: '/programmes' }, { name: 'Associate Project Manager Level 4' }])} />
+    <SchemaOrg type="WebPage" data={breadcrumbListSchema([{ name: 'Home', item: '/' }, { name: 'Associate Project Manager Level 4' }])} />
     <div className="min-h-screen bg-background-50"><main>
       <Level4WorkBasedApprenticeship />
 
@@ -43,6 +44,8 @@ export default function ApmLevel4() {
       <HowYouLearn />
 
       <WeeklyCommitment />
+
+      <LearnFromPractitioners />
 
       <CoachingAndSupport />
 

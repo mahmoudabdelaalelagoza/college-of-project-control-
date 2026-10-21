@@ -5,5 +5,5 @@ Purpose: explains the enquiry, eligibility and enrolment steps before a learner 
 Sections:
 - Admissions hero
 - Application process
-- Eligibility guidance
+- Programme suitability
 - FAQs

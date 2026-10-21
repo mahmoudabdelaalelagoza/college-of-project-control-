@@ -13,34 +13,25 @@ import WithoutAccessVsWithTheCommercialRoute from "./components/WithoutAccessVsW
 export default function CampaignCommercialRoute() {
   return (<div className="min-h-screen bg-background-50">
     <main>
+      {/* Understand the commercial offer */}
       <CommercialAccessForNonEligibleLearners />
-
-      {/* Commercial Route Value */}
       <CommercialRoute />
-
-      <InstituteOfProjectControls />
-
       <WithoutAccessVsWithTheCommercialRoute />
 
+      {/* Choose a direction and explore practical development */}
       <RouteFit />
-
-      {/* APM ChPP Readiness */}
-      <ProfessionalRecognition />
-
       <ProfessionalCapabilitySection />
-
-      {/* Learner Benefits */}
-
-
-      {/* Testimonial */}
       <WhatYouCouldApplyAtWork />
 
+      {/* Understand recognition and professional support */}
+      <ProfessionalRecognition />
+      <InstituteOfProjectControls />
+
+      {/* Review costs and resolve questions before enquiring */}
       <div id="funding" aria-label="Commercial route funding">
         <FundingAndCosts />
       </div>
-
       <FrequentlyAskedQuestions />
-
     </main>
     <StickyCta />
     <Footer />

@@ -23,8 +23,8 @@ export default function PageNotFound({ location }: PageNotFoundProps) {
           <SiteLink href="/" className="btn-primary inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-bold transition-colors">
             Return home <i className="ri-home-4-line" />
           </SiteLink>
-          <SiteLink href="/programmes" className="cta-button inline-flex items-center justify-center gap-2 rounded-lg border border-white/50 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-signal-400 hover:bg-white/10">
-            Explore programmes <i className="ri-arrow-right-line" />
+          <SiteLink href="/#programmes" className="cta-button inline-flex items-center justify-center gap-2 rounded-lg border border-white/50 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-signal-400 hover:bg-white/10">
+            Explore apprenticeships <i className="ri-arrow-right-line" />
           </SiteLink>
         </div>
       </div>

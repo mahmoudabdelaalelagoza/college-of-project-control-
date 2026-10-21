@@ -95,7 +95,7 @@ export default function InteractivePathwayBuilder() {
   return (
     <section id="builder" className="scroll-mt-44 bg-white py-16 md:py-24">
       <div className="container-site grid gap-8 lg:grid-cols-[minmax(280px,0.72fr)_minmax(0,1.55fr)] xl:gap-10">
-        <div className="lg:sticky lg:top-40 lg:self-start">
+        <div className="sector-sticky-panel">
           <span className="text-xs font-bold uppercase tracking-[.15em] text-accent-700">Interactive pathway builder</span>
           <h2 className="mt-5 max-w-md text-4xl font-extrabold leading-[1.05] text-foreground-950 md:text-5xl">
             Build the credit mix around your responsibilities.

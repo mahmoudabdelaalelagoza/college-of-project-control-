@@ -1,5 +1,19 @@
 import SectionHeading from '@/components/base/SectionHeading';
 
+interface CapabilityTrack {
+  icon: string;
+  title: string;
+  description?: string;
+}
+
+interface ProfessionalCapabilityProps {
+  title?: string;
+  subtitle?: string;
+  tracks?: readonly CapabilityTrack[];
+  gridClassName?: string;
+  note?: string;
+}
+
 function CapabilityCard({ icon, title, description, light = false }: { icon: string; title: string; description?: string; light?: boolean }) {
   return (
     <div className={`group p-5 rounded-lg transition-all duration-400 cursor-default card-scale-hover ${light ? 'bg-secondary-600/60 hover:bg-primary-500' : 'bg-background-50 hover:bg-primary-500 border border-background-200/70'}`}>
@@ -18,18 +32,25 @@ const capabilityTracks = [
   { icon: 'ri-scales-line', title: 'Governance, Commercial Controls & Decision Support', description: 'Establish governance frameworks, commercial awareness and decision-support capability.' },
 ];
 
-export default function ProfessionalCapability() {
+export default function ProfessionalCapability({
+  title = 'Project controls skills applied to real work',
+  subtitle = 'Each track builds a specific, measurable competence area within project controls. Develop planning, cost, risk, reporting and governance capability that your projects and organisation can see, measure and rely on every day.',
+  tracks = capabilityTracks,
+  gridClassName = 'grid-cols-2 sm:grid-cols-3 md:grid-cols-5',
+  note,
+}: ProfessionalCapabilityProps = {}) {
   return (
     <section className="py-16 md:py-20 bg-background-50">
       <div className="container-site">
         <SectionHeading
           tag="Professional Capability"
-          title="Project controls skills applied to real work"
-          subtitle="Each track builds a specific, measurable competence area within project controls. Develop planning, cost, risk, reporting and governance capability that your projects and organisation can see, measure and rely on every day."
+          title={title}
+          subtitle={subtitle}
         />
-        <div className="mt-10 md:mt-14 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-5">
-          {capabilityTracks.map((track) => <CapabilityCard key={track.title} icon={track.icon} title={track.title} description={track.description} />)}
+        <div className={`mt-10 md:mt-14 grid gap-4 md:gap-5 ${gridClassName}`}>
+          {tracks.map((track) => <CapabilityCard key={track.title} icon={track.icon} title={track.title} description={track.description} />)}
         </div>
+        {note && <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-foreground-600">{note}</p>}
       </div>
     </section>
   );

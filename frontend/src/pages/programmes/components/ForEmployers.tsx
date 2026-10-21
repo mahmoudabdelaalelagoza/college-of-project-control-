@@ -2,11 +2,31 @@ import SiteLink from '@/components/base/SiteLink';
 import { useEffect,useRef,useState } from 'react';
 
 const scopeItems = [
-  { icon: 'ri-user-star-line', title: 'Develop Existing Talent', desc: 'Build on the experience already inside your organisation.' },
-  { icon: 'ri-crosshair-line', title: 'Target Capability Gaps', desc: 'Focus development around specific responsibilities.' },
-  { icon: 'ri-briefcase-line', title: 'Apply Development at Work', desc: 'Connect learning directly to live project environments.' },
-  { icon: 'ri-stack-line', title: 'Build Professional Depth', desc: 'Support employees as responsibilities become more complex.' },
-  { icon: 'ri-team-line', title: 'Team Development', desc: 'Combine programmes and specialist modules where appropriate.' },
+  {
+    "icon": "ri-crosshair-line",
+    "title": "Identify Development Priorities",
+    "desc": "Focus learning on the planning, cost, risk, governance and project controls capabilities your organisation needs to strengthen."
+  },
+  {
+    "icon": "ri-user-star-line",
+    "title": "Develop Existing Talent",
+    "desc": "Build on your employees' existing knowledge and experience, supporting their development as professional responsibilities evolve."
+  },
+  {
+    "icon": "ri-briefcase-line",
+    "title": "Connect Learning to Real Projects",
+    "desc": "Create opportunities for employees to apply new knowledge and skills to relevant projects, workplace challenges and business activities."
+  },
+  {
+    "icon": "ri-stack-line",
+    "title": "Support Professional Progression",
+    "desc": "Help professionals develop the expertise and judgement needed for greater responsibilities in project delivery, controls and PMO functions."
+  },
+  {
+    "icon": "ri-team-line",
+    "title": "Plan Team Development",
+    "desc": "Explore suitable programmes and specialist modules for different team members, based on their roles, experience and development priorities."
+  }
 ];
 
 export default function ForEmployers() {
@@ -25,7 +45,7 @@ export default function ForEmployers() {
   }, []);
 
   return (
-    <section className="py-16 md:py-24 bg-background-50 relative overflow-hidden">
+    <section id="programmes-employers" className="py-16 md:py-24 bg-background-50 relative overflow-hidden">
       <div className="absolute top-1/2 right-0 w-[600px] h-[600px] -translate-y-1/2 translate-x-1/3 rounded-full pointer-events-none opacity-40"
         style={{ background: 'radial-gradient(circle, oklch(var(--primary-200) / 0.15), transparent 70%)' }} />
 
@@ -45,11 +65,14 @@ export default function ForEmployers() {
             </span>
 
             <h2 className="text-3xl md:text-4xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight">
-              Develop the capability your organisation actually needs
+              Build project, controls and PMO expertise across your team
             </h2>
 
             <p className="mt-4 text-base md:text-lg text-foreground-600 leading-relaxed max-w-lg">
-              Use complete programmes to build deeper professional capability around roles with significant project, Project Controls or PMO responsibility.
+              Develop the skills your organisation needs through structured apprenticeships, professional programmes and specialist learning.
+            </p>
+            <p className="mt-4 text-base md:text-lg text-foreground-600 leading-relaxed max-w-lg">
+              Whether you're strengthening individual expertise or developing a wider team, Kent Business College helps you explore learning options aligned with your business priorities, employee responsibilities and workplace development opportunities.
             </p>
 
             <div className="mt-8 space-y-3">
@@ -68,23 +91,23 @@ export default function ForEmployers() {
 
             <div className="mt-6 inline-flex items-start gap-2.5 bg-primary-50 border border-primary-200 rounded-lg px-4 py-3">
               <i className="ri-check-double-line text-primary-600 text-base flex-shrink-0 mt-0.5"></i>
-              <span className="text-sm font-semibold text-foreground-800">Target capability gaps without over-training your team.</span>
+              <span className="text-sm font-semibold text-foreground-800">Professional development aligned with your people, projects and business priorities.</span>
             </div>
 
             <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap items-start gap-4">
               <SiteLink
                 href="/contact"
-                className="btn-primary inline-flex items-center gap-3 px-6 py-3.5 font-semibold text-sm cursor-pointer transition-all duration-300 whitespace-nowrap lift-hover"
+                className="btn-primary inline-flex items-center gap-3 px-6 py-3.5 font-semibold text-sm cursor-pointer transition-all duration-300 w-full max-w-full justify-center whitespace-normal text-center sm:w-auto lift-hover"
               >
-                Discuss Programmes for Your Team
+                Discuss Your Team's Development
                 <i className="ri-arrow-right-line text-sm" />
               </SiteLink>
               <SiteLink
                 href="/employers"
-                className="cta-button inline-flex items-center gap-2 px-6 py-3.5 border border-foreground-200 text-foreground-800 font-semibold text-sm rounded-xl cursor-pointer hover:bg-foreground-50 hover:border-foreground-300 transition-all duration-300 whitespace-nowrap"
+                className="cta-button inline-flex items-center gap-2 px-6 py-3.5 border border-foreground-200 text-foreground-800 font-semibold text-sm rounded-xl cursor-pointer hover:bg-foreground-50 hover:border-foreground-300 transition-all duration-300 w-full max-w-full justify-center whitespace-normal text-center sm:w-auto"
               >
-                <i className="ri-calendar-check-line text-sm" />
-                Request an employer consultation
+                Explore Employer Support
+                <i className="ri-arrow-right-line text-sm" aria-hidden="true" />
               </SiteLink>
             </div>
           </div>

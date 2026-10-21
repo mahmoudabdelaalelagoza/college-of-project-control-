@@ -1,20 +1,32 @@
 export default function ProfessionalRecognition() {
   return (
-<section className="py-16 md:py-20 bg-secondary-500">
-          <div className="container-site max-w-3xl text-center">
-            <span className="inline-block px-3 py-1 bg-highlight-400/20 text-highlight-300 text-xs font-label font-semibold rounded-full mb-4">
-              Professional Recognition
-            </span>
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-background-50 leading-tight">
-              Build Your Professional Standing with APM ChPP Readiness Support
-            </h2>
-            <p className="mt-3 text-sm md:text-base text-background-50/70 leading-relaxed">
-              The commercial route includes the same APM ChPP readiness support as the funded pathway. Prepare professional evidence, reflect on your practice and build confidence for APM Chartered Project Professional progression — whether you are self-employed, contracting or seeking your next role.
-            </p>
-            <p className="mt-2 text-xs text-background-50/70">
-              APM ChPP readiness support helps learners prepare evidence and professional practice but does not guarantee Chartered status. Professional exams and memberships covered where applicable.
-            </p>
-          </div>
-        </section>
+    <section aria-labelledby="commercial-recognition-heading" className="bg-secondary-500 py-16 md:py-20">
+      <div className="container-site max-w-3xl text-center">
+        <span className="mb-4 inline-block rounded-full bg-highlight-400/20 px-3 py-1 font-label text-xs font-semibold text-highlight-300">
+          Professional Recognition
+        </span>
+        <h2 id="commercial-recognition-heading" className="font-heading text-2xl font-bold leading-tight text-background-50 md:text-3xl">
+          Prepare for Your Next Step Towards ChPP
+        </h2>
+        <p className="mt-4 text-sm leading-relaxed text-background-50/80 md:text-base">
+          Strengthen your professional standing with guidance on APM Chartered Project Professional (ChPP) requirements, professional practice, CPD and preparing evidence for your application.
+        </p>
+        <p className="mt-4 text-sm leading-relaxed text-background-50/80 md:text-base">
+          Where included in your commercial programme, KBC provides structured ChPP readiness support to help you plan your professional progression.
+        </p>
+
+        <div className="mt-8 rounded-xl border border-white/20 bg-white/10 p-5 text-left md:p-6">
+          <h3 className="font-heading text-xl font-bold text-highlight-300">
+            APM-Recognised Technical Knowledge
+          </h3>
+          <p className="mt-3 text-sm leading-7 text-background-50/90">
+            KBC's Certified PMO Professional (Level 6) is recognised by APM for the technical-knowledge requirement of ChPP Pathway 2.
+          </p>
+          <p className="mt-4 border-t border-white/20 pt-4 text-sm leading-7 text-background-50/80">
+            Recognition applies to the named assessment, not automatically to every commercial course. ChPP is awarded independently by APM. Support, examination fees and memberships depend on your agreed programme.
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }

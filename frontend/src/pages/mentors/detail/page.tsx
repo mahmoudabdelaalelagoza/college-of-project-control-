@@ -43,7 +43,7 @@ export default function MentorDetailPage() {
     <div className="min-h-screen bg-background-50">
       <main className="pb-16 pt-28 md:pb-24 md:pt-36">
         <div className="container-site">
-          <SiteLink href="/#mentors" className="inline-flex items-center gap-2 text-sm font-semibold text-primary-700 hover:text-primary-900">
+          <SiteLink href="/#experts" className="inline-flex items-center gap-2 text-sm font-semibold text-primary-700 hover:text-primary-900">
             <i className="ri-arrow-left-line" />
             Back to mentors
           </SiteLink>

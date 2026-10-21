@@ -1,12 +1,11 @@
 import Footer from '@/components/feature/Footer';
 import SchemaOrg, { courseSchema } from '@/components/feature/SchemaOrg';
 import ApmRecognition from './components/ApmRecognition';
+import ProfessionalReadingAndReferences from './components/ProfessionalReadingAndReferences';
 import ApplyStrongerPMOPractice from "./components/ApplyStrongerPMOPractice";
 import ApprenticeshipRoute from "./components/ApprenticeshipRoute";
 import AWorkplaceDevelopmentJourneyNotJustACourse from "./components/AWorkplaceDevelopmentJourneyNotJustACourse";
 import DevelopPMOCapabilityInsideYourOrganisation from "./components/DevelopPMOCapabilityInsideYourOrganisation";
-import DiscussThePMOCapabilityYourTeamNeeds from "./components/DiscussThePMOCapabilityYourTeamNeeds";
-import FooterLandscape from './components/FooterLandscape';
 import FourCapabilitiesOneRouteToAPMOThatLeadersTrust from "./components/FourCapabilitiesOneRouteToAPMOThatLeadersTrust";
 import FourCapabilitiesToHelpYourPMOBecomeTrusted from "./components/FourCapabilitiesToHelpYourPMOBecomeTrusted";
 import FundingEligibilityAndIPCSupport from "./components/FundingEligibilityAndIPCSupport";
@@ -15,9 +14,7 @@ import ItIsTimeToStopAskingPMOsOnlyForReports from "./components/ItIsTimeToStopA
 import LearnFromPractitioners from "./components/LearnFromPractitioners";
 import LearnTogether from "./components/LearnTogether";
 import PmoEditorialNavbar from './components/PmoEditorialNavbar';
-import PMOINSIGHTS from "./components/PMOINSIGHTS";
 import ProjectControlsProfessionalLevel6 from "./components/ProjectControlsProfessionalLevel6";
-import RequestConsultationCta from './components/RequestConsultationCta';
 import StickyCta from './components/StickyCta';
 import TrustStrip from './components/TrustStrip';
 import WantThePMORouteWithoutApprenticeshipPaperwork from "./components/WantThePMORouteWithoutApprenticeshipPaperwork";
@@ -30,66 +27,39 @@ export default function PmoPcp() {
       description: 'Build a PMO that leaders trust. A Project Controls Professional Level 6 apprenticeship route for PMO, governance and reporting professionals.',
       occupationalCategory: 'PMO and Governance Project Controls Professional',
     })} />
-    <div className="min-h-screen bg-canvas">
+    <div className="min-h-screen bg-background-50">
       <main>
-        {/* Section 1 — Hero */}
+
+        {/* Programme introduction */}
         <ProjectControlsProfessionalLevel6 />
-
         <PmoEditorialNavbar />
-
-        {/* Section 2 — Trust Strip */}
         <TrustStrip />
 
-        {/* Section 3 — Introduction */}
+        {/* Understand the route and the need it addresses */}
         <GetDirectionForStrongerPMOCapability />
-
-        {/* Section 4 — Testimonials */}
-        <ApplyStrongerPMOPractice />
-
-        {/* Events & Masterclasses */}
-        <LearnTogether />
-
-        {/* Section 5 — PMO Journey */}
-        <FourCapabilitiesToHelpYourPMOBecomeTrusted />
-
-        {/* Section 6 — Pathway CTA */}
-        <FourCapabilitiesOneRouteToAPMOThatLeadersTrust />
-
-        {/* Section 7 — Problem Section */}
         <ItIsTimeToStopAskingPMOsOnlyForReports />
 
-        {/* Section 8 — APM Recognition */}
-        <ApmRecognition />
-
-        {/* Shared instructor section */}
-        <LearnFromPractitioners />
-
-        {/* Section 10 — Employer Value */}
-        <DevelopPMOCapabilityInsideYourOrganisation />
-
-        {/* Section 11 — Apprenticeship Experience */}
+        {/* Explore the capabilities and how learning works */}
+        <FourCapabilitiesToHelpYourPMOBecomeTrusted />
+        <FourCapabilitiesOneRouteToAPMOThatLeadersTrust />
         <AWorkplaceDevelopmentJourneyNotJustACourse />
 
+        {/* Connect learning to work and meet the practitioners */}
+        <ApplyStrongerPMOPractice />
+        <LearnFromPractitioners />
+
+        {/* Understand professional study and its recognition */}
+        <WantThePMORouteWithoutApprenticeshipPaperwork />
+        <ApmRecognition />
+
+        {/* Review employer support, funding and eligibility */}
+        <DevelopPMOCapabilityInsideYourOrganisation />
         <FundingEligibilityAndIPCSupport />
 
-        {/* Section 12 — Commercial Teaser */}
-        <WantThePMORouteWithoutApprenticeshipPaperwork />
-
-        {/* Section 13 — Insights */}
-        <PMOINSIGHTS />
-
-        {/* Section 14 — Two Route Cards */}
+        {/* Explore sessions, choose a route and consult the references */}
+        <LearnTogether />
         <ApprenticeshipRoute />
-
-        {/* Section 15 — Frequently Asked Questions */}
-        {/* Section 16 — Request a consultation CTA */}
-        <RequestConsultationCta />
-
-        {/* Section 17 — Closing Hero */}
-        <DiscussThePMOCapabilityYourTeamNeeds />
-
-        {/* Section 18 — Footer Landscape + Footer */}
-        <FooterLandscape />
+        <ProfessionalReadingAndReferences />
       </main>
 
       <Footer />

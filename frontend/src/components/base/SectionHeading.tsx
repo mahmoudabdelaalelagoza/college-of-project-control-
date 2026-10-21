@@ -1,4 +1,5 @@
 interface SectionHeadingProps {
+  id?: string;
   tag?: string;
   title: string;
   subtitle?: string;
@@ -7,7 +8,7 @@ interface SectionHeadingProps {
   as?: 'h1' | 'h2' | 'h3';
 }
 
-export default function SectionHeading({ tag, title, subtitle, light = false, className = '', as = 'h2' }: SectionHeadingProps) {
+export default function SectionHeading({ id, tag, title, subtitle, light = false, className = '', as = 'h2' }: SectionHeadingProps) {
   const HeadingTag = as;
   return (
     <div className={`text-center mx-auto ${className}`}>
@@ -20,7 +21,7 @@ export default function SectionHeading({ tag, title, subtitle, light = false, cl
           {tag}
         </span>
       )}
-      <HeadingTag className={`mx-auto max-w-4xl text-balance text-2xl md:text-3xl lg:text-4xl font-heading font-bold leading-tight ${
+      <HeadingTag id={id} className={`mx-auto max-w-4xl text-balance text-2xl md:text-3xl lg:text-4xl font-heading font-bold leading-tight ${
         light ? 'text-background-50' : 'text-foreground-950'
       }`}>
         {title}

@@ -1,3 +1,4 @@
+import PmoSection from './PmoSection';
 const problemCards = [
   {
     title: 'Governance Confidence',
@@ -21,29 +22,13 @@ const problemCards = [
   },
 ];
 
+
 export default function ItIsTimeToStopAskingPMOsOnlyForReports() {
   return (
-<section className="py-16 md:py-24 bg-canvas">
-            <div className="container-site">
-              <div className="text-center mb-4">
-                <span className="label-editorial">Why This Route Exists</span>
-              </div>
-              <h2 className="heading-editorial text-2xl md:text-3xl lg:text-4xl text-center mb-4">
-                It is time to stop asking PMOs only for reports.
-              </h2>
-              <p className="text-center text-sm text-ink/70 leading-relaxed max-w-xl mx-auto mb-12">
-                A PMO should not simply chase updates, maintain templates and distribute dashboards. It should help leaders understand confidence, risk, priorities, options and action.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-                {problemCards.map((card) => (
-                  <div key={card.title} className="card-editorial p-5 md:p-6">
-                    <h3 className="font-heading text-lg text-ink mb-2">{card.title}</h3>
-                    <p className="text-sm text-ink/70 leading-relaxed">{card.text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+    <PmoSection tag="Why this route exists" title="It is time to stop asking PMOs only for reports." subtitle="A PMO should not simply chase updates, maintain templates and distribute dashboards. It should help leaders understand confidence, risk, priorities, options and action.">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {problemCards.map((card, index) => <article key={card.title} className="rounded-xl border border-background-200 bg-white p-6 shadow-sm"><span className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-100 text-sm font-bold text-primary-700" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h3 className="font-heading text-xl font-bold text-foreground-950">{card.title}</h3><p className="mt-3 text-sm leading-7 text-foreground-600">{card.text}</p></article>)}
+      </div>
+    </PmoSection>
   );
 }

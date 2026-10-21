@@ -1,0 +1,10 @@
+/* Operational and Chartered pages follow the same measured-header placement
+   as the Strategic Pathway, including room for the section navigation. */
+.pathway-page {
+  --header-height: var(--public-header-height, 145px);
+  --section-nav-height: 57px;
+}
+
+.pathway-page [id] {
+  scroll-margin-top: calc(var(--header-height) + var(--section-nav-height) + 16px);
+}

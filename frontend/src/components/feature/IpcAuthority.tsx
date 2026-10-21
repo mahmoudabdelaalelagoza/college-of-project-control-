@@ -3,7 +3,17 @@ import { fetchIpcImages, type IpcImage } from '@/services/ipcImagesApi';
 import SiteLink from '@/components/base/SiteLink';
 import { useEffect, useRef, useState } from 'react';
 
-const IPC_URL = 'https://instituteofprojectcontrols.com';
+// Canonical IPC section copy and design for every page that includes it.
+const sectionCopy = {
+  name: 'Institute of Project Controls (IPC)',
+  heading: 'Professional recognition and development in project controls',
+  description: 'The Institute of Project Controls (IPC) supports project controls professionals through competence-based recognition, professional membership and continuing development opportunities.',
+  recognitionCta: 'Explore IPC Recognition',
+  aboutCta: 'Learn About IPC',
+  strapline: 'Professional Recognition. Development. Community.',
+  recognitionHref: '/institute-of-project-controls#membership',
+  aboutHref: '/institute-of-project-controls',
+} as const;
 
 const features = [
   {
@@ -44,20 +54,7 @@ function PortraitSet({ variant, images }: { variant: 'primary' | 'duplicate'; im
   );
 }
 
-interface IpcAuthorityContent {
-  name: string;
-  heading: string;
-  description: string;
-  features: readonly { icon: string; title: string; copy: string }[];
-  recognitionCta: string;
-  aboutCta: string;
-  strapline: string;
-  recognitionHref: string;
-  aboutHref: string;
-}
-
-export default function IpcAuthority({ content }: { content?: IpcAuthorityContent } = {}) {
-  const sectionFeatures = content?.features ?? features;
+export default function IpcAuthority({ id = 'ipc-authority' }: { id?: string } = {}) {
   const { items: images, loading, error, retry } = useCollection(fetchIpcImages);
   // Repeat short collections to fill the viewport, then duplicate the full track
   // for a seamless -50% loop even when only one image is published.
@@ -83,7 +80,8 @@ export default function IpcAuthority({ content }: { content?: IpcAuthorityConten
 
   return (
     <section
-      id="ipc-authority"
+      id={id}
+      aria-labelledby={`${id}-heading`}
       className="relative overflow-hidden py-20 md:py-28 lg:py-[130px]"
       style={{
         background:
@@ -114,7 +112,7 @@ export default function IpcAuthority({ content }: { content?: IpcAuthorityConten
             IPC
           </p>
           <p className="mt-1 font-heading text-2xl font-bold md:text-3xl lg:text-[34px]" style={{ color: '#D8B36E' }}>
-            {content?.name ?? 'Institute of Project Controls'}
+            {sectionCopy.name}
           </p>
 
           <div className="relative mx-auto mt-5 h-px w-36 lg:mx-0" style={{ background: 'linear-gradient(90deg, #D7B46C, rgba(215,180,108,0))' }}>
@@ -124,60 +122,34 @@ export default function IpcAuthority({ content }: { content?: IpcAuthorityConten
             />
           </div>
 
-          {content && <h2 className="mx-auto mt-6 max-w-[500px] font-heading text-xl font-bold leading-snug text-white lg:mx-0 md:text-2xl">{content.heading}</h2>}
+          <h2 id={`${id}-heading`} className="mx-auto mt-6 max-w-[500px] font-heading text-xl font-bold leading-snug text-white lg:mx-0 md:text-2xl">{sectionCopy.heading}</h2>
 
           <p className="mx-auto mt-6 max-w-[500px] text-base leading-relaxed md:text-lg lg:mx-0" style={{ color: 'rgba(245,245,245,0.72)' }}>
-            {content?.description ?? 'IPC is a trusted accreditation body dedicated to advancing project controls capability and professional development across the global project delivery community.'}
+            {sectionCopy.description}
           </p>
-          {!content && <p className="mx-auto mt-3 max-w-[500px] text-sm leading-relaxed text-white/70 lg:mx-0">
-            IPC tuition fee support: up to <strong className="text-[#D8B36E]">75%</strong> for eligible unemployed or self-employed learners, or up to <strong className="text-[#D8B36E]">50%</strong> for eligible employed learners, with employers contributing the remainder. Subject to approval.
-          </p>}
 
-          {/* Feature items */}
-          <div className={content ? "mt-8 grid gap-5" : "mt-8 flex flex-col items-center justify-center gap-6 sm:flex-row lg:items-start lg:justify-start"}>
-            {sectionFeatures.map((feature, i) => (
-              <div key={feature.title} className={`flex items-start gap-3 text-left ${!content && i === 1 ? 'sm:border-l sm:pl-6' : ''}`} style={!content && i === 1 ? { borderColor: 'rgba(201,154,73,0.20)' } : undefined}>
-                <span
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
-                  style={{ border: '1px solid rgba(201,154,73,0.45)' }}
-                >
-                  <i className={`${feature.icon} text-lg`} style={{ color: '#C99A49' }} aria-hidden="true" />
+          {/* The same two IPC features appear on every page. */}
+          <div data-ipc-features className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+            {features.map((feature, index) => (
+              <div key={feature.title} className={index === 1 ? 'flex items-start gap-3 text-left sm:border-l sm:border-ipc-gold/20 sm:pl-5 lg:border-l-0 lg:pl-0 xl:border-l xl:pl-5' : 'flex items-start gap-3 text-left'}>
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ipc-gold/40 text-ipc-gold" aria-hidden="true">
+                  <i className={feature.icon + ' text-lg'} />
                 </span>
-                <div>
-                  <p className="text-sm font-bold" style={{ color: '#D8B36E' }}>{feature.title}</p>
-                  <p className="mt-0.5 whitespace-pre-line text-xs leading-relaxed" style={{ color: 'rgba(245,245,245,0.60)' }}>
-                    {feature.copy}
-                  </p>
+                <div className="min-w-0">
+                  <p className="text-sm font-bold text-ipc-gold">{feature.title}</p>
+                  <p className="mt-0.5 whitespace-pre-line text-xs leading-relaxed text-white/60">{feature.copy}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* CTAs */}
-          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap lg:justify-start">
-            <SiteLink
-              href={content?.recognitionHref ?? IPC_URL}
-              target={content ? undefined : '_blank'}
-              rel={content ? undefined : 'noopener noreferrer'}
-              className="cta-button inline-flex items-center justify-center gap-2 rounded-lg px-7 py-3.5 text-sm font-semibold transition-transform duration-200 hover:-translate-y-0.5 whitespace-nowrap"
-              style={{
-                backgroundImage: 'linear-gradient(135deg, #9C6813, #C6953B)',
-                color: '#1A1204',
-                boxShadow: '0 14px 30px -16px rgba(178,119,21,0.55)',
-              }}
-            >
-              {content?.recognitionCta ?? 'Explore Accreditation'}
-              <i className="ri-arrow-right-line text-sm" />
+          {/* IPC actions deliberately use IPC gold instead of the site CTA treatment. */}
+          <div className="mt-9 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center lg:justify-start">
+            <SiteLink href={sectionCopy.recognitionHref} className="ipc-action-primary inline-flex min-h-[3.25rem] max-w-full items-center justify-center gap-2 rounded-full border border-ipc-gold bg-ipc-gold px-6 py-3 text-center text-sm font-bold text-ipc-surface transition-colors hover:bg-ipc-gold/90 focus-visible:outline-ipc-gold">
+              {sectionCopy.recognitionCta}<i className="ri-arrow-right-line shrink-0" aria-hidden="true" />
             </SiteLink>
-            <SiteLink
-              href={content?.aboutHref ?? IPC_URL}
-              target={content ? undefined : '_blank'}
-              rel={content ? undefined : 'noopener noreferrer'}
-              className="cta-button inline-flex items-center justify-center gap-2 rounded-lg px-7 py-3.5 text-sm font-semibold transition-colors duration-200 whitespace-nowrap"
-              style={{ border: '1px solid rgba(215,180,108,0.35)', color: '#F3EEE4' }}
-            >
-              {content?.aboutCta ?? 'Learn About IPC'}
-              <i className="ri-arrow-right-line text-sm" style={{ color: '#D7B46C' }} />
+            <SiteLink href={sectionCopy.aboutHref} className="ipc-action-secondary inline-flex min-h-[3.25rem] max-w-full items-center justify-center gap-2 rounded-full border border-ipc-gold/60 bg-transparent px-6 py-3 text-center text-sm font-bold text-ipc-gold transition-colors hover:border-ipc-gold hover:bg-ipc-gold/10 focus-visible:outline-ipc-gold">
+              {sectionCopy.aboutCta}<i className="ri-arrow-right-line shrink-0" aria-hidden="true" />
             </SiteLink>
           </div>
         </div>
@@ -213,11 +185,11 @@ export default function IpcAuthority({ content }: { content?: IpcAuthorityConten
               <PortraitSet variant="duplicate" images={track} />
             </div>
           </div>}
-          {loading && <p role="status" className="mt-6 text-center text-sm text-white/70">Loading IPC images?</p>}
+          {loading && <p role="status" className="mt-6 text-center text-sm text-white/70">Loading IPC images...</p>}
           {error && <div role="alert" className="mt-6 text-center text-sm text-white/70"><p>IPC images could not be loaded.</p><button type="button" onClick={retry} className="mt-2 underline">Try again</button></div>}
 
           <p className="mt-8 px-2 text-center text-[10px] font-semibold uppercase tracking-[0.12em] sm:text-xs sm:tracking-[0.2em] md:text-sm md:tracking-[0.25em]" style={{ color: '#C99A49' }}>
-            <span aria-hidden="true">&#9670;</span> {content?.strapline ?? 'Recognised. Respected. Relied Upon.'} <span aria-hidden="true">&#9670;</span>
+            <span aria-hidden="true">&#9670;</span> {sectionCopy.strapline} <span aria-hidden="true">&#9670;</span>
           </p>
         </div>
       </div>

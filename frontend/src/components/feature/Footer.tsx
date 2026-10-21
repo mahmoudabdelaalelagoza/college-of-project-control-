@@ -22,7 +22,6 @@ const linkColumns = [
     links: [
       { label: 'Professional Information', href: '/apprentices' },
       { label: 'Funding Eligibility', href: '/apprenticeship-eligibility-checker' },
-      { label: 'Career Progression', href: '/programmes' },
     ],
   },
   {

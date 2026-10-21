@@ -1,7 +1,6 @@
 import MeetMentors from '@/components/feature/MeetMentors';
-import { homeCopy } from '../pageCopy';
 
-/** Original portrait-card design, with circular mobile browsing. */
+/** Shared homepage mentor design, content and mobile looping. */
 export default function LearnFromPractitioners() {
-  return <MeetMentors id="experts" content={homeCopy.experts} loopOnMobile />;
+  return <MeetMentors id="experts" />;
 }

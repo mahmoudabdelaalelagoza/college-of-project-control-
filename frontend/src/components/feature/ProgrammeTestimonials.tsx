@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import TestimonialsSection from './TestimonialsSection';
+import LearnerExperiences from './LearnerExperiences';
 import { programmeReviewRoutes } from '@/services/testimonialsApi';
 
 const hiddenOnRoutes = new Set([
@@ -11,10 +11,11 @@ const hiddenOnRoutes = new Set([
   '/project-controls-professional/engineering-manufacturing-aerospace-route',
 ]);
 
+/** Preserve route placement while every featured section uses the homepage version. */
 export default function ProgrammeTestimonials() {
   const { pathname } = useLocation();
   const normalizedPath = pathname.replace(/\/$/, '');
   if (hiddenOnRoutes.has(normalizedPath)) return null;
   const programme = programmeReviewRoutes[normalizedPath];
-  return programme ? <TestimonialsSection key={programme} programme={programme} id="testimonials" /> : null;
+  return programme ? <LearnerExperiences /> : null;
 }

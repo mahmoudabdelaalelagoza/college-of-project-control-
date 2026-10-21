@@ -1,85 +1,53 @@
+import PathwayHeroLabel from '@/components/feature/PathwayHeroLabel';
 import SiteLink from '@/components/base/SiteLink';
 
+/** Operational Pathway hero. */
 export default function Section202627LearnerAndEmployerPathway() {
   return (
-<header id="operational-top" className="relative isolate overflow-hidden bg-primary-950 pb-16 pt-32 text-white md:pb-20 md:pt-40">
-        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2200&q=85" alt="" aria-hidden="true" fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
-        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-r from-primary-950/95 via-primary-950/80 to-primary-950/65" />
-        <div className="container-site grid items-center gap-10 lg:grid-cols-[1.3fr_1fr]">
-          <div>
-            <div className="mb-4 text-xs font-bold uppercase tracking-[.18em] text-signal-300">
-              <span>
-                {"2026/27 Learner and Employer Pathway "}
-              </span>
-            </div>
-            <h1 className="text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl [&_span]:mt-4 [&_span]:block [&_span]:text-xl [&_span]:font-semibold [&_span]:text-signal-300 md:[&_span]:text-2xl">
-              {"Operational Pathway "}
-              <br />
-              <span>
-                {"Project Controls Professional Level 6 "}
-              </span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
-              {"An operational route built around control, assurance and action. Develop professionals who do more than report project status. They establish credible controls, challenge data, model outcomes and provide evidence-based recommendations that influence delivery. "}
-            </p>
-            <div className="mt-8 grid grid-cols-3 gap-3 rounded-2xl border border-white/15 bg-white/10 p-5 [&_strong]:block [&_strong]:text-2xl [&_strong]:font-bold [&_strong]:text-signal-300 [&_span]:mt-2 [&_span]:block [&_span]:text-xs [&_span]:text-white/75">
-              <div>
-                <strong>
-                  {"6 "}
-                </strong>
-                <span>
-                  {"Credits Level 6 selected operational route "}
-                </span>
-              </div>
-              <div>
-                <strong>
-                  {"835 "}
-                </strong>
-                <span>
-                  {"Published minimum training hours "}
-                </span>
-              </div>
-              <div>
-                <strong>
-                  {"£27k "}
-                </strong>
-                <span>
-                  {"Maximum apprenticeship funding band "}
-                </span>
-              </div>
-            </div>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <SiteLink href="/book-a-session" className="inline-flex min-h-12 items-center justify-center rounded-md px-6 py-3 text-center text-sm font-bold btn-primary">
-                {"Request a consultation "}
-              </SiteLink>
-              <SiteLink href="#operational-overview" className="cta-button inline-flex min-h-12 items-center justify-center rounded-md px-6 py-3 text-center text-sm font-bold border border-primary-300 bg-white text-primary-800 hover:bg-background-100">
-                {"Explore the pathway "}
-              </SiteLink>
-            </div>
+    <header id="operational-top" aria-labelledby="operational-hero-title" className="relative isolate flex min-h-[90vh] items-center overflow-hidden bg-primary-950 pb-16 pt-48 text-white md:pb-20 md:pt-52 site-hero">
+      <img
+        src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2200&q=85"
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        fetchPriority="high"
+        className="absolute inset-0 z-0 h-full w-full object-cover object-center site-hero__image"
+        onError={event => {
+          event.currentTarget.onerror = null;
+          event.currentTarget.src = '/assets/images/employer-capability-team.webp';
+        }}
+      />
+      <div className="hero-contrast-overlay absolute inset-0 z-10" aria-hidden="true" />
+      <div className="pattern-dots pattern-dots-dark absolute inset-0 z-20" aria-hidden="true" />
+
+      <div className="container-site relative z-30 site-hero__content">
+        <div className="max-w-4xl">
+          <PathwayHeroLabel />
+          <h1 id="operational-hero-title" className="mt-6 font-heading text-3xl font-bold leading-tight text-white md:text-4xl lg:text-5xl">
+            Operational Pathway
+          </h1>
+          <p className="mt-5 font-heading text-xl font-semibold leading-snug text-signal-300 md:text-2xl site-hero__lead">
+            Build Stronger Plans. Make Better Project Decisions.
+          </p>
+          <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/80 md:text-lg">
+            Develop practical expertise in planning, scheduling, cost control, risk and performance forecasting. Learn to challenge project data, strengthen delivery controls and provide evidence-based recommendations through structured, employer-supported workplace learning.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap site-hero__actions">
+            <SiteLink href="/book-a-session" className="btn-primary inline-flex min-h-12 items-center justify-center gap-2 text-center text-sm font-bold">
+              Request a Consultation<i className="ri-arrow-right-line shrink-0" aria-hidden="true" />
+            </SiteLink>
+            <SiteLink href="#operational-overview" className="btn-secondary inline-flex min-h-12 items-center justify-center gap-2 border-white/40 text-center text-sm font-bold text-white hover:border-signal-400 hover:bg-white/10">
+              Explore the Operational Pathway<i className="ri-arrow-right-line shrink-0" aria-hidden="true" />
+            </SiteLink>
           </div>
-          <div className="rounded-2xl border border-white/20 bg-white/10 p-7 shadow-lg">
-            <h3 className="mb-3 text-xl font-bold leading-snug text-white">
-              {"What the pathway is designed to build "}
-            </h3>
-            <ul className="space-y-3 pl-5 list-disc">
-              <li className="text-sm leading-relaxed text-white/80">
-                {"Integrated planning, cost, risk and performance control. "}
-              </li>
-              <li className="text-sm leading-relaxed text-white/80">
-                {"Operational project leadership and decision support. "}
-              </li>
-              <li className="text-sm leading-relaxed text-white/80">
-                {"Data assurance, forecasting and recovery recommendations. "}
-              </li>
-              <li className="text-sm leading-relaxed text-white/80">
-                {"Credible workplace evidence mapped to the apprenticeship. "}
-              </li>
-              <li className="text-sm leading-relaxed text-white/80">
-                {"Preparation for selected external professional examinations. "}
-              </li>
-            </ul>
+
+          <div className="mt-7 space-y-3 border-t border-white/20 pt-5 text-sm leading-relaxed text-white/80">
+            <p>6 KBC Learning Credits · Live Online Teaching · Workplace-Based Development</p>
+            <p><span className="font-semibold text-white">Ideal for: </span>Planners · Schedulers · Cost Engineers · Project Controls Professionals</p>
           </div>
         </div>
-      </header>
+      </div>
+    </header>
   );
 }

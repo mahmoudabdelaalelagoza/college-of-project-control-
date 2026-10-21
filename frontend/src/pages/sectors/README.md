@@ -8,7 +8,8 @@ because no sector index page existed.
 
 Sections:
 - Sectors hero
-- Sector directory (reads the sector records from the API, so editors can manage them)
+- Sector directory: shared homepage section in [ProjectDrivenSectors.tsx](../../components/feature/ProjectDrivenSectors.tsx)
 
-The directory renders one card per active sector and links to that sector's own route
-page. Section content is editable through the CMS in the usual way.
+The directory uses the same four sector cards, images, descriptions and Explore buttons as the homepage. Dashboard activation controls visibility; the shared component owns editorial content and layout.
+
+The full sector section is shared through [ProjectDrivenSectors.tsx](../../components/feature/ProjectDrivenSectors.tsx). Edit this component for site-wide content and design changes. Images use `src/data/sectorHeroImages.ts`; active status is read from dashboard-managed sector records through `useActiveSectors`. Page wrappers preserve existing navigation anchors.

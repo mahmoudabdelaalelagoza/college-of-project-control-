@@ -1,98 +1,82 @@
+import SectionHeading from '@/components/base/SectionHeading';
+
+const assessmentMethods = [
+  {
+    title: 'Technical Work-Based Assignment',
+    description: 'After gateway, undertake an approved technical assignment involving a written report, presentation and questioning.',
+    detail: 'Demonstrate technical analysis, professional judgement and evidence-based recommendations.',
+  },
+  {
+    title: 'Portfolio-Based Professional Discussion',
+    description: 'Explain your professional decisions, methods and contribution through a structured discussion supported by authentic workplace evidence.',
+    detail: 'The portfolio supports the discussion but is not assessed separately.',
+  },
+];
+
+const gatewayRequirements = [
+  'Your employer confirms your occupational readiness.',
+  'The basis of the technical assignment is agreed with the assessment organisation.',
+  'Your required workplace evidence portfolio is completed and submitted.',
+  'Any applicable English, maths and other gateway requirements are checked.',
+];
+
+const assessmentOutcomes = [
+  {
+    title: 'Apprenticeship Completion',
+    description: 'Awarded following successful independent assessment under the applicable ST0845 assessment plan.',
+  },
+  {
+    title: 'Chartered Project Professional',
+    description: 'Awarded separately by APM following its own eligibility, application and assessment requirements.',
+  },
+];
+
 export default function OccupationalAssessmentAndFutureChPPApplication() {
   return (
-<section id="professional-evidence" aria-labelledby="professional-evidence-title" className="scroll-mt-44 py-16 md:py-20 bg-background-100">
-<div className="container-site space-y-8">
-<div className="max-w-3xl space-y-4">
-<div className="text-xs font-bold uppercase tracking-[.14em] text-accent-700">
-{"Occupational assessment and future ChPP application "}
-</div>
-<h2 id="professional-evidence-title" className="text-3xl font-bold leading-tight md:text-4xl">
-{"Two evidence journeys - clearly separated "}
-</h2>
-</div>
-<div className="grid min-w-0 gap-6 lg:grid-cols-2">
-<div className="space-y-5">
-<article className="min-w-0 space-y-4 rounded-2xl border border-background-200 bg-white p-6 text-foreground-800 shadow-sm bg-background-100">
-<h3 className="text-xl font-bold leading-snug">
-{"Apprenticeship assessment "}
-</h3>
-<p className="text-base leading-relaxed">
-{"The applicable ST0845 v1.1 assessment plan uses a technical work-based assignment with report, presentation and questioning, plus a professional discussion underpinned by a portfolio of evidence. "}
-</p>
-<hr />
-<h4 className="text-base font-bold">
-{"Gateway readiness "}
-</h4>
-<ul className="list-disc space-y-2 pl-5">
-<li className="leading-relaxed">
-{"Full practical period and required training complete "}
-</li>
-<li className="leading-relaxed">
-{"Employer and provider confidence in occupational competence "}
-</li>
-<li className="leading-relaxed">
-{"Required portfolio and evidence ready "}
-</li>
-<li className="leading-relaxed">
-{"Assessment organisation and arrangements confirmed "}
-</li>
-</ul>
-</article>
-<article className="min-w-0 space-y-4 rounded-2xl border border-background-200 bg-white p-6 text-foreground-800 shadow-sm">
-<h3 className="text-xl font-bold leading-snug">
-{"Portfolio quality "}
-</h3>
-<p className="text-base leading-relaxed">
-{"Evidence should demonstrate authenticity, complexity, personal contribution, professional judgement, outcomes, reflection and confidentiality controls. "}
-</p>
-</article>
-</div>
-<div className="space-y-5">
-<article className="min-w-0 space-y-4 rounded-2xl border border-background-200 bg-white p-6 text-foreground-800 shadow-sm bg-background-100 text-foreground-800">
-<h3 className="text-xl font-bold leading-snug">
-{"APM Pathway 2 "}
-</h3>
-<p className="text-base leading-relaxed">
-{"For eligible professionals holding a recognised technical-knowledge assessment. "}
-</p>
-<ul className="list-disc space-y-2 pl-5">
-<li className="leading-relaxed">
-{"Professional activity and current knowledge "}
-</li>
-<li className="leading-relaxed">
-{"Relevant project, programme, portfolio or enabling-function experience "}
-</li>
-<li className="leading-relaxed">
-{"Written professional-practice submission "}
-</li>
-<li className="leading-relaxed">
-{"Recent CPD and two proposers "}
-</li>
-<li className="leading-relaxed">
-{"Commitment to the APM Code of Professional Conduct "}
-</li>
-<li className="leading-relaxed">
-{"Professional interview covering practice, ethics and professionalism "}
-</li>
-</ul>
-</article>
-<article className="min-w-0 space-y-4 rounded-2xl border border-background-200 bg-white p-6 text-foreground-800 shadow-sm">
-<h3 className="text-xl font-bold leading-snug">
-{"Professional award boundary "}
-</h3>
-<p className="text-base leading-relaxed">
-{"The PMO modules develop technical knowledge. Recognition of a specific assessment must be confirmed separately. It does not replace the separate professional-practice evidence and APM assessment required for ChPP. "}
-</p>
-</article>
-</div>
-</div>
-<div className="rounded-xl border border-accent-200 bg-accent-50 p-5 text-primary-950 space-y-3">
-<strong className="font-bold">
-{"Evidence strategy: "}
-</strong>
-{"workplace outputs should be designed to support occupational competence first. Where appropriate, they can also help the learner organise later professional-practice evidence, subject to APM requirements. "}
-</div>
-</div>
-</section>
+    <section id="professional-evidence" aria-labelledby="professional-evidence-title" className="scroll-mt-44 bg-white py-16 md:py-24">
+      <div className="container-site">
+        <SectionHeading
+          id="professional-evidence-title"
+          tag="Apprenticeship Assessment"
+          title="Demonstrate Competence Through Independent Assessment"
+          subtitle="The Chartered Pathway leads towards End-Point Assessment (EPA) against the full Project Controls Professional Level 6 standard."
+          className="max-w-4xl"
+        />
+
+        <div className="mt-10 grid gap-6 md:mt-12 md:grid-cols-2">
+          {assessmentMethods.map((method) => (
+            <article key={method.title} className="min-w-0 rounded-2xl border border-background-200 bg-white p-6 shadow-sm">
+              <h3 className="text-xl font-bold leading-snug text-foreground-950">{method.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-foreground-600">{method.description}</p>
+              <p className="mt-3 text-sm leading-relaxed text-foreground-600">{method.detail}</p>
+            </article>
+          ))}
+        </div>
+
+        <article className="mt-8 rounded-2xl border border-background-200 bg-background-50 p-6 md:p-8">
+          <h3 className="text-xl font-bold leading-snug text-foreground-950">Preparing for Gateway</h3>
+          <p className="mt-3 text-sm leading-relaxed text-foreground-600">Before independent assessment:</p>
+          <ul className="mt-4 list-disc space-y-3 pl-5 text-sm leading-relaxed text-foreground-600 marker:text-primary-700">
+            {gatewayRequirements.map((requirement) => <li key={requirement}>{requirement}</li>)}
+          </ul>
+        </article>
+
+        <div className="mt-10">
+          <h3 className="mb-5 text-xl font-bold leading-snug text-foreground-950 md:text-2xl">Two Separate Assessment Outcomes</h3>
+          <div className="grid gap-6 md:grid-cols-2">
+            {assessmentOutcomes.map((outcome) => (
+              <article key={outcome.title} className="min-w-0 rounded-2xl border border-background-200 bg-white p-6 shadow-sm">
+                <h4 className="text-xl font-bold leading-snug text-foreground-950">{outcome.title}</h4>
+                <p className="mt-3 text-sm leading-relaxed text-foreground-600">{outcome.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <p className="mt-8 rounded-xl border border-l-4 border-accent-200 border-l-accent-600 bg-accent-50 p-5 text-sm leading-relaxed text-foreground-600 md:p-6">
+          Learning reflections used in KBC modules must be distinguished from the formal apprenticeship EPA portfolio, which excludes reflective accounts and self-assessment under the current assessment plan.
+        </p>
+      </div>
+    </section>
   );
 }

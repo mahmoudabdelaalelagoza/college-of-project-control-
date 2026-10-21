@@ -4,12 +4,8 @@ import { fetchSectors, type Sector } from '@/services/sectorsApi';
 
 let activeSectors: Promise<Sector[]> | null = null;
 
-/**
- * Sector cards for the header menus, limited to sectors that are active in the dashboard.
- * A sector saved as a draft is left out and the remaining cards share the space.
- * All cards are shown while the list loads or if it cannot be loaded.
- */
-export default function useSectorCards() {
+/** Shared active-sector records for navigation and full sector sections. */
+export function useActiveSectors() {
   const [sectors, setSectors] = useState<Sector[] | null>(null);
 
   useEffect(() => {
@@ -24,6 +20,16 @@ export default function useSectorCards() {
     };
   }, []);
 
+  return sectors;
+}
+
+/**
+ * Sector cards for the header menus, limited to sectors that are active in the dashboard.
+ * A sector saved as a draft is left out and the remaining cards share the space.
+ * All cards are shown while the list loads or if it cannot be loaded.
+ */
+export default function useSectorCards() {
+  const sectors = useActiveSectors();
   if (!sectors) return sectorCards;
   const bySlug = new Map(sectors.map((sector) => [sector.slug, sector]));
   return sectorCards

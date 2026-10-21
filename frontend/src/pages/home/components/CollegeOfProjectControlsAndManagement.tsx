@@ -28,11 +28,11 @@ const proofItems = [
 export default function CollegeOfProjectControlsAndManagement() {
   return (
     <>
-      <section id="hero" className="hero-align-left relative isolate flex min-h-[760px] w-full items-center overflow-hidden bg-secondary-950 pt-28 text-white md:min-h-[820px] lg:min-h-[88vh]">
+      <section id="hero" className="hero-align-left relative isolate flex min-h-[760px] w-full items-center overflow-hidden bg-secondary-950 pt-28 text-white md:min-h-[820px] lg:min-h-[88vh] site-hero">
         <img
           src="/assets/images/hero-professional.webp"
           alt="Project controls professionals in a practical learning environment"
-          className="absolute inset-0 -z-30 h-full w-full object-cover object-[70%_40%]"
+          className="absolute inset-0 -z-30 h-full w-full object-cover object-[70%_40%] site-hero__image"
           loading="eager"
           fetchPriority="high"
         />
@@ -40,8 +40,8 @@ export default function CollegeOfProjectControlsAndManagement() {
         <div className="pattern-dots pattern-dots-dark absolute inset-0 -z-10 [mask-image:linear-gradient(90deg,black,transparent_68%)]" aria-hidden="true" />
         <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-t from-secondary-950/70 to-transparent" />
 
-        <div className="relative z-10 container-site h-full">
-          <div className="flex h-full items-center py-10 md:py-12 lg:py-16">
+        <div className="relative z-10 container-site site-hero__content">
+          <div className="site-hero__inner flex items-center">
             <div className="w-full max-w-3xl lg:w-[58%]">
               <div className="reveal-blur-in is-visible mb-5 inline-flex max-w-full flex-wrap items-center gap-x-3 gap-y-1 rounded-full border border-signal-400/50 bg-signal-500/15 px-4 py-1.5 text-[11px] font-label font-semibold uppercase tracking-[0.18em] text-signal-300">
                 <span className="hidden h-1 w-1 rounded-full bg-signal-300/70 sm:inline-block" aria-hidden="true" />
@@ -52,7 +52,7 @@ export default function CollegeOfProjectControlsAndManagement() {
                 Project controls and project management apprenticeships
               </h1>
 
-              <p className="reveal-fade-up is-visible mt-5 max-w-2xl text-base font-body leading-relaxed text-background-50/84 md:text-lg" style={{ transitionDelay: '100ms' }}>
+              <p className="reveal-fade-up is-visible mt-5 max-w-2xl text-base font-body leading-relaxed text-background-50/84 md:text-lg site-hero__lead" style={{ transitionDelay: '100ms' }}>
                 Develop the practical skills and professional judgement to plan, manage and control projects with confidence. Our work-based apprenticeships combine live teaching, expert support and learning you can apply in your role.
               </p>
 
@@ -64,7 +64,7 @@ export default function CollegeOfProjectControlsAndManagement() {
                 {apprenticeshipNames(' | ')}
               </p>
 
-              <div className="reveal-scale-in is-visible mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center" style={{ transitionDelay: '250ms' }}>
+              <div className="reveal-scale-in is-visible mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center site-hero__actions" style={{ transitionDelay: '250ms' }}>
                 <SiteLink
                   href="#programmes"
                   className="btn-primary inline-flex items-center justify-center px-7 py-3 text-sm font-bold transition-all duration-300"

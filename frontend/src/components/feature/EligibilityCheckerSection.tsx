@@ -12,18 +12,20 @@ const defaultEligibilityCriteria = [
 ];
 
 interface EligibilityCheckerSectionProps {
+  id?: string;
   criteria?: string[];
 }
 
-export default function EligibilityCheckerSection({ criteria = defaultEligibilityCriteria }: EligibilityCheckerSectionProps) {
+export default function EligibilityCheckerSection({ id = 'eligibility', criteria = defaultEligibilityCriteria }: EligibilityCheckerSectionProps) {
+  const headingId = `${id}-checker-cta-title`;
   return (
-    <section id="eligibility" className="scroll-mt-28 bg-background-50 py-12 md:py-16" aria-labelledby="eligibility-checker-cta-title">
+    <section id={id} className="scroll-mt-28 bg-background-50 py-12 md:py-16" aria-labelledby={headingId}>
       <div className="container-site">
         <div className="overflow-hidden rounded-2xl border border-background-200 bg-white shadow-card">
           <div className="grid lg:grid-cols-[1.15fr_1fr]">
             <div className="flex flex-col justify-center p-6 sm:p-9 lg:p-12">
               <p className="text-xs font-bold uppercase tracking-[.18em] text-accent-700">Apprenticeship eligibility</p>
-              <h2 id="eligibility-checker-cta-title" className="mt-4 max-w-lg text-3xl font-bold leading-[1.1] tracking-tight text-foreground-950 sm:text-4xl xl:text-5xl">Take the next step<br className="hidden sm:block" /> with confidence</h2>
+              <h2 id={headingId} className="mt-4 max-w-lg text-3xl font-bold leading-[1.1] tracking-tight text-foreground-950 sm:text-4xl xl:text-5xl">Take the next step<br className="hidden sm:block" /> with confidence</h2>
               <p className="mt-4 max-w-lg text-sm leading-relaxed text-foreground-600 sm:text-base">Use our quick eligibility check to get an initial indication of your suitability and understand your options before speaking with our team.</p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <SiteLink href="/apprenticeship-eligibility-checker/" className="btn-primary inline-flex min-h-12 items-center justify-center gap-2 px-5 text-sm font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700">Check Your Eligibility <i className="ri-arrow-right-line" aria-hidden="true" /></SiteLink>

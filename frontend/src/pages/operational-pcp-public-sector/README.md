@@ -6,7 +6,7 @@ Find the label on the page, then open its component below. Shared implementation
 
 | Label / heading | Component | Shared implementation |
 | --- | --- | --- |
-| Apprenticeship Funding | [ApprenticeshipFunding.tsx](components/ApprenticeshipFunding.tsx) | Page-local |
+| Apprenticeship Funding | [ApprenticeshipFunding.tsx](components/ApprenticeshipFunding.tsx) | [FundingOptionsSection.tsx](../../components/feature/FundingOptionsSection.tsx), canonical homepage design and copy |
 | Career Development | [CareerDevelopment.tsx](components/CareerDevelopment.tsx) | Page-local |
 | Career Progression | [CareerProgression.tsx](components/CareerProgression.tsx) | Page-local |
 | Develop Accountable Project Capability | [DevelopAccountableProjectCapability.tsx](components/DevelopAccountableProjectCapability.tsx) | Page-local |
@@ -24,3 +24,5 @@ Section copy, repeated items and configuration:
 - [sectorData.ts](sectorData.ts)
 
 Keep `page.tsx` focused on section order and page state. Add new page-specific sections to `components/`, use the visible label for the filename, and update imports when renaming. Shared navigation and the footer remain in `src/components/feature/`.
+
+The Funding & Costs design and copy are shared across the site. Edit [FundingOptionsSection.tsx](../../components/feature/FundingOptionsSection.tsx) for changes everywhere; page wrappers only set existing navigation anchors. Dates and employer contributions derive from `src/data/apprenticeshipFundingPolicy.ts`.

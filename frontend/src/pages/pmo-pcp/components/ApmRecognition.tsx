@@ -1,67 +1,27 @@
 import SiteLink from '@/components/base/SiteLink';
+import PmoSection from './PmoSection';
 
 export default function ApmRecognition() {
   return (
-<section id="apm" className="py-16 md:py-24 bg-canvas">
-            <div className="container-site">
-              <div className="divider-ink mb-10"></div>
-              <div className="text-center mb-3">
-                <span className="label-editorial">Professional Recognition</span>
-              </div>
-              <h2 className="heading-editorial text-3xl md:text-4xl lg:text-5xl text-center mb-2">
-                APM RECOGNITION
-              </h2>
-              <div className="text-center mb-12">
-                <span className="text-sm font-label font-bold text-primary-500/60 tracking-wider uppercase">Pathway 2</span>
-              </div>
-
-              <div className="max-w-5xl mx-auto">
-                {/* Main feature */}
-                <div className="card-editorial p-6 md:p-8 mb-6">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                    <div className="md:col-span-2">
-                      <span className="text-sm font-label font-bold text-primary-500/60 tracking-wider uppercase mb-2 block">APM Technical Knowledge</span>
-                      <h3 className="heading-editorial text-xl md:text-2xl mb-3">
-                        Recognised technical knowledge for the ChPP journey
-                      </h3>
-                      <p className="text-xs text-ink/70 leading-relaxed mb-4">
-                        The relevant Certified PMO Professional Level 6 element supports an APM-recognised technical-knowledge assessment route for ChPP Pathway 2, subject to APM eligibility, currency and current requirements.
-                      </p>
-                      <SiteLink href="/book-a-session" className="inline-flex items-center gap-2 text-sm font-label font-semibold text-secondary-500 hover:text-primary-500 transition-colors">
-                        Understand APM Recognition
-                        <i className="ri-arrow-right-line"></i>
-                      </SiteLink>
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <div className="w-24 h-24 rounded-full bg-primary-500/5 flex items-center justify-center">
-                        <i className="ri-shield-star-line text-4xl text-primary-500/40"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Two smaller features */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="card-editorial p-5 md:p-6">
-                    <h3 className="font-heading text-lg text-ink mb-2">ChPP Readiness Support</h3>
-                    <p className="text-sm text-ink/70 leading-relaxed mb-4">
-                      Learners receive support to understand readiness, organise evidence and prepare for professional progression.
-                    </p>
-                    <SiteLink href="/book-a-session" className="text-sm font-label font-semibold text-secondary-500 hover:text-primary-500 transition-colors">
-                      Discuss ChPP Readiness <i className="ri-arrow-right-line"></i>
-                    </SiteLink>
-                  </div>
-                  <div className="card-editorial p-5 md:p-6">
-                    <h3 className="font-heading text-lg text-ink mb-2">Important Chartered Status Note</h3>
-                    <p className="text-sm text-ink/70 leading-relaxed">
-                      Completion does not automatically confer ChPP. Chartered Project Professional status is awarded only by APM after all applicable professional practice, CPD, ethics and assessment requirements are met.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="divider-ink mt-10"></div>
+    <PmoSection id="apm" tag="Professional recognition" title="APM recognition" subtitle="Pathway 2" tone="white">
+      <div className="rounded-xl border border-background-200 bg-background-50 p-6 md:p-8">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
+          <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary-100 text-2xl text-primary-700" aria-hidden="true"><i className="ri-shield-star-line" /></span>
+          <div className="min-w-0">
+            <p className="text-xs font-bold uppercase tracking-wider text-secondary-600">APM technical knowledge</p>
+            <h3 className="mt-2 font-heading text-xl font-bold text-foreground-950 md:text-2xl">Recognised technical knowledge for the ChPP journey</h3>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-foreground-600">The relevant Certified PMO Professional Level 6 element supports an APM-recognised technical-knowledge assessment route for ChPP Pathway 2, subject to APM eligibility, currency and current requirements.</p>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <SiteLink href="/book-a-session" className="btn-primary text-sm">Understand APM Recognition</SiteLink>
+              <SiteLink href="https://www.apm.org.uk/chartered-standard/recognised-assessment/" target="_blank" rel="noopener noreferrer" className="btn-secondary gap-2 text-center text-primary-700 hover:bg-white">Verify recognition with APM<i className="ri-external-link-line" aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></SiteLink>
             </div>
-          </section>
+          </div>
+        </div>
+      </div>
+      <div className="mt-6 grid gap-6 md:grid-cols-2">
+        <article className="rounded-xl border border-background-200 bg-white p-6 shadow-sm"><h3 className="font-heading text-xl font-bold text-foreground-950">ChPP Readiness Support</h3><p className="mt-3 text-sm leading-7 text-foreground-600">Learners receive support to understand readiness, organise evidence and prepare for professional progression.</p><SiteLink href="/book-a-session" className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-primary-700 hover:underline">Discuss ChPP Readiness<i className="ri-arrow-right-line" aria-hidden="true" /></SiteLink></article>
+        <article className="rounded-xl border border-background-200 bg-white p-6 shadow-sm"><h3 className="font-heading text-xl font-bold text-foreground-950">Important Chartered Status Note</h3><p className="mt-3 text-sm leading-7 text-foreground-600">Completion does not automatically confer ChPP. Chartered Project Professional status is awarded only by APM after all applicable professional practice, CPD, ethics and assessment requirements are met.</p></article>
+      </div>
+    </PmoSection>
   );
 }

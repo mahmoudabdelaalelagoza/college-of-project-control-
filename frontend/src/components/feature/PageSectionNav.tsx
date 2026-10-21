@@ -5,6 +5,8 @@ interface PageSectionNavProps {
   ctaHref?: string;
   ctaLabel?: string;
   showCta?: boolean;
+  /** Override with a measured height or a CSS value that follows the public header. */
+  stickyTop?: number | string;
 }
 
 export default function PageSectionNav({
@@ -13,11 +15,13 @@ export default function PageSectionNav({
   ctaHref = '/book-a-session',
   ctaLabel = 'Request a consultation',
   showCta = true,
+  stickyTop,
 }: PageSectionNavProps) {
   return (
     <nav
       className="sticky top-[112px] z-40 border-b border-background-200 bg-white/95 shadow-card backdrop-blur-xl"
       aria-label={`${pageLabel} page sections`}
+      style={stickyTop === undefined ? undefined : { top: stickyTop }}
     >
       <div className="container-site flex h-14 items-center gap-4">
         <SiteLink

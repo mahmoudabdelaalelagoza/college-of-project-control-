@@ -15,6 +15,7 @@ interface PcpHeroProps {
   urgencyMessage?: string;
   sectors?: string[];
   bestFor?: string[];
+  bestForLabel?: string;
   compactDetails?: boolean;
   contentPosition?: 'default' | 'lower';
 }
@@ -35,8 +36,8 @@ export default function PcpHero({
   urgencyMessage,
   sectors,
   bestFor,
+  bestForLabel = 'Best for',
   compactDetails = false,
-  contentPosition = 'default',
 }: PcpHeroProps) {
   const highlightIndex = headlineHighlight
     ? headline.toLowerCase().indexOf(headlineHighlight.toLowerCase())
@@ -48,14 +49,14 @@ export default function PcpHero({
   </>;
 
   return (
-    <section className="hero-align-left relative w-full min-h-[90vh] flex items-center overflow-hidden">
+    <section className="hero-align-left relative w-full min-h-[90vh] flex items-center overflow-hidden site-hero">
       <div className="absolute inset-0">
         <img
           src={heroImageUrl}
           alt={heroImageAlt}
           loading="eager"
           fetchPriority="high"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center site-hero__image"
           onError={(event) => {
             event.currentTarget.onerror = null;
             event.currentTarget.src = '/assets/images/hero-professional.webp';
@@ -64,7 +65,7 @@ export default function PcpHero({
         <div className="hero-contrast-overlay absolute inset-0"></div>
       </div>
 
-      <div className={`relative z-10 w-full container-site ${contentPosition === 'lower' ? 'pb-16 pt-44 md:pb-20 md:pt-52' : 'py-20 md:py-24'}`}>
+      <div className="site-hero__content relative z-10 w-full container-site">
         <div className="max-w-4xl">
           {tag && (
             <span className="mb-6 inline-block rounded-full border border-signal-400/55 bg-signal-500/10 px-4 py-1.5 text-xs font-label font-semibold uppercase tracking-wider text-signal-300">
@@ -74,7 +75,7 @@ export default function PcpHero({
           <h1 className="text-display font-heading font-bold text-background-50 leading-tight">
             {renderedHeadline}
           </h1>
-          <p className="mt-4 text-lg font-heading font-semibold text-signal-400 md:text-xl">
+          <p className="mt-4 text-lg font-heading font-semibold text-signal-400 md:text-xl site-hero__lead">
             {subheadline}
           </p>
           {description && (
@@ -88,7 +89,7 @@ export default function PcpHero({
             </p>
           )}
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="site-hero__actions mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <SiteLink
               href={primaryCta.href}
               className="btn-primary inline-flex items-center justify-center px-6 py-3 text-sm font-bold transition-all duration-200 whitespace-nowrap"
@@ -99,7 +100,7 @@ export default function PcpHero({
             {secondaryCta && (
               <SiteLink
                 href={secondaryCta.href}
-                className="cta-button inline-flex items-center justify-center rounded-md border border-white/55 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:border-signal-400 hover:bg-background-50/10 whitespace-nowrap"
+                className="btn-secondary inline-flex items-center justify-center border-white/40 px-6 py-3 text-center text-sm font-semibold text-white transition-colors duration-200 hover:border-signal-400 hover:bg-background-50/10 whitespace-normal"
               >
                 {secondaryCta.label}
               </SiteLink>
@@ -117,7 +118,7 @@ export default function PcpHero({
           {compactDetails && (badges?.length || bestFor?.length) && (
             <div className="mt-7 max-w-3xl space-y-3 border-t border-white/15 pt-5 text-xs leading-relaxed text-white/75 md:text-sm">
               {!!badges?.length && <p>{badges.map(badge => badge.text).join(' · ')}</p>}
-              {!!bestFor?.length && <p><span className="font-semibold text-white/90">Best for: </span>{bestFor.join(' · ')}</p>}
+              {!!bestFor?.length && <p><span className="font-semibold text-white/90">{bestForLabel}: </span>{bestFor.join(' · ')}</p>}
             </div>
           )}
 
@@ -134,7 +135,7 @@ export default function PcpHero({
 
           {bestFor && !compactDetails && (
             <div className="mt-6 flex flex-wrap gap-2">
-              <span className="text-xs text-background-50/70 font-label uppercase tracking-wider mr-2 self-center">Best for:</span>
+              <span className="text-xs text-background-50/70 font-label uppercase tracking-wider mr-2 self-center">{bestForLabel}:</span>
               {bestFor.map((role) => (
                 <span key={role} className="px-2.5 py-1 bg-secondary-700/40 border border-background-50/10 rounded-full text-xs text-background-50/70 whitespace-nowrap">{role}</span>
               ))}
@@ -153,7 +154,7 @@ export default function PcpHero({
       </div>
 
       {urgencyMessage && (
-        <div className="absolute bottom-0 left-0 right-0 bg-signal-500/95">
+        <div className="site-hero__announcement absolute bottom-0 left-0 right-0 bg-signal-500/95">
           <div className="container-site py-3">
             <p className="text-center text-sm font-semibold text-secondary-950">
               {urgencyMessage}

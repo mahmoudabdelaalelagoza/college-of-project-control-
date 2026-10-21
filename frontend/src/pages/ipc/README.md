@@ -16,3 +16,5 @@ Find the label on the page, then open its component below. Shared implementation
 | Why IPC Matters | [WhyIPCMatters.tsx](components/WhyIPCMatters.tsx) | Page-local |
 
 Keep `page.tsx` focused on section order and page state. Add new page-specific sections to `components/`, use the visible label for the filename, and update imports when renaming. Shared navigation and the footer remain in `src/components/feature/`.
+
+The featured learner-experience section uses the homepage design and copy in [LearnerExperiences.tsx](../../components/feature/LearnerExperiences.tsx). The homepage and programme-footer entry points share this implementation, so changes apply everywhere. The full approved-review directory and review submission flow remain available through `/testimonials`. Existing page placement and testimonial anchors are preserved.

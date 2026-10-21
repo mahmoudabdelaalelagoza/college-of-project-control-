@@ -6,10 +6,10 @@ Find the label on the page, then open its component below. Shared implementation
 
 | Label / heading | Component | Shared implementation |
 | --- | --- | --- |
-| Apprenticeship Funding | [ApprenticeshipFunding.tsx](components/ApprenticeshipFunding.tsx) | Page-local |
+| Apprenticeship Funding | [ApprenticeshipFunding.tsx](components/ApprenticeshipFunding.tsx) | [FundingOptionsSection.tsx](../../components/feature/FundingOptionsSection.tsx), canonical homepage design and copy |
 | Card Grid | [CardGrid.tsx](components/CardGrid.tsx) | Page-local |
 | A Real Partnership | [ARealPartnership.tsx](components/ARealPartnership.tsx) | Page-local |
-| Built For Project Driven Organisations | [BuiltForProjectDrivenOrganisations.tsx](components/BuiltForProjectDrivenOrganisations.tsx) | Page-local |
+| Built For Project Driven Organisations | [BuiltForProjectDrivenOrganisations.tsx](components/BuiltForProjectDrivenOrganisations.tsx) | [ProjectDrivenSectors.tsx](../../components/feature/ProjectDrivenSectors.tsx), canonical homepage design and copy |
 | Capability Planning | [CapabilityPlanning.tsx](components/CapabilityPlanning.tsx) | Page-local |
 | Employer Resources | [EmployerResources.tsx](components/EmployerResources.tsx) | Page-local |
 | Example Scenarios | [ExampleScenarios.tsx](components/ExampleScenarios.tsx) | Page-local |
@@ -24,3 +24,7 @@ Find the label on the page, then open its component below. Shared implementation
 | Why Work With KBC | [WhyWorkWithKBC.tsx](components/WhyWorkWithKBC.tsx) | Page-local |
 
 Keep `page.tsx` focused on section order and page state. Add new page-specific sections to `components/`, use the visible label for the filename, and update imports when renaming. Shared navigation and the footer remain in `src/components/feature/`.
+
+The Funding & Costs design and copy are shared across the site. Edit [FundingOptionsSection.tsx](../../components/feature/FundingOptionsSection.tsx) for changes everywhere; page wrappers only set existing navigation anchors. Dates and employer contributions derive from `src/data/apprenticeshipFundingPolicy.ts`.
+
+The full sector section is shared through [ProjectDrivenSectors.tsx](../../components/feature/ProjectDrivenSectors.tsx). Edit this component for site-wide content and design changes. Images use `src/data/sectorHeroImages.ts`; active status is read from dashboard-managed sector records through `useActiveSectors`. Page wrappers preserve existing navigation anchors.

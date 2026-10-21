@@ -27,13 +27,13 @@ function StatItem({ stat, i }: { stat: typeof stats[0]; i: number }) {
 export default function ForApprenticesProfessionals() {
   const hero = useReveal(0.05);
   return (
-<div className="hero-align-left relative min-h-[90vh] flex items-center overflow-hidden">
+<div className="hero-align-left relative min-h-[90vh] flex items-center overflow-hidden site-hero">
           {/* Background Image */}
           <div className="absolute inset-0">
             <img loading="lazy" decoding="async"
               src="https://readdy.ai/api/search-image?query=Young%20professional%20woman%20confidently%20presenting%20project%20controls%20dashboard%20on%20large%20screen%20in%20modern%20bright%20corporate%20office%20with%20floor%20to%20ceiling%20windows%2C%20warm%20natural%20daylight%20streaming%20in%2C%20diverse%20team%20of%20young%20professionals%20engaged%20and%20taking%20notes%2C%20modern%20minimalist%20interior%20with%20warm%20wood%20accents%20and%20clean%20white%20surfaces%2C%20editorial%20corporate%20photography%20style%20with%20sharp%20focus%20and%20soft%20natural%20tones%2C%20aspirational%20career%20growth%20atmosphere%2C%20cinematic%20composition%20with%20depth%20of%20field&width=1800&height=1200&seq=apprentices-hero-v3&orientation=landscape"
               alt="Project controls professional presenting in modern office"
-              className="w-full h-full object-cover object-top"
+              className="w-full h-full object-cover object-top site-hero__image"
               onError={(event) => {
                 event.currentTarget.onerror = null;
                 event.currentTarget.src = '/assets/images/hero-professional.webp';
@@ -46,10 +46,10 @@ export default function ForApprenticesProfessionals() {
           {/* Dot pattern overlay */}
           <div className="pattern-dots-overlay pattern-dots-dark" aria-hidden="true" />
 
-          <div className="container-site relative z-10 w-full pt-28 md:pt-36 pb-16 md:pb-20">
+          <div className="container-site relative z-10 w-full site-hero__content">
             <div
               ref={hero.ref}
-              className="flex flex-col items-center text-center"
+              className="flex flex-col items-start text-left"
               style={{ opacity: hero.visible ? 1 : 0, transform: hero.visible ? 'translateY(0)' : 'translateY(24px)', transition: 'opacity 800ms cubic-bezier(0.22,1,0.36,1), transform 800ms cubic-bezier(0.22,1,0.36,1)' }}
             >
               {/* Badge */}
@@ -63,12 +63,12 @@ export default function ForApprenticesProfessionals() {
                 <span className="text-highlight-400"> Project Controls</span>
               </h1>
 
-              <p className="mt-6 text-base md:text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
+              <p className="mt-6 text-base md:text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed site-hero__lead">
                 Structured government-funded pathways that build real capability — planning, cost, risk, and reporting skills that employers value and promote.
               </p>
 
               {/* CTA */}
-              <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+              <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 site-hero__actions">
                 <SiteLink href="/contact" className="btn-primary inline-flex items-center gap-3 px-8 py-4 font-semibold text-sm cursor-pointer transition-all duration-300 whitespace-nowrap lift-hover">
                   <i className="ri-rocket-line text-lg" />
                   Discuss your options

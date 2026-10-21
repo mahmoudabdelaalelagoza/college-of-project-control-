@@ -75,14 +75,14 @@ export default function SectorHero({
   };
 
   return (
-    <section id="hero" className="relative isolate flex min-h-[90vh] items-center overflow-hidden bg-primary-950 pb-14 pt-28 text-white md:pb-20 md:pt-36">
+    <section id="hero" className="relative isolate flex min-h-[90vh] items-center overflow-hidden bg-primary-950 pb-14 pt-28 text-white md:pb-20 md:pt-36 site-hero">
       <img
         src={sectorImage}
         alt=""
         aria-hidden="true"
         loading="eager"
         fetchPriority="high"
-        className="absolute inset-0 -z-30 h-full w-full object-cover object-center"
+        className="absolute inset-0 -z-30 h-full w-full object-cover object-center site-hero__image"
         onError={(event) => {
           event.currentTarget.onerror = null;
           event.currentTarget.src = '/assets/images/hero-professional.webp';
@@ -95,7 +95,7 @@ export default function SectorHero({
         style={{ background: `radial-gradient(circle, ${accentColor}12, transparent 70%)` }}
       ></div>
 
-      <div className="container-site relative z-10">
+      <div className="container-site relative z-10 site-hero__content">
         <div className="flex max-w-4xl flex-col items-start text-left">
           <div className="flex w-full flex-col items-start">
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-signal-400/50 bg-signal-500/10 px-3 py-1.5 text-xs font-label font-semibold uppercase tracking-wider text-signal-300">
@@ -107,7 +107,7 @@ export default function SectorHero({
               {renderHeadline()}
             </h1>
 
-            <p className="mb-3 max-w-3xl text-base font-body leading-relaxed text-white/85 md:text-lg">
+            <p className="mb-3 max-w-3xl text-base font-body leading-relaxed text-white/85 md:text-lg site-hero__lead">
               {subheadline}
             </p>
 
@@ -122,7 +122,7 @@ export default function SectorHero({
               <p className="text-sm font-body leading-relaxed text-white/80">{fundingLine}</p>
             </div>
 
-            <div className="mb-6 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-start">
+            <div className="mb-6 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-start site-hero__actions">
               <SiteLink
                 ref={ctaRef}
                 href="/book-a-session"

@@ -5,24 +5,32 @@ import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import SectionHeading from '@/components/base/SectionHeading';
 import { fetchCoaches, type Coach } from '@/services/coachesApi';
 
-const supportAreas = [
-  ['Portfolio Support', 'Structure strong and relevant workplace evidence.'],
-  ['Progress Planning', 'Keep development aligned with programme expectations.'],
-  ['Professional Reflection', 'Understand how your capability is developing.'],
-  ['Career Development', 'Connect learning with longer-term professional goals.'],
-];
+// Canonical section copy and layout for every coach section on the site.
+const sectionCopy = {
+  "tag": "Coaching & Support",
+  "title": "Guidance beyond the classroom",
+  "intro": "Our tutors and coaches provide practical guidance, personalised feedback and ongoing support to help you understand new concepts, apply your learning at work and make progress towards your development goals.",
+  "cards": [
+    {
+      "title": "Tutor & Learning Support",
+      "body": "Ask questions, revisit learning resources and access one-to-one guidance to help you understand challenging topics."
+    },
+    {
+      "title": "Workplace Application",
+      "body": "Work with your coach to identify opportunities to apply new skills and develop relevant evidence of your own contribution."
+    },
+    {
+      "title": "Coaching & Progress Reviews",
+      "body": "Receive feedback, review your development and agree clear priorities for your next steps, with employer involvement as part of your apprenticeship."
+    },
+    {
+      "title": "Personalised Learning Support",
+      "body": "Discuss your learning needs, preferences and challenges so appropriate support can be explored and agreed."
+    }
+  ]
+} as const;
 
-interface CoachingSupportCopy {
-  tag: string;
-  title: string;
-  intro: string;
-  cards: readonly { title: string; body: string }[];
-}
-interface CoachingSupportProps {
-  id?: string;
-  content?: CoachingSupportCopy;
-  showSupportAreas?: boolean;
-}
+interface CoachingSupportProps { id?: string; }
 
 function CoachPortrait({ coach }: { coach: Coach }) {
   const fallback = coachPortrait(coach.name);
@@ -44,8 +52,8 @@ function CoachPortrait({ coach }: { coach: Coach }) {
 }
 
 /** Shared light coach profiles. Names, qualifications and photos remain dashboard-managed. */
-export default function CoachingSupport({ id = 'coaching-support', content, showSupportAreas = true }: CoachingSupportProps = {}) {
-  const areas = content?.cards ?? supportAreas.map(([title, body]) => ({ title, body }));
+export default function CoachingSupport({ id = 'coaching-support' }: CoachingSupportProps = {}) {
+  const areas = sectionCopy.cards;
   const { items: coaches, loading, error, retry } = useCollection(fetchCoaches);
   const trackId = useId();
   const track = useRef<HTMLDivElement>(null);
@@ -90,9 +98,9 @@ export default function CoachingSupport({ id = 'coaching-support', content, show
       <div className="pattern-dots-overlay pattern-dots-light" aria-hidden="true" />
       <div className="container-site relative z-10 min-w-0">
         <SectionHeading
-          tag={content?.tag ?? 'Coaching and support'}
-          title={content?.title ?? 'Support that connects learning with your professional development'}
-          subtitle={content?.intro ?? 'Coaching connects programme learning, portfolio evidence and career direction. Ask about available academic, wellbeing and professional-community support; inclusions depend on your agreed programme.'}
+          tag={sectionCopy.tag}
+          title={sectionCopy.title}
+          subtitle={sectionCopy.intro}
           className="mb-12"
         />
         <div
@@ -135,14 +143,14 @@ export default function CoachingSupport({ id = 'coaching-support', content, show
             </button>
           </div>
         </div>
-        {showSupportAreas && <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {areas.map(area => (
             <div key={area.title} className="border-t border-primary-200 pt-4">
               <h3 className="text-sm font-bold text-primary-800">{area.title}</h3>
               <p className="mt-2 text-xs leading-6 text-foreground-600">{area.body}</p>
             </div>
           ))}
-        </div>}
+        </div>
       </div>
     </section>
   );

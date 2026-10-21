@@ -5,18 +5,9 @@ import { pathwayCards } from './navMegaMenuData';
 export default function PathwayMegaMenu() {
   return (
     <div className="p-5">
-      <div className="mb-4 flex items-baseline justify-between gap-4">
-        <p className="text-sm font-label font-semibold uppercase tracking-[0.12em] text-foreground-400">
-          Level 6 pathways
-        </p>
-        <SiteLink
-          href="/project-controls-professional-level-6"
-          className="interactive-arrow inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700 hover:text-primary-800"
-        >
-          All pathways
-          <i className="ri-arrow-right-line" aria-hidden="true" />
-        </SiteLink>
-      </div>
+      <p className="mb-4 text-sm font-label font-semibold uppercase tracking-[0.12em] text-foreground-400">
+        Level 6 pathways
+      </p>
       <div className="grid gap-4 sm:grid-cols-3">
         {pathwayCards.map((pathway) => (
           <SiteLink

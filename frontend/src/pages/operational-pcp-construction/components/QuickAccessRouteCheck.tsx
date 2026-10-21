@@ -93,7 +93,7 @@ export default function QuickAccessRouteCheck() {
           </div>
         </div>
 
-        <aside className="lg:sticky lg:top-32 lg:self-start">
+        <aside className="sector-sticky-panel">
           <div className="rounded-lg border border-background-200 bg-white p-6 shadow-card">
             <p className="text-xs font-bold uppercase tracking-[.14em] text-accent-700">Initial guidance</p>
             <h3 className="mt-4 text-2xl font-bold leading-tight text-foreground-950">{result.title}</h3>

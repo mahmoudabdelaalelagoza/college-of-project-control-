@@ -1,0 +1,15 @@
+/* Keep section links clear of the measured public header and local section bar. */
+.about-page main > section[id],
+.about-page main :is(#learning, #ai, #employers) {
+  scroll-margin-top: calc(var(--public-header-height, 145px) + 57px + 24px);
+}
+
+.about-page summary:focus-visible {
+  outline: 2px solid oklch(var(--primary-600));
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+/* Use the existing darker warm accent for small labels on light surfaces. */
+.about-page main :is(.text-highlight-600, .text-highlight-700) {
+  color: oklch(var(--highlight-900));
+}

@@ -1,18 +1,44 @@
 import useCollection from '@/hooks/useCollection';
-import CollectionState from '@/components/base/CollectionState';
 import SiteLink from '@/components/base/SiteLink';
+import SectionHeading from '@/components/base/SectionHeading';
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { fetchMentors, type Mentor } from '@/services/mentorsApi';
 
 interface DisplayMentor extends Mentor { summary?: string; profileLabel?: string; profileHref?: string; }
-interface MentorSectionCopy {
-  tag: string;
-  title: string;
-  intro: string;
-  cards: readonly { title: string; subtitle: string; body: string; cta: string; match: string }[];
-  cta: string;
-}
-interface MeetMentorsProps { id?: string; content?: MentorSectionCopy; loopOnMobile?: boolean; }
+interface MeetMentorsProps { id?: string; }
+
+// Canonical homepage content, portrait cards and mobile looping for every page.
+// Dashboard-managed records supply images, profile IDs and LinkedIn links.
+const sectionCopy = {
+  "tag": "Learn from Practitioners",
+  "title": "Professional experience behind your learning",
+  "intro": "Learn from experienced professionals whose expertise spans portfolio and benefits management, PMO leadership, project controls and professional education.",
+  "cards": [
+    {
+      "title": "Stephen Jenner",
+      "subtitle": "Portfolio & Benefits Management",
+      "body": "Author of Managing Portfolios and Managing Benefits, with senior UK Civil Service experience in portfolio governance and benefits realisation.",
+      "cta": "View Stephen's profile",
+      "match": "jenner"
+    },
+    {
+      "title": "Ray Mead",
+      "subtitle": "PMO & Transformation",
+      "body": "Founding Partner of p3m global and co-author of Delivering Successful PMOs, with international experience in project, programme and portfolio management.",
+      "cta": "View Ray's profile",
+      "match": "mead"
+    },
+    {
+      "title": "Professor Amgad Badewi",
+      "subtitle": "CEO · Project Controls & Management",
+      "body": "CEO of Kent Business College, project benefits researcher and former Reader of Project Controls and Management at Kent Business School.",
+      "cta": "View Amgad's profile",
+      "match": "badewi"
+    }
+  ],
+  "cta": "Meet more KBC experts",
+  "ctaHref": "/about#experts"
+} as const;
 
 function cardStride(element: HTMLElement) {
   const card = Array.from(element.children).find(child => child.getBoundingClientRect().width > 0);
@@ -24,13 +50,13 @@ function MentorCard({ mentor }: { mentor: DisplayMentor }) {
 
   return (
     <div
-      className="group relative w-full min-w-0"
+      className="group relative h-full w-full min-w-0"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div className="bg-white rounded-2xl border border-background-200/70 overflow-hidden transition-all duration-500 hover:shadow-xl hover:border-primary-300/40 hover:-translate-y-1">
+      <div className="flex h-full flex-col bg-white rounded-2xl border border-background-200/70 overflow-hidden transition-all duration-500 hover:shadow-xl hover:border-primary-300/40 hover:-translate-y-1">
         {/* Image / Avatar */}
-        <div className="relative aspect-[3/4] w-full overflow-hidden bg-background-100">
+        <div className="relative aspect-[3/4] w-full shrink-0 overflow-hidden bg-background-100">
           {mentor.imageUrl ? (
             <img loading="lazy" decoding="async" src={mentor.imageUrl} alt={mentor.name} className="h-full w-full object-cover" />
           ) : (
@@ -52,7 +78,7 @@ function MentorCard({ mentor }: { mentor: DisplayMentor }) {
         </div>
 
         {/* Content */}
-        <div className="p-5 md:p-6">
+        <div className="flex flex-1 flex-col p-5 md:p-6">
           {/* Name */}
           <h3 className="text-base md:text-lg font-heading font-bold text-foreground-950 mb-1 leading-tight">
             {mentor.name}
@@ -62,7 +88,7 @@ function MentorCard({ mentor }: { mentor: DisplayMentor }) {
             {mentor.role}
           </p>
 
-          {mentor.summary && <p className="mt-3 text-sm leading-7 text-foreground-600">{mentor.summary}</p>}
+          {mentor.summary && <p className="mt-3 flex-1 text-sm leading-7 text-foreground-600">{mentor.summary}</p>}
           <div className="mt-5 flex items-center justify-between gap-3 border-t border-background-200 pt-4">
             <SiteLink href={mentor.profileHref ?? `/mentors/${mentor.id}`} className="inline-flex items-center gap-2 text-sm font-bold text-primary-700 transition-colors hover:text-primary-900">
               {mentor.profileLabel ?? 'View profile'}
@@ -81,9 +107,9 @@ function MentorCard({ mentor }: { mentor: DisplayMentor }) {
 }
 
 
-export default function MeetMentors({ id = 'mentors', content, loopOnMobile = false }: MeetMentorsProps = {}) {
-  const { items: mentors, loading, error, retry } = useCollection(fetchMentors);
-  const displayedMentors = useMemo<DisplayMentor[]>(() => content ? content.cards.map((expert, index) => {
+export default function MeetMentors({ id = 'mentors' }: MeetMentorsProps = {}) {
+  const { items: mentors } = useCollection(fetchMentors);
+  const displayedMentors = useMemo<DisplayMentor[]>(() => sectionCopy.cards.map((expert, index) => {
     const mentor = mentors.find(item => item.name.toLowerCase().includes(expert.match));
     return {
       id: mentor?.id ?? -(index + 1),
@@ -96,16 +122,16 @@ export default function MeetMentors({ id = 'mentors', content, loopOnMobile = fa
       summary: expert.body,
       imageUrl: mentor?.imageUrl ?? '',
       linkedinUrl: mentor?.linkedinUrl ?? '',
-      profileLabel: expert.cta,
-      profileHref: mentor ? '/mentors/' + mentor.id : '/mentors',
+      profileLabel: expert.cta ?? 'View profile',
+      profileHref: mentor ? '/mentors/' + mentor.id : sectionCopy.ctaHref,
     };
-  }) : mentors, [content, mentors]);
+  }), [mentors]);
   const count = displayedMentors.length;
   const trackId = useId();
   const track = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ index: 0, start: true, end: true });
 
-  const isLooping = useCallback(() => loopOnMobile && count > 1 && window.matchMedia('(max-width: 1023px)').matches, [loopOnMobile, count]);
+  const isLooping = useCallback(() => count > 1 && window.matchMedia('(max-width: 1023px)').matches, [count]);
 
   const measure = useCallback(() => {
     const element = track.current;
@@ -188,30 +214,23 @@ export default function MeetMentors({ id = 'mentors', content, loopOnMobile = fa
     return () => window.clearInterval(timer);
   }, [count, isLooping, move, position.end]);
 
-  if (!content && (loading || error || mentors.length === 0)) return <CollectionState id={id} label="Mentors" loading={loading} error={error} retry={retry} />;
 
   return (
-    <section id={id} className="py-16 md:py-24 relative overflow-hidden" style={{ backgroundColor: '#F5F8F9' }}>
+    <section id={id} aria-labelledby={`${id}-title`} className="relative overflow-hidden bg-background-50 py-16 md:py-24">
       {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none opacity-30"
+      <div className="absolute top-0 right-0 w-[500px] max-w-full h-[500px] rounded-full pointer-events-none opacity-30"
         style={{ background: 'radial-gradient(circle, oklch(var(--primary-200) / 0.15), transparent 70%)' }} />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none opacity-20"
+      <div className="absolute bottom-0 left-0 w-[400px] max-w-full h-[400px] rounded-full pointer-events-none opacity-20"
         style={{ background: 'radial-gradient(circle, oklch(var(--highlight-200) / 0.12), transparent 70%)' }} />
 
       <div className="container-site relative z-10">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-highlight-700 mb-5">
-            <i className="ri-team-line text-sm" />
-            {content?.tag ?? 'Learn from Practitioners'}
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground-950 leading-tight">
-            {content?.title ?? 'Learn from people who understand the work'}
-          </h2>
-          <p className="mt-4 text-base md:text-lg text-foreground-600 leading-relaxed max-w-2xl mx-auto">
-            {content?.intro ?? 'Our mentors bring professional experience from project, programme, PMO and Project Controls environments.'}
-          </p>
-        </div>
+        <SectionHeading
+          id={`${id}-title`}
+          tag={sectionCopy.tag}
+          title={sectionCopy.title}
+          subtitle={sectionCopy.intro}
+          className="mb-10 max-w-4xl md:mb-12"
+        />
 
         <div
           id={trackId}
@@ -227,22 +246,22 @@ export default function MeetMentors({ id = 'mentors', content, loopOnMobile = fa
           }}
           className="scrollbar-hide grid auto-cols-[82%] grid-flow-col gap-5 overflow-x-auto snap-x snap-mandatory pb-4 sm:auto-cols-[46%] lg:grid-flow-row lg:grid-cols-3 lg:auto-cols-auto lg:overflow-visible lg:snap-none"
         >
-          {loopOnMobile && count > 1 && displayedMentors.map(mentor => <div key={'before-' + mentor.id} className="min-w-0 snap-start lg:hidden" data-mentor-clone="before" aria-hidden="true" inert><MentorCard mentor={mentor} /></div>)}
+          {count > 1 && displayedMentors.map(mentor => <div key={'before-' + mentor.id} className="min-w-0 snap-start lg:hidden" data-mentor-clone="before" aria-hidden="true" inert><MentorCard mentor={mentor} /></div>)}
           {displayedMentors.map(mentor => <div key={mentor.id} className="min-w-0 snap-start" data-mentor-card="true"><MentorCard mentor={mentor} /></div>)}
-          {loopOnMobile && count > 1 && displayedMentors.map(mentor => <div key={'after-' + mentor.id} className="min-w-0 snap-start lg:hidden" data-mentor-clone="after" aria-hidden="true" inert><MentorCard mentor={mentor} /></div>)}
+          {count > 1 && displayedMentors.map(mentor => <div key={'after-' + mentor.id} className="min-w-0 snap-start lg:hidden" data-mentor-clone="after" aria-hidden="true" inert><MentorCard mentor={mentor} /></div>)}
         </div>
         <div className="mt-5 flex items-center justify-between gap-4 lg:hidden">
           <p className="text-sm text-foreground-600" aria-live="polite">{Math.min(position.index + 1, count)} / {count}</p>
           <div className="flex gap-3">
-            <button type="button" onClick={() => move(-1)} disabled={count < 2 || (!loopOnMobile && position.start)} aria-label="Previous mentor" aria-controls={trackId} className="flex h-11 w-11 items-center justify-center rounded-full border border-primary-300 bg-white text-primary-800 disabled:opacity-30">
+            <button type="button" onClick={() => move(-1)} disabled={count < 2} aria-label="Previous mentor" aria-controls={trackId} className="flex h-11 w-11 items-center justify-center rounded-full border border-primary-300 bg-white text-primary-800 disabled:opacity-30">
               <i className="ri-arrow-left-line text-lg" aria-hidden="true" />
             </button>
-            <button type="button" onClick={() => move(1)} disabled={count < 2 || (!loopOnMobile && position.end)} aria-label="Next mentor" aria-controls={trackId} className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-700 text-white disabled:opacity-30">
+            <button type="button" onClick={() => move(1)} disabled={count < 2} aria-label="Next mentor" aria-controls={trackId} className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-700 text-white disabled:opacity-30">
               <i className="ri-arrow-right-line text-lg" aria-hidden="true" />
             </button>
           </div>
         </div>
-        {/* Bottom CTA */}
+        {/* Shared experts CTA */}
         <div className="mt-12 md:mt-16">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 md:px-8 md:py-5 bg-white rounded-2xl border border-background-200/70 shadow-sm w-full">
             <div className="flex items-center gap-4 text-left">
@@ -259,11 +278,11 @@ export default function MeetMentors({ id = 'mentors', content, loopOnMobile = fa
               </div>
             </div>
             <SiteLink
-              href={content ? '/mentors' : '/contact'}
+              href={sectionCopy.ctaHref}
               className="btn-primary inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-sm cursor-pointer transition-all duration-300 whitespace-nowrap lift-hover shrink-0 w-full sm:w-auto"
             >
               <i className="ri-user-star-line" />
-              {content?.cta ?? 'Talk to Our Team'}
+              {sectionCopy.cta}
             </SiteLink>
           </div>
         </div>
