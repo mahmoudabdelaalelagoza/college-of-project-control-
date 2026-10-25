@@ -25,7 +25,7 @@ const policySections = { privacy: [PrivacyInformationWeCollect, PrivacyHowWeUseI
 
 export default function PolicyContents({ page }: { page: LegalPageKey }) {
   return <section className="container-site max-w-4xl py-16 md:py-24">
-    <p className="mb-10 text-xs font-semibold uppercase tracking-[0.14em] text-foreground-400">Last reviewed: 31 August 2026</p>
+    <p className="mb-10 text-xs font-semibold uppercase tracking-[0.14em] text-foreground-600">Last reviewed: 31 August 2026</p>
     <div className="space-y-5">{policySections[page].map((Section, index) => <Section key={index} />)}</div>
   </section>;
 }

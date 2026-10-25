@@ -24,16 +24,66 @@ test('required answers reject whitespace while optional questions remain optiona
   assert.deepEqual(validateStep(step, { required: '  ' }), ['required']);
   assert.deepEqual(validateStep(step, { required: 'yes' }), []);
 });
-test('eligibility blockers override otherwise favourable indicators', () => {
-  assert.equal(calculateEligibility({ age_16: 'no', previous_learning: 'no' }).status, 'not_suitable');
+const { checkerSteps } = await moduleFrom('src/pages/apprenticeship-eligibility-checker/checkerData.ts');
+const suitableAnswers = {
+  age_16: 'yes', residency_education: 'no', workplace_england: 'yes',
+  uk_residency_three_years: 'yes', right_to_work: 'yes', residency_status: 'citizen',
+  employment_situation: 'employed', weekly_paid_hours: '30_plus', other_funded_training: 'no',
+  employer_support: 'yes', employer_service_registered: 'yes', interest_area: 'pcp_level_6',
+};
+
+test('the four-step checker validates every supplied eligibility question before a result', () => {
+  assert.deepEqual(checkerSteps.map(step => step.id), ['basic', 'residency', 'employment', 'programme']);
+  const questions = checkerSteps.flatMap(step => step.questions);
+  assert.equal(questions.length, 12);
+  assert.equal(new Set(questions.map(question => question.id)).size, 12);
+  assert.ok(questions.every(question => question.required));
+  for (const step of checkerSteps) {
+    assert.deepEqual(validateStep(step, suitableAnswers), []);
+    for (const question of step.questions) {
+      assert.ok(question.options.some(option => option.value === suitableAnswers[question.id]));
+      assert.deepEqual(validateStep(step, { ...suitableAnswers, [question.id]: '' }), [question.id]);
+      assert.equal(calculateEligibility({ ...suitableAnswers, [question.id]: '' }).status, 'review');
+      assert.equal(calculateEligibility({ ...suitableAnswers, [question.id]: 'unknown_value' }).status, 'review');
+    }
+  }
+  assert.equal(calculateEligibility({}).status, 'review');
 });
-test('uncertain eligibility and prior learning are routed to review', () => {
-  assert.equal(calculateEligibility({ workplace_england: 'not_sure', previous_learning: 'no' }).status, 'review');
-  assert.equal(calculateEligibility({ previous_learning: 'yes' }).status, 'review');
+
+test('eligibility blockers override otherwise favourable or uncertain indicators', () => {
+  for (const override of [
+    { age_16: 'no' }, { workplace_england: 'no' }, { employment_situation: 'unemployed' },
+    { employment_situation: 'self_employed' }, { employer_support: 'no' }, { right_to_work: 'no' },
+  ]) {
+    const result = calculateEligibility({ ...suitableAnswers, residency_status: 'other', ...override });
+    assert.equal(result.status, 'not_suitable', JSON.stringify(override));
+    assert.ok(result.factors.length > 0);
+  }
 });
+
+test('residency exceptions, part-time work, funding overlap and uncertain answers need review', () => {
+  for (const override of [
+    { residency_education: 'yes' }, { residency_education: 'not_sure' },
+    { uk_residency_three_years: 'no' }, { uk_residency_three_years: 'not_sure' },
+    { residency_status: 'visa' }, { residency_status: 'other' }, { right_to_work: 'not_sure' },
+    { workplace_england: 'not_sure' }, { employment_situation: 'other' },
+    { weekly_paid_hours: '16_29' }, { weekly_paid_hours: 'under_16' }, { weekly_paid_hours: 'not_sure' },
+    { other_funded_training: 'yes' }, { other_funded_training: 'not_sure' },
+    { employer_support: 'not_sure' }, { employer_service_registered: 'no' },
+    { employer_service_registered: 'not_sure' }, { interest_area: 'not_sure' },
+  ]) {
+    const result = calculateEligibility({ ...suitableAnswers, ...override });
+    assert.equal(result.status, 'review', JSON.stringify(override));
+    assert.ok(result.factors.length > 0);
+  }
+});
+
 test('favourable answers produce only an indicative result, never confirmation', () => {
-  const result = calculateEligibility({ age_16: 'yes', full_time_education: 'no', workplace_england: 'yes', employment_situation: 'employed', employer_support: 'yes', employment_contract: 'yes', right_to_work: 'yes', previous_learning: 'no', residency_status: 'uk', interest_area: 'pcp' });
-  assert.equal(result.status, 'likely'); assert.match(result.label, /review/i); assert.doesNotMatch(result.message, /confirmed|approved|booked/i);
+  for (const override of [{}, { employment_situation: 'job_offer' }, { residency_status: 'settled' }, { interest_area: 'apm_level_4' }]) {
+    const result = calculateEligibility({ ...suitableAnswers, ...override });
+    assert.equal(result.status, 'likely'); assert.match(result.label, /review/i);
+    assert.doesNotMatch(result.message, /confirmed|approved|booked/i);
+  }
 });
 test('homepage event titles drop a leading funding prefix without touching the rest of the title', () => {
   // Exact live source titles, including the double space in the ChPP record.

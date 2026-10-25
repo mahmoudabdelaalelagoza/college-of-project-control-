@@ -1,5 +1,6 @@
 import { lazy, type ReactNode } from 'react';
-import type { RouteObject } from 'react-router-dom';
+import { Navigate, type RouteObject } from 'react-router-dom';
+import { ELIGIBILITY_QUERY_FLAG } from '@/components/feature/eligibilityChecker';
 
 function routeAliases(paths: string[], element: ReactNode): RouteObject[] {
   // eslint-disable-next-line local-route/route-element-jsx -- callers already pass JSX
@@ -11,7 +12,6 @@ const Home = lazy(() => import('../pages/home/page'));
 const EmployersPage = lazy(() => import('../pages/employers/page'));
 const ApprenticesPage = lazy(() => import('../pages/apprentices/page'));
 const ApmLevel4 = lazy(() => import('../pages/apm-level-4/page'));
-const ApprenticeshipEligibilityCheckerPage = lazy(() => import('../pages/apprenticeship-eligibility-checker/page'));
 const RouteFinderPage = lazy(() => import('../pages/route-finder/page'));
 const ShortCoursesPage = lazy(() => import('../pages/short-courses/page'));
 const SectorsPage = lazy(() => import('../pages/sectors/page'));
@@ -88,6 +88,10 @@ const routes: RouteObject[] = [
     element: <SectorsPage />,
   },
   {
+    path: "/short-courses/pmo-level-6",
+    element: <Navigate to="/project-controls-professional/pmo-governance-route" replace />,
+  },
+  {
     path: "/short-courses/:slug",
     element: <ShortCoursesPage />,
   },
@@ -152,11 +156,11 @@ const routes: RouteObject[] = [
     path: "/apprentices",
     element: <ApprenticesPage />,
   },
-  // Apprenticeship Eligibility Checker
+  // The eligibility checker is now a popup; old page URLs open it on the homepage.
   ...routeAliases([
     "/apprenticeship-eligibility-checker",
     "/eligibility-checker",
-  ], <ApprenticeshipEligibilityCheckerPage />),
+  ], <Navigate to={`/?${ELIGIBILITY_QUERY_FLAG}`} replace />),
   // PCP Master Landing Page — canonical URL
   {
     path: "/project-controls-professional-level-6",

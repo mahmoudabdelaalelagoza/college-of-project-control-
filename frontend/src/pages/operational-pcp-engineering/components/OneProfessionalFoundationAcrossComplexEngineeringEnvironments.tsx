@@ -40,7 +40,7 @@ export default function OneProfessionalFoundationAcrossComplexEngineeringEnviron
             <span className="text-xs font-bold uppercase tracking-[.15em] text-accent-700">
               Sector application
             </span>
-            <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl">
+            <h2 className="mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl">
               One foundation for complex engineering environments.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-foreground-600">

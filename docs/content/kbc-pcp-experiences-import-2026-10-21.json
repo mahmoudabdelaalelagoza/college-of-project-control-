@@ -1,0 +1,319 @@
+{
+  "source": "https://kentbusinesscollege.com/testimonials/",
+  "imported_at": "2026-10-21T12:03:38.486Z",
+  "programme_source_key": "pcp6",
+  "programme": "Project Controls Professional Level 6",
+  "records": 68,
+  "detailed": 24,
+  "portraits": 11,
+  "assets": [
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/northyorkshirecouncil.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/06ad4b9f-northyorkshirecouncil.svg",
+      "mime": "image/svg+xml",
+      "bytes": 16292,
+      "sha256": "d7796ca46d935513c876c5ba2d14f6e8e1c1b4a9ec0154a9b420ef7572404b8c"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/employers/collinsaerospace.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/0d4333bf-collinsaerospace.svg",
+      "mime": "image/svg+xml",
+      "bytes": 12856,
+      "sha256": "a2d9ac006b467cbb18575f1c295c8f2e538d880060439cb9b2c0f1259818f270"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/employers/sgn.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/1203dd44-sgn.svg",
+      "mime": "image/svg+xml",
+      "bytes": 6241,
+      "sha256": "330fcbd096dee797bcb54f9ec30729d75ce309222487015c07346081aabae084"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/employers/roadchef.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/18d55073-roadchef.svg",
+      "mime": "image/svg+xml",
+      "bytes": 2774,
+      "sha256": "f95844421a1e07be8df9076586bb0b933172769c01003e9b21b832eabc86b002"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/uk-agri-tech-centre.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/1924f052-uk-agri-tech-centre.svg",
+      "mime": "image/svg+xml",
+      "bytes": 10933,
+      "sha256": "5c934616de214fbaa518b0245e85f6ca1eede5fcad9876df93c20f08191f1338"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/rod-barlow-consultancy.png",
+      "local_url": "/assets/learner-experiences/kbc/employers/1ff1209e-rod-barlow-consultancy.png",
+      "mime": "image/png",
+      "bytes": 43222,
+      "sha256": "dac7c57424143e942664616243991fe4a8236ea3d1a8786247427c2b40806d8e"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/herefordshire-ludlow-and-north-shropshire-college.png",
+      "local_url": "/assets/learner-experiences/kbc/employers/2f7f9b56-herefordshire-ludlow-and-north-shropshire-college.png",
+      "mime": "image/png",
+      "bytes": 9380,
+      "sha256": "56d268e2b8470fd1e21ca843547631c736bdfc2c2f6b6f75e0c667521f22ecf8"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/indeed-flex.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/314c4891-indeed-flex.svg",
+      "mime": "image/svg+xml",
+      "bytes": 11776,
+      "sha256": "6a8241966356d0ad4fe2ef6f90295ce84ce454a3e01db2f5cd095cd5ec519adb"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/employers/frp.png",
+      "local_url": "/assets/learner-experiences/kbc/employers/41c73a41-frp.png",
+      "mime": "image/png",
+      "bytes": 34625,
+      "sha256": "c117b16a34ebeccbf912b047583836aae8166a7be62023eea9290bc39827279b"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/progress-my-office-progress-furnishings-systems-ltd.png",
+      "local_url": "/assets/learner-experiences/kbc/employers/46c42f54-progress-my-office-progress-furnishings-systems-ltd.png",
+      "mime": "image/png",
+      "bytes": 6181,
+      "sha256": "b64cc223ed7ea9d9fb933e812e4e532449c0979b9710ba08a524f6b688834e55"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/employers/universityofbristol.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/4fa7cb37-universityofbristol.svg",
+      "mime": "image/svg+xml",
+      "bytes": 12176,
+      "sha256": "82eb1b785449b5f552e0ff04ba467959ef8f2693880bf908c7b61816994f088f"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/nuvision-biotherapies-ltd.png",
+      "local_url": "/assets/learner-experiences/kbc/employers/5256c80c-nuvision-biotherapies-ltd.png",
+      "mime": "image/png",
+      "bytes": 18073,
+      "sha256": "b14ce5088f84cc67a48d50471b08e37dbe9b8f201799d2bc5eaa42360950eae5"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/employers/solidsolutionstrimechgroup.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/52dc60cf-solidsolutionstrimechgroup.svg",
+      "mime": "image/svg+xml",
+      "bytes": 5934,
+      "sha256": "8d788a3043e1846262f6418121e0deb977e6dcd9f39ba3a15c093ed6b5e8eae6"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/digital-realty.png",
+      "local_url": "/assets/learner-experiences/kbc/employers/56baba85-digital-realty.png",
+      "mime": "image/png",
+      "bytes": 8395,
+      "sha256": "d0c4897d08075e4dd84e1c04537b5f0fd82982f0641119278358f1a990ebe5ef"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/pipeline-organics-ltd.png",
+      "local_url": "/assets/learner-experiences/kbc/employers/66843ded-pipeline-organics-ltd.png",
+      "mime": "image/png",
+      "bytes": 48337,
+      "sha256": "7a13c5bb8668f1aa47936b59c124053b905b8eb00c0861d56f7704b39b228411"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/nene-park-trust.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/6d5765f8-nene-park-trust.svg",
+      "mime": "image/svg+xml",
+      "bytes": 8019,
+      "sha256": "9342eb11958dea547850598c8e741ebfb18ee719cedf45a817f546336fc2cf2d"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/alfanar-projects.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/6e579a4f-alfanar-projects.svg",
+      "mime": "image/svg+xml",
+      "bytes": 6666,
+      "sha256": "71bd7f7b42dde07dd52f4dd83eb4f390a38315e4c63c491a45a3d8cb9f475dc6"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/suncombe.png",
+      "local_url": "/assets/learner-experiences/kbc/employers/73462f83-suncombe.png",
+      "mime": "image/png",
+      "bytes": 29877,
+      "sha256": "ab5b694ac8e7e86dc1872675c45af0e705b8a0ecb7572edbd3557804612dd18f"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/university-of-sheffield.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/76895cf5-university-of-sheffield.svg",
+      "mime": "image/svg+xml",
+      "bytes": 16379,
+      "sha256": "aad1b5648e5daf6923eef2b84aa7b4ca60f642daed3ffe807da86c1b93d90561"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/environ-ltd.png",
+      "local_url": "/assets/learner-experiences/kbc/employers/85c0bc14-environ-ltd.png",
+      "mime": "image/png",
+      "bytes": 8419,
+      "sha256": "6bb338bc98d7e33bfb0fd97e907540ad837267c3db7d3ced1baf1b1087703a4b"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/employers/stjohnambulance.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/8a835fd7-stjohnambulance.svg",
+      "mime": "image/svg+xml",
+      "bytes": 4634,
+      "sha256": "aa2b74c4ee2ba3d08537d499dd16ce253b19c8b87cc82c053413bb9286cf122a"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/pragmatics-3d.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/926c6088-pragmatics-3d.svg",
+      "mime": "image/svg+xml",
+      "bytes": 4175,
+      "sha256": "936cf3a509abb54a977cb43d16e1600a615311e950621fb291350a8f580e551f"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/education-and-training-foundation.png",
+      "local_url": "/assets/learner-experiences/kbc/employers/97ae469c-education-and-training-foundation.png",
+      "mime": "image/png",
+      "bytes": 8720,
+      "sha256": "286d0a13c8edc53b5f19689d0d0891668c7a72701dd8480984019c30868d2679"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/ocs-uk-i.png",
+      "local_url": "/assets/learner-experiences/kbc/employers/9bef4552-ocs-uk-i.png",
+      "mime": "image/png",
+      "bytes": 10051,
+      "sha256": "3c1835ed3d466caeffbbe0387dc9773242fad8de1666bc11e6b1028bc4f31b78"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/apache-ix-limited.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/9c2fa97d-apache-ix-limited.svg",
+      "mime": "image/svg+xml",
+      "bytes": 2640,
+      "sha256": "7ff47cfe010342da9321bea1dcb2530e1f4a2414a6577c83253118c6c21befe4"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/design-monkey-media-ltd.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/9e4cd412-design-monkey-media-ltd.svg",
+      "mime": "image/svg+xml",
+      "bytes": 50724,
+      "sha256": "0a0a1c52098234242ea66d6d716d262360ba6e904081aebe31d7dd7b5c8cd2e1"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/employers/eriksindustrialservices.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/a6cf042c-eriksindustrialservices.svg",
+      "mime": "image/svg+xml",
+      "bytes": 5975,
+      "sha256": "97e98fed5de9c0f85072b36073dc19629c51453b98f8f3dc68a6ed5186034b33"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/watts-group-ltd.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/aaca8806-watts-group-ltd.svg",
+      "mime": "image/svg+xml",
+      "bytes": 2120,
+      "sha256": "f87e2d616860a7e0587bb2151fb8feab815d17f280c1a4c14649c22a0340281d"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/employers/navantiauk.png",
+      "local_url": "/assets/learner-experiences/kbc/employers/b82ca9ae-navantiauk.png",
+      "mime": "image/png",
+      "bytes": 45608,
+      "sha256": "5c12b1e306b54ccd96c8e5498ac68ed347754e86c6a7c6508fb8a760ff2068ee"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/scg-world.jpg",
+      "local_url": "/assets/learner-experiences/kbc/employers/c4c85182-scg-world.jpg",
+      "mime": "image/jpeg",
+      "bytes": 4070,
+      "sha256": "da8e221f0398668aaf3f0f1236b9bc61d03ebd4a73d65cc3d9dc529a366f0f2b"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/frp-technologies-approved-20260914.png",
+      "local_url": "/assets/learner-experiences/kbc/employers/cf484799-frp-technologies-approved-20260914.png",
+      "mime": "image/png",
+      "bytes": 12844,
+      "sha256": "7973466d17bc6324173d0c5efd946646dff27e0d9f35bfc4ec61640788153684"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/barhale.png",
+      "local_url": "/assets/learner-experiences/kbc/employers/d9f59e87-barhale.png",
+      "mime": "image/png",
+      "bytes": 9644,
+      "sha256": "24760bb21cf781bce500b902cc1909c3465508d85b339f7387b38f6cb32a8b24"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/employers/mag-airports-group.svg",
+      "local_url": "/assets/learner-experiences/kbc/employers/f4ac2989-mag-airports-group.svg",
+      "mime": "image/svg+xml",
+      "bytes": 3972,
+      "sha256": "3e4983a7b9444738d5a6c7b5cbd758a2d28566f05865315e2426c4575f728fc4"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/people/marson-kwan.jpg",
+      "local_url": "/assets/learner-experiences/kbc/portraits/377ef272-marson-kwan.jpg",
+      "mime": "image/jpeg",
+      "bytes": 27846,
+      "sha256": "07d6764a1821bf7b94e2556f73c2e2373f149c9e15322a8896bb807fee28b0af"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/people/leigh-pullan.jpg",
+      "local_url": "/assets/learner-experiences/kbc/portraits/3b2b7c9e-leigh-pullan.jpg",
+      "mime": "image/jpeg",
+      "bytes": 17301,
+      "sha256": "b1f13db6e1eb2d345de6a6ca38d0a94f55ecc89a8232f8df7d79362463f9e0a5"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/people/lukasz-skarlak.webp",
+      "local_url": "/assets/learner-experiences/kbc/portraits/68ac29af-lukasz-skarlak.webp",
+      "mime": "image/webp",
+      "bytes": 9380,
+      "sha256": "68fdd3d789aec9f7f24ff78d08fd9a28fae4fc63cb29aeaa17bf2adcdb1e10fa"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/people/roy-hillson.jpg",
+      "local_url": "/assets/learner-experiences/kbc/portraits/6b5b6aef-roy-hillson.jpg",
+      "mime": "image/jpeg",
+      "bytes": 25305,
+      "sha256": "139869f496ad59c1de369071aad1d311f5eae2bd17a8f20d00ecd33fd1c037c0"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/people/mabrouka-maamra.webp",
+      "local_url": "/assets/learner-experiences/kbc/portraits/75aadf9d-mabrouka-maamra.webp",
+      "mime": "image/webp",
+      "bytes": 88054,
+      "sha256": "df0204e598d7fbd9773549fd788b64db6d293e2156bb7408349516e61726db63"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/people/aneta-taylor.jpg",
+      "local_url": "/assets/learner-experiences/kbc/portraits/926303d4-aneta-taylor.jpg",
+      "mime": "image/jpeg",
+      "bytes": 19264,
+      "sha256": "f04fd6f126683a44cd7fff7dfca18c7b8b7b6892ad39ebe70c3572b7ac6f7622"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/people/andrew-raslan.jpg",
+      "local_url": "/assets/learner-experiences/kbc/portraits/b21fa16a-andrew-raslan.jpg",
+      "mime": "image/jpeg",
+      "bytes": 23835,
+      "sha256": "8835f535d2d196407cfcf34f25675706491fc7e268f37d743f9bfa669abaabf9"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/people/reshad-walizada-approved.webp",
+      "local_url": "/assets/learner-experiences/kbc/portraits/bf1f4923-reshad-walizada-approved.webp",
+      "mime": "image/webp",
+      "bytes": 80180,
+      "sha256": "f8b0d278e01f9965a07569ef1426a95dd2379609e029ecde78f2cdc11b2aa5c5"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/people/dawn-taylor.jpg",
+      "local_url": "/assets/learner-experiences/kbc/portraits/c4137e7f-dawn-taylor.jpg",
+      "mime": "image/jpeg",
+      "bytes": 42188,
+      "sha256": "78307585fa9dbe17c152d38e9ca9a43cc82f2a469ae198dc2363a1477918cd7f"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/people/alghareeb-hegazy.jpg",
+      "local_url": "/assets/learner-experiences/kbc/portraits/d6d5cf83-alghareeb-hegazy.jpg",
+      "mime": "image/jpeg",
+      "bytes": 31941,
+      "sha256": "2eccf7046115d616d5ddb6baf6696c2df6fdbaf3d913b4cab18e136342209b34"
+    },
+    {
+      "source_url": "https://kentbusinesscollege.com/assets/learner-stories/people/stephen-burns.webp",
+      "local_url": "/assets/learner-experiences/kbc/portraits/df95b314-stephen-burns.webp",
+      "mime": "image/webp",
+      "bytes": 25840,
+      "sha256": "ca28220c33ea3c7977e8ed98d8e4c22f0195b91843ddaf96f70f2491315f021e"
+    }
+  ]
+}

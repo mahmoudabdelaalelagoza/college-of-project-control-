@@ -8,7 +8,7 @@ export default function ReadyToTakeControl() {
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
             <div className="max-w-4xl">
               <p className="text-xs font-bold uppercase tracking-[.18em] text-signal-300">Ready to take control</p>
-              <h2 className="mt-4 text-3xl font-semibold leading-tight text-white md:text-5xl">
+              <h2 className="mt-4 text-section-3xl font-semibold leading-tight text-white md:text-section-5xl">
                 Build the capability to deliver complex engineering programmes with confidence.
               </h2>
               <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/72">
@@ -18,7 +18,7 @@ export default function ReadyToTakeControl() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <SiteLink href="#eligibility" className="btn-primary inline-flex min-h-12 items-center justify-center gap-2 px-5 text-sm font-bold">
+              <SiteLink href="/apprenticeship-eligibility-checker" className="btn-primary inline-flex min-h-12 items-center justify-center gap-2 px-5 text-sm font-bold">
                 Check eligibility
                 <i className="ri-arrow-right-line" aria-hidden="true" />
               </SiteLink>

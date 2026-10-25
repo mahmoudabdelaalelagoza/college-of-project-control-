@@ -1,4 +1,3 @@
-import EligibilityCheckerSection from '@/components/feature/EligibilityCheckerSection';
 import MeetMentors from '@/components/feature/MeetMentors';
 import SectorPageShell from '@/components/feature/SectorPageShell';
 import ChooseYourProfessionalDirection from './components/ChooseYourProfessionalDirection';
@@ -22,7 +21,6 @@ export default function Page() {
       <EngineeringProjectControlsEvidence />
       <MeetMentors id="experts" />
       <FundingAndBursaryAccess />
-      <EligibilityCheckerSection />
     </SectorPageShell>
   );
 }

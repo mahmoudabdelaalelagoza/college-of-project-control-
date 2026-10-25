@@ -31,10 +31,10 @@ export default function ProjectControlsThatProtectEngineeringValue() {
       <div className="bg-background-50 py-16 md:py-24">
         <div className="container-site grid gap-12 lg:grid-cols-[minmax(0,1fr)_460px] lg:items-center">
           <div className="max-w-3xl">
-            <span className="text-xs font-bold uppercase tracking-[.15em] text-signal-300">
+            <span className="text-xs font-bold uppercase tracking-[.15em] text-warm-ink">
               Project controls that protect engineering value
             </span>
-            <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-5xl">
+            <h2 className="mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-5xl">
               Deliver engineered systems with precision, predictability and controlled change.
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-foreground-600">

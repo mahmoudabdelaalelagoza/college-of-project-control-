@@ -1,7 +1,26 @@
 import type { EventItem } from '@/services/eventsApi';
 
-const relevantTerms=['project controls','project control','project management','pmo','planning','scheduling','chpp','cpcm','masterclass','earned value','risk management','portfolio','benefits management'];
-const unrelatedTerms=['marketing','chartered institute of marketing'];
+const relevantTerms=[
+  // PCP core
+  'project controls','project control','project management','pmo','planning',
+  'scheduling','chpp','cpcm','masterclass','earned value','risk management',
+  'portfolio','benefits management','programme','program management',
+  'stage gates','cost management','schedule baseline','variance analysis',
+  'dictum','event','improvement','profession','eligible','funding','employer',
+  'work-based','apprenticeship','lod','end point assessment','epa',
+  // PCP-adjacent (if connected to project controls)
+  'risk register','issue register','change control','escalation','governance',
+  'assurance','reporting','forecast','performance','baseline','contracts',
+  'necc','quantity survey','cost plan','value engineering','schedule float'
+];
+const unrelatedTerms=[
+  'marketing','chartered institute of marketing','cim','digital marketing',
+  'marketing executive','marketing manager','social media','advertising',
+  'brand','campaign','sales','business development','commercial',
+  'commercial awareness','client liaison','account management',
+  'product','service','general','public','general public','competition',
+  'competition law','training','course','conference','seminar','webinar'
+];
 
 /** Prefer upcoming sessions, then fill the homepage with distinct recent real events. */
 export function selectHomepageEvents(events:readonly EventItem[],now=Date.now(),limit=3):EventItem[] {

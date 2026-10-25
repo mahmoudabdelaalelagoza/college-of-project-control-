@@ -284,6 +284,22 @@ async function supabaseRequest<T>(path: string, method: Method, body?: Body): Pr
   throw new Error(`Unsupported method: ${method}`);
 }
 
+// Every Eventbrite route is an action on the eventbrite-sync edge function, which holds the encrypted token.
+async function eventbriteRequest<T>(path: string, method: Method, body?: Body): Promise<T> {
+  if (!isSupabaseConfigured || !supabase) throw new Error('Supabase dashboard is not configured.');
+  const session = await ensureAdmin();
+  const { action } = parsePath(path);
+  const payload = normalisePayload(body);
+  const request = method === 'GET' ? { action }
+    : action === 'settings' ? { action: 'save-settings', settings: payload }
+    : { ...payload, action };
+  const { data, error } = await supabase.functions.invoke('eventbrite-sync', { body: request, headers: { Authorization: `Bearer ${session.access_token}` } });
+  if (error) throw new Error(await functionErrorMessage(error, 'Eventbrite request failed.'));
+  const result = data as { error?: string } | null;
+  if (result?.error) throw new Error(result.error);
+  return data as T;
+}
+
 async function uploadMedia<T>(body?: Body): Promise<T> {
   if (!isSupabaseConfigured || !supabase) throw new Error('Supabase dashboard is not configured.');
   await ensureAdmin();
@@ -297,6 +313,7 @@ async function request<T>(path: string, method: Method, body?: Body, _options: R
   if (resource === 'media' && method === 'POST') return uploadMedia<T>(body);
   if (resource === 'maintenance' && method === 'GET') return getMaintenanceSettings<T>();
   if (resource === 'maintenance' && method === 'PATCH') return saveMaintenanceSettings<T>(body);
+  if (resource === 'eventbrite') return eventbriteRequest<T>(path, method, body);
   if (resource === 'users' && method === 'GET') return getDashboardUsers<T>();
   if (resource === 'users' && method === 'POST') return saveDashboardUser<T>(body);
   if (resource === 'users' && method === 'PATCH') return saveDashboardUser<T>(body, parsePath(path).id);

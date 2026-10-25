@@ -1,17 +1,18 @@
-# apprenticeship-eligibility-checker sections
+# Apprenticeship eligibility checker (popup)
 
-Composition: [page.tsx](page.tsx). Routes: `/apprenticeship-eligibility-checker`.
+There is no standalone page. Every "Check eligibility" link or button opens the shared popup:
 
-Find the label on the page, then open its component below. Shared implementation links are provided where a section is reused. Data and API calls retain their existing ownership.
+- [EligibilityCheckerHost.tsx](../../components/feature/EligibilityCheckerHost.tsx) is mounted once in the app shell; call `openEligibilityChecker()` from [eligibilityChecker.ts](../../components/feature/eligibilityChecker.ts) to open it.
+- [SiteLink.tsx](../../components/base/SiteLink.tsx) turns any link to `/apprenticeship-eligibility-checker` or `/eligibility-checker` into a popup trigger.
+- The old URLs redirect to `/?check-eligibility`, which opens the popup on the homepage.
+- [EligibilityCheckerModal.tsx](../../components/feature/EligibilityCheckerModal.tsx) renders [ApprenticeshipEligibilityChecker.tsx](components/ApprenticeshipEligibilityChecker.tsx).
 
-| Label / heading | Component | Shared implementation |
-| --- | --- | --- |
-| Apprenticeship Eligibility Checker | [ApprenticeshipEligibilityCheckerSection.tsx](components/ApprenticeshipEligibilityCheckerSection.tsx) | Page-local |
-| Apprenticeship Eligibility Checker | [ApprenticeshipEligibilityChecker.tsx](components/ApprenticeshipEligibilityChecker.tsx) | Page-local |
-| Frequently Asked Questions | [FrequentlyAskedQuestions.tsx](components/FrequentlyAskedQuestions.tsx) | [PcpFaqSection.tsx](../../components/feature/PcpFaqSection.tsx) |
+## Four-step questionnaire
 
-Section copy, repeated items and configuration:
+`checkerData.ts` owns the 12 required questions in this order: Basic eligibility; Residency & right to work; Employment & funding; Employer & apprenticeship details. The final dropdown lists the Level 4 and Level 6 apprenticeships and an unsure option.
 
-- [checkerData.ts](checkerData.ts)
+`eligibilityEngine.ts` calculates an initial indication from these questions. Residency exceptions, part-time hours, overlapping funded training, employer registration and uncertain/missing answers go to admissions review. Explicit route blockers take precedence.
 
-Keep `page.tsx` focused on section order and page state. Add new page-specific sections to `components/`, use the visible label for the filename, and update imports when renaming. Shared navigation and the footer remain in `src/components/feature/`.
+The popup keeps its outcome-specific actions: `Book info session` (opens the Microsoft Bookings information-session page) for a likely-suitable result and `Explore IPC Scholarships` for a currently unsuitable result. Review results offer a single `Request a consultation` action that opens the Microsoft Bookings page; there is no Contact Admissions button. `Explore IPC Scholarships` opens instituteofprojectcontrols.com. These links close the popup on navigation.
+
+The funding-rule reference for individual checks is [Apprenticeship funding rules 2026 to 2027](https://www.gov.uk/government/publications/apprenticeship-funding-rules-and-assessment-plan-guidance-2026-to-2027). This short questionnaire does not replace the full admissions assessment. Decision and required-answer regressions run with `npm run test:journeys`.

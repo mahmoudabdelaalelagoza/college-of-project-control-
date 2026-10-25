@@ -12,7 +12,7 @@ export default function ReadyToAdvanceYourCareerInProjectControls() {
 
           <div className="container-site relative z-10 text-center" ref={cta.ref}>
             <div style={{ opacity: cta.visible ? 1 : 0, transform: cta.visible ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 700ms cubic-bezier(0.22,1,0.36,1), transform 700ms cubic-bezier(0.22,1,0.36,1)' }}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-extrabold text-primary-950 leading-tight max-w-3xl mx-auto">
+              <h2 className="text-section-3xl md:text-section-4xl lg:text-section-5xl font-heading font-extrabold text-primary-950 leading-tight max-w-3xl mx-auto">
                 Ready to advance your career in project controls?
               </h2>
               <p className="mt-5 text-base md:text-lg text-primary-800/60 max-w-xl mx-auto leading-relaxed">

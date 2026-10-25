@@ -4,7 +4,7 @@ export default function ReadyToFindYourBestRoute() {
   return (
 <section className="py-14 md:py-20 bg-secondary-900">
           <div className="container-site text-center">
-            <h2 className="text-xl md:text-3xl font-heading font-bold text-background-50">
+            <h2 className="text-section-xl md:text-section-3xl font-heading font-bold text-background-50">
               Ready to Find Your Best Route?
             </h2>
             <p className="mt-3 text-sm md:text-base text-background-50/70 max-w-xl mx-auto">
@@ -22,7 +22,7 @@ export default function ReadyToFindYourBestRoute() {
               <SiteLink
                 href="/project-controls-professional-level-6#eligibility"
                 data-gtm-event="hub_cta_eligibility"
-                className="cta-button inline-flex items-center px-5 py-3 border border-background-50/20 text-background-50 font-semibold text-sm rounded-md cursor-pointer hover:bg-background-50/10 transition-all duration-200 whitespace-nowrap"
+                className="cta-button cta-button--on-dark inline-flex items-center px-5 py-3 border border-background-50/20 text-background-50 font-semibold text-sm rounded-md cursor-pointer hover:bg-background-50/10 transition-all duration-200 whitespace-nowrap"
               >
                 <i className="ri-shield-check-line mr-2"></i>
                 Check Eligibility

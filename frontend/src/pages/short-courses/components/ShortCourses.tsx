@@ -206,7 +206,7 @@ function CourseDeepDive({ course }: { course: ShortCourse }) {
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-700">Course page</p>
-            <h2 className="mt-3 text-3xl font-bold md:text-5xl">A focused course built around real project work.</h2>
+            <h2 className="mt-3 text-section-3xl font-bold md:text-section-5xl">A focused course built around real project work.</h2>
             <p className="mt-5 text-base leading-relaxed text-foreground-600">
               {detail.positioning || course.summary}
             </p>

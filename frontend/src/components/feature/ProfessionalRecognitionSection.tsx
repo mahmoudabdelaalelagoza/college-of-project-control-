@@ -35,7 +35,7 @@ export default function ProfessionalRecognitionSection() {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="container-site">
-        <h2 className="text-3xl">Professional development and recognition</h2>
+        <h2 className="text-section-3xl">Professional development and recognition</h2>
         <p className="mt-4 max-w-3xl text-foreground-600">Programme learning and support are distinct from external awards. Membership, examinations and Chartered status remain subject to each professional body's eligibility and assessment.</p>
         <div
           ref={viewportRef}

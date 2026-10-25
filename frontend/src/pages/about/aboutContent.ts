@@ -27,8 +27,7 @@ export const aboutProgrammes = [
     tag: 'Standalone Professional Programme · PMO & Governance',
     body: 'Develop knowledge and professional practice in PMO governance, integrated controls, risk, assurance and stakeholder reporting.',
     cta: 'Explore Certified PMO Professional',
-    // The course page describes standalone study; the PMO route page is an apprenticeship.
-    href: '/short-courses/pmo-level-6',
+    href: '/project-controls-professional/pmo-governance-route',
   },
 ];
 

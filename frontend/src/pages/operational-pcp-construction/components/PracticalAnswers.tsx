@@ -47,7 +47,7 @@ export default function PracticalAnswers() {
       <div className="container-site grid gap-10 lg:grid-cols-[380px_minmax(0,1fr)]">
         <header>
           <span className="text-xs font-bold uppercase tracking-[.15em] text-accent-700">Practical answers</span>
-          <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl">
+          <h2 className="mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl">
             Questions before you enquire.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-foreground-600">

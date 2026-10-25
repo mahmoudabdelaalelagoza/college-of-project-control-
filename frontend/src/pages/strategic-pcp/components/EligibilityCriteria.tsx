@@ -8,7 +8,7 @@ export default function EligibilityCriteria() {
 <div className="text-xs font-bold uppercase tracking-[.14em] text-accent-700">
 {"Eligibility criteria "}
 </div>
-<h2 className="text-3xl font-bold leading-tight md:text-4xl">
+<h2 className="text-section-3xl font-bold leading-tight md:text-section-4xl">
 {"Could this apprenticeship pathway be right "}
 <span>
 {"for you? "}

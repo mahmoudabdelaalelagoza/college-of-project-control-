@@ -90,9 +90,53 @@
   --foreground-900: 0.220 0.021 250;
   --foreground-950: 0.160 0.018 252;
 
+  /* Surface-aware meaningful text; pale signal shades remain decorative/on-dark. */
+  --text-on-dark: #fff;
+  --text-muted-on-dark: #e0e9ed;
+  --text-muted-on-light: oklch(var(--foreground-600));
+  --text-warm-on-light: rgb(var(--signal-900));
+  --text-placeholder-on-light: oklch(var(--foreground-500));
+  --text-placeholder-on-dark: #bacbd3;
+
   /* Typography */
   --font-heading: 'Source Serif 4', Georgia, serif;
   --font-body: 'Poppins', system-ui, sans-serif;
+  /* Role sizes. Section values include the approved 10% optical adjustment.
+     Explicit section utilities replace the former #main-content h2 plugin. */
+  --type-display: clamp(2.25rem, 1.5rem + 3vw, 4rem);
+  --type-page-title: clamp(1.875rem, 3.5vw, 3rem);
+  --type-hero-mobile: 2.25rem;
+  --type-hero-tablet: clamp(2.65rem, 5vw, 4rem);
+  --type-hero-desktop: clamp(3rem, 6vw, 4.75rem);
+  --type-section-xl: 1.125rem;
+  --type-section-2xl: 1.395rem;
+  --type-section-3xl: 1.8rem;
+  --type-section-4xl: clamp(2.025rem, 3.6vw, 2.925rem);
+  --type-section-5xl: clamp(2.385rem, 4.5vw, 3.6rem);
+  --type-section-6xl: clamp(2.7rem, 5.4vw, 4.275rem);
+  --type-section-7xl: clamp(2.88rem, 6.3vw, 4.815rem);
+  --type-section-display: clamp(2.025rem, 1.35rem + 2.7vw, 3.6rem);
+  --type-subsection: 1.5rem;
+  --type-card-title: 1.25rem;
+  --type-card-title-editorial: 1.375rem;
+  --type-dialog-title: 1.25rem;
+  --type-body: 1rem;
+  --type-body-small: .9375rem;
+  --type-lead: 1.125rem;
+  --type-caption: .8125rem;
+  --type-metadata: .8125rem;
+  --type-label: .875rem;
+  --type-button: .9375rem;
+  --type-navigation: .8125rem;
+  --type-control: 1rem;
+  --type-table: .9375rem;
+  --leading-body: 1.7;
+  --leading-support: 1.6;
+  --leading-control: 1.5;
+  --weight-title: 700;
+  --weight-hero: 800;
+  --weight-mobile-title: 800;
+  --weight-mobile-hero: 900;
   --font-label: 'Poppins', system-ui, sans-serif;
 }
 
@@ -120,7 +164,7 @@
   --color-ipc-surface: rgb(var(--ipc-surface-rgb));
   --ipc-gold-rgb: 216 179 110;
   --color-ipc-gold: rgb(var(--ipc-gold-rgb));
-  --ipc-ink-rgb: 156 104 19;
+  --ipc-ink-rgb: 150 100 18;
   --color-ipc-ink: rgb(var(--ipc-ink-rgb));
   --error-rgb: 185 28 28;
   --color-error: rgb(var(--error-rgb));
@@ -138,7 +182,7 @@
   --motion-slow: 320ms;
   --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
-  --header-height: 112px;
+  --header-height: var(--public-header-height, 145px);
   --section-nav-height: 56px;
   --section-space: 4rem;
   --page-gutter: 1rem;

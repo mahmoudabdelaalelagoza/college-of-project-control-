@@ -12,7 +12,7 @@ export default function CareerProgression() {
       <div className="container-site">
         <div className="max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-[.18em] text-accent-700">Career progression</p>
-          <h2 className="mt-4 text-3xl font-semibold leading-tight text-foreground-950 md:text-4xl">
+          <h2 className="mt-4 text-section-3xl font-semibold leading-tight text-foreground-950 md:text-section-4xl">
             Build a visible project-delivery capability pipeline.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-foreground-600">

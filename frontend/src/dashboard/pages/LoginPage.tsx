@@ -68,7 +68,7 @@ export default function LoginPage() {
               onChange={(e) => setUsername(e.target.value)}
               required
               autoComplete="username"
-              className="w-full rounded-md border border-white/15 bg-white/5 px-3 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-signal-400 focus:outline-none"
+              className="w-full rounded-md border border-white/15 bg-white/5 px-3 py-2.5 text-sm text-white placeholder:text-[var(--text-placeholder-on-dark)] focus:border-signal-400 focus:outline-none"
               placeholder="you@collegeofprojectcontrols.com"
             />
           </div>
@@ -81,7 +81,7 @@ export default function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               required
               autoComplete="current-password"
-              className="w-full rounded-md border border-white/15 bg-white/5 px-3 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-signal-400 focus:outline-none"
+              className="w-full rounded-md border border-white/15 bg-white/5 px-3 py-2.5 text-sm text-white placeholder:text-[var(--text-placeholder-on-dark)] focus:border-signal-400 focus:outline-none"
               placeholder="••••••••"
             />
             <button type="button" onClick={() => setShowPassword((visible) => !visible)} aria-label={showPassword ? 'Hide password' : 'Show password'} className="absolute inset-y-0 right-0 px-3 text-white/60 hover:text-white"><i className={showPassword ? 'ri-eye-off-line' : 'ri-eye-line'} aria-hidden="true" /></button>

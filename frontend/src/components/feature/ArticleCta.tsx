@@ -18,7 +18,7 @@ export default function ArticleCta({
       <div className="container-site max-w-4xl">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
           <div className="lg:col-span-3">
-            <h2 className="text-xl md:text-2xl font-heading font-bold text-foreground-950">{title}</h2>
+            <h2 className="text-section-xl md:text-section-2xl font-heading font-bold text-foreground-950">{title}</h2>
             <p className="mt-3 text-sm md:text-base text-foreground-600 leading-relaxed">{body}</p>
             <div className="mt-5 flex flex-col sm:flex-row gap-3">
               <SiteLink

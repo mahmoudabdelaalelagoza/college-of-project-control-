@@ -30,59 +30,60 @@ export const checkerSteps: CheckerStep[] = [
   {
     id: 'basic',
     title: 'Basic eligibility',
-    description: 'Start with the core conditions that normally apply to an apprenticeship.',
+    description: "Let's start by checking a few basic requirements for apprenticeships in England.",
     questions: [
-      { id: 'age_16', type: 'radio', label: 'Will you be aged 16 or over when the apprenticeship starts?', options: yesNo, required: true },
-      { id: 'full_time_education', type: 'radio', label: 'Are you currently in full-time education?', helpText: 'For example, attending school, college or university full time.', options: yesNo, required: true },
-      { id: 'workplace_england', type: 'radio', label: 'Will your main workplace for the apprenticeship be in England?', options: yesNoUnsure, required: true },
-    ],
-  },
-  {
-    id: 'employment',
-    title: 'Employment and employer',
-    description: 'An apprenticeship is a paid job with structured training, so an employer is required.',
-    questions: [
-      { id: 'employment_situation', type: 'select', label: 'What is your current employment situation?', options: [
-        { label: 'Currently employed', value: 'employed' }, { label: 'Have a job offer', value: 'job_offer' },
-        { label: 'Need to find an employer', value: 'need_employer' }, { label: 'Self-employed', value: 'self_employed' },
-      ], required: true },
-      { id: 'employer_support', type: 'radio', label: 'Will your employer support the apprenticeship?', options: [...yesNoUnsure, { label: 'Not applicable', value: 'not_applicable' }], required: true },
-      { id: 'employment_contract', type: 'radio', label: 'Will you have an employment contract for the apprenticeship period?', options: yesNoUnsure, required: true },
+      { id: 'age_16', type: 'radio', label: 'Will you be aged 16 or over when your apprenticeship starts?', options: yesNo, required: true },
+      { id: 'residency_education', type: 'radio', label: 'Was your residency in the UK in the past 3 years mainly for full-time education?', helpText: 'For example, studying full-time at school, college or university.', options: yesNoUnsure, required: true },
+      { id: 'workplace_england', type: 'radio', label: 'Will you spend at least 50% of your working hours in England during your apprenticeship?', helpText: 'This includes working remotely or in a hybrid role.', options: yesNoUnsure, required: true },
     ],
   },
   {
     id: 'residency',
-    title: 'Residency and eligibility information',
-    description: 'These answers are collected for review. The checker does not make an automatic legal or funding decision.',
+    title: 'Residency & right to work',
+    description: "We'll check your residency and right-to-work status to help determine whether you may qualify for apprenticeship funding.",
     questions: [
-      { id: 'residency_status', type: 'select', label: 'Which option best describes your current residency status?', options: [
-        { label: 'UK or Irish citizen', value: 'citizen' }, { label: 'Settled or pre-settled status', value: 'settled' },
-        { label: 'Visa or other permission', value: 'visa' }, { label: 'Another status', value: 'other' }, { label: 'Not sure', value: 'not_sure' },
+      { id: 'uk_residency_three_years', type: 'radio', label: 'Have you lived in the UK for the three years immediately before your planned apprenticeship start date?', options: yesNoUnsure, required: true },
+      { id: 'right_to_work', type: 'radio', label: 'Do you have the right to live and work in the UK for the full duration of your apprenticeship?', options: yesNoUnsure, required: true },
+      { id: 'residency_status', type: 'radio', label: 'Which best describes your current UK immigration status?', options: [
+        { label: 'British citizen or person with right of abode', value: 'citizen' },
+        { label: 'Indefinite Leave to Remain or settled status', value: 'settled' },
+        { label: 'Time-limited permission to live and work in the UK', value: 'visa' },
+        { label: 'Other / Not sure', value: 'other' },
       ], required: true },
-      { id: 'right_to_work', type: 'radio', label: 'Do you currently have the right to work in England?', helpText: 'Your answer will still need to be confirmed during the formal review.', options: yesNoUnsure, required: true },
-      { id: 'location', type: 'text', label: 'Where do you currently live and work?', placeholder: 'Town/city and country', required: true },
-      { id: 'previous_learning', type: 'radio', label: 'Have you previously studied substantially similar content?', options: yesNoUnsure, required: true },
-      { id: 'prior_qualifications', type: 'text', label: 'What relevant qualifications do you already hold?', placeholder: 'Enter none if not applicable', required: true },
+    ],
+  },
+  {
+    id: 'employment',
+    title: 'Employment & funding',
+    description: 'Tell us about your employment and any other training you may be undertaking.',
+    questions: [
+      { id: 'employment_situation', type: 'radio', label: 'Which best describes your employment situation when your apprenticeship starts?', options: [
+        { label: 'Employed by an organisation', value: 'employed' },
+        { label: 'Starting a new paid job', value: 'job_offer' },
+        { label: 'Self-employed', value: 'self_employed' },
+        { label: 'Not currently employed', value: 'unemployed' },
+        { label: 'Other / Not sure', value: 'other' },
+      ], required: true },
+      { id: 'weekly_paid_hours', type: 'radio', label: 'How many paid hours per week will you normally work?', options: [
+        { label: '30 hours or more', value: '30_plus' },
+        { label: '16–29 hours', value: '16_29' },
+        { label: 'Fewer than 16 hours', value: 'under_16' },
+        { label: 'Not sure', value: 'not_sure' },
+      ], required: true },
+      { id: 'other_funded_training', type: 'radio', label: 'Will you be enrolled in another apprenticeship or government-funded training programme when this apprenticeship starts?', options: yesNoUnsure, required: true },
     ],
   },
   {
     id: 'programme',
-    title: 'Programme suitability',
-    description: 'Tell us about your work so the result can point you towards the right admissions conversation.',
+    title: 'Employer & apprenticeship details',
+    description: "Finally, let's check a few details about your employer and the apprenticeship you're interested in.",
     questions: [
-      { id: 'job_role', type: 'text', label: 'What is your current or proposed job role?', placeholder: 'Your job title', required: true },
-      { id: 'industry', type: 'select', label: 'Which industry best describes your work?', options: [
-        'Construction and infrastructure', 'Engineering and manufacturing', 'Energy and utilities', 'Public sector',
-        'Technology and digital', 'Consulting and business services', 'Education', 'Other',
-      ].map(label => ({ label, value: label.toLowerCase().replaceAll(' ', '_') })), required: true },
-      { id: 'responsibilities', type: 'textarea', label: 'Briefly describe your project-related responsibilities.', placeholder: 'For example: planning, reporting, risk, stakeholder coordination or PMO support', required: true },
-      { id: 'experience', type: 'select', label: 'How much relevant professional experience do you have?', options: [
-        { label: 'Less than 1 year', value: 'under_1' }, { label: '1–3 years', value: '1_3' },
-        { label: '4–7 years', value: '4_7' }, { label: '8+ years', value: '8_plus' }, { label: 'Not sure how to classify it', value: 'not_sure' },
-      ], required: true },
-      { id: 'interest_area', type: 'select', label: 'Which area are you most interested in?', options: [
-        { label: 'Associate Project Manager Level 4', value: 'apm_level_4' }, { label: 'Project Controls Professional Level 6', value: 'pcp_level_6' },
-        { label: 'Certified PMO Professional Level 6', value: 'pmo_level_6' }, { label: 'Not sure yet', value: 'not_sure' },
+      { id: 'employer_support', type: 'radio', label: 'Will your employer support you in completing an apprenticeship?', options: yesNoUnsure, required: true },
+      { id: 'employer_service_registered', type: 'radio', label: "Is your employer registered with the government's Apprenticeship Service?", helpText: "If you're unsure, we can check this with your employer.", options: yesNoUnsure, required: true },
+      { id: 'interest_area', type: 'select', label: 'Which apprenticeship area are you interested in?', placeholder: 'Select an apprenticeship area', options: [
+        { label: 'Associate Project Manager Level 4', value: 'apm_level_4' },
+        { label: 'Project Controls Professional Level 6', value: 'pcp_level_6' },
+        { label: 'Not sure yet', value: 'not_sure' },
       ], required: true },
     ],
   },

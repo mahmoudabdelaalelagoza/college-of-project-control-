@@ -1,46 +1,90 @@
 import { useEffect, useState } from 'react';
 import { cmsApi } from '../api/client';
 
-interface Settings { token_saved: boolean; organization_id: string; public_base_url: string; auto_sync: boolean; interval_minutes: number; show_uncategorized: boolean; connection_ok: boolean; connection_checked_at: string | null; last_full_sync: string | null; worker_online: boolean; webhook_url: string }
-interface Job { id: number; kind: string; reason: string; status: string; attempts: number; created_at: string; due_at: string; result: Record<string, number>; error: string }
+interface Settings { has_token: boolean; organization_id: string | null; organization_name: string | null; public_backend_url: string | null; auto_sync_enabled: boolean; sync_interval_minutes: number; show_uncategorized: boolean; connection_status: string; last_test_at: string | null; last_full_sync_at: string | null; last_sync_status: string | null }
+interface Organization { id: string; name: string }
+interface Job { id: number; sync_type: string; status: string; trigger_source: string; fetched_count: number; created_count: number; updated_count: number; removed_count: number; message: string | null; started_at: string; finished_at: string | null }
+interface SettingsResponse { settings: Settings; organizations?: Organization[] }
+
 const input = 'mt-2 w-full rounded-lg border border-background-300 bg-white px-3 py-3 text-sm';
 const date = (v: string | null) => v ? new Date(v).toLocaleString('en-GB') : 'Not yet';
+const statusLabels: Record<string, string> = { verified: 'Verified', configured: 'Saved — not tested', 'selection-required': 'Choose an organisation', failed: 'Failed', unverified: 'Not verified' };
 
-export default function EventbriteSettings({ history = false }: { history?: boolean }) {
+export default function EventbriteSettings({ history = false, onSynced }: { history?: boolean; onSynced?: () => void }) {
   const [settings, setSettings] = useState<Settings | null>(null);
-  const [form, setForm] = useState({ organization_id: '', public_base_url: '', auto_sync: true, interval_minutes: 15, show_uncategorized: true });
+  const [organizations, setOrganizations] = useState<Organization[]>([]);
+  const [form, setForm] = useState({ organization_id: '', public_backend_url: '', auto_sync_enabled: true, sync_interval_minutes: 15, show_uncategorized: true });
   const [token, setToken] = useState('');
-  const [clear, setClear] = useState(false);
+  const [removeToken, setRemoveToken] = useState(false);
   const [jobs, setJobs] = useState<Job[]>([]);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+
+  const apply = (data: SettingsResponse, fill = false) => {
+    setSettings(data.settings);
+    if (data.organizations) setOrganizations(data.organizations);
+    if (fill) setForm({ organization_id: data.settings.organization_id ?? '', public_backend_url: data.settings.public_backend_url ?? '', auto_sync_enabled: data.settings.auto_sync_enabled, sync_interval_minutes: data.settings.sync_interval_minutes, show_uncategorized: data.settings.show_uncategorized });
+  };
   const reload = async (fill = false) => {
-    const [data, queue] = await Promise.all([cmsApi.get<Settings>('/eventbrite/settings/'), cmsApi.get<Job[]>('/eventbrite/jobs/')]);
-    setSettings(data); setJobs(queue);
-    if (fill) setForm({ organization_id: data.organization_id, public_base_url: data.public_base_url, auto_sync: data.auto_sync, interval_minutes: data.interval_minutes, show_uncategorized: data.show_uncategorized });
+    const [data, queue] = await Promise.all([cmsApi.get<SettingsResponse>('/eventbrite/settings/'), cmsApi.get<{ jobs: Job[] }>('/eventbrite/jobs/')]);
+    apply(data, fill);
+    setJobs(queue.jobs);
+    // Organisation names come from Eventbrite, so they are only listed once a token is saved.
+    if (fill && data.settings.has_token && !history) cmsApi.post<SettingsResponse>('/eventbrite/organizations/', {}).then((result) => apply(result, true)).catch(() => {});
   };
   useEffect(() => {
-    let active = true;
-    reload(true).catch(e => { if (active) setError(String(e.message)); });
-    const timer = window.setInterval(() => { if (active) reload().catch(() => {}); }, 15000);
-    return () => { active = false; window.clearInterval(timer); };
-  }, []);
-  const act = async (action: () => Promise<unknown>, success: string) => { setBusy(true); setError(''); setMessage(''); try { await action(); setMessage(success); await reload(); } catch (e) { setError(e instanceof Error ? e.message : 'Unable to update Eventbrite settings. Check the saved details and try again.'); } finally { setBusy(false); } };
-  const save = () => act(async () => { await cmsApi.patch('/eventbrite/settings/', { ...form, token, clear_token: clear }); setToken(''); setClear(false); }, 'Settings saved. Test the connection after changing account details.');
+    reload(true).catch((e) => setError(e instanceof Error ? e.message : String(e)));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [history]);
+
+  const act = async (action: () => Promise<unknown>, success: string) => {
+    setBusy(true); setError(''); setMessage('');
+    try { await action(); setMessage(success); await reload(); }
+    catch (e) { setError(e instanceof Error ? e.message : 'Eventbrite request failed. Check the saved details and try again.'); }
+    finally { setBusy(false); }
+  };
+  const save = () => act(async () => {
+    const result = await cmsApi.patch<SettingsResponse>('/eventbrite/settings/', { ...form, private_token: token, remove_token: removeToken });
+    apply(result, true); setToken(''); setRemoveToken(false);
+  }, 'Settings saved. Test the connection after changing account details.');
+  const sync = (replace: boolean) => {
+    if (replace && !window.confirm('Delete every event on the website and re-import all events from Eventbrite? Local summaries, featured flags, order and categories will be lost. This cannot be undone.')) return;
+    let summary = '';
+    act(async () => {
+      const result = await cmsApi.post<{ job?: Job }>('/eventbrite/sync/', { replace });
+      summary = result.job?.message ?? '';
+      onSynced?.();
+    }, 'Sync complete.').then(() => { if (summary) setMessage(summary); });
+  };
+
   return <div className="space-y-6">
     {error && <p role="alert" className="rounded-lg bg-red-50 p-4 text-sm text-red-800">{error}</p>}{message && <p role="status" className="rounded-lg bg-green-50 p-4 text-sm text-green-800">{message}</p>}
     {!settings ? <p role="status">Loading Eventbrite settings…</p> : <>
-      <div className="flex flex-wrap gap-6 rounded-xl border bg-white p-5 text-sm"><span>Connection: <strong>{settings.connection_ok ? 'Verified' : 'Not verified'}</strong></span><span>Worker: <strong>{settings.worker_online ? 'Online' : 'Offline'}</strong></span><span>Last full sync: <strong>{date(settings.last_full_sync)}</strong></span></div>
-      {!settings.worker_online && <p className="rounded-lg bg-amber-50 p-4 text-sm text-amber-900">The background worker is offline. Queued jobs will run when the server worker starts.</p>}
+      <div className="flex flex-wrap gap-6 rounded-xl border bg-white p-5 text-sm"><span>Connection: <strong>{statusLabels[settings.connection_status] ?? settings.connection_status}</strong></span><span>Worker: <strong>Supabase Edge Function</strong></span><span>Last full sync: <strong>{date(settings.last_full_sync_at)}</strong></span>{settings.organization_name && <span>Organisation: <strong>{settings.organization_name}</strong></span>}</div>
       {!history && <>
-        <form onSubmit={e => { e.preventDefault(); save(); }} className="rounded-xl border bg-white p-6"><h2 className="text-xl font-bold">Eventbrite connection</h2><p className="mt-2 text-sm text-foreground-600">Save your account details here, then test the connection. Eventbrite remains the source for event details and registration.</p>
-          <div className="mt-6 grid gap-5 md:grid-cols-2"><label className="text-sm font-semibold">Private API token<input type="password" autoComplete="new-password" value={token} onChange={e => setToken(e.target.value)} placeholder={settings.token_saved ? 'Token saved — leave blank to keep it' : 'Enter your Eventbrite private token'} className={input} /><span className="mt-2 block text-xs font-normal text-foreground-500">Stored encrypted. The saved token is never returned to the dashboard.</span></label><label className="text-sm font-semibold">Organization ID<input inputMode="numeric" pattern="[0-9]*" value={form.organization_id} onChange={e => setForm({ ...form, organization_id: e.target.value })} className={input} /></label><label className="text-sm font-semibold md:col-span-2">Public backend URL (HTTPS)<input type="url" value={form.public_base_url} onChange={e => setForm({ ...form, public_base_url: e.target.value })} placeholder="https://api.example.com" className={input} /><span className="mt-2 block text-xs font-normal text-foreground-500">Needed for webhooks. Scheduled and manual sync can work without this URL.</span></label><label className="text-sm font-semibold">Sync interval (minutes)<input type="number" min="5" max="1440" value={form.interval_minutes} onChange={e => setForm({ ...form, interval_minutes: Number(e.target.value) })} className={input} /></label><div className="space-y-4 pt-3"><label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={form.auto_sync} onChange={e => setForm({ ...form, auto_sync: e.target.checked })} />Enable automatic sync and webhook processing</label><label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={form.show_uncategorized} onChange={e => setForm({ ...form, show_uncategorized: e.target.checked })} />Show events without a category or classification</label>{settings.token_saved && <label className="flex items-center gap-2 text-sm text-red-700"><input type="checkbox" checked={clear} onChange={e => setClear(e.target.checked)} />Remove saved token when saving</label>}</div></div>
-          <div className="mt-6 flex flex-wrap gap-3"><button disabled={busy} className="btn-primary px-5 py-3 disabled:opacity-40">Save settings</button><button type="button" disabled={busy || !settings.token_saved} onClick={() => act(() => cmsApi.post('/eventbrite/test/', {}), 'Connection verified. Automatic sync can now run.')} className="rounded-lg border px-5 py-3 disabled:opacity-40">Test saved connection</button><button type="button" disabled={busy || !settings.token_saved} onClick={() => act(() => cmsApi.post('/eventbrite/sync/', {}), 'Sync queued. Follow its progress in Sync history.')} className="rounded-lg border px-5 py-3 disabled:opacity-40">Sync now</button></div>
+        <p className="rounded-lg bg-amber-50 p-4 text-sm text-amber-900">Eventbrite sync runs through the Supabase Edge Function. If Test or Sync fails, deploy eventbrite-sync and set its secrets first.</p>
+        <form onSubmit={(e) => { e.preventDefault(); save(); }} className="rounded-xl border bg-white p-6"><h2 className="text-xl font-bold">Eventbrite connection</h2><p className="mt-2 text-sm text-foreground-600">Save your private token to connect your Eventbrite account. Eventbrite remains the source for event details and registration.</p>
+          <div className="mt-6 grid gap-5 md:grid-cols-2">
+            <label className="text-sm font-semibold">Private API token<input type="password" autoComplete="new-password" value={token} onChange={(e) => setToken(e.target.value)} placeholder={settings.has_token ? 'Token saved — leave blank to keep it' : 'Enter your Eventbrite private token'} className={input} /><span className="mt-2 block text-xs font-normal text-foreground-500">Stored encrypted. The saved token is never returned to the dashboard.</span></label>
+            <label className="text-sm font-semibold">Eventbrite organisation
+              {organizations.length > 1
+                ? <select value={form.organization_id} onChange={(e) => setForm({ ...form, organization_id: e.target.value })} className={input}><option value="">Choose an organisation</option>{organizations.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select>
+                : <input readOnly value={organizations[0]?.name ?? settings.organization_name ?? ''} placeholder="Selected automatically after saving a token" className={`${input} bg-background-50`} />}
+            </label>
+            <label className="text-sm font-semibold md:col-span-2">Public backend URL (HTTPS)<input type="url" value={form.public_backend_url} onChange={(e) => setForm({ ...form, public_backend_url: e.target.value })} placeholder="https://api.example.com" className={input} /><span className="mt-2 block text-xs font-normal text-foreground-500">Needed for webhooks. Scheduled and manual sync can work without this URL.</span></label>
+            <label className="text-sm font-semibold">Sync interval (minutes)<input type="number" min="5" max="1440" value={form.sync_interval_minutes} onChange={(e) => setForm({ ...form, sync_interval_minutes: Number(e.target.value) })} className={input} /></label>
+            <div className="space-y-4 pt-3"><label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={form.auto_sync_enabled} onChange={(e) => setForm({ ...form, auto_sync_enabled: e.target.checked })} />Enable automatic sync and webhook processing</label><label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={form.show_uncategorized} onChange={(e) => setForm({ ...form, show_uncategorized: e.target.checked })} />Show events without a category or classification</label>{settings.has_token && <label className="flex items-center gap-2 text-sm text-red-700"><input type="checkbox" checked={removeToken} onChange={(e) => setRemoveToken(e.target.checked)} />Remove saved token when saving</label>}</div>
+          </div>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <button disabled={busy} className="btn-primary px-5 py-3 disabled:opacity-40">Save settings</button>
+            <button type="button" disabled={busy || !settings.has_token} onClick={() => act(() => cmsApi.post('/eventbrite/test/', {}), 'Connection verified.')} className="rounded-lg border px-5 py-3 disabled:opacity-40">Test saved connection</button>
+            <button type="button" disabled={busy || !settings.has_token} onClick={() => sync(false)} className="rounded-lg border px-5 py-3 disabled:opacity-40">{busy ? 'Working…' : 'Sync now'}</button>
+            <button type="button" disabled={busy || !settings.has_token} onClick={() => sync(true)} className="rounded-lg border border-red-300 px-5 py-3 font-semibold text-red-700 disabled:opacity-40">Clear all &amp; re-import</button>
+          </div>
         </form>
-        <div className="rounded-xl border bg-white p-6"><h2 className="text-xl font-bold">Webhook notifications</h2><p className="mt-2 text-sm text-foreground-600">In your Eventbrite developer account, create a webhook using this URL and enable event create, update, publish, unpublish and delete actions. Scheduled sync also reconciles changes and ticket availability.</p>{settings.webhook_url ? <><label className="mt-4 block text-sm font-semibold">Webhook URL<input readOnly value={settings.webhook_url} className={input} /></label><button onClick={() => act(() => navigator.clipboard.writeText(settings.webhook_url), 'Webhook URL copied.')} className="mt-3 text-sm font-semibold text-[#05232E] underline">Copy webhook URL</button></> : <p className="mt-4 text-sm">Save your public HTTPS backend URL to generate the webhook address.</p>}</div>
       </>}
-      {history && <div className="rounded-xl border bg-white p-6"><div className="flex items-center justify-between gap-4"><h2 className="text-xl font-bold">Sync history</h2><button disabled={busy} onClick={() => act(() => reload(), 'History refreshed.')} className="text-sm font-semibold underline">Refresh</button></div><p className="mt-2 text-sm text-foreground-500">Latest 50 jobs. Temporary failures retry automatically up to 5 attempts.</p><div className="mt-5 space-y-4">{jobs.length === 0 ? <p>No sync jobs yet.</p> : jobs.map(job => <div key={job.id} className="rounded-lg border p-4"><div className="flex flex-wrap justify-between gap-3"><strong>#{job.id} · {job.kind} · {job.status}</strong><span className="text-xs text-foreground-500">{date(job.created_at)}</span></div><p className="mt-2 text-sm">{job.reason} · Attempt {job.attempts}</p>{Object.keys(job.result).length > 0 && <p className="mt-2 text-sm">{Object.entries(job.result).map(([key, value]) => `${key}: ${value}`).join(' · ')}</p>}{job.error && <p className="mt-2 text-sm text-red-700">{job.error}</p>}{job.status === 'pending' && <p className="mt-2 text-xs">Due: {date(job.due_at)}</p>}{['pending', 'failed'].includes(job.status) && <button disabled={busy} onClick={() => act(() => cmsApi.post(`/eventbrite/jobs/${job.id}/retry/`, {}), 'Retry queued.')} className="mt-3 text-sm font-semibold underline">Retry now</button>}</div>)}</div></div>}
+      {history && <div className="rounded-xl border bg-white p-6"><div className="flex items-center justify-between gap-4"><h2 className="text-xl font-bold">Sync history</h2><button disabled={busy} onClick={() => act(() => reload(), 'History refreshed.')} className="text-sm font-semibold underline">Refresh</button></div><p className="mt-2 text-sm text-foreground-500">Latest 50 runs.</p><div className="mt-5 space-y-4">{jobs.length === 0 ? <p>No sync jobs yet.</p> : jobs.map((job) => <div key={job.id} className="rounded-lg border p-4"><div className="flex flex-wrap justify-between gap-3"><strong>#{job.id} · {job.sync_type} · {job.status}</strong><span className="text-xs text-foreground-500">{date(job.started_at)}</span></div>{job.message && <p className={`mt-2 text-sm ${job.status === 'failed' ? 'text-red-700' : ''}`}>{job.message}</p>}</div>)}</div></div>}
     </>}
   </div>;
 }

@@ -11,7 +11,6 @@ import LearningAppliedAtWork from "./components/LearningAppliedAtWork";
 import ProgressYouCanSee from './components/ProgressYouCanSee';
 import ProjectControlsEmployerPartnerships from "./components/ProjectControlsEmployerPartnerships";
 import ProjectControlsPathways from './components/ProjectControlsPathways';
-import StartWithTheBusinessNeed from "./components/StartWithTheBusinessNeed";
 import StartWithYourNeed from './components/StartWithYourNeed';
 import WhyWorkWithKBC from './components/WhyWorkWithKBC';
 const sectionLinks = [
@@ -20,7 +19,7 @@ const sectionLinks = [
 export default function EmployersPage() {
   return <div className="min-h-screen overflow-x-clip bg-background-50"><main>
     <ProjectControlsEmployerPartnerships />
-    <PageSectionNav pageLabel="Employer Hub" links={sectionLinks} ctaHref="/book-a-session" ctaLabel="Discuss your needs" />
+    <PageSectionNav pageLabel="Employer Hub" links={sectionLinks} showCta={false} />
     <WhyWorkWithKBC />
     <StartWithYourNeed />
     <HowThePartnershipWorks />
@@ -33,6 +32,5 @@ export default function EmployersPage() {
     <ExampleScenarios />
     <BuiltForProjectDrivenOrganisations />
     <EmployerResources />
-    <StartWithTheBusinessNeed />
   </main><Footer /></div>;
 }

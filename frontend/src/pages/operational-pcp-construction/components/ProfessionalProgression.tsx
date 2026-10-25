@@ -11,7 +11,7 @@ export default function ProfessionalProgression() {
       <div className="container-site">
         <header className="max-w-3xl">
           <span className="text-xs font-bold uppercase tracking-[.15em] text-accent-700">Professional progression</span>
-          <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl">
+          <h2 className="mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl">
             Prepare for roles that influence delivery, not only report it.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-foreground-600">

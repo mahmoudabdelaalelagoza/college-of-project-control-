@@ -28,3 +28,6 @@ backend/db.backup-*.db
 .neon
 # Removed backend leftovers are not part of the Supabase/Next deployment
 backend/
+
+# Supabase CLI cache
+supabase/.temp/

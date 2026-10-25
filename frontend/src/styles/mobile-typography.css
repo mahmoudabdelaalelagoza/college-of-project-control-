@@ -1,0 +1,11 @@
+/* Public page headings: stronger weights below the shared md breakpoint.
+   The shared local Source Serif 4 face supplies genuine 800/900 weights in both builds. */
+@media (max-width: 767.98px) {
+  #main-content[data-public-site] :is(h1, h2, h3, h4, h5, h6):not(.font-black) {
+    font-weight: var(--weight-mobile-title);
+  }
+
+  #main-content[data-public-site] .site-hero h1 {
+    font-weight: var(--weight-mobile-hero);
+  }
+}

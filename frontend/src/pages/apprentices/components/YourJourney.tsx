@@ -23,7 +23,7 @@ function JourneyStep({ step, i, total }: { step: typeof journey[0]; i: number; t
         <i className={`${step.icon} text-2xl text-highlight-600 group-hover:text-white transition-colors duration-300`} />
         <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-highlight-500 text-white text-xs font-bold flex items-center justify-center">{i + 1}</span>
       </div>
-      <h4 className="text-sm font-semibold text-foreground-900 mb-1">{step.title}</h4>
+      <h3 className="text-sm font-semibold text-foreground-900 mb-1">{step.title}</h3>
       <p className="text-xs text-foreground-600 leading-relaxed max-w-[180px]">{step.desc}</p>
     </div>
   );
@@ -36,11 +36,11 @@ export default function YourJourney() {
 <div className="bg-white py-16 md:py-24 border-b border-background-200/40">
           <div className="container-site" ref={journeyRef.ref}>
             <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-highlight-700 mb-5">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-warm-ink mb-5">
                 <i className="ri-route-line text-sm" />
                 Your Journey
               </span>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight">
+              <h2 className="text-section-2xl md:text-section-3xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight">
                 From Application to Career Progression
               </h2>
               <p className="mt-3 text-sm md:text-base text-foreground-600 leading-relaxed">

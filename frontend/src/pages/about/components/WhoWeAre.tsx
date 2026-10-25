@@ -4,7 +4,7 @@ export default function WhoWeAre() {
           <div className="container-site grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-700">Who we are</span>
-              <h2 id="identity-title" className="mt-3 text-3xl font-bold text-foreground-900 md:text-4xl">A focused home for project capability</h2>
+              <h2 id="identity-title" className="mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl">A focused home for project capability</h2>
               <p className="mt-5 text-base leading-relaxed text-foreground-600">
                 CPCM is a specialist division of Kent Business College. Its purpose is to help professionals and organisations make project information more useful: better plans, clearer forecasts, earlier escalation, stronger governance and more confident decisions.
               </p>

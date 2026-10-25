@@ -13,7 +13,7 @@ export default function TheProjectControlsCapabilityModel() {
         <div className="grid gap-10 lg:grid-cols-[360px_minmax(0,1fr)]">
           <div>
             <p className="text-xs font-bold uppercase tracking-[.18em] text-accent-700">The project-controls capability model</p>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight text-foreground-950 md:text-4xl">
+            <h2 className="mt-4 text-section-3xl font-semibold leading-tight text-foreground-950 md:text-section-4xl">
               Five capabilities for accountable public-project delivery.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-foreground-600">

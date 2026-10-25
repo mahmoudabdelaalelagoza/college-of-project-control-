@@ -1,5 +1,4 @@
 import SiteLink from '@/components/base/SiteLink';
-import TestimonialSubmission from '@/components/feature/TestimonialSubmission';
 
 export default function GetInTouch() {
   return (
@@ -19,14 +18,18 @@ export default function GetInTouch() {
                 Tell us about your role, responsibilities or team capability needs and we&rsquo;ll help identify the most relevant professional-development option.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <SiteLink href="#enquiry-form" className="btn-primary inline-flex min-h-12 items-center justify-center gap-2 px-6 text-sm font-bold transition-colors">
-                  Send an enquiry
+                <SiteLink href="https://bookings.cloud.microsoft/book/InformationSession@kentbusinesscollege.com/?ismsaljsauthenabled=true" target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex min-h-12 items-center justify-center gap-2 px-6 text-sm font-bold transition-colors">
+                  Book a session
                   <i className="ri-arrow-right-line" aria-hidden="true" />
                 </SiteLink>
-                <SiteLink href="/book-a-session" className="cta-button inline-flex min-h-12 items-center justify-center rounded-md border border-white/35 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10">
-                  Request a consultation
+                <SiteLink href="mailto:office@kentbusinesscollege.org" className="cta-button cta-button--on-dark inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-white/35 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10">
+                  <i className="ri-mail-line" aria-hidden="true" />
+                  Email us
                 </SiteLink>
-                <TestimonialSubmission />
+                <SiteLink href="tel:+441622958955" className="cta-button cta-button--on-dark inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-white/35 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10">
+                  <i className="ri-phone-line" aria-hidden="true" />
+                  +44 (0)1622 958955
+                </SiteLink>
               </div>
             </div>
 

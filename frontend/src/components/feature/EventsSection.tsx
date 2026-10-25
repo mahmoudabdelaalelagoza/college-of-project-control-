@@ -162,7 +162,7 @@ export default function EventsSection({
             <p className="text-xs font-bold uppercase tracking-[.18em] text-primary-600">
               {homepageCpcmOnly ? 'Events & masterclasses' : 'Learn together'}
             </p>
-            <h2 className="mt-3 text-3xl font-bold text-foreground-950 md:text-4xl">{title}</h2>
+            <h2 className="mt-3 text-section-3xl font-bold text-foreground-950 md:text-section-4xl">{title}</h2>
             <p className="mt-4 text-sm leading-relaxed text-foreground-600">{description}</p>
           </div>
           <SiteLink href="/events" className="inline-flex min-h-11 items-center gap-2 font-semibold text-primary-700">

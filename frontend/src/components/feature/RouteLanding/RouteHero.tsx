@@ -65,7 +65,6 @@ export default function RouteHero({
   const ac = accentColor || 'oklch(var(--primary-500))';
   const acLight = accentColor ? `${accentColor}18` : 'oklch(var(--primary-50))';
   const acMid = accentColor ? `${accentColor}33` : 'oklch(var(--primary-100))';
-  const acText = accentColor || 'oklch(var(--primary-700))';
   const acTextLight = accentColor || 'oklch(var(--primary-600))';
 
   return (
@@ -169,7 +168,7 @@ export default function RouteHero({
                       {dashboardTitle}
                     </span>
                   </div>
-                  <span className="text-sm font-label text-foreground-400 bg-background-100 px-2 py-0.5 rounded-full">
+                  <span className="text-sm font-label text-foreground-600 bg-background-100 px-2 py-0.5 rounded-full">
                     Example
                   </span>
                 </div>
@@ -180,28 +179,28 @@ export default function RouteHero({
                       <i className="ri-shield-check-line text-xs" style={{ color: acTextLight }}></i>
                     </div>
                     <p className="text-sm text-foreground-600 font-label uppercase tracking-wider leading-tight">Governance</p>
-                    <p className="text-lg font-heading font-bold" style={{ color: acText }}>{metrics.governance}</p>
+                    <p className="text-lg font-heading font-bold" style={{ color: 'var(--text-muted-on-light)' }}>{metrics.governance}</p>
                   </div>
                   <div className="rounded-lg p-3 text-center border" style={{ backgroundColor: acLight, borderColor: acMid }}>
                     <div className="w-6 h-6 mx-auto mb-1.5 rounded-full flex items-center justify-center" style={{ backgroundColor: acMid }}>
                       <i className="ri-bar-chart-grouped-line text-xs" style={{ color: acTextLight }}></i>
                     </div>
                     <p className="text-sm text-foreground-600 font-label uppercase tracking-wider leading-tight">PMO Maturity</p>
-                    <p className="text-lg font-heading font-bold" style={{ color: acText }}>{metrics.pmoMaturity}</p>
+                    <p className="text-lg font-heading font-bold" style={{ color: 'var(--text-muted-on-light)' }}>{metrics.pmoMaturity}</p>
                   </div>
                   <div className="bg-highlight-50 rounded-lg p-3 text-center border border-highlight-100/50">
                     <div className="w-6 h-6 mx-auto mb-1.5 rounded-full bg-highlight-100 flex items-center justify-center">
                       <i className="ri-alert-fill text-highlight-600 text-xs"></i>
                     </div>
                     <p className="text-sm text-foreground-600 font-label uppercase tracking-wider leading-tight">Risk</p>
-                    <p className="text-lg font-heading font-bold text-highlight-700" style={{ color: '#D6A85F' }}>{metrics.risk}</p>
+                    <p className="text-lg font-heading font-bold text-highlight-700" style={{ color: 'var(--text-warm-on-light)' }}>{metrics.risk}</p>
                   </div>
                 </div>
 
                 <div className="bg-background-50/80 rounded-lg p-4 mb-4 border border-background-200/50">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm font-label text-foreground-400 uppercase tracking-wider">{metrics.chartLabel}</span>
-                    <span className="text-sm font-label font-semibold" style={{ color: acText }}>{metrics.chartValue}</span>
+                    <span className="text-sm font-label text-foreground-600 uppercase tracking-wider">{metrics.chartLabel}</span>
+                    <span className="text-sm font-label font-semibold" style={{ color: 'var(--text-muted-on-light)' }}>{metrics.chartValue}</span>
                   </div>
                   <div className="flex items-end gap-1.5 h-20">
                     {metrics.chartBars.map((v, i) => (
@@ -218,7 +217,7 @@ export default function RouteHero({
                   </div>
                   <div className="flex justify-between mt-1.5">
                     {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'].map((m) => (
-                      <span key={m} className="text-sm text-foreground-400 font-label uppercase">{m}</span>
+                      <span key={m} className="text-sm text-foreground-600 font-label uppercase">{m}</span>
                     ))}
                   </div>
                 </div>
@@ -229,8 +228,8 @@ export default function RouteHero({
                       <i className="ri-line-chart-line text-sm" style={{ color: acTextLight }}></i>
                     </div>
                     <div>
-                      <p className="text-sm text-foreground-400 font-label uppercase tracking-wider">Forecast</p>
-                      <p className="text-sm font-semibold" style={{ color: acText }}>{metrics.forecast}</p>
+                      <p className="text-sm text-foreground-600 font-label uppercase tracking-wider">Forecast</p>
+                      <p className="text-sm font-semibold" style={{ color: 'var(--text-muted-on-light)' }}>{metrics.forecast}</p>
                     </div>
                   </div>
                   <div className="bg-background-50/80 rounded-lg p-3 border border-background-200/50 flex items-center gap-3">
@@ -238,8 +237,8 @@ export default function RouteHero({
                       <i className="ri-error-warning-line text-highlight-600 text-sm"></i>
                     </div>
                     <div>
-                      <p className="text-sm text-foreground-400 font-label uppercase tracking-wider">Decision</p>
-                      <p className="text-sm font-semibold text-highlight-700" style={{ color: '#D6A85F' }}>{metrics.decision}</p>
+                      <p className="text-sm text-foreground-600 font-label uppercase tracking-wider">Decision</p>
+                      <p className="text-sm font-semibold text-highlight-700" style={{ color: 'var(--text-warm-on-light)' }}>{metrics.decision}</p>
                     </div>
                   </div>
                 </div>

@@ -7,11 +7,8 @@ import EmployerCapability from './components/EmployerCapability';
 import ExpertLedPerspectives from './components/ExpertLedPerspectives';
 import FundingBursaryAccess from './components/FundingBursaryAccess';
 import ProfessionalProgression from './components/ProfessionalProgression';
-import QuickAccessRouteCheck from './components/QuickAccessRouteCheck';
 import SectorApplication from './components/SectorApplication';
 import TheConstructionChallenge from './components/TheConstructionChallenge';
-import TheLearningExperience from './components/TheLearningExperience';
-import WorkplaceEvidence from './components/WorkplaceEvidence';
 import { links } from './sectionData';
 
 export default function Page() {
@@ -26,12 +23,9 @@ export default function Page() {
       <FundingBursaryAccess />
       <CoreProfessionalCapability />
       <SectorApplication />
-      <WorkplaceEvidence />
       <ProfessionalProgression />
       <EmployerCapability />
       <ExpertLedPerspectives />
-      <TheLearningExperience />
-      <QuickAccessRouteCheck />
       <ChooseYourPathwayCheckYourAccessRoute />
     </SectorPageShell>
   );

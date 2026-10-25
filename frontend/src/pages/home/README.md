@@ -16,6 +16,7 @@ Find the label on the page, then open its component below. Shared implementation
 | Institute of Project Controls | [InstituteOfProjectControls.tsx](components/InstituteOfProjectControls.tsx) | [IpcAuthority.tsx](../../components/feature/IpcAuthority.tsx), with homepage copy |
 | Learn from Practitioners | [LearnFromPractitioners.tsx](components/LearnFromPractitioners.tsx) | [MeetMentors.tsx](../../components/feature/MeetMentors.tsx), canonical homepage copy, portrait cards and mobile looping |
 | Events and masterclasses | [LearnTogether.tsx](components/LearnTogether.tsx) | Page-local |
+| Learner Case Studies | [CaseStudiesSection.tsx](../../components/feature/CaseStudiesSection.tsx) | Five supplied PCP learner stories, immediately before testimonials |
 | Learner Experiences | [ProfessionalExperience.tsx](components/ProfessionalExperience.tsx) | [LearnerExperiences.tsx](../../components/feature/LearnerExperiences.tsx), canonical homepage design and copy |
 | Professional pathways | [ProfessionalPathways.tsx](components/ProfessionalPathways.tsx) | [ProfessionalPathwaysSection.tsx](../../components/feature/ProfessionalPathwaysSection.tsx) |
 | Professional Programmes | [ProfessionalProgrammes.tsx](components/ProfessionalProgrammes.tsx) | Page-local |
@@ -29,7 +30,7 @@ The page-specific homepage copy for Programme Guidance through Learner Experienc
 
 - [HomepageContentSection.tsx](components/HomepageContentSection.tsx) provides the repeated section, card and note layouts.
 - [eventSelection.ts](eventSelection.ts) chooses up to three distinct real project-related events, prioritising upcoming sessions and filling available places with recent ended sessions. Event dates, states, images and detail links remain owned by the events service.
-- Events appear immediately before the Learner Experiences section. The standalone Professional Recognition section is omitted from the homepage.
+- Events are followed by the five learner Case Studies, immediately before the Learner Experiences section. The standalone Professional Recognition section is omitted from the homepage.
 - Specialist course imagery and mentor portraits/profile links continue to use the existing services. Supplied homepage editorial copy stays local to this page.
 - The hero uses the supplied replacement recording in `public/assets/audio/home-summary.mp3` through `HomeAudioSummary.tsx`. Its URL version is derived from the recording hash so returning visitors receive the updated audio.
 - [ShortCoursesCarousel.tsx](components/ShortCoursesCarousel.tsx) shows the three supplied featured courses first, followed by the remaining catalogue. It supports touch scrolling, keyboard arrows and bottom-right previous/next controls. Each card is one link to its course detail page.
@@ -46,6 +47,10 @@ The mentor section uses the canonical homepage content and portrait-card layout 
 
 The full sector section is shared through [ProjectDrivenSectors.tsx](../../components/feature/ProjectDrivenSectors.tsx). Edit this component for site-wide content and design changes. Images use `src/data/sectorHeroImages.ts`; active status is read from dashboard-managed sector records through `useActiveSectors`. Page wrappers preserve existing navigation anchors.
 
-The featured learner-experience section uses the homepage design and copy in [LearnerExperiences.tsx](../../components/feature/LearnerExperiences.tsx). The homepage and programme-footer entry points share this implementation, so changes apply everywhere. The full approved-review directory and review submission flow remain available through `/testimonials`. Existing page placement and testimonial anchors are preserved.
+The featured learner-experience section uses the homepage design and copy in [LearnerExperiences.tsx](../../components/feature/LearnerExperiences.tsx). The homepage and programme-footer entry points share this implementation, so changes apply everywhere. The grouped published PCP collection, approved College reviews and submission flow remain available through `/testimonials`. The shared cards use the local KBC import and original available portraits; see the testimonials README for data ownership and sources. Existing page placement and testimonial anchors are preserved.
 
 The IPC promotion section uses the canonical content and dark/gold design in [IpcAuthority.tsx](../../components/feature/IpcAuthority.tsx). The shared section owns both recognition/growth features and its gold primary / outline secondary actions. Page wrappers supply no content overrides; published portraits remain dashboard-managed.
+
+- [CaseStudiesSection.tsx](../../components/feature/CaseStudiesSection.tsx) presents the five supplied PCP learner stories immediately before testimonials. Content is shared with `/case-studies` through `src/data/pcpCaseStudies.json`; there is one homepage instance.
+
+- The third hero action, **Check Eligibility**, opens [EligibilityCheckerModal.tsx](../../components/feature/EligibilityCheckerModal.tsx). It lazy-loads the existing apprenticeship checker inside the shared native dialog, rendered outside the hero through a portal. The dialog contains scrolling, restores focus on close and keeps the current route. Closing discards the local checker answers; no enquiry is submitted.

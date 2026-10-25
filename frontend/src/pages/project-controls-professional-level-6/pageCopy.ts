@@ -24,9 +24,9 @@ export const level6Copy = {
     ],
     "cards": [
       {
-        "title": "27-month planned learning route",
+        "title": "26-month planned learning route",
         "body": [
-          "One-month soft start, 24 months of teaching and two months of closing workshops, followed by a separate apprenticeship assessment period. Individual duration is subject to approval."
+          "One-month soft start, 24 months of learning and one month of preparation, followed by a six-month End-Point Assessment (EPA) period. Individual duration is subject to approval."
         ]
       },
       {
@@ -51,7 +51,7 @@ export const level6Copy = {
     "intakesTitle": "Upcoming intake windows",
     "intakes": [
       "January 2027 — Register your interest",
-      "Spring 2027 — Register your interest",
+      "May 2027 — Register your interest",
       "September 2027 — Register your interest"
     ],
     "note": "Intake availability and exact start dates are confirmed by Kent Business College."
@@ -141,16 +141,16 @@ export const level6Copy = {
   },
   "structure": {
     "tag": "Programme structure",
-    "title": "Your Level 6 learning journey: six credits over 27 planned months",
+    "title": "Your Level 6 learning journey: six credits over 26 planned months",
     "intro": [
-      "Kent Business College's planned learning route combines induction, six teaching credits and closing workshops, followed by a separate end-point assessment period. A standard KBC learning credit represents four months of teaching. PMP Preparation takes two credits over eight months. These are KBC pathway credits, not transferable academic credits."
+      "Kent Business College's planned learning route combines induction, six teaching credits and one month of preparation, followed by a six-month end-point assessment period. A standard KBC learning credit represents four months of teaching. PMP Preparation takes two credits over eight months. These are KBC pathway credits, not transferable academic credits."
     ],
     "cards": [
       {
         "subtitle": "Phase 1 · Month 1",
         "title": "Your one-month soft start",
         "body": [
-          "Begin with induction, an initial assessment of your role and prior learning, and engagement with your employer to agree your development needs. Confirm programme suitability and funding arrangements, access your learning platform and agree your development pathway."
+          "Following the completion of your enrolment process, including initial assessment, recognition of prior learning, programme suitability checks and funding arrangements, your soft start focuses on induction and preparing for your learning journey. Access your learning platform, familiarise yourself with programme expectations, and work with your employer and Skills Coach to review your agreed development needs and pathway."
         ]
       },
       {
@@ -161,8 +161,8 @@ export const level6Copy = {
         ]
       },
       {
-        "subtitle": "Phase 3 · Months 26–27",
-        "title": "Two-month closing workshops",
+        "subtitle": "Phase 3 · Month 26",
+        "title": "One-month preparation",
         "body": [
           "Consolidate your learning and workplace evidence, review progress with your employer and prepare for the assessment requirements of your apprenticeship. Your readiness for end-point assessment is reviewed against the applicable assessment plan."
         ]
@@ -170,12 +170,12 @@ export const level6Copy = {
     ],
     "epa": {
       "title": "Independent End-Point Assessment (EPA)",
-      "subtitle": "After gateway",
+      "subtitle": "6 months after learning",
       "body": [
         "Complete the required independent apprenticeship assessment following confirmation of gateway readiness."
       ]
     },
-    "note": "The 27-month structure is KBC's planned pre-assessment learning route. The national standard publishes a typical duration of 48 months, excluding assessment. Your individual training duration and required hours are confirmed following initial assessment and in accordance with the applicable funding rules.",
+    "note": "The 26-month structure is KBC's planned pre-assessment learning route. The national standard publishes a typical duration of 48 months, excluding assessment. Your individual training duration and required hours are confirmed following initial assessment and in accordance with the applicable funding rules.",
     "optional": {
       "subtitle": "Optional additional professional development",
       "title": "OTHM Level 7 Diploma in Strategic Management and Leadership",
@@ -513,7 +513,7 @@ export const level6Copy = {
       },
       {
         "title": "Applied Learning & Assignments",
-        "subtitle": "7 hours per month",
+        "subtitle": "8–9 hours per month",
         "body": [
           "Apply new concepts to relevant project controls activities, explain your analysis and professional decisions, and develop appropriate evidence of your work."
         ]

@@ -1,0 +1,63 @@
+{
+  "imported_at": "2026-10-21",
+  "content_source": "User-supplied learner case study PDFs",
+  "publication": "Editorial records bundled with the website; not raw survey documents or Supabase inserts.",
+  "records": [
+    {
+      "slug": "roy-hillson-pcp",
+      "source_file": "Roy - PCP Case Study.pdf",
+      "source_sha256": "3446ea5a7059fe2f1f22579ac7fc9cfe4bc8cff3c25773445e3b223827ef8f0d",
+      "professional_reflection_pages": [
+        4,
+        6
+      ],
+      "extracted_portraits": [
+        "roy-hillson.jpg"
+      ],
+      "notes": "The PDF refers to a separately uploaded DOCX that is not embedded. The published account uses programme feedback only."
+    },
+    {
+      "slug": "tim-white-pcp",
+      "source_file": "Tim White - PCP Case Study.pdf",
+      "source_sha256": "f91d2fd76894e86d5b1bb494524cd0f3c055a2009084c3f9fde97bc8522b059f",
+      "professional_reflection_pages": [
+        6,
+        11
+      ],
+      "extracted_portraits": []
+    },
+    {
+      "slug": "james-molloy-pcp",
+      "source_file": "James Molloy - PCP Case Study.pdf",
+      "source_sha256": "04679291755a8ca9bef4dd04ef8228bc2a90746a81ae224e278f76e73e22db5b",
+      "professional_reflection_pages": [
+        11,
+        12
+      ],
+      "extracted_portraits": []
+    },
+    {
+      "slug": "elizabeth-pardoe-pcp",
+      "source_file": "Elizabeth Pardoe - PCP Case Study.pdf",
+      "source_sha256": "86a51427e270f5ae5282f490df25f251f0cd574144fb1327ba9cbad553cf205d",
+      "professional_reflection_pages": [
+        11,
+        12
+      ],
+      "extracted_portraits": [
+        "elizabeth-pardoe.jpg"
+      ]
+    },
+    {
+      "slug": "lucian-moraru-pcp",
+      "source_file": "Lucian - PCP Case Study.pdf",
+      "source_sha256": "949ec910ca76ba1a8288178729dcd7b7ea506bfc5a7645fa28b1429c175ae8a1",
+      "professional_reflection_pages": [
+        11,
+        12
+      ],
+      "extracted_portraits": []
+    }
+  ],
+  "privacy": "No phone numbers, personal email addresses, travel, dietary, health, support-needs, reimbursement, consent fields or internal form metadata are included in public records. Raw PDFs are not copied to public assets."
+}

@@ -3,10 +3,8 @@ import SchemaOrg, { courseSchema } from '@/components/feature/SchemaOrg';
 import ApmRecognition from './components/ApmRecognition';
 import ProfessionalReadingAndReferences from './components/ProfessionalReadingAndReferences';
 import ApplyStrongerPMOPractice from "./components/ApplyStrongerPMOPractice";
-import ApprenticeshipRoute from "./components/ApprenticeshipRoute";
 import AWorkplaceDevelopmentJourneyNotJustACourse from "./components/AWorkplaceDevelopmentJourneyNotJustACourse";
 import DevelopPMOCapabilityInsideYourOrganisation from "./components/DevelopPMOCapabilityInsideYourOrganisation";
-import FourCapabilitiesOneRouteToAPMOThatLeadersTrust from "./components/FourCapabilitiesOneRouteToAPMOThatLeadersTrust";
 import FourCapabilitiesToHelpYourPMOBecomeTrusted from "./components/FourCapabilitiesToHelpYourPMOBecomeTrusted";
 import FundingEligibilityAndIPCSupport from "./components/FundingEligibilityAndIPCSupport";
 import GetDirectionForStrongerPMOCapability from "./components/GetDirectionForStrongerPMOCapability";
@@ -41,7 +39,6 @@ export default function PmoPcp() {
 
         {/* Explore the capabilities and how learning works */}
         <FourCapabilitiesToHelpYourPMOBecomeTrusted />
-        <FourCapabilitiesOneRouteToAPMOThatLeadersTrust />
         <AWorkplaceDevelopmentJourneyNotJustACourse />
 
         {/* Connect learning to work and meet the practitioners */}
@@ -58,7 +55,6 @@ export default function PmoPcp() {
 
         {/* Explore sessions, choose a route and consult the references */}
         <LearnTogether />
-        <ApprenticeshipRoute />
         <ProfessionalReadingAndReferences />
       </main>
 

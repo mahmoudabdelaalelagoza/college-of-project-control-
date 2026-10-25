@@ -36,7 +36,7 @@ export default function ProfessionalProgression() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-start">
           <header className="max-w-xl">
             <span className="text-xs font-bold uppercase tracking-[0.16em] text-accent-700">Professional progression</span>
-            <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-5xl">
+            <h2 className="mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-5xl">
               Grow from delivery control to energy investment confidence.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-foreground-600">

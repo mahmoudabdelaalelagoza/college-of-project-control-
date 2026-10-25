@@ -41,12 +41,6 @@ export default function ProjectControlsProfessionalLevel6() {
               <SiteLink href="/book-a-session" className="btn-primary inline-flex min-h-12 w-full items-center justify-center px-6 py-3 text-center text-sm font-bold sm:w-auto">
                 Book a PMO Pathway Consultation
               </SiteLink>
-              <SiteLink href="/apprenticeship-eligibility-checker" className="btn-secondary inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-white/40 bg-primary-950/40 px-6 py-3 text-center text-sm font-semibold text-white backdrop-blur-sm hover:border-signal-400 hover:bg-white/10 sm:w-auto">
-                <i className="ri-shield-check-line shrink-0" aria-hidden="true" />Check Apprenticeship Eligibility
-              </SiteLink>
-              <SiteLink href="/PMO_Governance_Project_Controls_Professional_Catalogue.pdf" className="btn-secondary inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-white/40 bg-primary-950/40 px-6 py-3 text-center text-sm font-semibold text-white backdrop-blur-sm hover:border-signal-400 hover:bg-white/10 sm:w-auto">
-                <i className="ri-file-pdf-2-line shrink-0" aria-hidden="true" />Download the PMO &amp; Governance Programme Catalogue
-              </SiteLink>
             </div>
           </div>
 

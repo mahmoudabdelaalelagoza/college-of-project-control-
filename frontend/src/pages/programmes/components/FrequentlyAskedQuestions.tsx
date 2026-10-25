@@ -94,10 +94,10 @@ export default function FrequentlyAskedQuestions() {
     <section className="py-16 md:py-20 bg-background-100 relative overflow-hidden">
       <div className="container-site max-w-3xl relative z-10">
         <div className="text-center mb-10 md:mb-12 reveal-blur-in is-visible">
-          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-highlight-600 mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-warm-ink mb-4">
             Frequently Asked Questions
           </span>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight">
+          <h2 className="text-section-2xl md:text-section-3xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight">
             Choosing a programme, clearly explained
           </h2>
         </div>

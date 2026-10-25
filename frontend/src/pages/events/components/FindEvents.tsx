@@ -44,7 +44,7 @@ export default function FindEvents({
       <div className="mb-5 flex items-center justify-between gap-4">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent-700">Filter events</p>
-          <h2 className="mt-1 text-xl font-bold text-foreground-950">Find the right session</h2>
+          <h2 className="mt-1 text-section-xl font-bold text-foreground-950">Find the right session</h2>
         </div>
         <button
           type="button"
@@ -176,7 +176,7 @@ export default function FindEvents({
                 </div>
               ) : (
                 <div className="rounded-xl bg-white px-6 py-16 text-center">
-                  <h2 className="text-2xl font-bold">No events found</h2>
+                  <h2 className="text-section-2xl font-bold">No events found</h2>
                   <p className="mt-3 text-foreground-600">Try another topic or check back for new dates.</p>
                 </div>
               )}

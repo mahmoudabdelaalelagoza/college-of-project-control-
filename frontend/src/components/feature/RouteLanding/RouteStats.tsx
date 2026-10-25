@@ -14,7 +14,7 @@ export default function RouteStats({ sectionLabel, heading, stats, description }
           <span className="text-xs font-label font-semibold uppercase tracking-[0.15em] text-primary-500">{sectionLabel}</span>
         </div>
 
-        <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground-950 text-center leading-tight mb-10 md:mb-12">
+        <h2 className="text-section-2xl md:text-section-3xl font-heading font-bold text-foreground-950 text-center leading-tight mb-10 md:mb-12">
           {heading}
         </h2>
 

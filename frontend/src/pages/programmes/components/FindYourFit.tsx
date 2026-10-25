@@ -28,10 +28,10 @@ export default function FindYourFit() {
     <section id="how-to-choose" className="py-16 md:py-20 bg-background-50 relative overflow-hidden">
       <div className="container-site relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 reveal-blur-in is-visible">
-          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-highlight-600 mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-warm-ink mb-4">
             Find Your Fit
           </span>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight">
+          <h2 className="text-section-2xl md:text-section-3xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight">
             Five questions to guide your next step
           </h2>
           <p className="mt-3 text-sm md:text-base text-foreground-600 leading-relaxed">

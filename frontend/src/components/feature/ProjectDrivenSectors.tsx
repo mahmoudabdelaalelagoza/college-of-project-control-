@@ -44,7 +44,6 @@ const sectionCopy = {
       "alt": "Energy and utilities project environment"
     }
   ],
-  "note": "These sectors illustrate how Project Controls Professional Level 6 capabilities can be applied. They are not separate apprenticeship standards. Programme suitability depends on your role, prior learning and workplace development opportunities."
 } as const;
 
 export default function ProjectDrivenSectors({ id = 'sectors' }: ProjectDrivenSectorsProps) {
@@ -60,7 +59,7 @@ export default function ProjectDrivenSectors({ id = 'sectors' }: ProjectDrivenSe
           <p className="font-label text-xs font-bold uppercase tracking-[0.18em] text-accent-700">{sectionCopy.tag}</p>
           <h2
             id={headingId}
-            className="mt-4 font-heading text-3xl font-bold leading-tight text-foreground-950 md:text-5xl"
+            className="mt-4 font-heading text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-5xl"
           >
             {sectionCopy.title}
           </h2>
@@ -95,9 +94,6 @@ export default function ProjectDrivenSectors({ id = 'sectors' }: ProjectDrivenSe
           ))}
         </div>
 
-        <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-foreground-600">
-          {sectionCopy.note}
-        </p>
       </div>
     </section>
   );

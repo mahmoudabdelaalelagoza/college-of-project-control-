@@ -22,7 +22,7 @@ export default function OurPointOfView() {
           <div className="container-site">
             <div className="mx-auto mb-12 max-w-3xl text-center">
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-highlight-700">Our point of view</span>
-              <h2 id="principles-title" className="mt-3 text-3xl font-bold text-foreground-900 md:text-4xl">Professional development should change the work</h2>
+              <h2 id="principles-title" className="mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl">Professional development should change the work</h2>
             </div>
             <div className="grid gap-5 md:grid-cols-3">
               {principles.map((principle) => (

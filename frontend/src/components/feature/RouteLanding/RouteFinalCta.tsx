@@ -17,7 +17,7 @@ export default function RouteFinalCta({ heading, description, primaryCta, primar
       <div className="pattern-dots-overlay pattern-dots-dark" aria-hidden="true"></div>
 
       <div className="container-site relative z-10 text-center">
-        <h2 className="text-2xl md:text-3xl font-heading font-bold text-background-50 leading-tight mb-3 max-w-xl mx-auto">
+        <h2 className="text-section-2xl md:text-section-3xl font-heading font-bold text-background-50 leading-tight mb-3 max-w-xl mx-auto">
           {heading}
         </h2>
         <p className="text-sm md:text-base text-background-50/70 leading-relaxed mb-8 max-w-lg mx-auto">

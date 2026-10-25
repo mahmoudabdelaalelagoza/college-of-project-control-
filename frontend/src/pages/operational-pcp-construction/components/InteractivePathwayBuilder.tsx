@@ -97,7 +97,7 @@ export default function InteractivePathwayBuilder() {
       <div className="container-site grid gap-8 lg:grid-cols-[minmax(280px,0.72fr)_minmax(0,1.55fr)] xl:gap-10">
         <div className="sector-sticky-panel">
           <span className="text-xs font-bold uppercase tracking-[.15em] text-accent-700">Interactive pathway builder</span>
-          <h2 className="mt-5 max-w-md text-4xl font-extrabold leading-[1.05] text-foreground-950 md:text-5xl">
+          <h2 className="mt-5 max-w-md text-section-4xl font-extrabold leading-[1.05] text-foreground-950 md:text-section-5xl">
             Build the credit mix around your responsibilities.
           </h2>
           <span className="mt-7 block h-2 w-2 rounded-full bg-foreground-950" aria-hidden="true" />

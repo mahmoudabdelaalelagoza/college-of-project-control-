@@ -5,7 +5,7 @@ import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react'
 import { fetchMentors, type Mentor } from '@/services/mentorsApi';
 
 interface DisplayMentor extends Mentor { summary?: string; profileLabel?: string; profileHref?: string; }
-interface MeetMentorsProps { id?: string; }
+interface MeetMentorsProps { id?: string; /** Hides the "Meet more KBC experts" box below the carousel. */ showExpertsCta?: boolean; }
 
 // Canonical homepage content, portrait cards and mobile looping for every page.
 // Dashboard-managed records supply images, profile IDs and LinkedIn links.
@@ -84,7 +84,7 @@ function MentorCard({ mentor }: { mentor: DisplayMentor }) {
             {mentor.name}
           </h3>
 
-          <p className="mb-3 text-xs font-label font-semibold tracking-wide text-highlight-700">
+          <p className="mb-3 text-xs font-label font-semibold tracking-wide text-warm-ink">
             {mentor.role}
           </p>
 
@@ -107,7 +107,7 @@ function MentorCard({ mentor }: { mentor: DisplayMentor }) {
 }
 
 
-export default function MeetMentors({ id = 'mentors' }: MeetMentorsProps = {}) {
+export default function MeetMentors({ id = 'mentors', showExpertsCta = true }: MeetMentorsProps = {}) {
   const { items: mentors } = useCollection(fetchMentors);
   const displayedMentors = useMemo<DisplayMentor[]>(() => sectionCopy.cards.map((expert, index) => {
     const mentor = mentors.find(item => item.name.toLowerCase().includes(expert.match));
@@ -262,7 +262,7 @@ export default function MeetMentors({ id = 'mentors' }: MeetMentorsProps = {}) {
           </div>
         </div>
         {/* Shared experts CTA */}
-        <div className="mt-12 md:mt-16">
+        {showExpertsCta && <div className="mt-12 md:mt-16">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 md:px-8 md:py-5 bg-white rounded-2xl border border-background-200/70 shadow-sm w-full">
             <div className="flex items-center gap-4 text-left">
               <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-primary-100 text-primary-600 flex-shrink-0">
@@ -285,7 +285,7 @@ export default function MeetMentors({ id = 'mentors' }: MeetMentorsProps = {}) {
               {sectionCopy.cta}
             </SiteLink>
           </div>
-        </div>
+        </div>}
       </div>
     </section>
   );

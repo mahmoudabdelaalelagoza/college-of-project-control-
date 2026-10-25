@@ -13,7 +13,7 @@ export default function ForEmployers() {
             <p className="font-label text-xs font-bold uppercase tracking-[0.18em] text-accent-700">For employers</p>
             <h2
               id="employer-capability-heading"
-              className="mt-4 max-w-3xl font-heading text-3xl font-bold leading-tight text-foreground-950 md:text-5xl"
+              className="mt-4 max-w-3xl font-heading text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-5xl"
             >
               {homeCopy.employers.title}
             </h2>

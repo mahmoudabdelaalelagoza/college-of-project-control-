@@ -51,7 +51,7 @@ export default function SectorApplication() {
       <div className="container-site">
         <header className="mx-auto max-w-3xl text-center">
           <span className="text-xs font-bold uppercase tracking-[.15em] text-accent-700">Sector application</span>
-          <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl">
+          <h2 className="mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl">
             Apply the same control discipline to different built environments.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-foreground-600">
@@ -82,7 +82,7 @@ export default function SectorApplication() {
                   ['Desired result', item.result],
                 ].map(([label, value]) => (
                   <div key={label} className="rounded-md bg-white p-4">
-                    <p className="text-xs font-bold uppercase tracking-[.12em] text-foreground-400">{label}</p>
+                    <p className="text-xs font-bold uppercase tracking-[.12em] text-foreground-600">{label}</p>
                     <p className="mt-2 text-sm leading-relaxed text-foreground-700">{value}</p>
                   </div>
                 ))}

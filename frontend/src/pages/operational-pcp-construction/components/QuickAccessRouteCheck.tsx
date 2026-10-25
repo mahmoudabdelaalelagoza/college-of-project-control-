@@ -58,7 +58,7 @@ export default function QuickAccessRouteCheck() {
       <div className="container-site grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px]">
         <div>
           <span className="text-xs font-bold uppercase tracking-[.15em] text-accent-700">Quick access-route check</span>
-          <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl">
+          <h2 className="mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl">
             Which route may be more suitable for you?
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-foreground-600">

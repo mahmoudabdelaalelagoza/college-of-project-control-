@@ -1,29 +1,28 @@
-import SiteLink from '@/components/base/SiteLink';
-import { useState, type KeyboardEvent } from 'react';
+﻿import { useState, type KeyboardEvent } from 'react';
 
 const routes = [
   {
     key: 'operational',
     name: 'Operational Pathway',
     href: '/project-controls-professional/operational-route',
-    eyebrow: 'Pathway 01 · 6 credits',
+    eyebrow: 'Pathway 01 Â· 6 credits',
     panelEyebrow: 'Operational pathway',
     audience: 'Emerging and developing professionals',
     title: 'Build reliable controls close to delivery.',
     description: 'For planners, schedulers, PMO analysts, project-controls analysts, assistant project managers and professionals moving into structured project-controls responsibility.',
     credits: '6',
-    creditNote: 'Three mandatory core credits plus three specialist credits selected to match operational responsibilities.',
+    creditNote: 'Four mandatory core credits (three modules) plus two specialist credits selected to match operational responsibilities.',
     tags: ['Planning & scheduling', 'Earned value', 'Risk & control', 'AI-enabled practice'],
     coreTitle: 'Mandatory core',
-    specialistTitle: 'Choose three specialist credits',
+    specialistTitle: 'Choose two specialist credits',
     core: [
       ['PMP preparation and professional development', 'Project management foundation and applied practice', '2 credits'],
       ['AI in Project Controls Certificate', 'Responsible AI for analysis, reporting and workflow', '1 credit'],
+      ['Risk Management', 'Risk analysis, mitigation and project uncertainty', '1 credit'],
     ],
     specialist: [
       ['PMI Scheduling Professional (PMI-SP)', '1 credit'],
       ['Earned Value Management (EVM)', '1 credit'],
-      ['Risk Management', '1 credit'],
       ['Project Planning & Control (PPC)', '1 credit'],
     ],
     outcomes: [
@@ -36,24 +35,24 @@ const routes = [
     key: 'strategic',
     name: 'Strategic Pathway',
     href: '/project-controls-professional/strategic-route',
-    eyebrow: 'Pathway 02 · 6 credits',
+    eyebrow: 'Pathway 02 Â· 6 credits',
     panelEyebrow: 'Strategic pathway',
     audience: 'Senior controls and programme leaders',
     title: 'Connect controls to programme decisions.',
     description: 'For senior controls, programme, portfolio and PMO leaders who need stronger governance, prioritisation and decision support across complex delivery environments.',
     credits: '6',
-    creditNote: 'Three mandatory core credits plus three specialist credits selected to match strategic responsibilities.',
+    creditNote: 'Four mandatory core credits plus two specialist credits selected to match strategic responsibilities.',
     tags: ['Programme leadership', 'Portfolio thinking', 'PMO governance', 'Decision support'],
     coreTitle: 'Mandatory core',
-    specialistTitle: 'Choose three specialist credits',
+    specialistTitle: 'Choose two specialist credits',
     core: [
       ['PMP preparation and professional development', 'Strategic project leadership foundation', '2 credits'],
       ['AI in Project Controls Certificate', 'Decision support and controls intelligence', '1 credit'],
+      ['Risk Management', 'Risk analysis, mitigation and project uncertainty', '1 credit'],
     ],
     specialist: [
       ['Managing Successful Programmes (MSP)', '1 credit'],
       ['Managing Portfolios', '1 credit'],
-      ['Risk Management', '1 credit'],
       ['Project Management Office (PMO)', '1 credit'],
     ],
     outcomes: [
@@ -66,7 +65,7 @@ const routes = [
     key: 'chartered',
     name: 'Chartered Pathway',
     href: '/project-controls-professional/chartered-pmo-pathway',
-    eyebrow: 'Pathway 03 · 6 credits',
+    eyebrow: 'Pathway 03 Â· 6 credits',
     panelEyebrow: 'Chartered pathway',
     audience: 'Senior evidence and professional progression',
     title: 'Build evidence for senior professional practice.',
@@ -90,34 +89,7 @@ const routes = [
       ['Prepare progression', 'Support readiness discussions without guaranteeing external awards.'],
     ],
   },
-  {
-    key: 'pmo',
-    name: 'PMO Certified',
-    href: '/project-controls-professional/pmo-governance-route',
-    eyebrow: 'Pathway 04 · 4 credits',
-    panelEyebrow: 'PMO certified',
-    audience: 'PMO governance and operating-model specialists',
-    title: 'Shape PMO services, standards and operating models.',
-    description: 'For PMO professionals and leaders who need a focused route around governance, services, decision rights, reporting standards and organisational capability.',
-    credits: '4',
-    creditNote: 'A focused four-credit route with no elective selection.',
-    tags: ['PMO services', 'Governance', 'Operating models', 'Standards'],
-    coreTitle: 'Fixed route',
-    specialistTitle: 'Applied PMO focus',
-    core: [
-      ['Certified PMO Professional Level 6', 'PMO governance, operating models and organisational capability', '4 credits'],
-    ],
-    specialist: [
-      ['PMO services and decision rights', 'Included'],
-      ['Reporting standards and assurance', 'Included'],
-      ['Operating-model improvement', 'Included'],
-    ],
-    outcomes: [
-      ['Define PMO value', 'Clarify services, standards and decision support.'],
-      ['Improve governance', 'Strengthen repeatable reporting and assurance practice.'],
-      ['Build capability', 'Support PMO maturity and operating-model change.'],
-    ],
-  },
+
 ];
 
 export default function SectorPathwayChoice({ backgroundImage: _backgroundImage = '' }: { backgroundImage?: string }) {
@@ -146,8 +118,8 @@ export default function SectorPathwayChoice({ backgroundImage: _backgroundImage 
       <div className="container-site">
         <header className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-bold uppercase tracking-[.16em] text-accent-700">Choose your professional direction</p>
-          <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl">
-            Four pathways. Different levels of responsibility.
+          <h2 className="mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl">
+            Three pathways. Different levels of responsibility.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-foreground-600">
             Each route is designed around the decisions professionals make at work. Compare the core direction first, then confirm role fit, prior learning, employer support and workplace evidence.
@@ -242,7 +214,7 @@ export default function SectorPathwayChoice({ backgroundImage: _backgroundImage 
               </div>
             </div>
 
-            <div className="grid gap-3 px-6 md:grid-cols-3 md:px-8">
+            <div className="grid gap-3 px-6 pb-6 md:grid-cols-3 md:px-8 md:pb-8">
               {active.outcomes.map(([title, detail]) => (
                 <div key={title} className="rounded-lg border border-background-200 bg-white p-4 transition-colors hover:border-primary-200">
                   <h4 className="text-sm font-bold text-foreground-950">{title}</h4>
@@ -251,25 +223,11 @@ export default function SectorPathwayChoice({ backgroundImage: _backgroundImage 
               ))}
             </div>
 
-            <div className="p-6 md:p-8">
-              <div className="flex flex-col gap-4 rounded-lg border border-signal-200 bg-signal-50 p-5 md:flex-row md:items-center md:justify-between">
-                <div>
-                  <h4 className="font-bold text-foreground-950">Access options</h4>
-                  <p className="mt-1 text-sm leading-relaxed text-foreground-600">DfE Funded Route subject to eligibility · IPC Bursary Route with instalments up to 36 months.</p>
-                </div>
-                <SiteLink href="#access" className="interactive-arrow inline-flex items-center gap-2 text-sm font-bold text-primary-800">
-                  Compare routes
-                  <i className="ri-arrow-right-line" aria-hidden="true" />
-                </SiteLink>
-              </div>
-            </div>
           </article>
         </div>
 
-        <p className="mt-6 max-w-4xl text-sm leading-relaxed text-foreground-600">
-          Internal pathway credits are not transferable academic credits. Final sequencing, eligibility and support are confirmed in the written training plan.
-        </p>
       </div>
     </section>
   );
 }
+

@@ -1,0 +1,1814 @@
+[
+  {
+    "path": "frontend/src/components/feature/ArticleBody.tsx",
+    "edits": [
+      {
+        "start": 899,
+        "end": 944,
+        "before": "\"pt-6 text-2xl font-bold text-foreground-950\"",
+        "after": "\"pt-6 text-section-2xl font-bold text-foreground-950\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/ArticleCta.tsx",
+    "edits": [
+      {
+        "start": 837,
+        "end": 901,
+        "before": "\"text-xl md:text-2xl font-heading font-bold text-foreground-950\"",
+        "after": "\"text-section-xl md:text-section-2xl font-heading font-bold text-foreground-950\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/ArticlesSection.tsx",
+    "edits": [
+      {
+        "start": 4587,
+        "end": 4644,
+        "before": "\"mt-3 text-3xl font-bold text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/EligibilityCheckerSection.tsx",
+    "edits": [
+      {
+        "start": 1612,
+        "end": 1719,
+        "before": "\"mt-4 max-w-lg text-3xl font-bold leading-[1.1] tracking-tight text-foreground-950 sm:text-4xl xl:text-5xl\"",
+        "after": "\"mt-4 max-w-lg text-section-3xl font-bold leading-[1.1] tracking-tight text-foreground-950 sm:text-section-4xl xl:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/EventsSection.tsx",
+    "edits": [
+      {
+        "start": 5459,
+        "end": 5516,
+        "before": "\"mt-3 text-3xl font-bold text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/Footer.tsx",
+    "edits": [
+      {
+        "start": 3016,
+        "end": 3064,
+        "before": "\"mt-5 text-xl font-bold leading-snug text-white\"",
+        "after": "\"mt-5 text-section-xl font-bold leading-snug text-white\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/FundingOptionsSection.tsx",
+    "edits": [
+      {
+        "start": 5202,
+        "end": 5279,
+        "before": "\"mt-4 text-4xl font-bold leading-tight tracking-tight text-white lg:text-5xl\"",
+        "after": "\"mt-4 text-section-4xl font-bold leading-tight tracking-tight text-white lg:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/IpcAuthority.tsx",
+    "edits": [
+      {
+        "start": 4948,
+        "end": 5051,
+        "before": "\"mx-auto mt-6 max-w-[500px] font-heading text-xl font-bold leading-snug text-white lg:mx-0 md:text-2xl\"",
+        "after": "\"mx-auto mt-6 max-w-[500px] font-heading text-section-xl font-bold leading-snug text-white lg:mx-0 md:text-section-2xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/OutcomeExamples.tsx",
+    "edits": [
+      {
+        "start": 797,
+        "end": 812,
+        "before": "\"mt-3 text-3xl\"",
+        "after": "\"mt-3 text-section-3xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/ProfessionalPathwaysSection.tsx",
+    "edits": [
+      {
+        "start": 3273,
+        "end": 3360,
+        "before": "\"mt-5 text-3xl font-heading font-bold leading-tight text-white md:text-4xl lg:text-4xl\"",
+        "after": "\"mt-5 text-section-3xl font-heading font-bold leading-tight text-white md:text-section-4xl lg:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/ProfessionalRecognitionSection.tsx",
+    "edits": [
+      {
+        "start": 1471,
+        "end": 1481,
+        "before": "\"text-3xl\"",
+        "after": "\"text-section-3xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/ProjectDrivenSectors.tsx",
+    "edits": [
+      {
+        "start": 3364,
+        "end": 3448,
+        "before": "\"mt-4 font-heading text-3xl font-bold leading-tight text-foreground-950 md:text-5xl\"",
+        "after": "\"mt-4 font-heading text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/RelatedArticles.tsx",
+    "edits": [
+      {
+        "start": 481,
+        "end": 562,
+        "before": "\"text-xl md:text-2xl font-heading font-bold text-foreground-950 text-center mb-8\"",
+        "after": "\"text-section-xl md:text-section-2xl font-heading font-bold text-foreground-950 text-center mb-8\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/RequestStatus.tsx",
+    "edits": [
+      {
+        "start": 679,
+        "end": 689,
+        "before": "\"text-2xl\"",
+        "after": "\"text-section-2xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/RouteLanding/RouteCapability.tsx",
+    "edits": [
+      {
+        "start": 989,
+        "end": 1068,
+        "before": "\"text-2xl md:text-3xl font-heading font-bold text-foreground-950 leading-tight\"",
+        "after": "\"text-section-2xl md:text-section-3xl font-heading font-bold text-foreground-950 leading-tight\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/RouteLanding/RouteChoose.tsx",
+    "edits": [
+      {
+        "start": 783,
+        "end": 889,
+        "before": "\"text-2xl md:text-3xl font-heading font-bold text-foreground-950 text-center leading-tight mb-10 md:mb-12\"",
+        "after": "\"text-section-2xl md:text-section-3xl font-heading font-bold text-foreground-950 text-center leading-tight mb-10 md:mb-12\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/RouteLanding/RouteDevelop.tsx",
+    "edits": [
+      {
+        "start": 388,
+        "end": 484,
+        "before": "\"text-2xl md:text-3xl font-heading font-bold text-foreground-950 text-center leading-tight mb-3\"",
+        "after": "\"text-section-2xl md:text-section-3xl font-heading font-bold text-foreground-950 text-center leading-tight mb-3\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/RouteLanding/RouteFinalCta.tsx",
+    "edits": [
+      {
+        "start": 735,
+        "end": 835,
+        "before": "\"text-2xl md:text-3xl font-heading font-bold text-background-50 leading-tight mb-3 max-w-xl mx-auto\"",
+        "after": "\"text-section-2xl md:text-section-3xl font-heading font-bold text-background-50 leading-tight mb-3 max-w-xl mx-auto\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/RouteLanding/RouteProblems.tsx",
+    "edits": [
+      {
+        "start": 694,
+        "end": 818,
+        "before": "\"text-2xl md:text-3xl font-heading font-bold text-foreground-950 text-center leading-tight mb-10 md:mb-14 max-w-2xl mx-auto\"",
+        "after": "\"text-section-2xl md:text-section-3xl font-heading font-bold text-foreground-950 text-center leading-tight mb-10 md:mb-14 max-w-2xl mx-auto\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/RouteLanding/RouteProcess.tsx",
+    "edits": [
+      {
+        "start": 892,
+        "end": 987,
+        "before": "\"text-2xl md:text-3xl font-heading font-bold text-background-50 text-center leading-tight mb-3\"",
+        "after": "\"text-section-2xl md:text-section-3xl font-heading font-bold text-background-50 text-center leading-tight mb-3\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/RouteLanding/RouteStats.tsx",
+    "edits": [
+      {
+        "start": 715,
+        "end": 821,
+        "before": "\"text-2xl md:text-3xl font-heading font-bold text-foreground-950 text-center leading-tight mb-10 md:mb-12\"",
+        "after": "\"text-section-2xl md:text-section-3xl font-heading font-bold text-foreground-950 text-center leading-tight mb-10 md:mb-12\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/RouteLanding/RouteWhoFor.tsx",
+    "edits": [
+      {
+        "start": 478,
+        "end": 584,
+        "before": "\"text-2xl md:text-3xl font-heading font-bold text-foreground-950 text-center leading-tight mb-10 md:mb-12\"",
+        "after": "\"text-section-2xl md:text-section-3xl font-heading font-bold text-foreground-950 text-center leading-tight mb-10 md:mb-12\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/SectorPathwayChoice.tsx",
+    "edits": [
+      {
+        "start": 6303,
+        "end": 6374,
+        "before": "\"mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/components/feature/TestimonialsSection.tsx",
+    "edits": [
+      {
+        "start": 2673,
+        "end": 2730,
+        "before": "\"mt-5 text-3xl font-bold text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-5 text-section-3xl font-bold text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/about/components/HowWeWork.tsx",
+    "edits": [
+      {
+        "start": 1042,
+        "end": 1099,
+        "before": "\"mt-3 text-3xl font-bold text-foreground-900 md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/about/components/OurPointOfView.tsx",
+    "edits": [
+      {
+        "start": 1128,
+        "end": 1185,
+        "before": "\"mt-3 text-3xl font-bold text-foreground-900 md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/about/components/OurSpecialistFocus.tsx",
+    "edits": [
+      {
+        "start": 1390,
+        "end": 1438,
+        "before": "\"mt-3 text-3xl font-bold text-white md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold text-white md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/about/components/StartWithTheRightQuestion.tsx",
+    "edits": [
+      {
+        "start": 488,
+        "end": 542,
+        "before": "\"mt-2 text-2xl font-bold text-primary-950 md:text-3xl\"",
+        "after": "\"mt-2 text-section-2xl font-bold text-primary-950 md:text-section-3xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/about/components/WhoWeAre.tsx",
+    "edits": [
+      {
+        "start": 407,
+        "end": 464,
+        "before": "\"mt-3 text-3xl font-bold text-foreground-900 md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/apm-level-4/components/KeyProgrammeFacts.tsx",
+    "edits": [
+      {
+        "start": 265,
+        "end": 279,
+        "before": "\"mb-6 text-xl\"",
+        "after": "\"mb-6 text-section-xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/apprentices/components/LearnerSupport.tsx",
+    "edits": [
+      {
+        "start": 1391,
+        "end": 1482,
+        "before": "\"text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight\"",
+        "after": "\"text-section-2xl md:text-section-3xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/apprentices/components/QuickAnswers.tsx",
+    "edits": [
+      {
+        "start": 2120,
+        "end": 2211,
+        "before": "\"text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight\"",
+        "after": "\"text-section-2xl md:text-section-3xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/apprentices/components/ReadyToAdvanceYourCareerInProjectControls.tsx",
+    "edits": [
+      {
+        "start": 1139,
+        "end": 1250,
+        "before": "\"text-3xl md:text-4xl lg:text-5xl font-heading font-extrabold text-primary-950 leading-tight max-w-3xl mx-auto\"",
+        "after": "\"text-section-3xl md:text-section-4xl lg:text-section-5xl font-heading font-extrabold text-primary-950 leading-tight max-w-3xl mx-auto\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/apprentices/components/WeeklyRhythm.tsx",
+    "edits": [
+      {
+        "start": 5296,
+        "end": 5380,
+        "before": "\"text-2xl md:text-3xl font-heading font-bold text-foreground-950 leading-tight mb-2\"",
+        "after": "\"text-section-2xl md:text-section-3xl font-heading font-bold text-foreground-950 leading-tight mb-2\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/apprentices/components/WhatYouWillGain.tsx",
+    "edits": [
+      {
+        "start": 2820,
+        "end": 2911,
+        "before": "\"text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight\"",
+        "after": "\"text-section-2xl md:text-section-3xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/apprentices/components/YourJourney.tsx",
+    "edits": [
+      {
+        "start": 3007,
+        "end": 3098,
+        "before": "\"text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight\"",
+        "after": "\"text-section-2xl md:text-section-3xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/apprenticeship-eligibility-checker/components/ApprenticeshipEligibilityCheckerSection.tsx",
+    "edits": [
+      {
+        "start": 2372,
+        "end": 2415,
+        "before": "\"text-xl font-heading font-bold text-white\"",
+        "after": "\"text-section-xl font-heading font-bold text-white\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/articles/components/ArticleResults.tsx",
+    "edits": [
+      {
+        "start": 739,
+        "end": 779,
+        "before": "\"text-2xl font-bold text-foreground-950\"",
+        "after": "\"text-section-2xl font-bold text-foreground-950\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/campaign/commercial-route/components/ProfessionalRecognition.tsx",
+    "edits": [
+      {
+        "start": 480,
+        "end": 558,
+        "before": "\"font-heading text-2xl font-bold leading-tight text-background-50 md:text-3xl\"",
+        "after": "\"font-heading text-section-2xl font-bold leading-tight text-background-50 md:text-section-3xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/campaign/construction/components/DiscussYourDevelopmentNeeds.tsx",
+    "edits": [
+      {
+        "start": 250,
+        "end": 276,
+        "before": "\"mb-6 text-3xl text-white\"",
+        "after": "\"mb-6 text-section-3xl text-white\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/campaign/energy/components/DiscussYourDevelopmentNeeds.tsx",
+    "edits": [
+      {
+        "start": 250,
+        "end": 276,
+        "before": "\"mb-6 text-3xl text-white\"",
+        "after": "\"mb-6 text-section-3xl text-white\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/campaign/head-of-pmo/components/APMRecognisedAssessmentCentre.tsx",
+    "edits": [
+      {
+        "start": 432,
+        "end": 510,
+        "before": "\"text-2xl md:text-3xl font-heading font-bold text-background-50 leading-tight\"",
+        "after": "\"text-section-2xl md:text-section-3xl font-heading font-bold text-background-50 leading-tight\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/campaign/head-of-pmo/components/DiscussYourDevelopmentNeeds.tsx",
+    "edits": [
+      {
+        "start": 250,
+        "end": 276,
+        "before": "\"mb-6 text-3xl text-white\"",
+        "after": "\"mb-6 text-section-3xl text-white\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/campaign/hr-employer/components/APMChPPReadinessSupport.tsx",
+    "edits": [
+      {
+        "start": 420,
+        "end": 498,
+        "before": "\"text-2xl md:text-3xl font-heading font-bold text-background-50 leading-tight\"",
+        "after": "\"text-section-2xl md:text-section-3xl font-heading font-bold text-background-50 leading-tight\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/campaign/hr-employer/components/DiscussYourDevelopmentNeeds.tsx",
+    "edits": [
+      {
+        "start": 250,
+        "end": 276,
+        "before": "\"mb-6 text-3xl text-white\"",
+        "after": "\"mb-6 text-section-3xl text-white\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/campaign/public-sector/components/DiscussYourDevelopmentNeeds.tsx",
+    "edits": [
+      {
+        "start": 250,
+        "end": 276,
+        "before": "\"mb-6 text-3xl text-white\"",
+        "after": "\"mb-6 text-section-3xl text-white\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/case-studies/components/CaseStudiesGrid.tsx",
+    "edits": [
+      {
+        "start": 2211,
+        "end": 2251,
+        "before": "\"text-2xl font-bold text-foreground-950\"",
+        "after": "\"text-section-2xl font-bold text-foreground-950\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/chartered-pmo-pathway/components/APMGInternationalCertificationContext.tsx",
+    "edits": [
+      {
+        "start": 569,
+        "end": 615,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/chartered-pmo-pathway/components/CatalogueNavigation.tsx",
+    "edits": [
+      {
+        "start": 437,
+        "end": 483,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/chartered-pmo-pathway/components/CollegeSpecialistDevelopment.tsx",
+    "edits": [
+      {
+        "start": 538,
+        "end": 584,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/chartered-pmo-pathway/components/IndependentProfessionalDevelopmentRoute.tsx",
+    "edits": [
+      {
+        "start": 573,
+        "end": 619,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/chartered-pmo-pathway/components/PMOProfessionalDevelopmentModule1.tsx",
+    "edits": [
+      {
+        "start": 519,
+        "end": 565,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/chartered-pmo-pathway/components/PMOProfessionalDevelopmentModule2.tsx",
+    "edits": [
+      {
+        "start": 528,
+        "end": 574,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/chartered-pmo-pathway/components/PMOProfessionalDevelopmentModule3.tsx",
+    "edits": [
+      {
+        "start": 519,
+        "end": 565,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/chartered-pmo-pathway/components/PMOProfessionalDevelopmentModule4.tsx",
+    "edits": [
+      {
+        "start": 528,
+        "end": 574,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/chartered-pmo-pathway/components/ProgrammeInformationAndNextSteps.tsx",
+    "edits": [
+      {
+        "start": 691,
+        "end": 760,
+        "before": "\"text-2xl font-bold leading-tight text-white md:text-3xl lg:text-4xl\"",
+        "after": "\"text-section-2xl font-bold leading-tight text-white md:text-section-3xl lg:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/contact/components/BeforeYouReachOut.tsx",
+    "edits": [
+      {
+        "start": 1148,
+        "end": 1214,
+        "before": "\"text-2xl font-bold leading-tight text-foreground-950 md:text-3xl\"",
+        "after": "\"text-section-2xl font-bold leading-tight text-foreground-950 md:text-section-3xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/contact/components/FindYourNextStep.tsx",
+    "edits": [
+      {
+        "start": 1820,
+        "end": 1850,
+        "before": "\"text-xl font-bold text-white\"",
+        "after": "\"text-section-xl font-bold text-white\""
+      },
+      {
+        "start": 1131,
+        "end": 1208,
+        "before": "\"text-2xl font-bold leading-tight text-background-50 md:text-3xl lg:text-4xl\"",
+        "after": "\"text-section-2xl font-bold leading-tight text-background-50 md:text-section-3xl lg:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/employers/components/ExampleScenarios.tsx",
+    "edits": [
+      {
+        "start": 388,
+        "end": 426,
+        "before": "\"mt-3 text-3xl text-white md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl text-white md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/employers/components/LearningAppliedAtWork.tsx",
+    "edits": [
+      {
+        "start": 609,
+        "end": 636,
+        "before": "\"mt-3 text-3xl md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/employers/components/StartWithTheBusinessNeed.tsx",
+    "edits": [
+      {
+        "start": 521,
+        "end": 559,
+        "before": "\"mt-3 text-3xl text-white md:text-5xl\"",
+        "after": "\"mt-3 text-section-3xl text-white md:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/events/components/FindEvents.tsx",
+    "edits": [
+      {
+        "start": 7019,
+        "end": 7039,
+        "before": "\"text-2xl font-bold\"",
+        "after": "\"text-section-2xl font-bold\""
+      },
+      {
+        "start": 1355,
+        "end": 1399,
+        "before": "\"mt-1 text-xl font-bold text-foreground-950\"",
+        "after": "\"mt-1 text-section-xl font-bold text-foreground-950\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/events/detail/components/AboutThisEvent.tsx",
+    "edits": [
+      {
+        "start": 578,
+        "end": 604,
+        "before": "\"mt-10 text-2xl font-bold\"",
+        "after": "\"mt-10 text-section-2xl font-bold\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/events/detail/components/EventDetailsSection.tsx",
+    "edits": [
+      {
+        "start": 423,
+        "end": 442,
+        "before": "\"text-xl font-bold\"",
+        "after": "\"text-section-xl font-bold\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/faq/components/BrowseByTopicSection.tsx",
+    "edits": [
+      {
+        "start": 2113,
+        "end": 2170,
+        "before": "\"mt-5 text-3xl font-bold text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-5 text-section-3xl font-bold text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/faq/components/NeedASpecificAnswer.tsx",
+    "edits": [
+      {
+        "start": 471,
+        "end": 519,
+        "before": "\"mt-3 text-2xl font-bold text-white md:text-3xl\"",
+        "after": "\"mt-3 text-section-2xl font-bold text-white md:text-section-3xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/governance-board/components/AboutTheBoard.tsx",
+    "edits": [
+      {
+        "start": 1004,
+        "end": 1061,
+        "before": "\"mt-3 text-3xl font-bold text-foreground-900 md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/governance-board/components/CandidateProfile.tsx",
+    "edits": [
+      {
+        "start": 764,
+        "end": 821,
+        "before": "\"mt-3 text-3xl font-bold text-foreground-900 md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/governance-board/components/ExpertiseSought.tsx",
+    "edits": [
+      {
+        "start": 1460,
+        "end": 1517,
+        "before": "\"mt-3 text-3xl font-bold text-foreground-900 md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/governance-board/components/ExpressionOfInterest.tsx",
+    "edits": [
+      {
+        "start": 446,
+        "end": 503,
+        "before": "\"mt-3 text-3xl font-bold text-foreground-900 md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/governance-board/components/HelpShapeTheFutureOfProfessionalEducation.tsx",
+    "edits": [
+      {
+        "start": 522,
+        "end": 576,
+        "before": "\"mt-2 text-2xl font-bold text-primary-950 md:text-3xl\"",
+        "after": "\"mt-2 text-section-2xl font-bold text-primary-950 md:text-section-3xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/governance-board/components/OurApproach.tsx",
+    "edits": [
+      {
+        "start": 962,
+        "end": 1019,
+        "before": "\"mt-3 text-3xl font-bold text-foreground-900 md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/governance-board/components/Responsibilities.tsx",
+    "edits": [
+      {
+        "start": 1359,
+        "end": 1416,
+        "before": "\"mt-3 text-3xl font-bold text-foreground-900 md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/governance-board/components/TimeCommitment.tsx",
+    "edits": [
+      {
+        "start": 992,
+        "end": 1040,
+        "before": "\"mt-3 text-3xl font-bold text-white md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold text-white md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/governance-board/components/WhyJoin.tsx",
+    "edits": [
+      {
+        "start": 1093,
+        "end": 1150,
+        "before": "\"mt-3 text-3xl font-bold text-foreground-900 md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/home/components/FinalHomepageCta.tsx",
+    "edits": [
+      {
+        "start": 601,
+        "end": 665,
+        "before": "\"mt-4 font-heading text-3xl font-bold leading-tight md:text-5xl\"",
+        "after": "\"mt-4 font-heading text-section-3xl font-bold leading-tight md:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/home/components/ForEmployers.tsx",
+    "edits": [
+      {
+        "start": 824,
+        "end": 918,
+        "before": "\"mt-4 max-w-3xl font-heading text-3xl font-bold leading-tight text-foreground-950 md:text-5xl\"",
+        "after": "\"mt-4 max-w-3xl font-heading text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/home/components/LearnTogether.tsx",
+    "edits": [
+      {
+        "start": 5695,
+        "end": 5722,
+        "before": "\"mt-3 text-3xl md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/home/components/ProfessionalProgrammes.tsx",
+    "edits": [
+      {
+        "start": 14607,
+        "end": 14698,
+        "before": "\"text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight\"",
+        "after": "\"text-section-2xl md:text-section-3xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/home/components/ShortCoursesCarousel.tsx",
+    "edits": [
+      {
+        "start": 3214,
+        "end": 3271,
+        "before": "\"mt-3 text-3xl font-bold text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/how-to-apply/components/HowToApply.tsx",
+    "edits": [
+      {
+        "start": 7756,
+        "end": 7793,
+        "before": "\"mt-3 text-3xl font-bold md:text-4xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold md:text-section-4xl\""
+      },
+      {
+        "start": 6847,
+        "end": 6871,
+        "before": "\"mt-5 text-xl font-bold\"",
+        "after": "\"mt-5 text-section-xl font-bold\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/ipc/components/BuildYourProfessionalDirection.tsx",
+    "edits": [
+      {
+        "start": 353,
+        "end": 409,
+        "before": "\"mx-auto mt-4 max-w-3xl text-3xl text-white md:text-4xl\"",
+        "after": "\"mx-auto mt-4 max-w-3xl text-section-3xl text-white md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/ipc/components/IPCExplained.tsx",
+    "edits": [
+      {
+        "start": 1153,
+        "end": 1180,
+        "before": "\"mt-4 text-3xl md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/ipc/components/Membership.tsx",
+    "edits": [
+      {
+        "start": 1034,
+        "end": 1061,
+        "before": "\"mt-4 text-3xl md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/ipc/components/ProfessionalJourney.tsx",
+    "edits": [
+      {
+        "start": 959,
+        "end": 986,
+        "before": "\"mt-4 text-3xl md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/ipc/components/TheCapabilityFramework.tsx",
+    "edits": [
+      {
+        "start": 600,
+        "end": 638,
+        "before": "\"mt-4 text-3xl text-white md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl text-white md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/ipc/components/WhyIPCMatters.tsx",
+    "edits": [
+      {
+        "start": 852,
+        "end": 879,
+        "before": "\"mt-4 text-3xl md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/knowledge-hub/apm-chpp-readiness/components/HonestyAboutProfessionalRecognitionMatters.tsx",
+    "edits": [
+      {
+        "start": 585,
+        "end": 659,
+        "before": "\"text-xl md:text-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\"",
+        "after": "\"text-section-xl md:text-section-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/knowledge-hub/commercial-routes-explained/components/NotEligibleForApprenticeshipFundingYouStillDeserveProfessionalProjectControlsDevelopment.tsx",
+    "edits": [
+      {
+        "start": 228,
+        "end": 302,
+        "before": "\"text-xl md:text-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\"",
+        "after": "\"text-section-xl md:text-section-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/knowledge-hub/components/ReadyToFindYourBestRoute.tsx",
+    "edits": [
+      {
+        "start": 251,
+        "end": 314,
+        "before": "\"text-xl md:text-3xl font-heading font-bold text-background-50\"",
+        "after": "\"text-section-xl md:text-section-3xl font-heading font-bold text-background-50\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/knowledge-hub/construction-training/components/StopLettingScheduleDelaysAndCostDriftBecomeNormal.tsx",
+    "edits": [
+      {
+        "start": 183,
+        "end": 257,
+        "before": "\"text-xl md:text-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\"",
+        "after": "\"text-section-xl md:text-section-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/knowledge-hub/employer-apprenticeship-funding/components/UseApprenticeshipFundingToBuildProjectControlsCapabilityYourBusinessCanActuallyMeasure.tsx",
+    "edits": [
+      {
+        "start": 263,
+        "end": 337,
+        "before": "\"text-xl md:text-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\"",
+        "after": "\"text-section-xl md:text-section-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/knowledge-hub/energy-training/components/ForCapitalProgrammesWhereWeakControlsAreTooExpensiveToIgnore.tsx",
+    "edits": [
+      {
+        "start": 192,
+        "end": 266,
+        "before": "\"text-xl md:text-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\"",
+        "after": "\"text-section-xl md:text-section-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/knowledge-hub/funded-pcp-employer-guide/components/UseApprenticeshipFundingToBuildProjectControlsCapabilityYourBusinessCanActuallyMeasure.tsx",
+    "edits": [
+      {
+        "start": 747,
+        "end": 821,
+        "before": "\"text-xl md:text-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\"",
+        "after": "\"text-section-xl md:text-section-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/knowledge-hub/pcp-vs-pmp/components/TwoDifferentPathsTwoDifferentPurposes.tsx",
+    "edits": [
+      {
+        "start": 501,
+        "end": 575,
+        "before": "\"text-xl md:text-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\"",
+        "after": "\"text-section-xl md:text-section-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/knowledge-hub/pmo-governance-training/components/YourPMODoesNotNeedMoreReportsItNeedsStrongerDecisionConfidence.tsx",
+    "edits": [
+      {
+        "start": 216,
+        "end": 290,
+        "before": "\"text-xl md:text-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\"",
+        "after": "\"text-section-xl md:text-section-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/knowledge-hub/strategic-vs-operational/components/TwoPathwaysOneProfessionalStandardDifferentCareerOutcomes.tsx",
+    "edits": [
+      {
+        "start": 198,
+        "end": 272,
+        "before": "\"text-xl md:text-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\"",
+        "after": "\"text-section-xl md:text-section-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/knowledge-hub/what-is-pcp-apprenticeship/components/WhatIsTheLevel6ProjectControlsProfessionalApprenticeship.tsx",
+    "edits": [
+      {
+        "start": 715,
+        "end": 789,
+        "before": "\"text-xl md:text-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\"",
+        "after": "\"text-section-xl md:text-section-2xl font-heading font-bold text-foreground-950 mt-0 mb-4\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/legal/components/PolicyClause.tsx",
+    "edits": [
+      {
+        "start": 548,
+        "end": 592,
+        "before": "\"text-2xl font-semibold text-foreground-950\"",
+        "after": "\"text-section-2xl font-semibold text-foreground-950\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-construction/components/AssociatePathwayCallout.tsx",
+    "edits": [
+      {
+        "start": 510,
+        "end": 581,
+        "before": "\"mt-3 text-2xl font-bold leading-tight text-foreground-950 md:text-3xl\"",
+        "after": "\"mt-3 text-section-2xl font-bold leading-tight text-foreground-950 md:text-section-3xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-construction/components/ChooseYourPathwayCheckYourAccessRoute.tsx",
+    "edits": [
+      {
+        "start": 1044,
+        "end": 1116,
+        "before": "\"mt-4 max-w-3xl text-3xl font-bold leading-tight text-white md:text-4xl\"",
+        "after": "\"mt-4 max-w-3xl text-section-3xl font-bold leading-tight text-white md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-construction/components/CoreProfessionalCapability.tsx",
+    "edits": [
+      {
+        "start": 503,
+        "end": 565,
+        "before": "\"mt-4 text-3xl font-bold leading-tight text-white md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl font-bold leading-tight text-white md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-construction/components/EmployerCapability.tsx",
+    "edits": [
+      {
+        "start": 1366,
+        "end": 1428,
+        "before": "\"mt-4 text-3xl font-bold leading-tight text-white md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl font-bold leading-tight text-white md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-construction/components/InteractivePathwayBuilder.tsx",
+    "edits": [
+      {
+        "start": 3649,
+        "end": 3735,
+        "before": "\"mt-5 max-w-md text-4xl font-extrabold leading-[1.05] text-foreground-950 md:text-5xl\"",
+        "after": "\"mt-5 max-w-md text-section-4xl font-extrabold leading-[1.05] text-foreground-950 md:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-construction/components/PracticalAnswers.tsx",
+    "edits": [
+      {
+        "start": 2989,
+        "end": 3060,
+        "before": "\"mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-construction/components/ProfessionalProgression.tsx",
+    "edits": [
+      {
+        "start": 997,
+        "end": 1068,
+        "before": "\"mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-construction/components/QuickAccessRouteCheck.tsx",
+    "edits": [
+      {
+        "start": 2619,
+        "end": 2690,
+        "before": "\"mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-construction/components/SectorApplication.tsx",
+    "edits": [
+      {
+        "start": 2967,
+        "end": 3038,
+        "before": "\"mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-construction/components/TheConstructionChallenge.tsx",
+    "edits": [
+      {
+        "start": 957,
+        "end": 1028,
+        "before": "\"mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-construction/components/TheLearningExperience.tsx",
+    "edits": [
+      {
+        "start": 1034,
+        "end": 1115,
+        "before": "\"mx-auto mt-4 max-w-none text-3xl font-bold leading-tight text-white md:text-5xl\"",
+        "after": "\"mx-auto mt-4 max-w-none text-section-3xl font-bold leading-tight text-white md:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-construction/components/WorkplaceEvidence.tsx",
+    "edits": [
+      {
+        "start": 1362,
+        "end": 1433,
+        "before": "\"mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-energy/components/BuildTheCapabilityToControlComplexEnergyProgrammesWithConfidence.tsx",
+    "edits": [
+      {
+        "start": 381,
+        "end": 427,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-energy/components/CheckTheRightAccessRouteForYou.tsx",
+    "edits": [
+      {
+        "start": 262,
+        "end": 284,
+        "before": "\"text-3xl md:text-4xl\"",
+        "after": "\"text-section-3xl md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-energy/components/CoreProfessionalCapability.tsx",
+    "edits": [
+      {
+        "start": 411,
+        "end": 457,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-energy/components/EmployerCapability.tsx",
+    "edits": [
+      {
+        "start": 1895,
+        "end": 1957,
+        "before": "\"mt-4 text-3xl font-bold leading-tight text-white md:text-5xl\"",
+        "after": "\"mt-4 text-section-3xl font-bold leading-tight text-white md:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-energy/components/OneFoundation.tsx",
+    "edits": [
+      {
+        "start": 890,
+        "end": 965,
+        "before": "\"mt-4 max-w-sm text-3xl font-semibold leading-tight text-white md:text-4xl\"",
+        "after": "\"mt-4 max-w-sm text-section-3xl font-semibold leading-tight text-white md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-energy/components/PracticalAnswers.tsx",
+    "edits": [
+      {
+        "start": 411,
+        "end": 457,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-energy/components/ProfessionalProgression.tsx",
+    "edits": [
+      {
+        "start": 1763,
+        "end": 1834,
+        "before": "\"mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-5xl\"",
+        "after": "\"mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-energy/components/SectorApplication.tsx",
+    "edits": [
+      {
+        "start": 416,
+        "end": 462,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-energy/components/TheEnergyDeliveryChallenge.tsx",
+    "edits": [
+      {
+        "start": 1412,
+        "end": 1497,
+        "before": "\"mt-4 max-w-xl text-4xl font-semibold leading-[1.02] text-foreground-950 md:text-5xl\"",
+        "after": "\"mt-4 max-w-xl text-section-4xl font-semibold leading-[1.02] text-foreground-950 md:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-energy/components/TheLearningExperience.tsx",
+    "edits": [
+      {
+        "start": 1139,
+        "end": 1223,
+        "before": "\"mx-auto mt-4 max-w-3xl text-3xl font-semibold leading-tight text-white md:text-5xl\"",
+        "after": "\"mx-auto mt-4 max-w-3xl text-section-3xl font-semibold leading-tight text-white md:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-energy/components/WorkplaceEvidence.tsx",
+    "edits": [
+      {
+        "start": 1517,
+        "end": 1588,
+        "before": "\"mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-engineering/components/EngineeringProjectControlsEvidence.tsx",
+    "edits": [
+      {
+        "start": 1639,
+        "end": 1710,
+        "before": "\"mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-engineering/components/OneProfessionalFoundationAcrossComplexEngineeringEnvironments.tsx",
+    "edits": [
+      {
+        "start": 1527,
+        "end": 1598,
+        "before": "\"mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-engineering/components/ProjectControlsThatProtectEngineeringValue.tsx",
+    "edits": [
+      {
+        "start": 1403,
+        "end": 1474,
+        "before": "\"mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-5xl\"",
+        "after": "\"mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-engineering/components/QuestionsBeforeYouEnquire.tsx",
+    "edits": [
+      {
+        "start": 386,
+        "end": 432,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-engineering/components/ReadyToTakeControl.tsx",
+    "edits": [
+      {
+        "start": 637,
+        "end": 703,
+        "before": "\"mt-4 text-3xl font-semibold leading-tight text-white md:text-5xl\"",
+        "after": "\"mt-4 text-section-3xl font-semibold leading-tight text-white md:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-public-sector/components/CareerDevelopment.tsx",
+    "edits": [
+      {
+        "start": 621,
+        "end": 687,
+        "before": "\"mt-4 text-3xl font-semibold leading-tight text-white md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl font-semibold leading-tight text-white md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-public-sector/components/CareerProgression.tsx",
+    "edits": [
+      {
+        "start": 892,
+        "end": 967,
+        "before": "\"mt-4 text-3xl font-semibold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl font-semibold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-public-sector/components/DevelopAccountableProjectCapability.tsx",
+    "edits": [
+      {
+        "start": 428,
+        "end": 450,
+        "before": "\"text-3xl md:text-4xl\"",
+        "after": "\"text-section-3xl md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-public-sector/components/EmployerJourney.tsx",
+    "edits": [
+      {
+        "start": 956,
+        "end": 1031,
+        "before": "\"mt-4 text-3xl font-semibold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl font-semibold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-public-sector/components/EmployerQuestions.tsx",
+    "edits": [
+      {
+        "start": 340,
+        "end": 362,
+        "before": "\"text-3xl md:text-4xl\"",
+        "after": "\"text-section-3xl md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-public-sector/components/IllustrativePublicSectorApplication.tsx",
+    "edits": [
+      {
+        "start": 1066,
+        "end": 1141,
+        "before": "\"mt-4 text-3xl font-semibold leading-tight text-foreground-950 md:text-5xl\"",
+        "after": "\"mt-4 text-section-3xl font-semibold leading-tight text-foreground-950 md:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-public-sector/components/LearningGroundedInGovernmentDelivery.tsx",
+    "edits": [
+      {
+        "start": 985,
+        "end": 1052,
+        "before": "\"mt-4 text-4xl font-semibold leading-[1.03] text-white md:text-5xl\"",
+        "after": "\"mt-4 text-section-4xl font-semibold leading-[1.03] text-white md:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-public-sector/components/TheProjectControlsCapabilityModel.tsx",
+    "edits": [
+      {
+        "start": 993,
+        "end": 1068,
+        "before": "\"mt-4 text-3xl font-semibold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl font-semibold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/operational-pcp-public-sector/components/WhyPublicSectorDeliveryIsDifferent.tsx",
+    "edits": [
+      {
+        "start": 1489,
+        "end": 1565,
+        "before": "\"mt-4 text-4xl font-semibold leading-[1.03] text-foreground-950 md:text-5xl\"",
+        "after": "\"mt-4 text-section-4xl font-semibold leading-[1.03] text-foreground-950 md:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/pmo-pcp/components/DiscussThePMOCapabilityYourTeamNeeds.tsx",
+    "edits": [
+      {
+        "start": 646,
+        "end": 733,
+        "before": "\"mt-4 font-heading text-2xl font-bold leading-tight text-white md:text-3xl lg:text-4xl\"",
+        "after": "\"mt-4 font-heading text-section-2xl font-bold leading-tight text-white md:text-section-3xl lg:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/programme-template/PathwayPage.tsx",
+    "edits": [
+      {
+        "start": 22968,
+        "end": 23024,
+        "before": "\"mx-auto mt-4 max-w-3xl text-3xl text-white md:text-4xl\"",
+        "after": "\"mx-auto mt-4 max-w-3xl text-section-3xl text-white md:text-section-4xl\""
+      },
+      {
+        "start": 16567,
+        "end": 16605,
+        "before": "\"mt-4 text-3xl text-white md:text-4xl\"",
+        "after": "\"mt-4 text-section-3xl text-white md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/programmes/components/ChooseYourProgramme.tsx",
+    "edits": [
+      {
+        "start": 11756,
+        "end": 11847,
+        "before": "\"text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight\"",
+        "after": "\"text-section-2xl md:text-section-3xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/programmes/components/CompareProgrammes.tsx",
+    "edits": [
+      {
+        "start": 1408,
+        "end": 1499,
+        "before": "\"text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight\"",
+        "after": "\"text-section-2xl md:text-section-3xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/programmes/components/FindYourFit.tsx",
+    "edits": [
+      {
+        "start": 1939,
+        "end": 2030,
+        "before": "\"text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight\"",
+        "after": "\"text-section-2xl md:text-section-3xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/programmes/components/FlexibleProfessionalDevelopment.tsx",
+    "edits": [
+      {
+        "start": 3472,
+        "end": 3573,
+        "before": "\"max-w-xl text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground-950 leading-[1.08]\"",
+        "after": "\"max-w-xl text-section-3xl md:text-section-4xl lg:text-section-5xl font-heading font-bold text-foreground-950 leading-[1.08]\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/programmes/components/ForEmployers.tsx",
+    "edits": [
+      {
+        "start": 3019,
+        "end": 3110,
+        "before": "\"text-3xl md:text-4xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight\"",
+        "after": "\"text-section-3xl md:text-section-4xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/programmes/components/FrequentlyAskedQuestions.tsx",
+    "edits": [
+      {
+        "start": 5576,
+        "end": 5667,
+        "before": "\"text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight\"",
+        "after": "\"text-section-2xl md:text-section-3xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/project-controls-professional-operational-route/components/CapabilityThemes.tsx",
+    "edits": [
+      {
+        "start": 2473,
+        "end": 2539,
+        "before": "\"text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/project-controls-professional-operational-route/components/EmployerResponsibilities.tsx",
+    "edits": [
+      {
+        "start": 1585,
+        "end": 1651,
+        "before": "\"text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/project-controls-professional-operational-route/components/GatewayAndEPA.tsx",
+    "edits": [
+      {
+        "start": 872,
+        "end": 938,
+        "before": "\"text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/project-controls-professional-operational-route/components/ProfessionalArtefacts.tsx",
+    "edits": [
+      {
+        "start": 1596,
+        "end": 1662,
+        "before": "\"text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/project-controls-professional-operational-route/components/SelectSixCredits.tsx",
+    "edits": [
+      {
+        "start": 1516,
+        "end": 1582,
+        "before": "\"text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/project-controls-professional-operational-route/components/TakeTheNextStep.tsx",
+    "edits": [
+      {
+        "start": 741,
+        "end": 798,
+        "before": "\"text-3xl font-bold leading-tight text-white md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight text-white md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/project-controls-professional-operational-route/components/TheOperationalRoute.tsx",
+    "edits": [
+      {
+        "start": 1227,
+        "end": 1293,
+        "before": "\"text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/project-controls-professional-operational-route/components/WhoItIsFor.tsx",
+    "edits": [
+      {
+        "start": 1131,
+        "end": 1197,
+        "before": "\"text-3xl font-bold leading-tight text-foreground-950 md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/route-finder/components/RouteFinder.tsx",
+    "edits": [
+      {
+        "start": 8665,
+        "end": 8684,
+        "before": "\"text-xl font-bold\"",
+        "after": "\"text-section-xl font-bold\""
+      },
+      {
+        "start": 6432,
+        "end": 6457,
+        "before": "\"mt-4 text-3xl font-bold\"",
+        "after": "\"mt-4 text-section-3xl font-bold\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/short-courses/components/ShortCourses.tsx",
+    "edits": [
+      {
+        "start": 10092,
+        "end": 10129,
+        "before": "\"mt-3 text-3xl font-bold md:text-5xl\"",
+        "after": "\"mt-3 text-section-3xl font-bold md:text-section-5xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/strategic-pcp/components/AIInProjectControls.tsx",
+    "edits": [
+      {
+        "start": 774,
+        "end": 820,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/strategic-pcp/components/EligibilityCriteria.tsx",
+    "edits": [
+      {
+        "start": 403,
+        "end": 449,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/strategic-pcp/components/PMIPMOCPPreparationAndPMOLeadership.tsx",
+    "edits": [
+      {
+        "start": 803,
+        "end": 849,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/strategic-pcp/components/PMPExamPreparationAndStrategicProjectLeadership.tsx",
+    "edits": [
+      {
+        "start": 977,
+        "end": 1023,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/strategic-pcp/components/PRINCE2PortfolioManagement.tsx",
+    "edits": [
+      {
+        "start": 803,
+        "end": 849,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/strategic-pcp/components/PRINCE2ProgrammeManagement.tsx",
+    "edits": [
+      {
+        "start": 795,
+        "end": 841,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/strategic-pcp/components/ProgrammeEssentials.tsx",
+    "edits": [
+      {
+        "start": 360,
+        "end": 406,
+        "before": "\"text-3xl font-bold leading-tight md:text-4xl\"",
+        "after": "\"text-section-3xl font-bold leading-tight md:text-section-4xl\""
+      }
+    ]
+  },
+  {
+    "path": "frontend/src/pages/strategic-pcp/components/TakeTheNextStep.tsx",
+    "edits": [
+      {
+        "start": 672,
+        "end": 741,
+        "before": "\"text-2xl font-bold leading-tight text-white md:text-3xl lg:text-4xl\"",
+        "after": "\"text-section-2xl font-bold leading-tight text-white md:text-section-3xl lg:text-section-4xl\""
+      }
+    ]
+  }
+]

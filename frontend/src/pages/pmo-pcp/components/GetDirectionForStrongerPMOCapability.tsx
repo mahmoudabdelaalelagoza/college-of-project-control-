@@ -1,4 +1,3 @@
-import SiteLink from '@/components/base/SiteLink';
 import PmoSection from './PmoSection';
 
 export default function GetDirectionForStrongerPMOCapability() {
@@ -18,7 +17,6 @@ export default function GetDirectionForStrongerPMOCapability() {
           <div className="p-5 md:p-6">
             <h3 className="font-heading text-xl font-bold text-foreground-950">Discover the PMO Route</h3>
             <p className="mt-3 text-sm leading-7 text-foreground-600">Learn how the route develops PMO capability through structured workplace learning.</p>
-            <SiteLink href="#journey" className="btn-secondary mt-5 w-full gap-2 text-center text-primary-700 hover:bg-primary-50">Explore the learning journey<i className="ri-arrow-right-line" aria-hidden="true" /></SiteLink>
           </div>
         </div>
       </div>

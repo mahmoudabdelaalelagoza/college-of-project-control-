@@ -6,7 +6,7 @@ export default function APMGInternationalCertificationContext() {
 <div className="text-xs font-bold uppercase tracking-[.14em] text-accent-700">
 {"APMG International certification context "}
 </div>
-<h2 id="earned-value-management-title" className="text-3xl font-bold leading-tight md:text-4xl">
+<h2 id="earned-value-management-title" className="text-section-3xl font-bold leading-tight md:text-section-4xl">
 {"Earned Value Management "}
 </h2>
 <p className="text-base leading-relaxed">

@@ -11,7 +11,7 @@ export default function KeyMessage() {
                 alt="College of Project Controls"
                 className="h-4 w-auto object-contain"
               />
-              <span className="text-sm text-background-50/70">Construction PCP Route</span>
+              <span className="text-sm text-support-on-dark">Construction PCP Route</span>
             </div>
           </div>
         </section>

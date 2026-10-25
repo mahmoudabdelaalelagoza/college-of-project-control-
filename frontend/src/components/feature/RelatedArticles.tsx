@@ -16,7 +16,7 @@ export default function RelatedArticles({ articles }: RelatedArticlesProps) {
   return (
     <section className="py-12 md:py-16 bg-background-50">
       <div className="container-site max-w-4xl">
-        <h2 className="text-xl md:text-2xl font-heading font-bold text-foreground-950 text-center mb-8">
+        <h2 className="text-section-xl md:text-section-2xl font-heading font-bold text-foreground-950 text-center mb-8">
           Related Articles
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

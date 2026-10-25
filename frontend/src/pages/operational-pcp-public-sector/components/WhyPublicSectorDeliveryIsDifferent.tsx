@@ -31,7 +31,7 @@ export default function WhyPublicSectorDeliveryIsDifferent() {
               <span className="mr-3 inline-block h-px w-7 align-middle bg-signal-400" aria-hidden="true" />
               Why public-sector delivery is different
             </p>
-            <h2 className="mt-4 text-4xl font-semibold leading-[1.03] text-foreground-950 md:text-5xl">
+            <h2 className="mt-4 text-section-4xl font-semibold leading-[1.03] text-foreground-950 md:text-section-5xl">
               Project capability must remain clear, auditable and defensible.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-foreground-600">

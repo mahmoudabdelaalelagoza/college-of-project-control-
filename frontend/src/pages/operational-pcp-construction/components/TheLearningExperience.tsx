@@ -27,7 +27,7 @@ export default function TheLearningExperience() {
       <div className="container-site">
         <div className="mx-auto max-w-5xl text-center">
           <small className="text-xs font-bold uppercase tracking-[.15em] text-signal-300">Applied professional learning</small>
-          <h2 className="mx-auto mt-4 max-w-none text-3xl font-bold leading-tight text-white md:text-5xl">
+          <h2 className="mx-auto mt-4 max-w-none text-section-3xl font-bold leading-tight text-white md:text-section-5xl">
             <span className="block md:whitespace-nowrap">Bring live construction challenges</span>
             <span className="block md:whitespace-nowrap">into the learning process.</span>
           </h2>

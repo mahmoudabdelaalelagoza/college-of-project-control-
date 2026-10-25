@@ -3,125 +3,122 @@ import type { ReactNode } from 'react';
 import ProgrammeTestimonials from './ProgrammeTestimonials';
 import useEnquirySubmission from '@/hooks/useEnquirySubmission';
 
+const privacyUrl = '/privacy';
 
 const linkColumns = [
   {
-    icon: 'ri-team-line',
+    title: 'Explore Learning',
+    links: [
+      { label: 'Our Programmes', href: '/#programmes' },
+      { label: 'Short Courses & Modules', href: '/short-courses' },
+      { label: 'Check Apprenticeship Eligibility', href: '/apprenticeship-eligibility-checker' },
+      { label: 'Funding & Support', href: '/#funding' },
+      { label: 'Events & Information Sessions', href: '/events' },
+    ],
+  },
+  {
     title: 'For Employers',
     links: [
       { label: 'Employer Information', href: '/employers' },
-      { label: 'Build Internal Capability', href: '/employers#how-it-works' },
+      { label: 'Employer Development & Support', href: '/employers#workforce-services' },
+      { label: 'Apprenticeship Funding', href: '/employers#funding' },
       { label: 'Employer Agreement', href: '/employer-agreement' },
-      { label: 'Request a consultation', href: '/contact' },
-      { label: 'Apprenticeship Funding', href: '/knowledge-hub/employer-apprenticeship-funding' },
+      { label: 'Book a Consultation', href: '/book-a-session' },
     ],
   },
   {
-    icon: 'ri-user-3-line',
-    title: 'For Learners',
+    title: 'About & Support',
     links: [
-      { label: 'Professional Information', href: '/apprentices' },
-      { label: 'Funding Eligibility', href: '/apprenticeship-eligibility-checker' },
-    ],
-  },
-  {
-    icon: 'ri-calendar-line',
-    title: 'Connect',
-    links: [
-      { label: 'About CPCM', href: '/about' },
+      { label: 'About  College', href: '/about' },
+      { label: 'Learner Support', href: '/apprentices#support' },
+      { label: 'Learner Stories', href: '/testimonials' },
+      { label: 'Articles & Insights', href: '/articles' },
       { label: 'Contact Us', href: '/contact' },
-      { label: 'Articles', href: '/articles' },
-      { label: 'Case studies', href: '/case-studies' },
-      
-      { label: 'Events', href: '/events' },
-      { label: 'Frequently Asked Questions', href: '/faq' },
-      { label: 'Testimonials & reviews', href: '/testimonials' },
     ],
   },
 ];
 
+const policyLinks = [
+  { label: 'Privacy', href: privacyUrl },
+  { label: 'Terms', href: '/terms' },
+  { label: 'Accessibility', href: '/accessibility' },
+  { label: 'Cookies', href: '/cookies' },
+];
+
 export default function Footer({ testimonials = <ProgrammeTestimonials /> }: { testimonials?: ReactNode }) {
-  const { receipt, pending, error, handleSubmit } = useEnquirySubmission('Programme update request');
+  const { receipt, pending, error, handleSubmit } = useEnquirySubmission('Programme & Event Enquiries');
 
   return (
     <>
       {testimonials}
-      <footer className="relative overflow-hidden bg-secondary-950 text-background-50">
+      <footer aria-label="College information" className="relative overflow-hidden bg-secondary-950 text-background-50">
         <div className="absolute inset-x-0 top-0 z-20 h-1 bg-[linear-gradient(90deg,#3FA7A3_0%,#3FA7A3_70%,#FFA953_70%,#FFA953_100%)]" aria-hidden="true" />
         <div className="pattern-dots-overlay pattern-dots-dark" aria-hidden="true" />
 
         <div className="container-site relative z-10 py-12 md:py-16">
-          <div className="grid items-start gap-10 md:grid-cols-3 lg:gap-12">
-            <div className="min-w-0 w-full max-w-sm md:justify-self-start">
-              <SiteLink href="/" className="inline-flex" aria-label="College of Project Controls home">
-                <img loading="lazy" decoding="async" src="/assets/images/cpcm-logo-light.webp" alt="College of Project Controls" className="h-auto w-[138px] object-contain" />
-              </SiteLink>
-              <p className="mt-4 text-sm leading-relaxed text-background-50/65">
-                Professional project controls and project management pathways for learners and employers.
-              </p>
+          <div className="grid items-start gap-10 sm:grid-cols-3">
+            <div className="grid min-w-0 gap-8 sm:col-span-3 md:grid-cols-2 md:gap-12">
+              <div className="min-w-0">
+                <SiteLink href="/" className="inline-flex rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-highlight-300" aria-label="College of Project Controls & Management home">
+                  <img loading="lazy" decoding="async" src="/assets/images/cpcm-logo-light.webp" alt="College of Project Controls & Management" className="h-auto w-[138px] object-contain" />
+                </SiteLink>
+                <h2 className="mt-5 text-section-xl font-bold leading-snug text-white">College of Project Controls &amp; Management</h2>
+                <p className="mt-2 text-sm font-semibold text-highlight-300">Part of Kent Business College</p>
+                <p className="mt-4 text-sm leading-relaxed text-background-50/75">
+                  Specialist apprenticeships and professional learning in project management, project controls and PMO, connected to real workplace practice.
+                </p>
+                <address className="mt-4 text-sm not-italic leading-relaxed text-background-50/75">
+                  <p><span className="font-semibold text-white">Email: </span><SiteLink href="mailto:office@kentbusinesscollege.org" className="break-words text-highlight-300 underline underline-offset-4 hover:text-white">office@kentbusinesscollege.org</SiteLink></p>
+                  <p className="mt-2"><span className="font-semibold text-white">Telephone: </span><SiteLink href="tel:+441622958955" className="inline-block py-2 hover:text-highlight-300">+44 (0)1622 958955</SiteLink></p>
+                </address>
+              </div>
 
-
-
-              <SiteLink href="mailto:info@collegeofprojectcontrols.com" className="mt-5 inline-flex max-w-full items-center gap-2 break-all text-xs font-semibold text-highlight-400 transition-colors hover:text-highlight-300">
-                <i className="ri-mail-line" aria-hidden="true" />
-                info@collegeofprojectcontrols.com
-              </SiteLink>
-              <section aria-labelledby="newsletter-heading" className="mt-6 max-w-sm border-t border-white/10 pt-5">
-                <h2 id="newsletter-heading" className="text-sm font-semibold text-white">Programme &amp; event updates</h2>
-                <p className="mt-2 text-xs leading-relaxed text-background-50/65">Request updates from our team. No automatic subscription.</p>
+              <section aria-labelledby="newsletter-heading" className="min-w-0 border-t border-white/15 pt-6 md:border-t-0 md:pt-0">
+                <h2 id="newsletter-heading" className="text-base font-semibold leading-snug text-white">Programme &amp; Event Enquiries</h2>
                 {receipt ? (
-                  <p role="status" className="mt-3 text-xs leading-relaxed text-accent-200">Request received.{receipt.id ? ` Reference ${receipt.id}.` : ''}</p>
+                  <p role="status" className="mt-4 text-sm leading-relaxed text-accent-200">Request received. Our team will respond to your enquiry.{receipt.id ? ` Reference ${receipt.id}.` : ''}</p>
                 ) : (
-                  <form id="newsletter-form" onSubmit={handleSubmit} aria-busy={pending} className="mt-3 flex flex-wrap gap-2">
-                    <label htmlFor="newsletter-email" className="sr-only">Email address (required)</label>
-                    <input id="newsletter-email" type="email" name="email" autoComplete="email" placeholder="Your email address" className="min-h-11 min-w-0 flex-[1_1_150px] rounded-md border border-white/25 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/50 focus:border-accent-200 focus:outline-none focus:ring-2 focus:ring-accent-200/40" required aria-describedby="newsletter-notice" />
-                    <input type="hidden" name="name" value="Programme updates enquiry" />
-                    <button type="submit" disabled={pending} className="min-h-11 shrink-0 rounded-md bg-highlight-400 px-3 py-2 text-xs font-semibold text-secondary-950 transition-colors hover:bg-highlight-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight-300 disabled:cursor-wait disabled:opacity-60">{pending ? 'Sending?' : 'Request updates'}</button>
+                  <form id="newsletter-form" onSubmit={handleSubmit} aria-busy={pending} className="mt-4">
+                    <label htmlFor="newsletter-email" className="mb-2 block text-sm font-semibold text-white">Email address</label>
+                    <input id="newsletter-email" type="email" name="email" autoComplete="email" className="min-h-11 w-full min-w-0 rounded-md border border-white/30 bg-white/5 px-3 py-2 text-base text-white focus:border-accent-200 focus:outline-none focus:ring-2 focus:ring-accent-200/40" required aria-describedby="newsletter-notice" />
+                    <input type="hidden" name="name" value="Programme and event enquiry" />
+                    <button type="submit" disabled={pending} className="mt-3 inline-flex min-h-11 w-full items-center justify-center gap-3 rounded-md bg-highlight-400 px-4 py-3 text-sm font-bold text-secondary-950 transition-colors hover:bg-highlight-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight-300 disabled:cursor-wait disabled:opacity-60">
+                      {pending ? 'Sending…' : <>Request Information <span aria-hidden="true">→</span></>}
+                    </button>
                     <input type="text" name="phone_alt" tabIndex={-1} autoComplete="off" aria-hidden="true" className="honeypot-field" />
                   </form>
                 )}
-                {error && <p role="alert" className="mt-2 text-xs text-red-300">{error}</p>}
-                <p id="newsletter-notice" className="mt-2 text-xs leading-relaxed text-background-50/65">Email used to respond. <SiteLink href="/privacy" className="underline hover:text-white">Privacy notice</SiteLink></p>
+                {error && <p role="alert" className="mt-3 text-sm text-red-300">Your request could not be confirmed. Please retry, or email <SiteLink href="mailto:office@kentbusinesscollege.org" className="break-words underline">office@kentbusinesscollege.org</SiteLink> for help.</p>}
+                <p id="newsletter-notice" className="mt-3 text-xs leading-relaxed text-background-50/75">We'll use your email address to respond to your enquiry. Read our <SiteLink href={privacyUrl} className="underline underline-offset-4 hover:text-white">Privacy Notice</SiteLink>.</p>
               </section>
             </div>
 
-            {[[linkColumns[0], linkColumns[1]], [linkColumns[2]]].map((columns, index) => (
-              <div key={columns[0].title} className={`min-w-0 space-y-7 ${index === 0 ? 'md:justify-self-center' : 'md:justify-self-end'}`}>
-                {columns.map((column) => (
-                  <div key={column.title}>
-                    <div className="mb-4 flex items-center gap-2.5">
-                      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-accent-200">
-                        <i className={`${column.icon} text-sm`} aria-hidden="true" />
-                      </span>
-                      <h3 className="text-xs font-semibold uppercase tracking-wider text-white xl:text-sm">{column.title}</h3>
-                    </div>
-                    <ul className="space-y-1">
-                      {column.links.map((link) => (
-                        <li key={link.label}>
-                          <SiteLink href={link.href} className="group flex items-start gap-1.5 py-2 text-xs leading-snug text-background-50/65 transition-colors hover:text-highlight-300 xl:text-sm">
-                            <i className="ri-arrow-right-s-line mt-0.5 shrink-0 text-accent-300/70 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-                            <span>{link.label}</span>
-                          </SiteLink>
-                        </li>
+            {linkColumns.map((column) => (
+              <nav key={column.title} aria-label={column.title} className="min-w-0 border-t border-white/15 pt-6 sm:border-t-0 sm:pt-0">
+                <h2 className="mb-4 text-base font-semibold leading-snug text-white">{column.title}</h2>
+                <ul>
+                  {column.links.map((link) => (
+                    <li key={link.label}>
+                      <SiteLink href={link.href} className="inline-flex min-h-11 items-center py-2 text-sm leading-relaxed text-background-50/75 underline-offset-4 transition-colors hover:text-highlight-300 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight-300">{link.label}</SiteLink>
+                    </li>
                   ))}
                 </ul>
-              </div>
-                ))}
-              </div>
+              </nav>
             ))}
           </div>
 
-          <div className="mt-12 border-t border-white/10 pt-6">
-            <div className="flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
-              <p className="text-xs text-background-50/45">
-                &copy; {new Date().getFullYear()} College of Project Controls &amp; Management. All rights reserved.
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-                <SiteLink href="/privacy" className="text-xs text-background-50/55 transition-colors hover:text-white">Privacy</SiteLink>
-                <SiteLink href="/terms" className="text-xs text-background-50/55 transition-colors hover:text-white">Terms</SiteLink>
-                <SiteLink href="/accessibility" className="text-xs text-background-50/55 transition-colors hover:text-white">Accessibility</SiteLink>
-                <SiteLink href="/cookies" className="text-xs text-background-50/55 transition-colors hover:text-white">Cookies</SiteLink>
+          <div className="mt-10 border-t border-white/15 pt-6 md:mt-12">
+            <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between xl:gap-8">
+              <div className="space-y-2 text-xs leading-relaxed text-background-50/75">
+                <p>© {new Date().getFullYear()} Kent Business College Ltd. All rights reserved.</p>
+                <p>College of Project Controls &amp; Management is part of Kent Business College.</p>
+                <p>Registered in England and Wales · Company No. 10367575</p>
               </div>
+              <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-5">
+                {policyLinks.map((link) => (
+                  <SiteLink key={link.label} href={link.href} className="inline-flex min-h-11 items-center text-xs text-background-50/75 underline-offset-4 hover:text-white hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight-300">{link.label}</SiteLink>
+                ))}
+              </nav>
             </div>
           </div>
         </div>

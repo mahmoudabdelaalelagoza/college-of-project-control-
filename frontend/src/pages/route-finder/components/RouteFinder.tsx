@@ -132,7 +132,7 @@ export default function RouteFinder() {
 
             <aside className="sticky top-28 rounded-2xl border border-background-200 bg-white p-6 shadow-card">
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent-700">Recommended next step</p>
-              <h2 className="mt-4 text-3xl font-bold">{result.title}</h2>
+              <h2 className="mt-4 text-section-3xl font-bold">{result.title}</h2>
               <p className="mt-4 text-sm leading-relaxed text-foreground-600">{result.copy}</p>
               <div className="mt-7 flex flex-col gap-3">
                 <SiteLink href={result.href} className="btn-primary inline-flex min-h-12 items-center justify-center px-6 text-sm font-bold">
@@ -177,7 +177,7 @@ export default function RouteFinder() {
 function Question({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="rounded-2xl border border-background-200 bg-white p-6">
-      <h2 className="text-xl font-bold">{title}</h2>
+      <h2 className="text-section-xl font-bold">{title}</h2>
       <div className="mt-5">{children}</div>
     </section>
   );

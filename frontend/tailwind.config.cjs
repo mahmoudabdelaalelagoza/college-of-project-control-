@@ -1,5 +1,3 @@
-const plugin = require('tailwindcss/plugin');
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
@@ -9,6 +7,8 @@ module.exports = {
     theme: {
       extend: {
         colors: {
+          'warm-ink': 'var(--text-warm-on-light)',
+          'support-on-dark': 'var(--text-muted-on-dark)',
           surface: 'rgb(var(--surface-rgb) / <alpha-value>)', canvas: 'rgb(var(--canvas-rgb) / <alpha-value>)', ink: 'rgb(var(--ink-rgb) / <alpha-value>)', muted: 'rgb(var(--muted-rgb) / <alpha-value>)',
           'ipc-gold': 'rgb(var(--ipc-gold-rgb) / <alpha-value>)', 'ipc-surface': 'rgb(var(--ipc-surface-rgb) / <alpha-value>)', 'ipc-ink': 'rgb(var(--ipc-ink-rgb) / <alpha-value>)',
           status: { error: 'rgb(var(--error-rgb) / <alpha-value>)', success: 'rgb(var(--success-rgb) / <alpha-value>)', warning: 'rgb(var(--warning-rgb) / <alpha-value>)' },
@@ -114,7 +114,30 @@ module.exports = {
         borderRadius: { md: 'var(--radius-control)', xl: 'var(--radius-card)', '2xl': 'var(--radius-panel)' },
         boxShadow: { card: 'var(--shadow-card)', overlay: 'var(--shadow-overlay)' },
         fontSize: {
-          display: ['clamp(2.25rem, 1.5rem + 3vw, 4rem)', { lineHeight: '1.08', fontWeight: '700' }],
+          'page-title': ['var(--type-page-title)', { lineHeight: '1.15' }],
+          'subsection': ['var(--type-subsection)', { lineHeight: '1.3' }],
+          'card-title': ['var(--type-card-title)', { lineHeight: '1.45' }],
+          'dialog-title': ['var(--type-dialog-title)', { lineHeight: '1.45' }],
+          'body': ['var(--type-body)', { lineHeight: 'var(--leading-body)' }],
+          'body-small': ['var(--type-body-small)', { lineHeight: 'var(--leading-support)' }],
+          'lead': ['var(--type-lead)', { lineHeight: '1.6' }],
+          'caption': ['var(--type-caption)', { lineHeight: 'var(--leading-support)' }],
+          'metadata': ['var(--type-metadata)', { lineHeight: 'var(--leading-support)' }],
+          'label': ['var(--type-label)', { lineHeight: 'var(--leading-support)' }],
+          'button': ['var(--type-button)', { lineHeight: 'var(--leading-control)' }],
+          'navigation': ['var(--type-navigation)', { lineHeight: '1.65' }],
+          'control': ['var(--type-control)', { lineHeight: 'var(--leading-control)' }],
+          'table': ['var(--type-table)', { lineHeight: 'var(--leading-support)' }],
+          'section-xl': ['var(--type-section-xl)', { lineHeight: '1.45' }],
+          'section-2xl': ['var(--type-section-2xl)', { lineHeight: '1.3' }],
+          'section-3xl': ['var(--type-section-3xl)', { lineHeight: '1.18' }],
+          'section-4xl': ['var(--type-section-4xl)', { lineHeight: '1.1' }],
+          'section-5xl': ['var(--type-section-5xl)', { lineHeight: '1.07' }],
+          'section-6xl': ['var(--type-section-6xl)', { lineHeight: '1.04' }],
+          'section-7xl': ['var(--type-section-7xl)', { lineHeight: '1.02' }],
+          'section-display': ['var(--type-section-display)', { lineHeight: '1.08' }],
+
+          display: ['var(--type-display)', { lineHeight: '1.08', fontWeight: '700' }],
           xs: ['0.875rem', { lineHeight: '1.6' }],
           sm: ['0.9375rem', { lineHeight: '1.65' }],
           base: ['1rem', { lineHeight: '1.7' }],
@@ -134,22 +157,5 @@ module.exports = {
         },
       },
     },
-    plugins: [
-      plugin(({ addBase, theme, e }) => {
-        // Keep section headings 10% smaller at every existing responsive size.
-        // Read the shared scale so future typography changes stay consistent.
-        const sizes = ['xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', 'display'];
-        const rules = (prefix = '') => Object.fromEntries(sizes.map(size => {
-          const value = theme(`fontSize.${size}`);
-          const fontSize = Array.isArray(value) ? value[0] : value;
-          return [`#main-content h2.${e(`${prefix}text-${size}`)}`, {
-            fontSize: `calc((${fontSize}) * 0.9)`,
-          }];
-        }));
-        addBase(rules());
-        for (const [breakpoint, width] of Object.entries(theme('screens'))) {
-          addBase({ [`@media (min-width: ${width})`]: rules(`${breakpoint}:`) });
-        }
-      }),
-    ],
+    plugins: [],
   }

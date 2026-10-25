@@ -33,7 +33,7 @@ export default function ConstructionInfrastructure() {
                 Discuss your team's capability
                 <i className="ri-arrow-right-line" aria-hidden="true" />
               </SiteLink>
-              <SiteLink href="#eligibility" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/40 bg-white/10 px-6 font-bold text-white backdrop-blur transition-colors hover:bg-white/18">
+              <SiteLink href="/apprenticeship-eligibility-checker" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/40 bg-white/10 px-6 font-bold text-white backdrop-blur transition-colors hover:bg-white/18">
                 Check workforce eligibility
                 <i className="ri-route-line" aria-hidden="true" />
               </SiteLink>

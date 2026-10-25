@@ -10,8 +10,8 @@ export default function WhyJoin() {
 <section id="why-join" className="bg-background-50 py-16 md:py-24" aria-labelledby="why-join-title">
           <div className="container-site">
             <div className="mx-auto mb-12 max-w-2xl text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-highlight-700">Why join</span>
-              <h2 id="why-join-title" className="mt-3 text-3xl font-bold text-foreground-900 md:text-4xl">Contribute your expertise where it matters</h2>
+              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-warm-ink">Why join</span>
+              <h2 id="why-join-title" className="mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl">Contribute your expertise where it matters</h2>
             </div>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {whyJoin.map((item) => (

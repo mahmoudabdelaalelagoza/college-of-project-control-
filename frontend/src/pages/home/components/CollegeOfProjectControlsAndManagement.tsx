@@ -1,4 +1,5 @@
 import SiteLink from '@/components/base/SiteLink';
+import { openEligibilityChecker } from '@/components/feature/eligibilityChecker';
 import { apprenticeshipNames } from '@/data/programmeFacts';
 import HomeAudioSummary from './HomeAudioSummary';
 
@@ -85,6 +86,18 @@ export default function CollegeOfProjectControlsAndManagement() {
                   Develop your team
                   <i className="ri-arrow-right-line" aria-hidden="true"></i>
                 </SiteLink>
+                <button
+                  type="button"
+                  onClick={openEligibilityChecker}
+                  aria-haspopup="dialog"
+                  className="btn-secondary inline-flex min-h-[3.25rem] items-center justify-center gap-2 border-white/60 px-7 py-3 text-sm font-bold text-white backdrop-blur-sm transition-all duration-300 hover:border-signal-400 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal-400"
+                  data-gtm-event="hero_check_eligibility_click"
+                  data-gtm-location="hero"
+                  data-gtm-position="tertiary"
+                >
+                  Check Eligibility
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4 4 7 8 9 4-2 8-5 8-9V6l-8-3Z" /><path d="m8 12 3 3 5-6" /></svg>
+                </button>
               </div>
 
               <HomeAudioSummary />
@@ -94,6 +107,7 @@ export default function CollegeOfProjectControlsAndManagement() {
           </div>
         </div>
       </section>
+
 
       <section className="border-b border-background-200 bg-white" aria-label="Programme value summary">
         <div className="container-site grid gap-px bg-background-200 py-px sm:grid-cols-2 lg:grid-cols-4">

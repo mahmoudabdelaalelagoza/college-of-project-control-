@@ -13,7 +13,7 @@ export default function OurSpecialistFocus() {
           <div className="container-site">
             <div className="mb-12 max-w-3xl">
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-highlight-300">Our specialist focus</span>
-              <h2 id="capability-title" className="mt-3 text-3xl font-bold text-white md:text-4xl">One connected view of project performance</h2>
+              <h2 id="capability-title" className="mt-3 text-section-3xl font-bold text-white md:text-section-4xl">One connected view of project performance</h2>
               <p className="mt-4 text-base leading-relaxed text-white/70">The disciplines reinforce one another. Development is organised to help professionals see those connections and communicate the complete delivery position.</p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

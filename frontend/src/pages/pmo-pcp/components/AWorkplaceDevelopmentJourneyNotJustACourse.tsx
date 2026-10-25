@@ -1,4 +1,3 @@
-import SiteLink from '@/components/base/SiteLink';
 import PmoSection from './PmoSection';
 
 const apprenticeshipSteps = [
@@ -16,8 +15,6 @@ export default function AWorkplaceDevelopmentJourneyNotJustACourse() {
       <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {apprenticeshipSteps.map(step => <li key={step.step} className="rounded-xl border border-background-200 bg-background-50 p-5"><span className="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-primary-100 text-sm font-bold text-primary-700" aria-hidden="true">{step.step.padStart(2, '0')}</span><h3 className="font-heading text-xl font-bold text-foreground-950">{step.title}</h3><p className="mt-3 text-sm leading-7 text-foreground-600">{step.text}</p></li>)}
       </ol>
-      <ul className="mx-auto mt-8 flex max-w-4xl flex-wrap justify-center gap-3">{['Funded where eligible', 'Employer-supported', 'Workplace evidence required', 'Off-the-job learning records', 'Progress reviews', 'Quality and compliance requirements'].map(item => <li key={item} className="rounded-full border border-primary-200 bg-primary-50 px-3 py-1.5 text-xs font-semibold text-primary-700">{item}</li>)}</ul>
-      <div className="mt-8 text-center"><SiteLink href="/apprenticeship-eligibility-checker" className="btn-primary w-full text-sm sm:w-auto">Check PMO Apprenticeship Eligibility</SiteLink></div>
     </PmoSection>
   );
 }

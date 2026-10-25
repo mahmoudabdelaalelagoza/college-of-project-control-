@@ -6,7 +6,7 @@ export default function IndependentProfessionalDevelopmentRoute() {
 <div className="text-xs font-bold uppercase tracking-[.14em] text-accent-700">
 {"Independent professional-development route "}
 </div>
-<h2 id="portfolio-management-title" className="text-3xl font-bold leading-tight md:text-4xl">
+<h2 id="portfolio-management-title" className="text-section-3xl font-bold leading-tight md:text-section-4xl">
 {"Portfolio Management "}
 </h2>
 <p className="text-base leading-relaxed">

@@ -1,4 +1,3 @@
-import SiteLink from '@/components/base/SiteLink';
 import PmoSection from './PmoSection';
 const stages = [
   {
@@ -117,7 +116,6 @@ export default function FourCapabilitiesToHelpYourPMOBecomeTrusted() {
               <h4 className="mb-3 text-sm font-bold text-foreground-800">Workplace outputs</h4>
               <ul className="flex flex-wrap gap-2">{stage.outputs.map(item => <li key={item} className="rounded-full border border-primary-200 bg-primary-50 px-3 py-1 text-xs leading-6 text-primary-700">{item}</li>)}</ul>
             </div>
-            <SiteLink href="/book-a-session" className="mt-auto inline-flex min-h-11 items-center gap-2 self-start text-sm font-bold text-primary-700 hover:underline">Explore {stage.heading.split(' ')[0]}<i className="ri-arrow-right-line" aria-hidden="true" /></SiteLink>
           </li>
         ))}
       </ol>

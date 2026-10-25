@@ -1,0 +1,710 @@
+{
+  "mode": "next",
+  "origin": "http://127.0.0.1:3016",
+  "passed": 45,
+  "failed": 0,
+  "results": [
+    {
+      "name": "T01 actual brand faces 375",
+      "passed": true,
+      "evidence": {
+        "heading": [
+          {
+            "familyName": "Source Serif 4",
+            "postScriptName": "Source-Serif-4-14pt-Black",
+            "isCustomFont": true,
+            "glyphCount": 47
+          }
+        ],
+        "body": [
+          {
+            "familyName": "Poppins SemiBold",
+            "postScriptName": "Poppins-SemiBold",
+            "isCustomFont": true,
+            "glyphCount": 63
+          }
+        ],
+        "weight": "900"
+      }
+    },
+    {
+      "name": "T01 actual brand faces 768",
+      "passed": true,
+      "evidence": {
+        "heading": [
+          {
+            "familyName": "Source Serif 4",
+            "postScriptName": "Source-Serif-4-14pt-ExtraBold",
+            "isCustomFont": true,
+            "glyphCount": 49
+          }
+        ],
+        "body": [
+          {
+            "familyName": "Poppins SemiBold",
+            "postScriptName": "Poppins-SemiBold",
+            "isCustomFont": true,
+            "glyphCount": 64
+          }
+        ],
+        "weight": "800"
+      }
+    },
+    {
+      "name": "T01 actual brand faces 1440",
+      "passed": true,
+      "evidence": {
+        "heading": [
+          {
+            "familyName": "Source Serif 4",
+            "postScriptName": "Source-Serif-4-14pt-ExtraBold",
+            "isCustomFont": true,
+            "glyphCount": 47
+          }
+        ],
+        "body": [
+          {
+            "familyName": "Poppins SemiBold",
+            "postScriptName": "Poppins-SemiBold",
+            "isCustomFont": true,
+            "glyphCount": 64
+          }
+        ],
+        "weight": "800"
+      }
+    },
+    {
+      "name": "T02 contact outline normal hover focus",
+      "passed": true,
+      "evidence": {
+        "normal": {
+          "text": "Request a consultation",
+          "size": "15px",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            1,
+            6,
+            9
+          ],
+          "ratio": 20.362942626598446
+        },
+        "states": [
+          {
+            "state": "hover",
+            "text": "Request a consultation",
+            "size": "15px",
+            "foreground": [
+              255,
+              255,
+              255
+            ],
+            "background": [
+              1,
+              6,
+              9
+            ],
+            "ratio": 20.362942626598446
+          },
+          {
+            "state": "focus-visible",
+            "text": "Request a consultation",
+            "size": "15px",
+            "foreground": [
+              255,
+              255,
+              255
+            ],
+            "background": [
+              1,
+              6,
+              9
+            ],
+            "ratio": 20.362942626598446
+          }
+        ],
+        "disabled": "Not applicable: navigation anchor; no disabled behavior changed."
+      }
+    },
+    {
+      "name": "T03/T04 shared warm label",
+      "passed": true,
+      "evidence": {
+        "text": "Course catalogue",
+        "size": "14px",
+        "foreground": [
+          115,
+          68,
+          28
+        ],
+        "background": [
+          236,
+          241,
+          243
+        ],
+        "ratio": 7.169018158954902
+      }
+    },
+    {
+      "name": "T03/T04 engineering eyebrow",
+      "passed": true,
+      "evidence": {
+        "text": "Project controls that protect engineering value",
+        "size": "14px",
+        "foreground": [
+          115,
+          68,
+          28
+        ],
+        "background": [
+          245,
+          248,
+          249
+        ],
+        "ratio": 7.6488708710685795
+      }
+    },
+    {
+      "name": "T03/T04 programme label",
+      "passed": true,
+      "evidence": {
+        "text": "Choose Your Programme",
+        "size": "14px",
+        "foreground": [
+          115,
+          68,
+          28
+        ],
+        "background": [
+          245,
+          248,
+          249
+        ],
+        "ratio": 7.6488708710685795
+      }
+    },
+    {
+      "name": "T03/T04 community label",
+      "passed": true,
+      "evidence": {
+        "text": "✦College community",
+        "size": "14px",
+        "foreground": [
+          115,
+          68,
+          28
+        ],
+        "background": [
+          236,
+          241,
+          243
+        ],
+        "ratio": 7.169018158954902
+      }
+    },
+    {
+      "name": "T03/T04 recognition conditions",
+      "passed": true,
+      "evidence": {
+        "text": "Recognition applies to the named assessment, not automatically to every commercial course. ChPP is a",
+        "size": "15px",
+        "foreground": [
+          224,
+          233,
+          237
+        ],
+        "background": [
+          53.839215686274514,
+          111.31372549019608,
+          129.27450980392157
+        ],
+        "ratio": 4.531708042234477
+      }
+    },
+    {
+      "name": "T03/T04 board renewal",
+      "passed": true,
+      "evidence": {
+        "text": "Renewal beyond the initial term is not guaranteed and remains subject to periodic Board review.",
+        "size": "14px",
+        "foreground": [
+          224,
+          233,
+          237
+        ],
+        "background": [
+          17,
+          75,
+          93
+        ],
+        "ratio": 7.790382330505819
+      }
+    },
+    {
+      "name": "T03/T04 funding conditions",
+      "passed": true,
+      "evidence": {
+        "text": "Funding, support packages, exams, memberships and professional progression support are subject to el",
+        "size": "14px",
+        "foreground": [
+          74,
+          90,
+          102
+        ],
+        "background": [
+          245,
+          248,
+          249
+        ],
+        "ratio": 6.680491681147851
+      }
+    },
+    {
+      "name": "T03/T04 legal support",
+      "passed": true,
+      "evidence": {
+        "text": "Last reviewed: 31 August 2026",
+        "size": "14px",
+        "foreground": [
+          74,
+          90,
+          102
+        ],
+        "background": [
+          245,
+          248,
+          249
+        ],
+        "ratio": 6.680491681147851
+      }
+    },
+    {
+      "name": "T03/T04 hub outline action",
+      "passed": true,
+      "evidence": {
+        "text": "Check Eligibility",
+        "size": "15px",
+        "foreground": [
+          255,
+          255,
+          255
+        ],
+        "background": [
+          0,
+          24,
+          33
+        ],
+        "ratio": 18.21944535100445
+      }
+    },
+    {
+      "name": "T03/T04 apprentice support",
+      "passed": true,
+      "evidence": {
+        "text": "Free eligibility check. No commitment required.",
+        "size": "14px",
+        "foreground": [
+          224,
+          233,
+          237
+        ],
+        "background": [
+          1,
+          6,
+          9
+        ],
+        "ratio": 16.530742531454425
+      }
+    },
+    {
+      "name": "T03/T04 chart labels",
+      "passed": true,
+      "evidence": {
+        "text": "High",
+        "size": "15px",
+        "foreground": [
+          74,
+          90,
+          102
+        ],
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "ratio": 7.129527389007971
+      }
+    },
+    {
+      "name": "T03/T04 workflow labels",
+      "passed": true,
+      "evidence": {
+        "text": "next",
+        "size": "14px",
+        "foreground": [
+          224,
+          233,
+          237
+        ],
+        "background": [
+          44.788389081122645,
+          48.926412918108426,
+          51.40922722029988
+        ],
+        "ratio": 10.673330884027576
+      }
+    },
+    {
+      "name": "T05 header text spacing 320",
+      "passed": true,
+      "evidence": {
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "bottom": 0,
+        "headerBottom": 155,
+        "overflow": 0
+      }
+    },
+    {
+      "name": "T05 header text spacing 375",
+      "passed": true,
+      "evidence": {
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "bottom": 0,
+        "headerBottom": 155,
+        "overflow": 0
+      }
+    },
+    {
+      "name": "T05 header text spacing 430",
+      "passed": true,
+      "evidence": {
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "bottom": 0,
+        "headerBottom": 155,
+        "overflow": 0
+      }
+    },
+    {
+      "name": "T05 header text spacing 768",
+      "passed": true,
+      "evidence": {
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "bottom": 0,
+        "headerBottom": 145,
+        "overflow": 0
+      }
+    },
+    {
+      "name": "T05 header text spacing 1024",
+      "passed": true,
+      "evidence": {
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "bottom": 0,
+        "headerBottom": 145,
+        "overflow": 0
+      }
+    },
+    {
+      "name": "T05 header text spacing 1280",
+      "passed": true,
+      "evidence": {
+        "width": 206.90625,
+        "height": 52,
+        "top": 146,
+        "bottom": 198,
+        "headerBottom": 207,
+        "overflow": 0,
+        "dropdown": {
+          "top": 205.9789581298828,
+          "headerBottom": 207
+        }
+      }
+    },
+    {
+      "name": "T05 header text spacing 1440",
+      "passed": true,
+      "evidence": {
+        "width": 206.90625,
+        "height": 52,
+        "top": 146,
+        "bottom": 198,
+        "headerBottom": 207,
+        "overflow": 0
+      }
+    },
+    {
+      "name": "T05 header text spacing 1920",
+      "passed": true,
+      "evidence": {
+        "width": 206.90625,
+        "height": 52,
+        "top": 146,
+        "bottom": 198,
+        "headerBottom": 207,
+        "overflow": 0
+      }
+    },
+    {
+      "name": "T05 funding notice remains visible at 200% root text",
+      "passed": true,
+      "evidence": {
+        "textTop": 8,
+        "textBottom": 142.390625,
+        "parentTop": 0,
+        "parentBottom": 150.390625,
+        "overflow": 0
+      }
+    },
+    {
+      "name": "T06 heading outline /apprentices",
+      "passed": true,
+      "evidence": {
+        "jumps": []
+      }
+    },
+    {
+      "name": "T06 heading outline /commercial-project-controls-route",
+      "passed": true,
+      "evidence": {
+        "jumps": []
+      }
+    },
+    {
+      "name": "T06 heading outline /campaign/construction",
+      "passed": true,
+      "evidence": {
+        "jumps": []
+      }
+    },
+    {
+      "name": "T06 heading outline /campaign/energy",
+      "passed": true,
+      "evidence": {
+        "jumps": []
+      }
+    },
+    {
+      "name": "T06 heading outline /campaign/public-sector",
+      "passed": true,
+      "evidence": {
+        "jumps": []
+      }
+    },
+    {
+      "name": "T06 heading outline /campaign/head-of-pmo",
+      "passed": true,
+      "evidence": {
+        "jumps": []
+      }
+    },
+    {
+      "name": "T06 heading outline /campaign/hr-employer",
+      "passed": true,
+      "evidence": {
+        "jumps": []
+      }
+    },
+    {
+      "name": "T07 explicit section role preserves optical size",
+      "passed": true,
+      "evidence": {
+        "size": "22.32px"
+      }
+    },
+    {
+      "name": "T08/T10 learner metadata search disclosure and long name",
+      "passed": true,
+      "evidence": {
+        "values": {
+          "programme": "13px",
+          "source": "13px"
+        },
+        "placeholder": {
+          "text": "Learner, organisation or keyword",
+          "size": "16px",
+          "foreground": [
+            78,
+            98,
+            110
+          ],
+          "background": [
+            245,
+            248,
+            249
+          ],
+          "ratio": 5.96976505351277
+        },
+        "expanded": true,
+        "longName": {
+          "width": 213,
+          "scroll": 213
+        },
+        "fixture": "Temporary DOM only"
+      }
+    },
+    {
+      "name": "T10 login placeholder and password visibility",
+      "passed": true,
+      "evidence": {
+        "text": "you@collegeofprojectcontrols.com",
+        "size": "15px",
+        "foreground": [
+          186,
+          203,
+          211
+        ],
+        "background": [
+          27.049211841599387,
+          54.40330642060746,
+          64.43314109957709
+        ],
+        "ratio": 7.586652226088048
+      }
+    },
+    {
+      "name": "T09 chat scaling and scroll access 320",
+      "passed": true,
+      "evidence": {
+        "initial": "13px",
+        "privacySize": "26px",
+        "panel": {
+          "left": 12,
+          "right": 308,
+          "top": 184,
+          "bottom": 804
+        },
+        "privacy": {
+          "top": 510.46875,
+          "bottom": 803.46875
+        },
+        "pageOverflow": 0,
+        "panelOverflow": 0,
+        "scaling": "Root-font override, not native browser zoom"
+      }
+    },
+    {
+      "name": "T09 chat scaling and scroll access 375",
+      "passed": true,
+      "evidence": {
+        "initial": "13px",
+        "privacySize": "26px",
+        "panel": {
+          "left": 12,
+          "right": 363,
+          "top": 184,
+          "bottom": 804
+        },
+        "privacy": {
+          "top": 549.09375,
+          "bottom": 803.09375
+        },
+        "pageOverflow": 0,
+        "panelOverflow": 0,
+        "scaling": "Root-font override, not native browser zoom"
+      }
+    },
+    {
+      "name": "T09 chat scaling and scroll access 1440",
+      "passed": true,
+      "evidence": {
+        "initial": "13px",
+        "privacySize": "26px",
+        "panel": {
+          "left": 995,
+          "right": 1405,
+          "top": 176,
+          "bottom": 796
+        },
+        "privacy": {
+          "top": 580.09375,
+          "bottom": 795.09375
+        },
+        "pageOverflow": 0,
+        "panelOverflow": 0,
+        "scaling": "Root-font override, not native browser zoom"
+      }
+    },
+    {
+      "name": "T11 genuine italic quote",
+      "passed": true,
+      "evidence": [
+        {
+          "familyName": "Source Serif 4",
+          "postScriptName": "Source-Serif-4-14pt-Italic",
+          "isCustomFont": true,
+          "glyphCount": 78
+        }
+      ]
+    },
+    {
+      "name": "T12 single shared serif family",
+      "passed": true,
+      "evidence": [
+        "Source Serif 4"
+      ]
+    },
+    {
+      "name": "Portal font faces and keyboard focus return",
+      "passed": true,
+      "evidence": {
+        "actual": [
+          {
+            "familyName": "Source Serif 4",
+            "postScriptName": "Source-Serif-4-14pt-Bold",
+            "isCustomFont": true,
+            "glyphCount": 35
+          }
+        ],
+        "focusReturned": true
+      }
+    },
+    {
+      "name": "Sticky header clearance /associate-project-manager-level-4",
+      "passed": true,
+      "evidence": {
+        "top": 207,
+        "headerBottom": 207,
+        "headerHeight": "207px"
+      }
+    },
+    {
+      "name": "Sticky header clearance /project-controls-professional-level-6",
+      "passed": true,
+      "evidence": {
+        "top": 207,
+        "headerBottom": 207,
+        "headerHeight": "207px"
+      }
+    },
+    {
+      "name": "Sticky header clearance /project-controls-professional/strategic-route",
+      "passed": true,
+      "evidence": {
+        "top": 207,
+        "headerBottom": 207,
+        "headerHeight": "207px"
+      }
+    },
+    {
+      "name": "No runtime exceptions or hydration errors",
+      "passed": true,
+      "evidence": {
+        "runtimeExceptions": 0,
+        "hydrationErrors": 0
+      }
+    }
+  ]
+}

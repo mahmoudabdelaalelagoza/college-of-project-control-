@@ -1,12 +1,4 @@
 
-import { checkerFaqs } from '../../apprenticeship-eligibility-checker/checkerData';
-import { faqs as apmLevel4Faqs } from '../../apm-level-4/programmeData';
-import { faqs as commercialCampaignFaqs } from '../../campaign/commercial-route/campaignData';
-import { faqs as constructionCampaignFaqs } from '../../campaign/construction/campaignData';
-import { faqs as energyCampaignFaqs } from '../../campaign/energy/campaignData';
-import { faqs as headOfPmoCampaignFaqs } from '../../campaign/head-of-pmo/campaignData';
-import { faqs as hrEmployerCampaignFaqs } from '../../campaign/hr-employer/campaignData';
-import { faqs as publicSectorCampaignFaqs } from '../../campaign/public-sector/campaignData';
 import { articleFaqs as apmChppArticleFaqs } from '../../knowledge-hub/apm-chpp-readiness/sectionData';
 import { articleFaqs as commercialRoutesArticleFaqs } from '../../knowledge-hub/commercial-routes-explained/sectionData';
 import { articleFaqs as constructionTrainingArticleFaqs } from '../../knowledge-hub/construction-training/sectionData';
@@ -17,14 +9,6 @@ import { articleFaqs as pcpVsPmpArticleFaqs } from '../../knowledge-hub/pcp-vs-p
 import { articleFaqs as pmoGovernanceArticleFaqs } from '../../knowledge-hub/pmo-governance-training/sectionData';
 import { articleFaqs as strategicVsOperationalArticleFaqs } from '../../knowledge-hub/strategic-vs-operational/sectionData';
 import { articleFaqs as whatIsPcpArticleFaqs } from '../../knowledge-hub/what-is-pcp-apprenticeship/sectionData';
-import { sectorConfig as constructionSectorConfig } from '../../operational-pcp-construction/sectorData';
-import { sectorConfig as energySectorConfig } from '../../operational-pcp-energy/sectorData';
-import { sectorConfig as engineeringSectorConfig } from '../../operational-pcp-engineering/sectorData';
-import { sectorConfig as publicSectorConfig } from '../../operational-pcp-public-sector/sectorData';
-import { faqs as pmoRouteFaqs } from '../../pmo-pcp/sectionData';
-import { chartered, operational, strategic } from '../../programme-template/pathwayData';
-import { faqs as pcpLevel6Faqs } from '../../project-controls-professional-level-6/programmeData';
-import { faqData as strategicOperationalFaqData } from '../../strategic-operational-pcp/routeData';
 
 export interface FaqCategory {
   id: string;
@@ -36,7 +20,6 @@ export interface FaqCategory {
 }
 
 const fromObjects = (items: readonly { q: string; a: string }[]) => items.map(({ q, a }) => ({ question: q, answer: a }));
-const fromPairs = (items: readonly (readonly [string, string])[]) => items.map(([question, answer]) => ({ question, answer }));
 
 const pageLocalFaqs = [
   {
@@ -76,14 +59,6 @@ const pageLocalFaqs = [
     answer: 'Selected programmes connect with relevant professional qualifications, assessments, memberships and progression pathways. These remain subject to the requirements of the relevant professional body.',
   },
   {
-    question: 'Does completing a programme automatically award ChPP?',
-    answer: 'No. Development can support Chartered progression towards ChPP, but Chartered status is awarded by APM based on its own requirements and is not automatically awarded on completion of a programme.',
-  },
-  {
-    question: 'Can we use an apprenticeship to develop an existing employee?',
-    answer: 'Yes, apprenticeships can support eligible existing employees where the programme provides substantial new learning and is appropriate for their role and development needs. Final suitability and funding are confirmed during the pre-enrolment review.',
-  },
-  {
     question: 'How involved does the employer need to be?',
     answer: 'Employer involvement is an important part of work-based training. This includes supporting workplace learning, attending progress reviews, providing feedback and helping the employee access suitable development opportunities.',
   },
@@ -108,16 +83,12 @@ const pageLocalFaqs = [
     answer: 'Yes. The discussion can start with the role, current capability and development objective before a programme is selected.',
   },
   {
-    question: 'Do I need prior project controls experience?',
-    answer: 'No. We have entry points from Level 3 through to Level 6. Your eligibility depends on your current role and qualifications, not prior controls knowledge.',
-  },
-  {
     question: 'How much does it cost me personally?',
     answer: 'Apprentices must not be asked to contribute to eligible apprenticeship training costs. Whether a place is funded depends on employer support, learner eligibility and the funding rules that apply on the start date. We confirm this before enrolment.',
   },
   {
     question: 'How long does the programme take?',
-    answer: 'Typically 18-24 months depending on your level and pace. You will be learning while working, so the programme fits around your job.',
+    answer: 'For apprenticeships, typically 18-26 months depending on your level and pace. You will be learning while working, so the programme fits around your job. Standalone professional courses follow their own schedule, which is confirmed before enrolment.',
   },
   {
     question: 'What certification will I achieve?',
@@ -134,10 +105,6 @@ const pageLocalFaqs = [
   {
     question: 'How does IPC connect with College programmes?',
     answer: 'Relevant College programmes combine structured learning and workplace application with IPC-aligned professional development. The exact support and recognition route is confirmed for each programme and learner.',
-  },
-  {
-    question: 'Does completing a programme guarantee professional status?',
-    answer: 'No. Membership, awards and professional recognition remain subject to the Institute criteria, assessment and approval requirements.',
   },
   {
     question: 'Which disciplines sit within project controls?',
@@ -193,90 +160,15 @@ const pageLocalFaqs = [
   },
 ];
 
-const sectorPageFaqs = [
-  {
-    question: 'What is the difference between the Funded Route and IPC Bursary Route?',
-    answer: 'The Funded Route is supported through the Department for Education and is subject to employment, residency, employer, prior-learning and funding requirements. The IPC Bursary Route is an alternative contribution towards selected pathway fees where DfE funding is unavailable or unsuitable.',
-  },
-  {
-    question: 'Is the DfE Funded Route guaranteed?',
-    answer: 'No. It is potentially fully funded for eligible six-credit pathways, but funding is subject to the applicable rules, employer participation, available funding, prior-learning assessment and written confirmation.',
-  },
-  {
-    question: 'Does six credits always mean six separate modules?',
-    answer: 'No. Credits describe pathway weight, not always the number of courses. PMP is shown as two credits and Certified PMO Professional Level 6 as four credits.',
-  },
-  {
-    question: 'Can I tailor my Operational or Strategic pathway?',
-    answer: 'The final combination must be approved against role responsibilities, employer context and route eligibility.',
-  },
-  {
-    question: 'Is the AI in Project Controls mandatory?',
-    answer: 'It is a core component of the six-credit Operational, Strategic and Chartered pathways because data, reporting, dashboards and assurance increasingly require responsible AI-enabled practice.',
-  },
-  {
-    question: 'Does the Chartered Pathway guarantee ChPP status?',
-    answer: 'No. Chartered status and professional recognition are controlled by the relevant professional body. The pathway can support evidence and readiness but does not guarantee an external award.',
-  },
-  {
-    question: 'How does the PMO Certified route differ?',
-    answer: 'PMO Certified is a focused four-credit route centred on PMO governance, operating models, services and standards rather than the wider six-credit funded pathways.',
-  },
-  {
-    question: 'What does first-come, first-served mean?',
-    answer: 'Funded and bursary places are limited. Enquiries are reviewed in order, but no place is confirmed until suitability, eligibility and written agreement are completed.',
-  },
-  {
-    question: 'What if my employer cannot support the required paid learning time?',
-    answer: 'Employer participation is required for funded apprenticeship routes. If support is not available, a bursary or commercial route may be discussed where suitable.',
-  },
-  {
-    question: 'Who is this engineering sector page for?',
-    answer: 'It is for engineering and advanced-manufacturing employers and professionals working across project controls, planning, scheduling, cost, risk, PMO, systems integration, product development, production readiness, quality, assurance and complex programme delivery.',
-  },
-  {
-    question: 'Are the apprenticeship pathways fully funded?',
-    answer: 'They may be fully funded through the Department for Education route where all eligibility, employer, prior-learning and funding conditions are met. Funding is not guaranteed until confirmed in writing.',
-  },
-  {
-    question: 'What is included in the Operational Pathway?',
-    answer: 'The Operational Pathway combines PMP, AI, Planning and Control and a specialist elective in risk, EVM or scheduling.',
-  },
-  {
-    question: 'How is the Strategic Pathway different?',
-    answer: 'The Strategic Pathway combines PMP strategic leadership with AI, Programme Management, Portfolio Management and PMO Leadership.',
-  },
-  {
-    question: 'What engineering evidence can be developed?',
-    answer: 'Evidence may include integrated baselines, requirements and design-maturity registers, engineering schedules, EVM and cost forecasts, risk and change controls, production-readiness plans and executive assurance packs, depending on the learner role.',
-  },
-  {
-    question: 'What does the IPC Bursary Route cover?',
-    answer: 'Subject to approval and availability, IPC bursary support is presented as 50% for Operational, 50% for Strategic and 75% for Chartered, with flexible instalments for up to 36 months.',
-  },
-  {
-    question: 'Can an existing public-sector employee complete an apprenticeship?',
-    answer: 'Yes, where the apprenticeship provides substantial new learning, the employee role supports application and all current eligibility requirements are met.',
-  },
-  {
-    question: 'Which route is right for project support or coordination roles?',
-    answer: 'Associate Project Manager Level 4 is typically the more relevant route for employees coordinating delivery, supporting governance, managing workstreams and developing broad project-management capability. A formal review is still required.',
-  },
-  {
-    question: 'Who is the Project Controls Professional Level 6 route designed for?',
-    answer: 'It is intended for employees whose role requires integrated control across schedule, cost, risk, change, performance reporting and governance, such as planners, cost professionals, risk specialists, controls engineers and PMO controls teams.',
-  },
-  {
-    question: 'What does the employer need to provide?',
-    answer: 'The employer supports agreed learning activity, workplace application, relevant evidence opportunities, progress reviews and the learner development throughout the programme.',
-  },
-  {
-    question: 'How is workplace impact reviewed?',
-    answer: 'Learners build evidence through applied activity, assignments, reflection, coaching and progress reviews. Employers help confirm how learning is improving professional practice and organisational outcomes.',
-  },
-];
-
 export const categories: FaqCategory[] = [
+  {
+    id: 'page-local-faqs',
+    label: 'General FAQs',
+    shortLabel: 'General',
+    icon: 'ri-pages-line',
+    introduction: '',
+    items: pageLocalFaqs,
+  },
   {
     id: 'college', label: 'About the College', shortLabel: 'The College', icon: 'ri-building-4-line',
     introduction: 'How the College approaches professional education, delivery and learner support.',
@@ -291,20 +183,10 @@ export const categories: FaqCategory[] = [
     id: 'programmes', label: 'Programmes & Levels', shortLabel: 'Programmes', icon: 'ri-graduation-cap-line',
     introduction: 'Choosing between the College’s main professional programmes and levels.',
     items: [
-      { question: 'Which main programmes are available?', answer: 'The main routes include Project Controls Professional Level 6, Associate Project Manager Level 4 and Certified PMO Professional Level 6, alongside specialist and commercial development options.' },
+      { question: 'Which main programmes are available?', answer: 'Project Controls Professional Level 6 and Associate Project Manager Level 4 are available as apprenticeships, subject to eligibility, or through IPC funding. Certified PMO Professional Level 6 and our specialist and commercial development options are available as standalone professional programmes or through IPC funding.' },
       { question: 'How do I choose the right level?', answer: 'Start with your current responsibilities, experience and the capability you need to build. Level 4 supports developing project-management practice, while Level 6 routes address more advanced controls and PMO responsibilities.' },
       { question: 'Do I need “Project Manager” in my job title?', answer: 'No. Suitability is based more on what you do than your job title. Planning, reporting, coordination, cost, risk, controls, governance and stakeholder responsibilities may all be relevant.' },
       { question: 'Can a programme reflect my sector?', answer: 'Where appropriate, examples, discussion and workplace application can reflect your sector and professional context while maintaining the programme’s required outcomes.' },
-    ],
-  },
-  {
-    id: 'pcp-level-6', label: 'PCP Level 6', shortLabel: 'PCP Level 6', icon: 'ri-line-chart-line',
-    introduction: 'The structure, pathways and intended outcomes of Project Controls Professional Level 6.',
-    items: [
-      { question: 'Who is PCP Level 6 for?', answer: 'It is designed for professionals involved in planning, scheduling, cost, risk, change, reporting, governance, PMO and the control of complex projects or programmes.' },
-      { question: 'What pathways are available?', answer: 'The College presents Operational, Strategic and Chartered pathways. A tailored combination may also be discussed where duties, evidence opportunities and programme rules allow.' },
-      { question: 'How is the programme applied at work?', answer: 'Learners connect learning with relevant responsibilities and build evidence through practical outputs, reflection, coaching and employer-supported progress reviews.' },
-      { question: 'Does completion guarantee professional recognition?', answer: 'No. The programme can support readiness and evidence development, but membership, examinations and professional status remain subject to each awarding organisation’s requirements.' },
     ],
   },
   {
@@ -315,6 +197,15 @@ export const categories: FaqCategory[] = [
       { question: 'What capabilities does Level 4 develop?', answer: 'It develops structured practice across planning, governance, communication, risk, stakeholder engagement and delivery coordination.' },
       { question: 'Can Level 4 support progression into project controls?', answer: 'It can provide a strong project-management foundation. A later step may include deeper project controls, PMO or specialist development depending on your role and goals.' },
       { question: 'Is previous project-management experience required?', answer: 'Relevant workplace exposure is helpful, but admissions considers your role, responsibilities, prior learning and ability to apply the programme in practice.' },
+    ],
+  },
+  {
+    id: 'pcp-level-6', label: 'PCP Level 6', shortLabel: 'PCP Level 6', icon: 'ri-line-chart-line',
+    introduction: 'The structure, pathways and intended outcomes of Project Controls Professional Level 6.',
+    items: [
+      { question: 'Who is PCP Level 6 for?', answer: 'It is designed for professionals involved in planning, scheduling, cost, risk, change, reporting, governance, PMO and the control of complex projects or programmes.' },
+      { question: 'What pathways are available?', answer: 'The College presents Operational, Strategic and Chartered pathways. A tailored combination may also be discussed where duties, evidence opportunities and programme rules allow.' },
+      { question: 'How is the programme applied at work?', answer: 'Learners connect learning with relevant responsibilities and build evidence through practical outputs, reflection, coaching and employer-supported progress reviews.' },
     ],
   },
   {
@@ -332,7 +223,6 @@ export const categories: FaqCategory[] = [
     introduction: 'How programmes connect with professional bodies, qualifications and longer-term progression.',
     items: [
       { question: 'What does recognition support mean?', answer: 'It means helping learners understand relevant standards, develop evidence and prepare for applicable assessments or progression routes. Recognition is not awarded automatically.' },
-      { question: 'Is Chartered status guaranteed?', answer: 'No. Chartered status is awarded only by the relevant professional body after its own eligibility and assessment requirements have been met.' },
       { question: 'Are professional examinations included?', answer: 'Some routes may include preparation, memberships or related support where specified. Confirm the exact arrangement for your selected programme before enrolling.' },
       { question: 'Can the College help plan my longer-term pathway?', answer: 'Yes. An information session can connect your current role and intended direction with a suitable programme or professional-development route.' },
     ],
@@ -358,44 +248,6 @@ export const categories: FaqCategory[] = [
     ],
   },
   {
-    id: 'page-local-faqs',
-    label: 'General Page FAQs',
-    shortLabel: 'General',
-    icon: 'ri-pages-line',
-    introduction: 'Questions that were previously placed on individual website pages, now held in the central FAQ page.',
-    items: pageLocalFaqs,
-  },
-  {
-    id: 'programme-route-faqs',
-    label: 'Programme Route FAQs',
-    shortLabel: 'Routes',
-    icon: 'ri-route-line',
-    introduction: 'Questions previously shown on individual programme and pathway pages, now collected in one place.',
-    items: [
-      ...fromObjects(pcpLevel6Faqs),
-      ...fromObjects(apmLevel4Faqs),
-      ...fromObjects(pmoRouteFaqs),
-      ...fromObjects(strategicOperationalFaqData.faqs),
-      ...fromObjects(operational.faqs),
-      ...fromObjects(strategic.faqs),
-      ...fromObjects(chartered.faqs),
-    ],
-  },
-  {
-    id: 'sector-route-faqs',
-    label: 'Sector Route FAQs',
-    shortLabel: 'Sectors',
-    icon: 'ri-building-2-line',
-    introduction: 'Sector-specific project-controls questions covering construction, engineering, energy and public-sector routes.',
-    items: [
-      ...fromObjects(constructionSectorConfig.faq.faqs),
-      ...fromObjects(engineeringSectorConfig.faq.faqs),
-      ...fromObjects(energySectorConfig.faq.faqs),
-      ...fromObjects(publicSectorConfig.faq.faqs),
-      ...sectorPageFaqs,
-    ],
-  },
-  {
     id: 'article-guide-faqs',
     label: 'Knowledge Hub FAQs',
     shortLabel: 'Guides',
@@ -412,22 +264,6 @@ export const categories: FaqCategory[] = [
       ...fromObjects(constructionTrainingArticleFaqs),
       ...fromObjects(commercialRoutesArticleFaqs),
       ...fromObjects(apmChppArticleFaqs),
-    ],
-  },
-  {
-    id: 'campaign-and-eligibility-faqs',
-    label: 'Campaign & Eligibility FAQs',
-    shortLabel: 'Eligibility',
-    icon: 'ri-question-answer-line',
-    introduction: 'Questions from campaign pages and the apprenticeship eligibility checker.',
-    items: [
-      ...fromPairs(checkerFaqs),
-      ...fromObjects(constructionCampaignFaqs),
-      ...fromObjects(energyCampaignFaqs),
-      ...fromObjects(publicSectorCampaignFaqs),
-      ...fromObjects(commercialCampaignFaqs),
-      ...fromObjects(hrEmployerCampaignFaqs),
-      ...fromObjects(headOfPmoCampaignFaqs),
     ],
   },
 ];

@@ -71,8 +71,8 @@
   max-width: 48rem;
   margin-top: 1.25rem;
   font-family: var(--font-heading);
-  font-size: 2.25rem;
-  font-weight: 800;
+  font-size: var(--type-hero-mobile);
+  font-weight: var(--weight-hero);
   line-height: 1.08;
   letter-spacing: 0;
   color: white;
@@ -152,7 +152,7 @@
   .site-hero .site-hero__actions { flex-direction: row; }
 }
 @media (min-width: 640px) {
-  .site-hero h1 { font-size: clamp(2.65rem, 5vw, 4rem); }
+  .site-hero h1 { font-size: var(--type-hero-tablet); }
 }
 
 @media (min-width: 768px) {
@@ -169,7 +169,7 @@
 }
 
 @media (min-width: 1024px) {
-  .site-hero h1 { font-size: clamp(3rem, 6vw, 4.75rem); }
+  .site-hero h1 { font-size: var(--type-hero-desktop); }
   .site-hero .site-hero__grid,
   .site-hero .site-hero__inner {
     display: grid;

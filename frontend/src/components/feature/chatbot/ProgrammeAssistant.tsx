@@ -4,6 +4,7 @@ import SiteLink from '@/components/base/SiteLink';
 import { getChatStatus, sendChat, type ChatTurn } from '@/services/chatbotApi';
 import './programme-assistant.css';
 import ChatIcon from './ChatIcon';
+import AssistantRobotIcon from './AssistantRobotIcon';
 
 const prompts = ['Which programme suits my role?', 'How does funding work?', 'What are the eligibility requirements?'];
 
@@ -112,6 +113,6 @@ export default function ProgrammeAssistant() {
       </form>
       <p className="assistant-privacy">Messages are sent to our AI provider to answer your question. Please avoid sensitive information. <SiteLink href="/privacy" onClick={close}>Privacy notice</SiteLink></p>
     </section>}
-    <button ref={launcher} type="button" className="assistant-launcher" aria-expanded={open} aria-controls="programme-assistant-panel" aria-label={open ? 'Close programme assistant' : 'Ask the programme assistant'} onClick={() => open ? close() : setOpen(true)}><ChatIcon name={open ? 'close' : 'chat'} /><span>Ask CPCM</span></button>
+    <button ref={launcher} type="button" className="assistant-launcher" aria-expanded={open} aria-haspopup="dialog" aria-controls="programme-assistant-panel" aria-label={open ? 'Close programme assistant' : 'Ask the programme assistant'} onClick={() => open ? close() : setOpen(true)}>{open ? <ChatIcon name="close" /> : <AssistantRobotIcon />}</button>
   </div>;
 }

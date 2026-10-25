@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import type { EventCategory } from '@/services/eventsApi';
 import { cmsApi } from '../api/client';
 import EventCategories from './EventCategories';
+import EventbriteSettings from './EventbriteSettings';
 import { DashboardAlert, DashboardEmptyState, DashboardPageHeader, DashboardSkeletonList, StatusBadge } from '../components/DashboardPrimitives';
 
 interface ManagedEvent {
@@ -93,7 +94,7 @@ export default function EventsManager() {
       <DashboardPageHeader
         eyebrow="Website content"
         title="Events"
-        description="Manage events and publication rules."
+        description="Manage events, publication rules and your Eventbrite connection."
         meta={<StatusBadge tone={eventCounts.upcoming ? 'info' : 'neutral'}>{eventCounts.upcoming} public upcoming</StatusBadge>}
       />
 
@@ -101,6 +102,8 @@ export default function EventsManager() {
         {[
           ['events', 'Events'],
           ['categories', 'Categories & visibility'],
+          ['connection', 'Eventbrite connection'],
+          ['history', 'Sync history'],
         ].map(([key, label]) => (
           <button
             key={key}
@@ -122,6 +125,8 @@ export default function EventsManager() {
         <DashboardSkeletonList rows={4} />
       ) : tab === 'categories' ? (
         <EventCategories categories={categories} reload={reload} />
+      ) : tab === 'connection' || tab === 'history' ? (
+        <EventbriteSettings history={tab === 'history'} onSynced={() => reload().catch((e) => setError(e.message))} />
       ) : (
         <>
           <div className="mb-5 rounded-xl border border-background-200 bg-white p-4 shadow-sm">
@@ -197,6 +202,10 @@ function Editor({ event, categories, reload }: { event: ManagedEvent; categories
       setBusy(false);
     }
   };
+  const unpublish = async () => {
+    set('is_active', false);
+    await act(() => cmsApi.patch(`/events/${event.id}/`, Object.fromEntries(localKeys.map((key) => [key, form[key]]))), 'Unpublished');
+  };
   const save = () => act(() => cmsApi.patch(`/events/${event.id}/`, imported ? Object.fromEntries(localKeys.map((key) => [key, form[key]])) : { ...form, starts_at: form.starts_at || null, ends_at: form.ends_at || null }), 'Saved.');
   const text = (key: 'title' | 'image_url' | 'image_alt' | 'timezone' | 'location' | 'cta_href' | 'cta_label' | 'highlights_url', label: string, disabled = false) => (
     <label className="text-sm font-semibold">
@@ -215,6 +224,17 @@ function Editor({ event, categories, reload }: { event: ManagedEvent; categories
           <span className="flex flex-wrap items-center gap-2">
             <span className="truncate text-sm font-bold text-slate-950">{event.title}</span>
             <StatusBadge tone={event.public_visible ? 'success' : 'neutral'}>{event.public_visible ? 'Visible' : 'Hidden'}</StatusBadge>
+            {event.is_active ? (
+              <button type="button" onClick={unpublish} disabled={busy} className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-800 hover:bg-amber-100 disabled:opacity-50">
+                <i className="ri-unpublish-line" aria-hidden="true" />
+                Unpublish
+              </button>
+            ) : (
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500">
+                <i className="ri-archive-line" aria-hidden="true" />
+                Archived
+              </span>
+            )}
           </span>
           <span className="mt-1 block truncate text-xs font-semibold text-[#05232E]">{imported ? 'Eventbrite' : 'Manual'} - {event.remote_status}</span>
           <span className="mt-1 block truncate text-xs text-slate-500">{event.starts_at ? new Date(event.starts_at).toLocaleDateString('en-GB') : 'No date'} - {event.location || 'No location'}</span>

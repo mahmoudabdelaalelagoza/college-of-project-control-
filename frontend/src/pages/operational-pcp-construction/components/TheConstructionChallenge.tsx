@@ -23,7 +23,7 @@ export default function TheConstructionChallenge() {
         <div className="grid items-start gap-10 lg:grid-cols-[.88fr_1.12fr]">
           <div className="sector-sticky-panel">
             <span className="text-xs font-bold uppercase tracking-[.15em] text-accent-700">The construction challenge</span>
-            <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl">
+            <h2 className="mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl">
               Data exists. Decision confidence often does not.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-foreground-600">
@@ -45,7 +45,7 @@ export default function TheConstructionChallenge() {
                     <i className={problem.icon} aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-[.16em] text-foreground-400">Control gap {index + 1}</p>
+                    <p className="text-xs font-bold uppercase tracking-[.16em] text-foreground-600">Control gap {index + 1}</p>
                     <h3 className="mt-2 text-xl font-bold text-foreground-950">{problem.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-foreground-600">{problem.detail}</p>
                   </div>

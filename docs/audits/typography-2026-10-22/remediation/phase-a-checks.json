@@ -1,0 +1,425 @@
+[
+  {
+    "route": "/about",
+    "width": 375,
+    "fonts": {
+      "heading": [
+        {
+          "familyName": "Source Serif 4",
+          "postScriptName": "Source-Serif-4-14pt-Black",
+          "isCustomFont": true,
+          "glyphCount": 47
+        }
+      ],
+      "body": [
+        {
+          "familyName": "Poppins SemiBold",
+          "postScriptName": "Poppins-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 63
+        }
+      ]
+    },
+    "h1": "36px",
+    "weight": "900",
+    "booking": {
+      "w": 0,
+      "h": 0,
+      "top": 0
+    },
+    "header": 105,
+    "overflow": 0,
+    "faces": [
+      {
+        "family": "Poppins",
+        "weight": "400",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "600",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "700",
+        "style": "normal"
+      },
+      {
+        "family": "Source Serif 4",
+        "weight": "400 900",
+        "style": "normal"
+      },
+      {
+        "family": "remixicon",
+        "weight": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "route": "/about",
+    "width": 1280,
+    "fonts": {
+      "heading": [
+        {
+          "familyName": "Source Serif 4",
+          "postScriptName": "Source-Serif-4-14pt-ExtraBold",
+          "isCustomFont": true,
+          "glyphCount": 47
+        }
+      ],
+      "body": [
+        {
+          "familyName": "Poppins SemiBold",
+          "postScriptName": "Poppins-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 64
+        }
+      ]
+    },
+    "h1": "76px",
+    "weight": "800",
+    "booking": {
+      "w": 180.90625,
+      "h": 52,
+      "top": 66
+    },
+    "header": 105,
+    "overflow": 0,
+    "faces": [
+      {
+        "family": "Poppins",
+        "weight": "400",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "500",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "600",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "700",
+        "style": "normal"
+      },
+      {
+        "family": "Source Serif 4",
+        "weight": "400 900",
+        "style": "normal"
+      },
+      {
+        "family": "remixicon",
+        "weight": "normal",
+        "style": "normal"
+      }
+    ],
+    "spaced": {
+      "w": 206.90625,
+      "h": 52,
+      "top": 146,
+      "headerBottom": 207,
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/about",
+    "width": 1440,
+    "fonts": {
+      "heading": [
+        {
+          "familyName": "Source Serif 4",
+          "postScriptName": "Source-Serif-4-14pt-ExtraBold",
+          "isCustomFont": true,
+          "glyphCount": 47
+        }
+      ],
+      "body": [
+        {
+          "familyName": "Poppins SemiBold",
+          "postScriptName": "Poppins-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 64
+        }
+      ]
+    },
+    "h1": "76px",
+    "weight": "800",
+    "booking": {
+      "w": 181.234375,
+      "h": 52,
+      "top": 66
+    },
+    "header": 105,
+    "overflow": 0,
+    "faces": [
+      {
+        "family": "Poppins",
+        "weight": "400",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "500",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "600",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "700",
+        "style": "normal"
+      },
+      {
+        "family": "Source Serif 4",
+        "weight": "400 900",
+        "style": "normal"
+      },
+      {
+        "family": "remixicon",
+        "weight": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "route": "/contact",
+    "width": 375,
+    "fonts": {
+      "heading": [
+        {
+          "familyName": "Source Serif 4",
+          "postScriptName": "Source-Serif-4-14pt-ExtraBold",
+          "isCustomFont": true,
+          "glyphCount": 23
+        }
+      ],
+      "body": [
+        {
+          "familyName": "Poppins",
+          "postScriptName": "Poppins-Regular",
+          "isCustomFont": true,
+          "glyphCount": 139
+        }
+      ]
+    },
+    "h1": "36px",
+    "weight": "800",
+    "booking": {
+      "w": 0,
+      "h": 0,
+      "top": 0
+    },
+    "header": 105,
+    "overflow": 0,
+    "faces": [
+      {
+        "family": "Poppins",
+        "weight": "400",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "500",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "600",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "700",
+        "style": "normal"
+      },
+      {
+        "family": "Source Serif 4",
+        "weight": "400 900",
+        "style": "normal"
+      },
+      {
+        "family": "remixicon",
+        "weight": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "route": "/short-courses",
+    "width": 375,
+    "fonts": {
+      "heading": [
+        {
+          "familyName": "Source Serif 4",
+          "postScriptName": "Source-Serif-4-14pt-ExtraBold",
+          "isCustomFont": true,
+          "glyphCount": 23
+        }
+      ],
+      "body": [
+        {
+          "familyName": "Poppins",
+          "postScriptName": "Poppins-Bold",
+          "isCustomFont": true,
+          "glyphCount": 31
+        }
+      ]
+    },
+    "h1": "32px",
+    "weight": "800",
+    "booking": {
+      "w": 0,
+      "h": 0,
+      "top": 0
+    },
+    "header": 105,
+    "overflow": 0,
+    "faces": [
+      {
+        "family": "Poppins",
+        "weight": "400",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "600",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "700",
+        "style": "normal"
+      },
+      {
+        "family": "Source Serif 4",
+        "weight": "400 900",
+        "style": "normal"
+      },
+      {
+        "family": "remixicon",
+        "weight": "normal",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "route": "/testimonials",
+    "width": 375,
+    "fonts": {
+      "heading": [
+        {
+          "familyName": "Source Serif 4",
+          "postScriptName": "Source-Serif-4-14pt-ExtraBold",
+          "isCustomFont": true,
+          "glyphCount": 34
+        }
+      ],
+      "body": [
+        {
+          "familyName": "Poppins",
+          "postScriptName": "Poppins-Bold",
+          "isCustomFont": true,
+          "glyphCount": 36
+        }
+      ]
+    },
+    "h1": "36px",
+    "weight": "800",
+    "booking": {
+      "w": 0,
+      "h": 0,
+      "top": 0
+    },
+    "header": 105,
+    "overflow": 0,
+    "faces": [
+      {
+        "family": "Poppins",
+        "weight": "400",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "500",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "600",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "700",
+        "style": "normal"
+      },
+      {
+        "family": "Source Serif 4",
+        "weight": "400 900",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "route": "/dashboard/login",
+    "width": 375,
+    "fonts": {
+      "heading": [
+        {
+          "familyName": "Source Serif 4",
+          "postScriptName": "Source-Serif-4-14pt-Bold",
+          "isCustomFont": true,
+          "glyphCount": 15
+        }
+      ],
+      "body": [
+        {
+          "familyName": "Poppins",
+          "postScriptName": "Poppins-Regular",
+          "isCustomFont": true,
+          "glyphCount": 27
+        }
+      ]
+    },
+    "h1": "20px",
+    "weight": "700",
+    "booking": null,
+    "overflow": 0,
+    "faces": [
+      {
+        "family": "Poppins",
+        "weight": "400",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "600",
+        "style": "normal"
+      },
+      {
+        "family": "Poppins",
+        "weight": "700",
+        "style": "normal"
+      },
+      {
+        "family": "Source Serif 4",
+        "weight": "400 900",
+        "style": "normal"
+      },
+      {
+        "family": "remixicon",
+        "weight": "normal",
+        "style": "normal"
+      }
+    ]
+  }
+]

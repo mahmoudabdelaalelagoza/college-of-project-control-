@@ -318,10 +318,10 @@ export default function ProfessionalProgrammes() {
 
       <div className="container-site relative z-10">
         <div className="text-center max-w-5xl mx-auto mb-10 md:mb-14 reveal-blur-in is-visible">
-          <span className="inline-block rounded-full border border-signal-400 px-4 py-1.5 text-xs font-label font-bold uppercase tracking-wider text-signal-700 mb-4">
+          <span className="inline-block rounded-full border border-signal-400 px-4 py-1.5 text-xs font-label font-bold uppercase tracking-wider text-warm-ink mb-4">
             Apprenticeships
           </span>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight">
+          <h2 className="text-section-2xl md:text-section-3xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight">
             Find the right apprenticeship for your role
           </h2>
           <p className="mt-3 text-sm md:text-base text-foreground-600 leading-relaxed">

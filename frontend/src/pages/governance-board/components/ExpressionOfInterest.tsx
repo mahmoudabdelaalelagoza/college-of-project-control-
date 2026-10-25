@@ -4,7 +4,7 @@ export default function ExpressionOfInterest() {
           <div className="container-site max-w-4xl">
             <div className="mx-auto mb-10 max-w-2xl text-center">
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-700">Expression of interest</span>
-              <h2 id="eoi-title" className="mt-3 text-3xl font-bold text-foreground-900 md:text-4xl">Submit Your Expression of Interest</h2>
+              <h2 id="eoi-title" className="mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl">Submit Your Expression of Interest</h2>
               <p className="mt-4 text-base leading-relaxed text-foreground-600">
                 Complete the form below to express your interest in contributing to the Kent Business College Governance Board.
               </p>

@@ -30,7 +30,10 @@ export default function Modal({ open, onClose, title, id, children, header, foot
     };
   }, [open]);
   return <dialog ref={dialog} id={id} aria-labelledby={titleId}
-    onClose={onClose}
+    onClose={(event) => {
+      // Effect cleanup can queue a close event before the dialog is reopened.
+      if (open && !event.currentTarget.open) onClose();
+    }}
     onCancel={(event) => { event.preventDefault(); requestClose(); }}
     onKeyDown={(event) => {
       if (event.key !== 'Tab') return;
@@ -51,7 +54,7 @@ export default function Modal({ open, onClose, title, id, children, header, foot
           <div className="min-w-0 flex-1">{header}</div>
         </>
       ) : (
-        <h2 id={titleId} className="font-heading text-xl font-bold">{title}</h2>
+        <h2 id={titleId} className="font-heading text-dialog-title font-bold">{title}</h2>
       )}
       <button ref={closeButton} type="button" onClick={requestClose} className={`${closeButtonClassName} transition-all`} aria-label="Close">
         {closeButtonContent}

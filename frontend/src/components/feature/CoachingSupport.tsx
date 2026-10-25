@@ -9,25 +9,7 @@ import { fetchCoaches, type Coach } from '@/services/coachesApi';
 const sectionCopy = {
   "tag": "Coaching & Support",
   "title": "Guidance beyond the classroom",
-  "intro": "Our tutors and coaches provide practical guidance, personalised feedback and ongoing support to help you understand new concepts, apply your learning at work and make progress towards your development goals.",
-  "cards": [
-    {
-      "title": "Tutor & Learning Support",
-      "body": "Ask questions, revisit learning resources and access one-to-one guidance to help you understand challenging topics."
-    },
-    {
-      "title": "Workplace Application",
-      "body": "Work with your coach to identify opportunities to apply new skills and develop relevant evidence of your own contribution."
-    },
-    {
-      "title": "Coaching & Progress Reviews",
-      "body": "Receive feedback, review your development and agree clear priorities for your next steps, with employer involvement as part of your apprenticeship."
-    },
-    {
-      "title": "Personalised Learning Support",
-      "body": "Discuss your learning needs, preferences and challenges so appropriate support can be explored and agreed."
-    }
-  ]
+  "intro": "Our tutors and coaches provide practical guidance, personalised feedback and ongoing support to help you understand new concepts, apply your learning at work and make progress towards your development goals."
 } as const;
 
 interface CoachingSupportProps { id?: string; }
@@ -53,7 +35,6 @@ function CoachPortrait({ coach }: { coach: Coach }) {
 
 /** Shared light coach profiles. Names, qualifications and photos remain dashboard-managed. */
 export default function CoachingSupport({ id = 'coaching-support' }: CoachingSupportProps = {}) {
-  const areas = sectionCopy.cards;
   const { items: coaches, loading, error, retry } = useCollection(fetchCoaches);
   const trackId = useId();
   const track = useRef<HTMLDivElement>(null);
@@ -142,14 +123,6 @@ export default function CoachingSupport({ id = 'coaching-support' }: CoachingSup
               <i className="ri-arrow-right-line text-lg" aria-hidden="true" />
             </button>
           </div>
-        </div>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {areas.map(area => (
-            <div key={area.title} className="border-t border-primary-200 pt-4">
-              <h3 className="text-sm font-bold text-primary-800">{area.title}</h3>
-              <p className="mt-2 text-xs leading-6 text-foreground-600">{area.body}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

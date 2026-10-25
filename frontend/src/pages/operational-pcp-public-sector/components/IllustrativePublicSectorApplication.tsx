@@ -13,7 +13,7 @@ export default function IllustrativePublicSectorApplication() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
           <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[.18em] text-accent-700">Illustrative public-sector application</p>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight text-foreground-950 md:text-5xl">
+            <h2 className="mt-4 text-section-3xl font-semibold leading-tight text-foreground-950 md:text-section-5xl">
               From fragmented reporting to defensible programme oversight.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-foreground-600">

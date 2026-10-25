@@ -1,6 +1,6 @@
-# Cloude Code ToolBox — MCP & Skills awareness
+# Claude Code ToolBox — MCP & Skills awareness
 
-_Generated: 2026-09-22T07:27:53.194Z_
+_Generated: 2026-10-15T10:38:37.385Z_
 
 ## How to use this report
 
@@ -21,9 +21,11 @@ _No active workspace servers in mcp.json._
 
 ## MCP — user profile
 
-- **C:\Users\hp\.claude.json** — _File exists — no servers defined_
+- **C:\Users\hp\.claude.json** — _File exists — servers defined_
 
-_No active user-scoped servers in mcp.json._
+| Server id | Kind | Detail |
+|-----------|------|--------|
+| Neon | http | https://mcp.neon.tech/mcp |
 
 ## Skills (local `SKILL.md` folders)
 
@@ -44,4 +46,4 @@ _None found (or no workspace open)._
 - **Edit config:** Open `~/.claude.json` (user MCP) or `<workspace>/.mcp.json` (project MCP) via the extension commands.
 - **Refresh this report:** run **Intelligence — scan MCP & Skills awareness** again after changing MCP config or adding skills.
 
-_Report from Cloude Code ToolBox extension._
+_Report from Claude Code ToolBox extension._

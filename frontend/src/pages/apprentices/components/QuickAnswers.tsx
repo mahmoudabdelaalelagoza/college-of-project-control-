@@ -16,11 +16,11 @@ export default function QuickAnswers() {
 <div className="bg-background-50 py-16 md:py-24 border-t border-background-200/40">
           <div className="container-site max-w-3xl" ref={faqRef.ref}>
             <div className="text-center mb-12 md:mb-16">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-highlight-700 mb-5">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-warm-ink mb-5">
                 <i className="ri-question-line text-sm" />
                 Quick Answers
               </span>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight">
+              <h2 className="text-section-2xl md:text-section-3xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight">
                 Frequently Asked Questions
               </h2>
             </div>

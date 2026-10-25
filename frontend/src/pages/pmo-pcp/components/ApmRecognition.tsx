@@ -12,7 +12,6 @@ export default function ApmRecognition() {
             <h3 className="mt-2 font-heading text-xl font-bold text-foreground-950 md:text-2xl">Recognised technical knowledge for the ChPP journey</h3>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-foreground-600">The relevant Certified PMO Professional Level 6 element supports an APM-recognised technical-knowledge assessment route for ChPP Pathway 2, subject to APM eligibility, currency and current requirements.</p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <SiteLink href="/book-a-session" className="btn-primary text-sm">Understand APM Recognition</SiteLink>
               <SiteLink href="https://www.apm.org.uk/chartered-standard/recognised-assessment/" target="_blank" rel="noopener noreferrer" className="btn-secondary gap-2 text-center text-primary-700 hover:bg-white">Verify recognition with APM<i className="ri-external-link-line" aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></SiteLink>
             </div>
           </div>

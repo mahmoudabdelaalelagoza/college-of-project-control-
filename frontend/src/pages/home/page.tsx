@@ -24,7 +24,6 @@ export default function Home() {
         <ProfessionalProgrammes />
         <ForEmployers />
         <ProjectDrivenSectors />
-        <CaseStudiesSection />
         <div className="section-divider" />
         <SpecialistModules />
         <FundingEligibilityAndIPCSupport />
@@ -33,6 +32,7 @@ export default function Home() {
         <CoachingAndSupport />
         <FromTheJournal />
         <LearnTogether />
+        <CaseStudiesSection />
         <ProfessionalExperience />
         <FinalHomepageCta />
       </main>

@@ -1,14 +1,12 @@
 import SiteLink from '@/components/base/SiteLink';
 import { level4Copy } from '../pageCopy';
-const catalogueUrl = 'https://kentbusinesscollege.com/wp-content/uploads/2026/04/Associated-manger-level-4-Level-4_-1.pdf';
+const catalogueUrl = 'https://kentbusinesscollege.com/downloads/programmes/Associate_Project_Management_Catalogue.pdf';
 const copy = level4Copy.hero;
 function HeroVisual() {
   const dashboard = copy.dashboard;
   return <aside className="site-hero__panel mx-auto w-full min-w-0 max-w-xl rounded-2xl border border-white/20 bg-white/[0.08] p-5 shadow-2xl backdrop-blur md:p-7" aria-label={dashboard.title}>
     <p className="text-xs font-bold uppercase tracking-wider text-signal-300">{dashboard.title}</p>
     <p className="mt-3 text-xs leading-6 text-white/65">{dashboard.description}</p>
-    <dl className="mt-6 grid gap-3 sm:grid-cols-2">{dashboard.facts.map(([label, value]) => <div key={label} className="min-w-0 rounded-lg border border-white/10 bg-white/[0.06] p-4"><dt className="text-xs text-white/60">{label}</dt><dd className="mt-2 text-sm font-semibold text-white">{value}</dd></div>)}</dl>
-    <div className="mt-5 h-2 overflow-hidden rounded-full bg-white/10" aria-hidden="true"><div className="h-full w-4/5 rounded-full bg-signal-400" /></div>
     <div className="mt-6 rounded-xl border border-signal-300/25 bg-signal-300/10 p-5"><h2 className="text-base text-white">{dashboard.briefTitle}</h2><p className="mt-3 text-sm leading-7 text-white/75">{dashboard.brief}</p><span className="mt-4 inline-flex rounded bg-white/10 px-3 py-1 text-xs font-bold text-signal-300">{dashboard.review}</span></div>
   </aside>;
 }

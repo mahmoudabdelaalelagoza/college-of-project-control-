@@ -5,7 +5,7 @@ import PageSectionNav from '@/components/feature/PageSectionNav';
 import LearnerExperiences from '@/components/feature/LearnerExperiences';
 import LearnFromPractitioners from './LearnFromPractitioners';
 import {
-  aboutProgrammes, aiPrinciples, apprenticeshipStandards, collegeApproach,
+  aboutProgrammes, apprenticeshipStandards, collegeApproach,
   employerPillars, learningSteps, locations, pmoRecognition, professionalValues, storyThemes,
 } from '../aboutContent';
 
@@ -72,9 +72,6 @@ export default function AboutCPCM() {
             <div className="site-hero__actions mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <SiteLink href="/about#programmes" className="btn-primary inline-flex min-h-12 items-center justify-center text-sm font-bold">
                 Explore Our Programmes <i className="ri-arrow-right-line" aria-hidden="true" />
-              </SiteLink>
-              <SiteLink href="/contact" className="btn-secondary inline-flex min-h-12 items-center justify-center border-white/40 text-sm font-semibold text-white hover:bg-white/10">
-                Speak with Our Team
               </SiteLink>
             </div>
             <p className="mt-6 text-sm font-semibold leading-relaxed text-signal-300">
@@ -162,16 +159,11 @@ export default function AboutCPCM() {
             </article>
           ))}
         </div>
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
+        <div className="mt-6 grid gap-6">
           <article className="min-w-0 rounded-2xl border border-background-200 p-6">
             <h3 className="font-heading text-xl font-bold text-foreground-950">Specialist Courses &amp; Modules</h3>
             <p className="mt-3 text-sm leading-relaxed text-foreground-600">Strengthen selected capabilities through focused professional learning in areas such as planning, earned value management, risk, AI and professional examination preparation.</p>
             <SiteLink href="/short-courses" className={`${textLink} mt-4`}><span className="min-w-0">Browse Specialist Courses</span><i className="ri-arrow-right-line shrink-0" aria-hidden="true" /></SiteLink>
-          </article>
-          <article id="employers" className="min-w-0 rounded-2xl border border-background-200 p-6">
-            <h3 className="font-heading text-xl font-bold text-foreground-950">Employer Development</h3>
-            <p className="mt-3 text-sm leading-relaxed text-foreground-600">We work with employers to connect professional development with the responsibilities, technical challenges and governance needs of their teams.</p>
-            <SiteLink href="/employers" className={`${textLink} mt-4`}><span className="min-w-0">Explore Employer Support</span><i className="ri-arrow-right-line shrink-0" aria-hidden="true" /></SiteLink>
           </article>
         </div>
         <details className="mt-6 rounded-2xl border border-background-200 bg-background-50 p-6">
@@ -205,15 +197,6 @@ export default function AboutCPCM() {
             ))}
           </ol>
         </div>
-        <details id="ai" className="mt-10 rounded-2xl border border-background-200 bg-white p-6">
-          <summary className="cursor-pointer font-semibold leading-relaxed text-primary-700">AI &amp; Digital Practice: Technology Should Strengthen Judgement, Not Replace It</summary>
-          <p className="mt-5 text-sm leading-relaxed text-foreground-600">Artificial intelligence can support analysis, reporting and professional workflows, but reliable project controls still depend on validated information and accountable decisions.</p>
-          <p className="mt-3 text-sm leading-relaxed text-foreground-600">Our approach to AI development emphasises three principles.</p>
-          <dl className="mt-5 grid gap-6 md:grid-cols-3">
-            {aiPrinciples.map(([title, body]) => <div key={title}><dt className="font-heading text-lg font-bold text-foreground-950">{title}</dt><dd className="mt-2 text-sm leading-relaxed text-foreground-600">{body}</dd></div>)}
-          </dl>
-          <p className="mt-6 border-t border-background-200 pt-5 text-sm font-semibold text-primary-700">AI supports professional capability. Accountability remains with people.</p>
-        </details>
       </ContentSection>
 
       <LearnFromPractitioners />
@@ -252,14 +235,6 @@ export default function AboutCPCM() {
               <p className="mt-3 text-sm leading-relaxed text-foreground-600">{body}</p>
             </article>
           ))}
-        </div>
-        <div className="mt-8 border-t border-background-200 pt-6 text-center">
-          <h3 className="font-heading text-xl font-bold text-foreground-950">Sectors We Support</h3>
-          <p className="mx-auto mt-3 max-w-3xl text-sm leading-relaxed text-foreground-600">Construction &amp; Infrastructure · Energy &amp; Utilities · Engineering &amp; Aerospace · Public Services</p>
-          <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
-            <SiteLink href="/contact" className={textLink}><span className="min-w-0">Contact Our Team</span><i className="ri-arrow-right-line shrink-0" aria-hidden="true" /></SiteLink>
-            <SiteLink href="/commercial-project-controls-route" className={textLink}><span className="min-w-0">Explore Commercial Study</span><i className="ri-arrow-right-line shrink-0" aria-hidden="true" /></SiteLink>
-          </div>
         </div>
       </ContentSection>
 

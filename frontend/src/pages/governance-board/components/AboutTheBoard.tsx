@@ -11,7 +11,7 @@ export default function AboutTheBoard() {
           <div className="container-site grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div>
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-700">About the Board</span>
-              <h2 id="about-title" className="mt-3 text-3xl font-bold text-foreground-900 md:text-4xl">A strategic body supporting institutional excellence</h2>
+              <h2 id="about-title" className="mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl">A strategic body supporting institutional excellence</h2>
               <p className="mt-5 text-base leading-relaxed text-foreground-600">
                 The Governance Board serves as the principal strategic oversight body of Kent Business College.
               </p>

@@ -14,7 +14,7 @@ export default function LearningGroundedInGovernmentDelivery() {
             <p className="text-xs font-bold uppercase tracking-[.18em] text-signal-300">
               Learning grounded in government delivery
             </p>
-            <h2 className="mt-4 text-4xl font-semibold leading-[1.03] text-white md:text-5xl">
+            <h2 className="mt-4 text-section-4xl font-semibold leading-[1.03] text-white md:text-section-5xl">
               Apply project capability within public-sector governance.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-white/72">

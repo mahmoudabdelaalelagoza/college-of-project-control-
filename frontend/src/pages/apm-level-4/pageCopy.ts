@@ -6,7 +6,7 @@ export const level4Copy = {
     "headline": "Develop the skills to plan, lead and deliver projects with confidence",
     "intro": [
       "Strengthen your expertise in project planning, stakeholder management, governance, risk and delivery through structured, work-based learning that connects professional knowledge with real project responsibilities.",
-      "Kent Business College's planned 12-month learning programme combines project management and PMP exam preparation with practical applications of AI in project controls, followed by an independent apprenticeship assessment."
+      "Kent Business College's planned 14-month learning programme combines project management and PMP exam preparation with practical applications of AI in project controls, followed by an independent apprenticeship assessment."
     ],
     "cards": [
       {
@@ -29,28 +29,10 @@ export const level4Copy = {
       }
     ],
     "funding": "Eligible apprentices do not pay the training and assessment fees of a government-funded apprenticeship. Employer funding arrangements and programme eligibility are confirmed individually.",
-    "note": "The 12-month learning schedule is indicative and subject to an approved individual training plan. Independent apprenticeship assessment follows the learning phase. PMP certification is awarded separately by PMI.",
+    "note": "The 14-month learning schedule is indicative and subject to an approved individual training plan. Independent apprenticeship assessment follows the learning phase. PMP certification is awarded separately by PMI.",
     "dashboard": {
       "title": "Illustrative Project Delivery Dashboard",
       "description": "Example interface using fictional project data — not actual learner outcomes.",
-      "facts": [
-        [
-          "Project Status",
-          "Under Review"
-        ],
-        [
-          "Project Milestones",
-          "8 of 10 completed"
-        ],
-        [
-          "Open Risks",
-          "6 requiring review"
-        ],
-        [
-          "Next Decision",
-          "Resource allocation approval"
-        ]
-      ],
       "briefTitle": "AI-Assisted Project Brief",
       "brief": "Updated schedule information indicates potential resource pressure before the next approval gate. Review the underlying data, confirm the impact and consider the available options.",
       "review": "Human Review Required"
@@ -60,7 +42,7 @@ export const level4Copy = {
     "tag": "Programme at a Glance",
     "cards": [
       {
-        "title": "12 Months",
+        "title": "14 Months",
         "body": [
           "Planned learning phase, followed by independent apprenticeship assessment."
         ]
@@ -72,13 +54,13 @@ export const level4Copy = {
         ]
       },
       {
-        "title": "Approx. 7 Hours per Week",
+        "title": "Approx. 7–8 Hours per Week",
         "body": [
           "Indicative study commitment, with learning hours agreed in your individual training plan."
         ]
       },
       {
-        "title": "Live Online Learning",
+        "title": "Live online sessions or recorded",
         "body": [
           "Interactive, tutor-led sessions with guided independent study."
         ]
@@ -279,22 +261,7 @@ export const level4Copy = {
           "Data protection and responsible AI governance"
         ]
       }
-    ],
-    "extras": [
-      {
-        "title": "Tools in Practice",
-        "body": [
-          "Practical activities may use platforms such as ChatGPT, Claude and n8n, where included in the confirmed curriculum and permitted by organisational policies."
-        ]
-      },
-      {
-        "title": "Learning Connected to Your Workplace",
-        "body": [
-          "Throughout the programme, you'll explore how these areas work together in real project environments. Your individual training plan will identify appropriate learning activities, opportunities for workplace application and the evidence required to demonstrate occupational competence."
-        ]
-      }
-    ],
-    "note": "The apprenticeship develops knowledge, skills and behaviours aligned with Associate Project Manager Level 4 (ST0310). Applied AI and PMP examination preparation form part of KBC's additional learning offer. The confirmed curriculum, tools and assessment arrangements are explained before enrolment."
+    ]
   },
   "outputs": {
     "tag": "Practical Learning Outputs",
@@ -451,7 +418,7 @@ export const level4Copy = {
     "support": {
       "title": "Support Throughout Your Apprenticeship",
       "body": [
-        "Your learning is supported through live teaching, guided activities, professional coaching and periodic reviews involving your employer. Workplace learning and evidence development take place throughout the programme, with your individual training plan guiding your development."
+        "Your learning is supported through recorded or live online teaching, guided activities, professional coaching and periodic reviews involving your employer. Workplace learning and evidence development take place throughout the programme, with your individual training plan guiding your development."
       ]
     },
     "note": "Independent apprenticeship assessment takes place after the training phase and the required gateway checks. Evidence submitted for assessment must meet the requirements of the applicable Associate Project Manager Level 4 assessment plan."
@@ -464,10 +431,10 @@ export const level4Copy = {
     ],
     "cards": [
       {
-        "title": "Live Online Teaching",
+        "title": "Live Online or Recorded Teaching",
         "subtitle": "2 Hours · Each Teaching Week",
         "body": [
-          "Join interactive, tutor-led sessions featuring project management concepts, professional discussions, practical examples and guided workshops."
+          "Join interactive, tutor-led sessions featuring project management concepts, professional discussions, practical examples and guided workshops. Attend live or watch the recorded sessions at a time that suits you."
         ]
       },
       {
@@ -479,7 +446,7 @@ export const level4Copy = {
       },
       {
         "title": "Applied Assignments & Workplace Learning",
-        "subtitle": "Approximately 7 Hours · Each Month",
+        "subtitle": "Approximately 7–8 Hours · Each Month",
         "body": [
           "Complete structured assignments that connect new knowledge with relevant project responsibilities. Apply what you learn, develop practical outputs and record your professional development."
         ]
@@ -504,8 +471,7 @@ export const level4Copy = {
       "body": [
         "Apprenticeship training is planned within your normal paid working hours, with your employer providing the time and support agreed in your training plan. Additional occupational learning or workshops may be scheduled where required to meet the apprenticeship standard."
       ]
-    },
-    "note": "Study workload and eligible off-the-job training hours are different measures. Routine productive work, portfolio administration and progress reviews do not automatically count as eligible training. Your individual training plan confirms the requirements applicable to your apprenticeship."
+    }
   },
   "employers": {
     "tag": "For Employers",

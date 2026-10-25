@@ -12,11 +12,9 @@ Find the label on the page, then open its component below. Shared implementation
 | A Workplace Development Journey Not Just A Course | [AWorkplaceDevelopmentJourneyNotJustACourse.tsx](components/AWorkplaceDevelopmentJourneyNotJustACourse.tsx) | Page-local |
 | Develop PMO Capability Inside Your Organisation | [DevelopPMOCapabilityInsideYourOrganisation.tsx](components/DevelopPMOCapabilityInsideYourOrganisation.tsx) | Page-local |
 | Footer Landscape | [FooterLandscape.tsx](components/FooterLandscape.tsx) | Page-local |
-| Four Capabilities One Route To APMO That Leaders Trust | [FourCapabilitiesOneRouteToAPMOThatLeadersTrust.tsx](components/FourCapabilitiesOneRouteToAPMOThatLeadersTrust.tsx) | Page-local |
 | Four Capabilities To Help Your PMO Become Trusted | [FourCapabilitiesToHelpYourPMOBecomeTrusted.tsx](components/FourCapabilitiesToHelpYourPMOBecomeTrusted.tsx) | Page-local |
 | Funding eligibility and IPC support | [FundingEligibilityAndIPCSupport.tsx](components/FundingEligibilityAndIPCSupport.tsx) | Page-local |
 | Apprenticeship eligibility | [ApprenticeshipEligibility.tsx](components/ApprenticeshipEligibility.tsx) | [EligibilityCheckerSection.tsx](../../components/feature/EligibilityCheckerSection.tsx) |
-| Funding and costs | [FundingAndCosts.tsx](components/FundingAndCosts.tsx) | [FundingOptionsSection.tsx](../../components/feature/FundingOptionsSection.tsx) |
 | Institute of Project Controls | [InstituteOfProjectControls.tsx](components/InstituteOfProjectControls.tsx) | [IpcAuthority.tsx](../../components/feature/IpcAuthority.tsx) |
 | Get Direction For Stronger PMO Capability | [GetDirectionForStrongerPMOCapability.tsx](components/GetDirectionForStrongerPMOCapability.tsx) | Page-local |
 | It Is Time To Stop Asking PM Os Only For Reports | [ItIsTimeToStopAskingPMOsOnlyForReports.tsx](components/ItIsTimeToStopAskingPMOsOnlyForReports.tsx) | Page-local |

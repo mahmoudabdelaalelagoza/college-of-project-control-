@@ -8,7 +8,7 @@ export default function BuildTheCapabilityToControlComplexEnergyProgrammesWithCo
 <small>
 {"Next step "}
 </small>
-<h2 className="text-3xl font-bold leading-tight md:text-4xl">
+<h2 className="text-section-3xl font-bold leading-tight md:text-section-4xl">
 {"Build the capability to control complex energy programmes with confidence. "}
 </h2>
 <p className="text-base leading-relaxed text-foreground-600">
@@ -16,7 +16,7 @@ export default function BuildTheCapabilityToControlComplexEnergyProgrammesWithCo
 </p>
 </div>
 <div className="min-w-0 space-y-4 flex flex-wrap items-center gap-3">
-<SiteLink href="#eligibility" className="inline-flex min-h-12 items-center justify-center rounded-md px-6 py-3 text-sm font-bold btn-primary">
+<SiteLink href="/apprenticeship-eligibility-checker" className="inline-flex min-h-12 items-center justify-center rounded-md px-6 py-3 text-sm font-bold btn-primary">
 {"Check my eligibility "}
 </SiteLink>
 <SiteLink href="/book-a-session" className="cta-button inline-flex min-h-12 items-center justify-center rounded-md px-6 py-3 text-sm font-bold border border-primary-700 text-primary-950">

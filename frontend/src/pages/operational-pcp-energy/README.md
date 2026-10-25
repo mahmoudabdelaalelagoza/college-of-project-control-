@@ -20,7 +20,6 @@ Find the label on the page, then open its component below. Shared implementation
 | Professional Progression | [ProfessionalProgression.tsx](components/ProfessionalProgression.tsx) | Page-local |
 | Sector Application | [SectorApplication.tsx](components/SectorApplication.tsx) | Page-local |
 | The Energy Delivery Challenge | [TheEnergyDeliveryChallenge.tsx](components/TheEnergyDeliveryChallenge.tsx) | Page-local |
-| The Learning Experience | [TheLearningExperience.tsx](components/TheLearningExperience.tsx) | Page-local |
 | Workplace Evidence | [WorkplaceEvidence.tsx](components/WorkplaceEvidence.tsx) | Page-local |
 
 Section copy, repeated items and configuration:

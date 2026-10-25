@@ -8,7 +8,7 @@ export default function CareerDevelopment() {
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
             <div className="max-w-3xl">
               <p className="text-xs font-bold uppercase tracking-[.18em] text-signal-300">Career development</p>
-              <h2 className="mt-4 text-3xl font-semibold leading-tight text-white md:text-4xl">
+              <h2 className="mt-4 text-section-3xl font-semibold leading-tight text-white md:text-section-4xl">
                 Plan the next professional step with the right route and evidence.
               </h2>
               <p className="mt-4 text-base leading-relaxed text-white/72">

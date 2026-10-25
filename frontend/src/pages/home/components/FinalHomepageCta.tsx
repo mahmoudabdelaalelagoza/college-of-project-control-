@@ -8,7 +8,7 @@ export default function FinalHomepageCta() {
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
           <div className="max-w-3xl">
             <p className="font-label text-xs font-bold uppercase tracking-[0.18em] text-accent-200">Next step</p>
-            <h2 id="final-homepage-cta-heading" className="mt-4 font-heading text-3xl font-bold leading-tight md:text-5xl">
+            <h2 id="final-homepage-cta-heading" className="mt-4 font-heading text-section-3xl font-bold leading-tight text-white md:text-section-5xl">
               Find the right next step for your role
             </h2>
             <p className="mt-5 text-base leading-relaxed text-white/78 md:text-lg">

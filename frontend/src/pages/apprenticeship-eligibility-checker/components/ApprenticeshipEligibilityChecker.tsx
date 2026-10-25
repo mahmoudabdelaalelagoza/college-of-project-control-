@@ -1,5 +1,5 @@
 import SiteLink from '@/components/base/SiteLink';
-import { useEffect,useId,useState } from 'react';
+import { useEffect,useId,useRef,useState } from 'react';
 import { checkerSteps,type CheckerAnswers,type CheckerQuestion } from '../checkerData';
 import { calculateEligibility,validateStep,type EligibilityResult,type EligibilityStatus } from '../eligibilityEngine';
 
@@ -27,7 +27,6 @@ const resultPresentation: Record<EligibilityStatus, {
   iconBg: string;
   iconColor: string;
   primaryCta: { label: string; href: string };
-  secondaryCta: { label: string; href: string };
 }> = {
   likely: {
     icon: 'ri-checkbox-circle-line',
@@ -35,8 +34,7 @@ const resultPresentation: Record<EligibilityStatus, {
     bg: 'bg-highlight-50',
     iconBg: 'bg-highlight-500',
     iconColor: 'text-white',
-    primaryCta: { label: 'Request a consultation', href: '/book-a-session' },
-    secondaryCta: { label: 'Contact Admissions', href: '/contact' },
+    primaryCta: { label: 'Request a consultation', href: 'https://bookings.cloud.microsoft/book/InformationSession@kentbusinesscollege.com/?ismsaljsauthenabled=true' },
   },
   review: {
     icon: 'ri-search-eye-line',
@@ -44,8 +42,7 @@ const resultPresentation: Record<EligibilityStatus, {
     bg: 'bg-amber-50',
     iconBg: 'bg-amber-500',
     iconColor: 'text-white',
-    primaryCta: { label: 'Request a consultation', href: '/book-a-session' },
-    secondaryCta: { label: 'Contact Admissions', href: '/contact' },
+    primaryCta: { label: 'Request a consultation', href: 'https://bookings.cloud.microsoft/book/InformationSession@kentbusinesscollege.com/?ismsaljsauthenabled=true' },
   },
   not_suitable: {
     icon: 'ri-information-line',
@@ -54,7 +51,21 @@ const resultPresentation: Record<EligibilityStatus, {
     iconBg: 'bg-foreground-500',
     iconColor: 'text-white',
     primaryCta: { label: 'Speak With Our Team', href: '/contact' },
-    secondaryCta: { label: 'Explore the Commercial Route', href: '/commercial-project-controls-route' },
+  },
+};
+
+// The popup offers one clear next step for each conclusive result.
+const popupResultPresentation: Partial<Record<EligibilityStatus, {
+  primaryCta: { label: string; href: string };
+  nextStep: string;
+}>> = {
+  likely: {
+    primaryCta: { label: 'Book info session', href: 'https://bookings.cloud.microsoft/book/InformationSession@kentbusinesscollege.com/?ismsaljsauthenabled=true' },
+    nextStep: 'Explore apprenticeship programmes and how to apply. Book an info session to discuss your next steps.',
+  },
+  not_suitable: {
+    primaryCta: { label: 'Explore IPC Scholarships', href: 'https://instituteofprojectcontrols.com/' },
+    nextStep: 'Explore IPC Scholarships for professional-study funding options.',
   },
 };
 
@@ -96,7 +107,7 @@ function QuestionField({
           {question.required && <span className="ml-0.5 text-primary-500" aria-hidden="true">*</span>}
         </legend>
         {helpNode}
-        <div className={`grid gap-3 ${(question.options?.length ?? 0) > 2 ? 'sm:grid-cols-3' : 'sm:grid-cols-2'}`} aria-describedby={errorNode ? errorId : helpId}>
+        <div className={`grid gap-3 ${question.options?.length === 3 ? 'sm:grid-cols-3' : 'sm:grid-cols-2'}`} aria-describedby={errorNode ? errorId : helpId}>
           {question.options?.map((opt) => {
             const checked = value === opt.value;
             return (
@@ -132,7 +143,7 @@ function QuestionField({
       {helpNode}
       {question.type === 'select' && (
         <select id={fieldId} required={question.required} value={value ?? ''} onChange={(e) => onChange(e.target.value)} className={fieldClasses} aria-describedby={errorNode ? errorId : helpId} aria-invalid={hasError}>
-          <option value="">Select an option</option>
+          <option value="">{question.placeholder ?? 'Select an option'}</option>
           {question.options?.map((opt) => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
         </select>
       )}
@@ -147,7 +158,8 @@ function QuestionField({
   );
 }
 
-export default function ApprenticeshipEligibilityChecker() {
+export default function ApprenticeshipEligibilityChecker({ embedded = false, onResultNavigate }: { embedded?: boolean; onResultNavigate?: () => void }) {
+  const checkerRef = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState<'intro' | 'question' | 'result'>('intro');
   const [stepIndex, setStepIndex] = useState(0);
   const [answers, setAnswers] = useState<CheckerAnswers>({});
@@ -155,15 +167,21 @@ export default function ApprenticeshipEligibilityChecker() {
   const [result, setResult] = useState<EligibilityResult | null>(null);
 
   useEffect(() => {
+    if (embedded) checkerRef.current?.parentElement?.scrollTo({ top: 0, behavior: 'instant' });
     if (phase === 'intro') return;
-    const target = document.querySelector<HTMLElement>('#checker h3');
+    const target = checkerRef.current?.querySelector<HTMLElement>('h3');
     target?.setAttribute('tabindex', '-1'); target?.focus({ preventScroll: true });
-  }, [phase, stepIndex]);
+  }, [phase, stepIndex, embedded]);
   useEffect(() => {
-    if (errorFields.size) document.querySelector<HTMLElement>('#checker [aria-invalid="true"]')?.focus();
+    if (errorFields.size) checkerRef.current?.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus();
   }, [errorFields]);
   const totalSteps = checkerSteps.length;
   const currentStep = checkerSteps[stepIndex];
+  const resultView = result ? {
+    ...resultPresentation[result.status],
+    nextStep: result.nextStep,
+    ...(embedded ? popupResultPresentation[result.status] : undefined),
+  } : null;
 
   const handleStart = () => {
     setPhase('question');
@@ -214,24 +232,27 @@ export default function ApprenticeshipEligibilityChecker() {
   };
 
   return (
-    <div id="checker" className="min-w-0 scroll-mt-28 rounded-2xl bg-background-50 p-4 shadow-sm md:p-6" role="region" aria-labelledby="checker-heading">
+    <div ref={checkerRef} id="checker" className="min-w-0 scroll-mt-28 rounded-2xl bg-background-50 p-4 shadow-sm md:p-6" role="region" aria-labelledby="checker-heading">
       <div className="mx-auto w-full max-w-2xl">
-        <h2 id="checker-heading" className="sr-only">Apprenticeship eligibility checker</h2>
+        <h2 id="checker-heading" className={embedded && phase === 'intro' ? 'mb-5 text-center font-heading text-xl font-bold text-foreground-950' : 'sr-only'}>Apprenticeship eligibility checker</h2>
 
         {phase === 'intro' && (
           <div className="rounded-2xl border border-background-200/70 bg-white p-8 text-center md:p-10">
             <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-highlight-100">
               <i className="ri-clipboard-line text-2xl text-highlight-600" aria-hidden="true" />
             </div>
-            <h3 className="text-xl font-heading font-bold text-foreground-950 md:text-2xl">Ready to begin?</h3>
+            <h3 className="text-xl font-heading font-bold text-foreground-950 md:text-2xl">Ready to get started?</h3>
             <p className="mx-auto mt-3 max-w-md text-sm text-foreground-600">
-              You will answer {totalSteps} short groups of questions about your circumstances, employment and interests. Your answers are kept as you move between steps.
+              You&apos;ll complete four short sections covering your circumstances, employment and interests.
+            </p>
+            <p className="mx-auto mt-3 max-w-md text-sm text-foreground-600">
+              Your answers will be saved as you move between steps.
             </p>
             <button
               onClick={handleStart}
               className="btn-primary mt-7 inline-flex min-h-12 items-center justify-center px-8 text-sm font-semibold transition-colors"
             >
-              Start Check
+              Start Eligibility Check
               <i className="ri-arrow-right-line ml-2" aria-hidden="true" />
             </button>
           </div>
@@ -283,7 +304,7 @@ export default function ApprenticeshipEligibilityChecker() {
                 />
               ))}
 
-              <div className="mt-2 flex items-center justify-between gap-3">
+              <div data-eligibility-actions className="mt-2 flex flex-wrap items-center justify-between gap-3">
                 <button
                   onClick={handleBack}
                   disabled={stepIndex === 0}
@@ -294,9 +315,9 @@ export default function ApprenticeshipEligibilityChecker() {
                 </button>
                 <button
                   onClick={handleNext}
-                  className="btn-primary inline-flex min-h-12 items-center justify-center px-6 text-sm font-semibold transition-colors"
+                  className="btn-primary ml-auto inline-flex min-h-12 items-center justify-center px-6 text-sm font-semibold transition-colors"
                 >
-                  {stepIndex === totalSteps - 1 ? 'See My Result' : 'Next'}
+                  {stepIndex === totalSteps - 1 ? 'Check my eligibility' : 'Continue'}
                   <i className="ri-arrow-right-line ml-2" aria-hidden="true" />
                 </button>
               </div>
@@ -311,13 +332,13 @@ export default function ApprenticeshipEligibilityChecker() {
           </div>
         )}
 
-        {phase === 'result' && result && (
+        {phase === 'result' && result && resultView && (
           <div>
             <p className="mb-4 text-center text-xs font-label font-semibold uppercase tracking-wider text-foreground-400">Your Result</p>
-            <div className={`rounded-2xl border-2 p-6 md:p-8 ${resultPresentation[result.status].border} ${resultPresentation[result.status].bg}`}>
+            <div className={`rounded-2xl border-2 p-6 md:p-8 ${resultView.border} ${resultView.bg}`}>
               <div className="flex items-start gap-4">
-                <span className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full ${resultPresentation[result.status].iconBg}`}>
-                  <i className={`${resultPresentation[result.status].icon} text-2xl ${resultPresentation[result.status].iconColor}`} aria-hidden="true" />
+                <span className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full ${resultView.iconBg}`}>
+                  <i className={`${resultView.icon} text-2xl ${resultView.iconColor}`} aria-hidden="true" />
                 </span>
                 <div>
                   <h3 className="text-xl font-heading font-bold text-foreground-950">{result.label}</h3>
@@ -337,15 +358,12 @@ export default function ApprenticeshipEligibilityChecker() {
                 </ul>
               </div>
 
-              <p className="mt-5 text-sm font-medium text-foreground-800">{result.nextStep}</p>
+              <p className="mt-5 text-sm font-medium text-foreground-800">{resultView.nextStep}</p>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <SiteLink href={resultPresentation[result.status].primaryCta.href} className="btn-primary inline-flex min-h-12 items-center justify-center px-6 text-sm font-semibold transition-colors">
-                  {resultPresentation[result.status].primaryCta.label}
+                <SiteLink onClick={onResultNavigate} href={resultView.primaryCta.href} {...(resultView.primaryCta.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="btn-primary inline-flex min-h-12 items-center justify-center px-6 text-sm font-semibold transition-colors">
+                  {resultView.primaryCta.label}
                   <i className="ri-arrow-right-line ml-2" aria-hidden="true" />
-                </SiteLink>
-                <SiteLink href={resultPresentation[result.status].secondaryCta.href} className="cta-button inline-flex min-h-12 items-center justify-center rounded-md border border-primary-300 px-6 text-sm font-semibold text-primary-700 transition-colors hover:bg-primary-50">
-                  {resultPresentation[result.status].secondaryCta.label}
                 </SiteLink>
               </div>
             </div>

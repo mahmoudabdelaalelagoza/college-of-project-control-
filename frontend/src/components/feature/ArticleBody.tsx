@@ -12,7 +12,7 @@ export default function ArticleBody({ content }: { content: string }) {
   return <div className="space-y-6 text-base leading-8 text-foreground-700">{content.split(/\n\s*\n/).filter(Boolean).map((block, index) => {
     const text = block.trim();
     if (text.startsWith('### ')) return <h3 key={index} className="pt-4 text-xl font-bold text-foreground-950">{inline(text.slice(4))}</h3>;
-    if (text.startsWith('## ')) return <h2 key={index} className="pt-6 text-2xl font-bold text-foreground-950">{inline(text.slice(3))}</h2>;
+    if (text.startsWith('## ')) return <h2 key={index} className="pt-6 text-section-2xl font-bold text-foreground-950">{inline(text.slice(3))}</h2>;
     if (text.split('\n').every(line => line.startsWith('- '))) return <ul key={index} className="list-disc space-y-2 pl-6">{text.split('\n').map((line, i) => <li key={i}>{inline(line.slice(2))}</li>)}</ul>;
     const rows = text.split('\n');
     if (rows.length > 1 && rows.every(row => row.startsWith('|')) && /^\|[\s|:-]+\|$/.test(rows[1])) {

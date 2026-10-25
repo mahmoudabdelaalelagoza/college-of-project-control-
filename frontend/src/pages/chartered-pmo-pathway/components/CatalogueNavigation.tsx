@@ -6,7 +6,7 @@ export default function CatalogueNavigation() {
 <div className="text-xs font-bold uppercase tracking-[.14em] text-accent-700">
 {"Catalogue navigation "}
 </div>
-<h2 id="catalogue-navigation-title" className="text-3xl font-bold leading-tight md:text-4xl">
+<h2 id="catalogue-navigation-title" className="text-section-3xl font-bold leading-tight md:text-section-4xl">
 {"Your Chartered Pathway "}
 </h2>
 </div>

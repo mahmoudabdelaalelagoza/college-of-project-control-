@@ -1,0 +1,22 @@
+/* The existing checker runs in the shared native dialog, outside the hero styles. */
+.modal-panel.eligibility-checker-modal {
+  width: calc(100% - 2rem);
+  max-width: 52rem;
+  max-height: calc(100dvh - 2rem);
+  border: 1px solid oklch(var(--background-200));
+  border-radius: 1rem;
+}
+.eligibility-checker-modal .eligibility-checker-modal__body { padding: 0; overscroll-behavior: contain; }
+.eligibility-checker-modal__intro { margin: 0; padding: 1.25rem 1rem 0; color: oklch(var(--foreground-600)); font-size: .875rem; line-height: 1.8; }
+.eligibility-checker-modal #checker { padding: 1rem; border-radius: 0; background: white; box-shadow: none; }
+.eligibility-checker-modal #checker .rounded-2xl { padding: 1rem; }
+.eligibility-checker-modal #checker :is(input[type='text'], select, textarea) { font-size: 1rem; }
+@media (min-width: 640px) {
+  .eligibility-checker-modal__intro { padding: 1.5rem 1.5rem 0; }
+  .eligibility-checker-modal #checker { padding: 1.5rem; }
+  .eligibility-checker-modal #checker .rounded-2xl { padding: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) { .modal-panel.eligibility-checker-modal { animation: none; } }
+
+.eligibility-checker-modal [data-eligibility-actions] { flex-wrap: wrap; }
+.eligibility-checker-modal [data-eligibility-actions] > .btn-primary { margin-left: auto; }

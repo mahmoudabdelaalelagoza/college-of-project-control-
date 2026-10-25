@@ -122,7 +122,7 @@ export default function IpcAuthority({ id = 'ipc-authority' }: { id?: string } =
             />
           </div>
 
-          <h2 id={`${id}-heading`} className="mx-auto mt-6 max-w-[500px] font-heading text-xl font-bold leading-snug text-white lg:mx-0 md:text-2xl">{sectionCopy.heading}</h2>
+          <h2 id={`${id}-heading`} className="mx-auto mt-6 max-w-[500px] font-heading text-section-xl font-bold leading-snug text-white lg:mx-0 md:text-section-2xl">{sectionCopy.heading}</h2>
 
           <p className="mx-auto mt-6 max-w-[500px] text-base leading-relaxed md:text-lg lg:mx-0" style={{ color: 'rgba(245,245,245,0.72)' }}>
             {sectionCopy.description}

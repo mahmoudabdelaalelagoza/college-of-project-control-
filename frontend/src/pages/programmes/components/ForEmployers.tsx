@@ -59,12 +59,12 @@ export default function ForEmployers() {
               transition: 'opacity 700ms cubic-bezier(0.22, 1, 0.36, 1), transform 700ms cubic-bezier(0.22, 1, 0.36, 1)',
             }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-highlight-700 mb-5">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-warm-ink mb-5">
               <i className="ri-building-2-line text-sm" />
               For Employers
             </span>
 
-            <h2 className="text-3xl md:text-4xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight">
+            <h2 className="text-section-3xl md:text-section-4xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight">
               Build project, controls and PMO expertise across your team
             </h2>
 

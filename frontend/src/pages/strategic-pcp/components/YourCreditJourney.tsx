@@ -2,6 +2,7 @@ import StrategicSection from './StrategicSection';
 const pathwayModules = [
   {
     creditLabel: 'Credits 1–2',
+    mandatory: true,
     title: 'PMP Preparation & Strategic Project Leadership',
     exampleLabel: 'PMP Preparation',
     credits: 2,
@@ -13,6 +14,7 @@ const pathwayModules = [
   },
   {
     creditLabel: 'Credit 3',
+    mandatory: true,
     title: 'AI in Project Controls & Management',
     exampleLabel: 'AI',
     credits: 1,
@@ -24,6 +26,19 @@ const pathwayModules = [
   },
   {
     creditLabel: 'Credit 4',
+    mandatory: true,
+    title: 'Risk Management',
+    exampleLabel: 'Risk Management',
+    credits: 1,
+    months: 4,
+    paragraphs: [
+      'Develop structured approaches to identifying, analysing and responding to project and programme risk, uncertainty and opportunity.',
+      'Connect risk insight to governance, contingency planning and leadership decisions.',
+    ],
+  },
+  {
+    creditLabel: 'Specialist option',
+    mandatory: false,
     title: 'Programme Management',
     exampleLabel: 'Programme Management',
     credits: 1,
@@ -34,7 +49,8 @@ const pathwayModules = [
     ],
   },
   {
-    creditLabel: 'Credit 5',
+    creditLabel: 'Specialist option',
+    mandatory: false,
     title: 'Portfolio Management',
     exampleLabel: 'Portfolio Management',
     credits: 1,
@@ -45,7 +61,8 @@ const pathwayModules = [
     ],
   },
   {
-    creditLabel: 'Credit 6',
+    creditLabel: 'Specialist option',
+    mandatory: false,
     title: 'PMO Leadership & PMI-PMOCP Preparation',
     exampleLabel: 'PMO Leadership',
     credits: 1,
@@ -57,7 +74,9 @@ const pathwayModules = [
   },
 ];
 
-const totalCredits = pathwayModules.reduce((total, module) => total + module.credits, 0);
+// PMP, AI and Risk Management are mandatory; two of the three specialist options complete the six credits.
+const examplePathway = pathwayModules.filter((module) => module.mandatory || module.title === 'Programme Management' || module.title === 'Portfolio Management');
+const totalCredits = examplePathway.reduce((total, module) => total + module.credits, 0);
 
 export default function YourCreditJourney() {
   return (
@@ -66,16 +85,19 @@ export default function YourCreditJourney() {
       headingId="strategic-learning-pathway-title"
       tag="Your Learning Pathway"
       title="Six Credits. One Strategic Development Journey."
-      intro={["The Strategic Pathway brings together project leadership, applied AI, programme management, portfolio management and PMO development.","Your final six-credit combination is agreed with Kent Business College and your employer, considering your responsibilities, prior learning and workplace development needs."]}
+      intro={["The Strategic Pathway combines three mandatory modules — PMP Preparation, AI in Project Controls & Management and Risk Management — with two specialist credits chosen from programme management, portfolio management and PMO leadership.","Your final six-credit combination is agreed with Kent Business College and your employer, considering your responsibilities, prior learning and workplace development needs."]}
       tone="white"
     >
       <ol aria-label="Six-credit strategic learning pathway" className="grid gap-6 md:grid-cols-2">
         {pathwayModules.map((module, index) => (
-          <li key={module.creditLabel} className={index === 0 ? 'min-w-0 md:col-span-2' : 'min-w-0'}>
+          <li key={module.title} className={index === 0 ? 'min-w-0 md:col-span-2' : 'min-w-0'}>
             <article className={`h-full rounded-2xl border p-6 shadow-sm ${index === 0 ? 'border-white/20 bg-primary-800 text-white' : 'border-background-200 bg-white text-foreground-950'}`}>
               <h3 className={`text-xl font-bold leading-snug ${index === 0 ? 'text-white' : 'text-foreground-950'}`}>
                 {module.creditLabel} — {module.title}
               </h3>
+              <span className={`mt-3 inline-flex rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide ${module.mandatory ? (index === 0 ? 'bg-white/15 text-signal-300' : 'bg-accent-50 text-accent-700') : 'bg-primary-50 text-primary-700'}`}>
+                {module.mandatory ? 'Mandatory' : 'Choose two of three'}
+              </span>
               <p className={`mt-4 text-sm font-semibold ${index === 0 ? 'text-signal-300' : 'text-accent-700'}`}>
                 {module.credits} KBC {module.credits === 1 ? 'Credit' : 'Credits'} · {module.months} Months
               </p>
@@ -92,7 +114,10 @@ export default function YourCreditJourney() {
           Illustrative Six-Credit Combination
         </h3>
         <p className="mt-4 text-sm leading-relaxed text-foreground-600">
-          {pathwayModules.map((module) => `${module.exampleLabel} (${module.credits})`).join(' + ')} = {totalCredits} KBC Learning Credits
+          {examplePathway.map((module) => `${module.exampleLabel} (${module.credits})`).join(' + ')} = {totalCredits} KBC Learning Credits
+        </p>
+        <p className="mt-3 text-sm leading-relaxed text-foreground-600">
+          PMP Preparation, AI and Risk Management are mandatory in every Strategic Pathway. PMO Leadership can replace either specialist option above.
         </p>
       </article>
 

@@ -1,4 +1,3 @@
-import SiteLink from '@/components/base/SiteLink';
 import PmoSection from './PmoSection';
 
 // Professional-study module periods, checked against the linked KBC overview on 20 October 2026.
@@ -6,27 +5,27 @@ import PmoSection from './PmoSection';
 const modules = [
   {
     "period": "Months 1–4",
-    "title": "PMO purpose & governance",
-    "focus": "Office remit, accountability and assurance.",
-    "output": "Operating-model proposal"
-  },
-  {
-    "period": "Months 5–8",
-    "title": "Integrated controls",
+    "title": "Project Planning and Control",
     "focus": "Baselines, earned value and forecast reasoning.",
     "output": "Forecast commentary"
   },
   {
+    "period": "Months 5–8",
+    "title": "Stakeholders & Reporting",
+    "focus": "Executive information, influence and reflective practice.",
+    "output": "Reporting pack"
+  },
+  {
     "period": "Months 9–12",
-    "title": "Risk, issues & quality",
+    "title": "Risk, Issues & quality",
     "focus": "Ownership, escalation and continuous improvement.",
     "output": "Improvement pack"
   },
   {
     "period": "Months 13–16",
-    "title": "Stakeholders & reporting",
-    "focus": "Executive information, influence and reflective practice.",
-    "output": "Reporting pack"
+    "title": "PMO purpose & Governance",
+    "focus": "Office remit, accountability and assurance.",
+    "output": "Operating-model proposal"
   }
 ] as const;
 
@@ -68,15 +67,6 @@ export default function ProfessionalProgrammeDetails() {
             <h3 className="text-xl font-bold">Before enrolment</h3>
             <p className="mt-3 text-sm leading-7 text-foreground-600">Confirm suitability, timetable, workload, fees, included assessments and extras in your written offer. Simulated activities require KBC approval.</p>
           </article>
-        </div>
-        <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-          <SiteLink href="/short-courses/pmo-level-6" className="btn-primary inline-flex min-h-12 items-center justify-center px-6 py-3 text-center text-sm font-bold">Explore professional programme</SiteLink>
-          <SiteLink href="/book-a-session" className="btn-secondary text-center text-primary-700 hover:bg-white">Discuss your learning plan</SiteLink>
-        </div>
-        <div className="mt-5 text-center">
-          <SiteLink href="https://kentbusinesscollege.com/professional-programmes/certified-pmo-professional-level-6/" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary-700 underline underline-offset-4 hover:text-primary-900">
-            KBC programme details<i className="ri-external-link-line" aria-hidden="true" />
-          </SiteLink>
         </div>
     </PmoSection>
   );

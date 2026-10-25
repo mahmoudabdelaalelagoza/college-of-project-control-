@@ -29,7 +29,7 @@ export default function TheLearningExperience() {
           <p className="text-xs font-bold uppercase tracking-[.18em] text-signal-300">
             Applied energy-sector learning
           </p>
-          <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-semibold leading-tight text-white md:text-5xl">
+          <h2 className="mx-auto mt-4 max-w-3xl text-section-3xl font-semibold leading-tight text-white md:text-section-5xl">
             From live learning to
             <br />
             energy programme decisions.

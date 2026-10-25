@@ -39,7 +39,7 @@ export default function CampaignTransformation({
               <div className="w-8 h-8 shrink-0 flex items-center justify-center rounded-full bg-foreground-100">
                 <i className="ri-close-line text-foreground-600"></i>
               </div>
-              <h4 className="text-sm font-heading font-bold text-foreground-600 uppercase tracking-wider">{beforeTitle}</h4>
+              <h3 className="text-sm font-heading font-bold text-foreground-600 uppercase tracking-wider">{beforeTitle}</h3>
             </div>
             <div className="space-y-4">
               {beforeItems.map((item) => (
@@ -62,7 +62,7 @@ export default function CampaignTransformation({
               <div className="w-8 h-8 flex items-center justify-center rounded-full bg-background-50/20">
                 <i className="ri-check-line text-background-50"></i>
               </div>
-              <h4 className="text-sm font-heading font-bold text-background-50/90 uppercase tracking-wider">{afterTitle}</h4>
+              <h3 className="text-sm font-heading font-bold text-background-50/90 uppercase tracking-wider">{afterTitle}</h3>
             </div>
             <div className="space-y-4">
               {afterItems.map((item) => (

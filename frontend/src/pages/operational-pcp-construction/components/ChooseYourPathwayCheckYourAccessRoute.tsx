@@ -21,7 +21,7 @@ export default function ChooseYourPathwayCheckYourAccessRoute() {
               <small className="text-xs font-bold uppercase tracking-[.15em] text-signal-300">
                 Next step
               </small>
-              <h2 className="mt-4 max-w-3xl text-3xl font-bold leading-tight text-white md:text-4xl">
+              <h2 className="mt-4 max-w-3xl text-section-3xl font-bold leading-tight text-white md:text-section-4xl">
                 Choose your pathway. Check your access route.
               </h2>
               <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/76">
@@ -32,7 +32,7 @@ export default function ChooseYourPathwayCheckYourAccessRoute() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <SiteLink
-                href="#eligibility"
+                href="/apprenticeship-eligibility-checker"
                 className="btn-primary inline-flex min-h-12 items-center justify-center gap-2 px-6 text-sm font-bold"
               >
                 Check my eligibility

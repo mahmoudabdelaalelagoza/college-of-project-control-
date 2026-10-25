@@ -7,7 +7,7 @@ export default function SectorApplication() {
 <span className="text-xs font-bold uppercase tracking-[.15em] text-accent-700">
 {"Sector application "}
 </span>
-<h2 className="text-3xl font-bold leading-tight md:text-4xl">
+<h2 className="text-section-3xl font-bold leading-tight md:text-section-4xl">
 {"Apply the same control discipline across the energy lifecycle. "}
 </h2>
 </div>

@@ -13,7 +13,7 @@ export default function RouteProblems({ sectionLabel, heading, cards }: RoutePro
           <span className="text-xs font-label font-semibold uppercase tracking-[0.15em] text-primary-500">{sectionLabel}</span>
         </div>
 
-        <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground-950 text-center leading-tight mb-10 md:mb-14 max-w-2xl mx-auto">
+        <h2 className="text-section-2xl md:text-section-3xl font-heading font-bold text-foreground-950 text-center leading-tight mb-10 md:mb-14 max-w-2xl mx-auto">
           {heading}
         </h2>
 
@@ -40,7 +40,7 @@ export default function RouteProblems({ sectionLabel, heading, cards }: RoutePro
               </span>
             </div>
             <div className="relative h-24 flex items-end">
-              <div className="flex flex-col justify-between h-full pr-3 text-sm text-foreground-400 font-label">
+              <div className="flex flex-col justify-between h-full pr-3 text-sm text-foreground-600 font-label">
                 <span>High</span>
                 <span>Mid</span>
                 <span>Low</span>

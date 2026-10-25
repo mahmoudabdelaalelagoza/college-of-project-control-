@@ -21,7 +21,7 @@ export default function MeetTheMentor({ mentor }: MeetTheMentorProps) {
                 </div>
 
                 <div className="flex flex-col justify-center p-7 md:p-10 lg:p-14">
-                  <p className="text-xs font-bold uppercase tracking-[.16em] text-highlight-700">Meet the mentor</p>
+                  <p className="text-xs font-bold uppercase tracking-[.16em] text-warm-ink">Meet the mentor</p>
                   <h1 className="mt-3 text-4xl font-bold text-foreground-950 md:text-5xl">{mentor.name}</h1>
                   <p className="mt-3 text-base font-semibold text-primary-700">{mentor.role}</p>
                   {mentor.affiliation && <p className="mt-1 text-sm text-foreground-600">{mentor.affiliation}</p>}

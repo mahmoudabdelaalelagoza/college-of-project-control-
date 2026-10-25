@@ -1,0 +1,85 @@
+ M .claude/cloude-code-toolbox-mcp-skills-awareness.md
+ M CLAUDE.md
+ M frontend/package.json
+ M frontend/src/components/base/Modal.tsx
+ M frontend/src/components/feature/CaseStudiesSection.tsx
+ M frontend/src/components/feature/CaseStudyCard.tsx
+ M frontend/src/components/feature/Footer.tsx
+ M frontend/src/components/feature/LearnerExperiences.tsx
+ M frontend/src/components/feature/Navbar.tsx
+ M frontend/src/components/feature/PageSectionNav.tsx
+ M frontend/src/components/feature/SectorPathwayChoice.tsx
+ M frontend/src/components/feature/TestimonialsSection.tsx
+ M frontend/src/components/feature/chatbot/ChatIcon.tsx
+ M frontend/src/components/feature/chatbot/ProgrammeAssistant.tsx
+ M frontend/src/components/feature/chatbot/programme-assistant.css
+ M frontend/src/index.compiled.css
+ M frontend/src/index.css
+ M frontend/src/next/staticRoutes.ts
+ M frontend/src/pages/README.md
+ M frontend/src/pages/about/README.md
+ M frontend/src/pages/about/components/AboutCPCM.tsx
+ M frontend/src/pages/apprentices/components/LearnerSupport.tsx
+ M frontend/src/pages/apprenticeship-eligibility-checker/components/ApprenticeshipEligibilityChecker.tsx
+ M frontend/src/pages/articles/README.md
+ M frontend/src/pages/case-studies/README.md
+ M frontend/src/pages/case-studies/components/CaseStudiesGrid.tsx
+ M frontend/src/pages/case-studies/components/CaseStudiesHero.tsx
+ M frontend/src/pages/case-studies/detail/README.md
+ M frontend/src/pages/case-studies/detail/page.tsx
+ M frontend/src/pages/case-studies/page.tsx
+ M frontend/src/pages/employer-agreement/components/ForEmployers.tsx
+ M frontend/src/pages/employers/README.md
+ M frontend/src/pages/employers/page.tsx
+ M frontend/src/pages/home/README.md
+ M frontend/src/pages/home/components/CollegeOfProjectControlsAndManagement.tsx
+ M frontend/src/pages/home/page.tsx
+ M frontend/src/pages/operational-pcp-construction/README.md
+ M frontend/src/pages/operational-pcp-construction/components/ChooseYourPathwayCheckYourAccessRoute.tsx
+ M frontend/src/pages/operational-pcp-construction/components/ConstructionInfrastructure.tsx
+ M frontend/src/pages/operational-pcp-construction/page.tsx
+ M frontend/src/pages/operational-pcp-construction/sectionData.ts
+ M frontend/src/pages/operational-pcp-energy/README.md
+ M frontend/src/pages/operational-pcp-energy/components/BuildTheCapabilityToControlComplexEnergyProgrammesWithConfidence.tsx
+ M frontend/src/pages/operational-pcp-energy/components/EnergyUtilities.tsx
+ M frontend/src/pages/operational-pcp-energy/page.tsx
+ M frontend/src/pages/operational-pcp-engineering/README.md
+ M frontend/src/pages/operational-pcp-engineering/components/EngineeringAdvancedManufacturing.tsx
+ M frontend/src/pages/operational-pcp-engineering/components/ReadyToTakeControl.tsx
+ M frontend/src/pages/operational-pcp-engineering/page.tsx
+ M frontend/src/pages/operational-pcp-engineering/sectionData.ts
+ M frontend/src/pages/operational-pcp-public-sector/components/PublicSector.tsx
+ M frontend/src/pages/testimonials/README.md
+ M frontend/src/pages/testimonials/components/ProfessionalEmployerExperiences.tsx
+ M frontend/src/pages/testimonials/components/ProfessionalExperience.tsx
+ M frontend/src/pages/testimonials/page.tsx
+ M frontend/src/services/caseStudiesApi.ts
+ M frontend/src/styles/tokens.css
+?? docs/audits/
+?? docs/content/
+?? docs/migration/SUPABASE_PUBLISH_JOURNAL_ARTICLES_20261021.sql
+?? frontend/public/assets/case-studies/
+?? frontend/public/assets/fonts/
+?? frontend/public/assets/learner-experiences/
+?? frontend/scripts/case-studies.test.mjs
+?? frontend/src/components/feature/EligibilityCheckerModal.tsx
+?? frontend/src/components/feature/IpcNavigationLink.tsx
+?? frontend/src/components/feature/LearnerCaseStudyCard.tsx
+?? frontend/src/components/feature/LearnerExperienceCard.tsx
+?? frontend/src/components/feature/MobileNavigation.tsx
+?? frontend/src/components/feature/ProgrammeMegaMenu.tsx
+?? frontend/src/components/feature/case-studies.css
+?? frontend/src/components/feature/chatbot/AssistantRobotIcon.tsx
+?? frontend/src/components/feature/eligibility-checker-modal.css
+?? frontend/src/components/feature/learner-experiences.css
+?? frontend/src/components/feature/mobile-navigation.css
+?? frontend/src/components/feature/programme-navigation.css
+?? frontend/src/components/feature/programmeNavigationData.ts
+?? frontend/src/data/learnerExperiences.ts
+?? frontend/src/data/pcpCaseStudies.json
+?? frontend/src/data/pcpCaseStudies.ts
+?? frontend/src/data/pcpLearnerExperiences.json
+?? frontend/src/pages/case-studies/detail/components/LearnerCaseStudyDetail.tsx
+?? frontend/src/pages/testimonials/components/CollegeCommunityReviews.tsx
+?? frontend/src/services/caseStudyCollection.ts
+?? frontend/src/styles/mobile-typography.css

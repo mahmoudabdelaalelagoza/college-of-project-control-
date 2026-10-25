@@ -17,7 +17,7 @@ export default function RouteCapability({ sectionLabel, heading, description, fe
 
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
             <div className="lg:w-[420px] shrink-0">
-              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground-950 leading-tight">{heading}</h2>
+              <h2 className="text-section-2xl md:text-section-3xl font-heading font-bold text-foreground-950 leading-tight">{heading}</h2>
             </div>
 
             <div className="flex-1">

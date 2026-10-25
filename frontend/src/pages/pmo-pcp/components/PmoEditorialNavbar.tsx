@@ -2,7 +2,6 @@ import PageSectionNav from '@/components/feature/PageSectionNav';
 import { useEffect, useState } from 'react';
 
 const navItems = [
-  { label: 'Overview', href: '#hero' },
   { label: 'PMO Journey', href: '#journey' },
   { label: 'Apprenticeship', href: '#apprenticeship' },
   { label: 'Professional study', href: '#professional-study' },

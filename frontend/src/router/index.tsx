@@ -9,6 +9,7 @@ import Navbar from '@/components/feature/Navbar';
 import FundingTicker from '@/components/feature/FundingTicker';
 import MaintenanceGate from '@/components/feature/MaintenanceGate';
 import ProgrammeAssistant from '@/components/feature/chatbot/ProgrammeAssistant';
+import EligibilityCheckerHost from '@/components/feature/EligibilityCheckerHost';
 import routes from './config';
 
 declare global {
@@ -49,6 +50,7 @@ export function AppRoutes() {
             </Suspense>
         </div>
         <ProgrammeAssistant />
+        <EligibilityCheckerHost />
       </MaintenanceGate>
     </PageContentProvider>
   );

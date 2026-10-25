@@ -8,6 +8,6 @@ const journey = [
 
 export default function ProfessionalJourney() {
   return (
-<section className="bg-white py-16 md:py-24"><div className="container-site"><div className="mx-auto max-w-3xl text-center"><p className="text-xs font-bold uppercase tracking-[.18em] text-ipc-ink">Professional journey</p><h2 className="mt-4 text-3xl md:text-4xl">From learning to recognised practice</h2></div><ol className="mt-12 grid gap-4 md:grid-cols-5">{journey.map(([number, title, copy]) => <li key={title} className="rounded-xl border border-background-200 bg-background-50 p-5"><span className="text-xs font-bold text-ipc-ink">{number}</span><h3 className="mt-3 text-lg">{title}</h3><p className="mt-2 text-xs leading-relaxed text-foreground-600">{copy}</p></li>)}</ol></div></section>
+<section className="bg-white py-16 md:py-24"><div className="container-site"><div className="mx-auto max-w-3xl text-center"><p className="text-xs font-bold uppercase tracking-[.18em] text-ipc-ink">Professional journey</p><h2 className="mt-4 text-section-3xl md:text-section-4xl">From learning to recognised practice</h2></div><ol className="mt-12 grid gap-4 md:grid-cols-5">{journey.map(([number, title, copy]) => <li key={title} className="rounded-xl border border-background-200 bg-background-50 p-5"><span className="text-xs font-bold text-ipc-ink">{number}</span><h3 className="mt-3 text-lg">{title}</h3><p className="mt-2 text-xs leading-relaxed text-foreground-600">{copy}</p></li>)}</ol></div></section>
   );
 }

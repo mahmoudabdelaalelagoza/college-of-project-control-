@@ -13,7 +13,7 @@ export default function Responsibilities() {
           <div className="container-site">
             <div className="mx-auto mb-12 max-w-2xl text-center">
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-700">Responsibilities</span>
-              <h2 id="responsibilities-title" className="mt-3 text-3xl font-bold text-foreground-900 md:text-4xl">Responsibilities of Governance Board members</h2>
+              <h2 id="responsibilities-title" className="mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl">Responsibilities of Governance Board members</h2>
             </div>
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {responsibilities.map((item) => (

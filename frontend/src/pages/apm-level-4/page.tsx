@@ -29,7 +29,7 @@ export default function ApmLevel4() {
       <Level4WorkBasedApprenticeship />
 
       <KeyProgrammeFacts />
-      <PageSectionNav pageLabel="Level 4" links={navLinks} showCta={false} />
+      <PageSectionNav pageLabel="APM Level 4" links={navLinks} showCta={false} />
 
       <BuildCapabilityThatTransfersDirectlyToYourRole />
 

@@ -7,6 +7,8 @@ export default function usePublicHeaderHeight() {
     if (!header) return;
     const update = () => {
       document.documentElement.style.setProperty('--public-header-height', `${Math.ceil(header.getBoundingClientRect().height)}px`);
+      const navigation = header.querySelector<HTMLElement>('nav[aria-label="Primary"]');
+      if (navigation) document.documentElement.style.setProperty('--public-navigation-height', `${Math.ceil(navigation.getBoundingClientRect().height)}px`);
     };
     update();
     const observer = new ResizeObserver(update);
@@ -14,6 +16,7 @@ export default function usePublicHeaderHeight() {
     return () => {
       observer.disconnect();
       document.documentElement.style.removeProperty('--public-header-height');
+      document.documentElement.style.removeProperty('--public-navigation-height');
     };
   }, []);
 }

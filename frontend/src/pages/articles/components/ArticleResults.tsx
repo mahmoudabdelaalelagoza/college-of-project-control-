@@ -17,7 +17,7 @@ export default function ArticleResults({ query, page, data, loading, error, onRe
     <section id="article-grid" className="scroll-mt-28 py-14 md:py-20" aria-label="Article results">
       <div className="container-site">
         <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-          <h2 className="text-2xl font-bold text-foreground-950">{query ? `Results for “${query}”` : 'Latest articles'}</h2>
+          <h2 className="text-section-2xl font-bold text-foreground-950">{query ? `Results for “${query}”` : 'Latest articles'}</h2>
           {query && <button type="button" onClick={onClearSearch} className="min-h-11 text-sm font-semibold text-primary-700 underline">Clear search</button>}
         </div>
         {loading ? (

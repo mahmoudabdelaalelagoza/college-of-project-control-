@@ -1,3 +1,4 @@
+import LearnerCaseStudyDetail from './components/LearnerCaseStudyDetail';
 import Footer from '@/components/feature/Footer';
 import CaseStudyDetailBody from './components/CaseStudyDetailBody';
 import CaseStudyDetailHero from './components/CaseStudyDetailHero';
@@ -36,6 +37,8 @@ export default function CaseStudyDetailPage() {
           <CaseStudyDetailStatus loading />
         ) : error || !item ? (
           <CaseStudyDetailStatus />
+        ) : item.learner_name ? (
+          <LearnerCaseStudyDetail item={item} />
         ) : (
           <>
             <CaseStudyDetailHero item={item} />

@@ -3,7 +3,6 @@ import StickyCta from '@/components/feature/StickyCta';
 import CommercialAccessForNonEligibleLearners from "./components/CommercialAccessForNonEligibleLearners";
 import CommercialRoute from "./components/CommercialRoute";
 import FrequentlyAskedQuestions from "./components/FrequentlyAskedQuestions";
-import FundingAndCosts from "./components/FundingAndCosts";
 import InstituteOfProjectControls from "./components/InstituteOfProjectControls";
 import ProfessionalCapabilitySection from "./components/ProfessionalCapabilitySection";
 import ProfessionalRecognition from "./components/ProfessionalRecognition";
@@ -29,7 +28,6 @@ export default function CampaignCommercialRoute() {
 
       {/* Review costs and resolve questions before enquiring */}
       <div id="funding" aria-label="Commercial route funding">
-        <FundingAndCosts />
       </div>
       <FrequentlyAskedQuestions />
     </main>

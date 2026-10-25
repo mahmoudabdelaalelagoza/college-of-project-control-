@@ -6,7 +6,7 @@ export default function PMOProfessionalDevelopmentModule1() {
 <div className="text-xs font-bold uppercase tracking-[.14em] text-accent-700">
 {"PMO Professional Development - Module 1 "}
 </div>
-<h2 id="module-1-title" className="text-3xl font-bold leading-tight md:text-4xl">
+<h2 id="module-1-title" className="text-section-3xl font-bold leading-tight md:text-section-4xl">
 {"PMO Fundamentals and Organisational Governance "}
 </h2>
 <p className="text-base leading-relaxed">

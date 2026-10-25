@@ -1,4 +1,4 @@
-import SiteLink from '@/components/base/SiteLink';
+﻿import SiteLink from '@/components/base/SiteLink';
 const pathways = [
   {
     number: '01',
@@ -6,7 +6,7 @@ const pathways = [
     label: 'Hands-on delivery',
     title: 'Operational Pathway',
     audience: 'For planners, schedulers, cost professionals and project controls practitioners responsible for reliable delivery information.',
-    focus: ['PMP (2 credits)', 'AI in Project Management / Controls (1 credit)', 'Risk Management (APM) (1 credit)', 'Project Planning and Control (2 credits)', 'EVM (1 credit)', 'PMI-SP (1 credit)'],
+    focus: ['PMP (2 credits)', 'AI in Project Management / Controls (1 credit)', 'Risk Management (APM) (1 credit)', 'Project Planning and Control (1 credit)', 'EVM (1 credit)', 'PMI-SP (1 credit)'],
     outcome: 'Build stronger day-to-day control of scope, time, cost, risk and project performance.',
     href: '/project-controls-professional/operational-route',
   },
@@ -53,7 +53,7 @@ export default function ProfessionalPathwaysSection({
             <i className="ri-route-line" aria-hidden="true" />
             Professional pathways
           </span>
-          <h2 className="mt-5 text-3xl font-heading font-bold leading-tight text-white md:text-4xl lg:text-4xl">
+          <h2 className="mt-5 text-section-3xl font-heading font-bold leading-tight text-white md:text-section-4xl lg:text-section-4xl">
             Three routes shaped around how you work
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/75 md:text-base">
@@ -76,7 +76,7 @@ export default function ProfessionalPathwaysSection({
                   <span className="text-sm font-bold text-background-400">{pathway.number}</span>
                 </div>
 
-                <p className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-highlight-700">{pathway.label}</p>
+                <p className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-warm-ink">{pathway.label}</p>
                 <h3 className="mt-2 text-2xl font-heading font-bold text-foreground-950">{pathway.title}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-foreground-600">{pathway.audience}</p>
 
@@ -120,3 +120,4 @@ export default function ProfessionalPathwaysSection({
     </section>
   );
 }
+

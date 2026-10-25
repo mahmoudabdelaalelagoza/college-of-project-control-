@@ -22,18 +22,7 @@ const sectionCopy = {
     "body": [
       "Standalone professional courses are commercially priced and are not automatically eligible for government apprenticeship funding.",
       "The Institute of Project Controls Fund may provide tuition support for eligible professional-study applicants, subject to approval."
-    ],
-    "cards": [
-      {
-        "title": "Up to 75% tuition support",
-        "body": "For eligible unemployed or self-employed learners."
-      },
-      {
-        "title": "Up to 50% tuition support",
-        "body": "For eligible employed learners, with the employer contributing the remaining share."
-      }
-    ],
-    "note": "Commercial course fees and any approved support are confirmed in your written offer."
+    ]
   },
   "support": {
     "title": "Additional professional support",
@@ -57,7 +46,6 @@ export default function FundingOptionsSection({
       content: sectionCopy.professional.body.map(text => <p key={text} className="mt-2 first:mt-0">{text}</p>),
     },
   ];
-  const supportCards = sectionCopy.professional.cards.map(card => ({ title: card.title, description: card.body }));
   const rows = [
     ['Apprentices aged 16–24','Up to 100% of eligible training and assessment costs may be covered, subject to funding rules.'],
     ['Levy-paying employers with sufficient funds',"Eligible costs can be paid through the employer's apprenticeship service account."],
@@ -84,7 +72,7 @@ export default function FundingOptionsSection({
             <p className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.24em] text-white/90">
               <span className="h-0.5 w-10 bg-highlight-400" aria-hidden="true" />{sectionCopy.tag}
             </p>
-            <h2 id={headingId} className="mt-4 text-4xl font-bold leading-tight tracking-tight text-white lg:text-5xl">{sectionCopy.title}</h2>
+            <h2 id={headingId} className="mt-4 text-section-4xl font-bold leading-tight tracking-tight text-white lg:text-section-5xl">{sectionCopy.title}</h2>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/90">{sectionCopy.intro}</p>
           </div>
           <div className="hidden shrink-0 text-xs font-semibold uppercase leading-7 tracking-[.22em] text-white lg:block" aria-hidden="true">
@@ -115,22 +103,7 @@ export default function FundingOptionsSection({
           </div>
         </article>
 
-        <div className="grid divide-y divide-accent-300/25 overflow-hidden rounded-xl bg-primary-900 text-white lg:divide-x lg:divide-y-0 lg:grid-cols-2">
-          {supportCards.map((card, index) => (
-            <article key={card.title} className="flex items-start gap-4 p-5 lg:p-6">
-              <i className={`${index === 0 ? 'ri-graduation-cap-line' : 'ri-bar-chart-grouped-line'} shrink-0 text-3xl text-accent-100`} aria-hidden="true" />
-              <div>
-                <h3 className="text-sm font-bold leading-snug text-white">{card.title}</h3>
-                <p className="mt-2 text-xs leading-relaxed text-white/75">{card.description}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <p className="px-1 text-xs leading-relaxed text-foreground-600">{sectionCopy.professional.note}</p>
-
-        {/* Employer-side apprenticeship funding positions. Same card treatment as
-            the support cards above; the values come from the canonical policy. */}
+        {/* Employer-side apprenticeship funding positions use the canonical policy. */}
         <h3 className="pt-3 text-base font-bold text-primary-900">Funding for starts {fundingWindowPhrase()}</h3>
         <div className="grid divide-y divide-accent-300/25 overflow-hidden rounded-xl bg-primary-900 text-white lg:grid-cols-2">
           {contributionCards.map((card) => (

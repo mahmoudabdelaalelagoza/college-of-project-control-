@@ -52,7 +52,7 @@ export default function CapabilityThemes() {
       <div className="container-site">
         <div className="mb-10 max-w-3xl space-y-4">
           <p className="text-xs font-bold uppercase tracking-[.18em] text-accent-700">Operational Capabilities</p>
-          <h2 id="operational-capability-title" className="text-3xl font-bold leading-tight text-foreground-950 md:text-4xl">
+          <h2 id="operational-capability-title" className="text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl">
             Develop the Skills Behind Effective Project Controls
           </h2>
           <p className="text-base leading-relaxed text-foreground-600">

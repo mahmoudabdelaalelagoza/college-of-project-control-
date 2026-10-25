@@ -17,7 +17,7 @@ export default function FindYourNextStep() {
               <span className="mb-4 inline-block rounded-full border border-highlight-400/50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-highlight-400">
                 Find Your Next Step
               </span>
-              <h2 className="text-2xl font-bold leading-tight text-background-50 md:text-3xl lg:text-4xl">
+              <h2 className="text-section-2xl font-bold leading-tight text-background-50 md:text-section-3xl lg:text-section-4xl">
                 Not sure which programme or specialist development fits?
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-background-50/70 md:text-base">
@@ -29,7 +29,7 @@ export default function FindYourNextStep() {
               <ContactForm />
 
               <aside className="rounded-xl border border-white/15 bg-white/10 p-6 text-white backdrop-blur-sm md:p-8">
-                <h2 className="text-xl font-bold text-white">What happens next?</h2>
+                <h2 className="text-section-xl font-bold text-white">What happens next?</h2>
                 <div className="mt-6 space-y-5">
                   {nextSteps.map((step) => (
                     <div key={step.title} className="flex items-start gap-3">

@@ -11,7 +11,7 @@ import { formatGBP } from '@/data/apprenticeshipFundingPolicy';
 export const ipcSupportPackageMaximum = 7000;
 
 export const programmeStats = [
-  { value: '27 months', label: 'Soft start, six credits and closing workshops', icon: 'ri-calendar-2-line' },
+  { value: '26 months', label: 'Soft start, six credits and preparation', icon: 'ri-calendar-2-line' },
   { value: '6 credits', label: 'A standard credit is a four-month course', icon: 'ri-stack-line' },
   { value: '3 pathways', label: 'Operational, Strategic and Chartered', icon: 'ri-route-line' },
   // Derived, not authored: the ST0845 funding band plus the IPC support package
@@ -45,7 +45,7 @@ export const audienceGroups = [
 export const programmePhases = [
   { duration: 'Month 1', title: 'One-month soft start', items: ['Induction', 'Role review', 'Employer engagement', 'Funding checks', 'Diagnostic review', 'LMS access', 'Pathway confirmation'] },
   { duration: 'Months 2–25', title: 'Six credits over 24 months', items: ['Standard or tailored pathway', 'Workplace application', 'Evidence development', 'Employer priorities'] },
-  { duration: 'Months 26–27', title: 'Two-month closing workshops', items: ['Portfolio consolidation', 'Employer progress review', 'Professional discussion preparation', 'End-Point Assessment readiness'] },
+  { duration: 'Month 26', title: 'One-month preparation', items: ['Portfolio consolidation', 'Employer progress review', 'Professional discussion preparation', 'End-Point Assessment readiness'] },
 ];
 
 export const orientations = [
@@ -89,7 +89,7 @@ export const events = [
 
 export const faqs = [
   { q: 'When do the courses start?', a: 'Start windows are September, January and April. Availability and module sequence depend on the pathway and confirmed intake.' },
-  { q: 'How long is the programme?', a: 'The programme is 27 months: a one-month soft start, 24 months for six credits and two months of closing workshops.' },
+  { q: 'How long is the programme?', a: 'The programme is 26 months: a one-month soft start, 24 months for six credits and one month of preparation, followed by a six-month End-Point Assessment period.' },
   { q: 'Can I tailor the programme rather than follow one standard route?', a: 'Yes, subject to current job duties, employer needs, evidence opportunities, employer engagement and approval.' },
   { q: 'Can modules from another level be used if they better match my role?', a: 'Potentially, subject to programme fit, evidence requirements and funding rules. A normal module is one credit over four months; PMP or another relevant two-credit route is eight months.' },
   { q: 'What is the eligibility for the fully funded apprenticeship route?', a: 'Important considerations include living and working in England, spending at least 50% of working time in England, employment, employer support for off-the-job learning, applicable minimum-wage requirements and final pre-enrolment checks. This is guidance, not an unconditional funding or legal determination.' },

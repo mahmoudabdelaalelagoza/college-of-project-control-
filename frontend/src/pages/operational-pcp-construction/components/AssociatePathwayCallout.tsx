@@ -7,7 +7,7 @@ export default function AssociatePathwayCallout() {
         <div className="grid gap-6 rounded-lg border border-background-200 bg-accent-50 p-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:p-8">
           <div>
             <p className="text-sm font-semibold text-primary-900">Earlier in your project-management career?</p>
-            <h2 className="mt-3 text-2xl font-bold leading-tight text-foreground-950 md:text-3xl">
+            <h2 className="mt-3 text-section-2xl font-bold leading-tight text-foreground-950 md:text-section-3xl">
               Explore the Associate Project Management Pathway.
             </h2>
             <p className="mt-4 max-w-4xl text-sm leading-relaxed text-foreground-700 md:text-base">

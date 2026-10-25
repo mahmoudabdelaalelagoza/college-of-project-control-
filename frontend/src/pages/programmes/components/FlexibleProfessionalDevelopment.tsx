@@ -85,11 +85,11 @@ export default function FlexibleProfessionalDevelopment() {
       <div className="container-site relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-start">
           <div className="lg:sticky lg:top-44 reveal-blur-in is-visible">
-            <span className="inline-flex max-w-full items-center gap-2 px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-highlight-600 mb-5">
+            <span className="inline-flex max-w-full items-center gap-2 px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-warm-ink mb-5">
               <i className="ri-equalizer-2-line text-sm"></i>
               Flexible Professional Development
             </span>
-            <h2 className="max-w-xl text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground-950 leading-[1.08]">
+            <h2 className="max-w-xl text-section-3xl md:text-section-4xl lg:text-section-5xl font-heading font-bold text-foreground-950 leading-[1.08]">
               Choose how you want to develop
             </h2>
             <p className="mt-5 max-w-lg text-base md:text-lg text-foreground-600 leading-relaxed">
@@ -129,7 +129,7 @@ export default function FlexibleProfessionalDevelopment() {
                       <i className={`${option.icon} text-xl ${i === 0 ? 'text-highlight-300' : 'text-primary-600'}`}></i>
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className={`text-xs font-label font-semibold uppercase tracking-wider ${i === 0 ? 'text-highlight-300' : 'text-highlight-600'}`}>
+                      <p className={`text-xs font-label font-semibold uppercase tracking-wider ${i === 0 ? 'text-highlight-300' : 'text-warm-ink'}`}>
                         {option.eyebrow}
                       </p>
                       <h3 className={`mt-1 text-xl font-heading font-bold ${i === 0 ? 'text-white' : 'text-foreground-950'}`}>
@@ -163,10 +163,10 @@ export default function FlexibleProfessionalDevelopment() {
         <div className="bg-white border border-background-200/90 rounded-2xl p-5 md:p-7 lg:p-8">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-5">
             <div>
-              <p className="text-xs font-label font-semibold uppercase tracking-wider text-highlight-600">Specialist Courses &amp; Modules</p>
+              <p className="text-xs font-label font-semibold uppercase tracking-wider text-warm-ink">Specialist Courses &amp; Modules</p>
               <h3 className="mt-1 text-xl font-heading font-bold text-foreground-950">Build expertise in the areas that matter to your work</h3>
             </div>
-            <span className="text-xs font-medium text-foreground-400">9 specialist areas</span>
+            <span className="text-xs font-medium text-foreground-600">9 specialist areas</span>
           </div>
 
           <p className="mb-5 text-sm leading-relaxed text-foreground-600">
@@ -182,7 +182,7 @@ export default function FlexibleProfessionalDevelopment() {
                   <i className="ri-check-line text-primary-600 text-sm"></i>
                 </span>
                 <div className="min-w-0">
-                  <p className="text-xs font-semibold text-highlight-600">{mod.category}</p>
+                  <p className="text-xs font-semibold text-warm-ink">{mod.category}</p>
                   <p className="mt-1 text-xs md:text-sm font-semibold text-foreground-700 leading-snug">{mod.title}</p>
                 </div>
               </div>

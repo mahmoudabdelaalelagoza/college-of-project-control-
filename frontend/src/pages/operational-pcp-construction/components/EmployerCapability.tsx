@@ -22,7 +22,7 @@ export default function EmployerCapability() {
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)]">
           <div className="max-w-xl">
             <span className="text-xs font-bold uppercase tracking-[.15em] text-signal-300">Employer capability</span>
-            <h2 className="mt-4 text-3xl font-bold leading-tight text-white md:text-4xl">
+            <h2 className="mt-4 text-section-3xl font-bold leading-tight text-white md:text-section-4xl">
               Move from reactive reporting to decision-led control.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-white/76">

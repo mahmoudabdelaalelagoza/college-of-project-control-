@@ -19,7 +19,6 @@ Find the label on the page, then open its component below. Shared implementation
 | Project Controls Employer Partnerships | [ProjectControlsEmployerPartnerships.tsx](components/ProjectControlsEmployerPartnerships.tsx) | Page-local |
 | Project Controls Pathways | [ProjectControlsPathways.tsx](components/ProjectControlsPathways.tsx) | Page-local |
 | Questions Employers Usually Ask Before Starting | [QuestionsEmployersUsuallyAskBeforeStarting.tsx](components/QuestionsEmployersUsuallyAskBeforeStarting.tsx) | Page-local |
-| Start With The Business Need | [StartWithTheBusinessNeed.tsx](components/StartWithTheBusinessNeed.tsx) | Page-local |
 | Start With Your Need | [StartWithYourNeed.tsx](components/StartWithYourNeed.tsx) | Page-local |
 | Why Work With KBC | [WhyWorkWithKBC.tsx](components/WhyWorkWithKBC.tsx) | Page-local |
 

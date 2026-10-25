@@ -127,8 +127,8 @@ export default function ArticlesSection({
       <div className="container-site">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <p className="text-xs font-bold uppercase tracking-[.18em] text-primary-600">From the journal</p>
-            <h2 className="mt-3 text-3xl font-bold text-foreground-950 md:text-4xl">{title}</h2>
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-primary-600">Expand your knowledge</p>
+            <h2 className="mt-3 text-section-3xl font-bold text-foreground-950 md:text-section-4xl">{title}</h2>
             <p className="mt-4 text-sm leading-relaxed text-foreground-600">{description}</p>
           </div>
           <SiteLink href="/articles" className="inline-flex min-h-11 items-center gap-2 font-semibold text-primary-700">

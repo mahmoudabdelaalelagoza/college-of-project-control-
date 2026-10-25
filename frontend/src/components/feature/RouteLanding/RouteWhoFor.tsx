@@ -9,7 +9,7 @@ export default function RouteWhoFor({ heading, professionals, employers }: Route
   return (
     <section id="who-for" className="py-16 md:py-20 bg-background-50">
       <div className="container-site">
-        <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground-950 text-center leading-tight mb-10 md:mb-12">
+        <h2 className="text-section-2xl md:text-section-3xl font-heading font-bold text-foreground-950 text-center leading-tight mb-10 md:mb-12">
           {heading}
         </h2>
 

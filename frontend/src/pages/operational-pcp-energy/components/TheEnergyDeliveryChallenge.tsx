@@ -34,7 +34,7 @@ export default function TheEnergyDeliveryChallenge() {
             The energy delivery challenge
           </p>
 
-          <h2 className="mt-4 max-w-xl text-4xl font-semibold leading-[1.02] text-foreground-950 md:text-5xl">
+          <h2 className="mt-4 max-w-xl text-section-4xl font-semibold leading-[1.02] text-foreground-950 md:text-section-5xl">
             Energy programmes carry connected risks. Reporting often does not.
           </h2>
 

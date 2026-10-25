@@ -14,15 +14,30 @@ export function validateStep(step: CheckerStep, answers: CheckerAnswers) {
   return step.questions.filter(question => question.required && !answers[question.id]?.trim()).map(question => question.id);
 }
 
+// Funding checks are indicative. Residency exceptions, part-time duration and
+// overlapping training need admissions review under the applicable funding rules.
+const reviewChecks: readonly { question: string; clearAnswers: readonly string[]; message: string }[] = [
+  { question: 'age_16', clearAnswers: ['yes'], message: 'Your age at the planned start date needs confirmation.' },
+  { question: 'residency_education', clearAnswers: ['no'], message: 'The purpose of your UK residency needs an individual review.' },
+  { question: 'workplace_england', clearAnswers: ['yes'], message: 'The proportion of your working hours spent in England needs confirmation.' },
+  { question: 'uk_residency_three_years', clearAnswers: ['yes'], message: 'Your residency history and any applicable exceptions need an individual review.' },
+  { question: 'right_to_work', clearAnswers: ['yes'], message: 'Your right to live and work in the UK for the full apprenticeship needs confirmation.' },
+  { question: 'residency_status', clearAnswers: ['citizen', 'settled'], message: 'Your immigration status and permission duration need an individual review.' },
+  { question: 'employment_situation', clearAnswers: ['employed', 'job_offer'], message: 'Your paid employment arrangements at the planned start date need confirmation.' },
+  { question: 'weekly_paid_hours', clearAnswers: ['30_plus'], message: 'Your paid working hours and a realistic training duration need to be agreed.' },
+  { question: 'other_funded_training', clearAnswers: ['no'], message: 'Any overlapping apprenticeship or government-funded training needs to be checked.' },
+  { question: 'employer_support', clearAnswers: ['yes'], message: 'Employer support needs confirmation.' },
+  { question: 'employer_service_registered', clearAnswers: ['yes'], message: 'We need to check Apprenticeship Service registration with your employer.' },
+  { question: 'interest_area', clearAnswers: ['apm_level_4', 'pcp_level_6'], message: 'The most suitable apprenticeship area still needs to be identified.' },
+];
+
 export function calculateEligibility(answers: CheckerAnswers): EligibilityResult {
   const blockers: string[] = [];
   if (answers.age_16 === 'no') blockers.push('The minimum age condition may not be met.');
-  if (answers.full_time_education === 'yes') blockers.push('Full-time education may conflict with the apprenticeship route.');
-  if (answers.workplace_england === 'no') blockers.push('The main workplace is not expected to be in England.');
-  if (['need_employer', 'self_employed'].includes(answers.employment_situation)) blockers.push('A supported employed role is not currently in place.');
-  if (answers.employer_support === 'no' || answers.employer_support === 'not_applicable') blockers.push('Employer support is not currently confirmed.');
-  if (answers.employment_contract === 'no') blockers.push('An appropriate employment contract is not currently expected.');
-  if (answers.right_to_work === 'no') blockers.push('The stated right-to-work position requires a different route or further advice.');
+  if (answers.workplace_england === 'no') blockers.push('You do not currently expect to spend at least 50% of your working hours in England.');
+  if (['unemployed', 'self_employed'].includes(answers.employment_situation)) blockers.push('A supported paid employed role is not currently expected at the planned start date.');
+  if (answers.employer_support === 'no') blockers.push('Employer support is not currently in place.');
+  if (answers.right_to_work === 'no') blockers.push('The stated right to live and work in the UK does not cover the full apprenticeship.');
 
   if (blockers.length) return {
     status: 'not_suitable', label: 'Not currently suitable',
@@ -30,14 +45,11 @@ export function calculateEligibility(answers: CheckerAnswers): EligibilityResult
     factors: blockers, nextStep: 'Speak with our team about what would need to change or whether a commercial professional-development route may be more appropriate.',
   };
 
-  const reviews: string[] = [];
-  if (answers.workplace_england === 'not_sure') reviews.push('Main workplace location needs confirmation.');
-  if (answers.employer_support === 'not_sure') reviews.push('Employer support needs confirmation.');
-  if (answers.employment_contract === 'not_sure') reviews.push('Employment-contract arrangements need confirmation.');
-  if (['not_sure', 'other', 'visa'].includes(answers.residency_status)) reviews.push('Residency information needs an individual review.');
-  if (answers.right_to_work === 'not_sure') reviews.push('Right-to-work information needs confirmation.');
-  if (answers.previous_learning !== 'no') reviews.push('Previous learning needs to be compared with the programme.');
-  if (answers.interest_area === 'not_sure') reviews.push('The most suitable programme still needs to be identified.');
+  // Missing or unrecognised answers also need review; they must never produce
+  // a favourable result simply because no explicit blocker was selected.
+  const reviews = reviewChecks
+    .filter(check => !check.clearAnswers.includes(answers[check.question]))
+    .map(check => check.message);
 
   if (reviews.length) return {
     status: 'review', label: 'Needs further review',
@@ -48,7 +60,12 @@ export function calculateEligibility(answers: CheckerAnswers): EligibilityResult
   return {
     status: 'likely', label: 'Likely suitable for review',
     message: 'Your answers suggest you may be suitable for an apprenticeship route. The next step is to discuss your circumstances with our team.',
-    factors: ['Core age and education indicators appear suitable.', 'An employed role and employer support appear to be in place.', 'Your workplace and right-to-work answers support an admissions review.', 'You have provided role and programme information for the next conversation.'],
+    factors: [
+      'Your age and England working-hours answers support an apprenticeship discussion.',
+      'Your residency and right-to-work answers support an admissions review.',
+      'A paid employed role, employer support and Apprenticeship Service registration appear to be in place.',
+      'Your working hours, funding answers and apprenticeship interests can be discussed with our team.',
+    ],
     nextStep: 'Request a consultation to confirm programme fit, funding conditions and formal eligibility.',
   };
 }

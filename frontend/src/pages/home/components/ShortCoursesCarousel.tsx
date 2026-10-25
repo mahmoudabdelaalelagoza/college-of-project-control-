@@ -71,7 +71,7 @@ export default function ShortCoursesCarousel() {
         <div className="mb-8 flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-[.18em] text-accent-700">{homeCopy.featured.tag}</p>
-            <h2 id="short-courses-preview-heading" className="mt-3 text-3xl font-bold text-foreground-950 md:text-4xl">
+            <h2 id="short-courses-preview-heading" className="mt-3 text-section-3xl font-bold text-foreground-950 md:text-section-4xl">
               {homeCopy.featured.title}
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-foreground-600">

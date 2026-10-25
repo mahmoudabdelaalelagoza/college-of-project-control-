@@ -10,8 +10,8 @@ export default function OurApproach() {
 <section id="principles" className="bg-white py-16 md:py-24" aria-labelledby="principles-title">
           <div className="container-site">
             <div className="mx-auto mb-12 max-w-2xl text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-highlight-700">Our approach</span>
-              <h2 id="principles-title" className="mt-3 text-3xl font-bold text-foreground-900 md:text-4xl">Our approach to governance</h2>
+              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-warm-ink">Our approach</span>
+              <h2 id="principles-title" className="mt-3 text-section-3xl font-bold text-foreground-900 md:text-section-4xl">Our approach to governance</h2>
             </div>
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
               {principles.map((item) => (

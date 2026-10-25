@@ -1,0 +1,874 @@
+[
+  {
+    "file": "frontend/index.html",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/tailwind.config.cjs",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/public/assets/fonts/fonts.css",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/poppins-latin-300.woff2",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/poppins-latin-400.woff2",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/poppins-latin-500.woff2",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/poppins-latin-600.woff2",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/poppins-latin-700.woff2",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/poppins-latin-800.woff2",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/poppins-latin-ext-300.woff2",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/poppins-latin-ext-400.woff2",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/poppins-latin-ext-500.woff2",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/poppins-latin-ext-600.woff2",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/poppins-latin-ext-700.woff2",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/poppins-latin-ext-800.woff2",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/Poppins-OFL.txt",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/README.md",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/public/assets/fonts/source-manifest.json",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/source-serif-4-latin-ext-italic-variable.woff2",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/source-serif-4-latin-ext-variable.woff2",
+    "status": "added"
+  },
+  {
+    "file": "frontend/public/assets/fonts/source-serif-4-latin-italic-variable.woff2",
+    "status": "added"
+  },
+  {
+    "file": "frontend/scripts/typography-regression.mjs",
+    "status": "added"
+  },
+  {
+    "file": "frontend/src/index.compiled.css",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/index.css",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/app/layout.next.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/base/FormField.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/base/Modal.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/base/SectionHeading.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/ArticleBody.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/ArticleCta.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/ArticlesSection.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/CampaignTransformation.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/case-studies.css",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/EligibilityCheckerSection.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/EventCard.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/EventsSection.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/Footer.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/FundingOptionsSection.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/FundingTicker.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/IpcAuthority.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/learner-experiences.css",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/MeetMentors.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/Navbar.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/OutcomeExamples.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/PcpComplianceNote.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/ProfessionalPathwaysSection.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/ProfessionalRecognitionSection.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/programme-navigation.css",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/ProjectDrivenSectors.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/RelatedArticles.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/RequestStatus.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/SectorPathwayChoice.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/TestimonialsSection.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/chatbot/programme-assistant.css",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/RouteLanding/RouteCapability.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/RouteLanding/RouteChoose.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/RouteLanding/RouteDevelop.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/RouteLanding/RouteFinalCta.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/RouteLanding/RouteHero.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/RouteLanding/RouteProblems.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/RouteLanding/RouteProcess.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/RouteLanding/RouteStats.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/components/feature/RouteLanding/RouteWhoFor.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/dashboard/pages/LoginPage.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/hooks/usePublicHeaderHeight.ts",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/about/components/HowWeWork.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/about/components/OurPointOfView.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/about/components/OurSpecialistFocus.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/about/components/StartWithTheRightQuestion.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/about/components/WhoWeAre.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/apm-level-4/components/KeyProgrammeFacts.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/apprentices/components/ForApprenticesProfessionals.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/apprentices/components/LearnerSupport.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/apprentices/components/QuickAnswers.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/apprentices/components/ReadyToAdvanceYourCareerInProjectControls.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/apprentices/components/WeeklyRhythm.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/apprentices/components/WhatYouWillGain.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/apprentices/components/YourJourney.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/apprenticeship-eligibility-checker/components/ApprenticeshipEligibilityCheckerSection.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/articles/components/ArticleResults.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/campaign/commercial-route/components/ProfessionalRecognition.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/campaign/construction/components/DiscussYourDevelopmentNeeds.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/campaign/construction/components/KeyMessage.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/campaign/energy/components/DiscussYourDevelopmentNeeds.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/campaign/energy/components/KeyMessage.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/campaign/head-of-pmo/components/APMRecognisedAssessmentCentre.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/campaign/head-of-pmo/components/DiscussYourDevelopmentNeeds.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/campaign/hr-employer/components/APMChPPReadinessSupport.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/campaign/hr-employer/components/DiscussYourDevelopmentNeeds.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/campaign/public-sector/components/DiscussYourDevelopmentNeeds.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/campaign/public-sector/components/KeyMessage.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/case-studies/components/CaseStudiesGrid.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/chartered-pmo-pathway/components/APMGInternationalCertificationContext.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/chartered-pmo-pathway/components/CatalogueNavigation.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/chartered-pmo-pathway/components/CollegeSpecialistDevelopment.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/chartered-pmo-pathway/components/IndependentProfessionalDevelopmentRoute.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/chartered-pmo-pathway/components/PMOProfessionalDevelopmentModule1.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/chartered-pmo-pathway/components/PMOProfessionalDevelopmentModule2.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/chartered-pmo-pathway/components/PMOProfessionalDevelopmentModule3.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/chartered-pmo-pathway/components/PMOProfessionalDevelopmentModule4.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/chartered-pmo-pathway/components/ProgrammeInformationAndNextSteps.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/contact/components/BeforeYouReachOut.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/contact/components/FindYourNextStep.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/contact/components/GetInTouch.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/employers/components/ExampleScenarios.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/employers/components/LearningAppliedAtWork.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/employers/components/StartWithTheBusinessNeed.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/events/components/FindEvents.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/events/detail/components/AboutThisEvent.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/events/detail/components/EventDetailsSection.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/faq/components/BrowseByTopicSection.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/faq/components/NeedASpecificAnswer.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/governance-board/components/AboutTheBoard.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/governance-board/components/CandidateProfile.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/governance-board/components/ExpertiseSought.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/governance-board/components/ExpressionOfInterest.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/governance-board/components/HelpShapeTheFutureOfProfessionalEducation.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/governance-board/components/OurApproach.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/governance-board/components/Responsibilities.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/governance-board/components/TimeCommitment.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/governance-board/components/WhyJoin.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/home/components/FinalHomepageCta.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/home/components/ForEmployers.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/home/components/LearnTogether.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/home/components/ProfessionalProgrammes.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/home/components/ShortCoursesCarousel.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/how-to-apply/components/HowToApply.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/ipc/components/BuildYourProfessionalDirection.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/ipc/components/IPCExplained.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/ipc/components/Membership.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/ipc/components/ProfessionalJourney.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/ipc/components/TheCapabilityFramework.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/ipc/components/WhyIPCMatters.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/knowledge-hub/apm-chpp-readiness/components/HonestyAboutProfessionalRecognitionMatters.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/knowledge-hub/commercial-routes-explained/components/NotEligibleForApprenticeshipFundingYouStillDeserveProfessionalProjectControlsDevelopment.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/knowledge-hub/components/ArticleCard.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/knowledge-hub/components/ExploreByTopic.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/knowledge-hub/components/ReadyToFindYourBestRoute.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/knowledge-hub/construction-training/components/StopLettingScheduleDelaysAndCostDriftBecomeNormal.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/knowledge-hub/employer-apprenticeship-funding/components/UseApprenticeshipFundingToBuildProjectControlsCapabilityYourBusinessCanActuallyMeasure.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/knowledge-hub/energy-training/components/ForCapitalProgrammesWhereWeakControlsAreTooExpensiveToIgnore.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/knowledge-hub/funded-pcp-employer-guide/components/UseApprenticeshipFundingToBuildProjectControlsCapabilityYourBusinessCanActuallyMeasure.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/knowledge-hub/pcp-vs-pmp/components/TwoDifferentPathsTwoDifferentPurposes.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/knowledge-hub/pmo-governance-training/components/YourPMODoesNotNeedMoreReportsItNeedsStrongerDecisionConfidence.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/knowledge-hub/strategic-vs-operational/components/TwoPathwaysOneProfessionalStandardDifferentCareerOutcomes.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/knowledge-hub/what-is-pcp-apprenticeship/components/WhatIsTheLevel6ProjectControlsProfessionalApprenticeship.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/legal/components/PolicyClause.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/legal/components/PolicyContents.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/mentors/detail/components/MeetTheMentor.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/mentors/detail/components/MentorProfile.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-construction/components/AssociatePathwayCallout.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-construction/components/ChooseYourPathwayCheckYourAccessRoute.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-construction/components/CoreProfessionalCapability.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-construction/components/EmployerCapability.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-construction/components/InteractivePathwayBuilder.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-construction/components/PracticalAnswers.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-construction/components/ProfessionalProgression.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-construction/components/QuickAccessRouteCheck.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-construction/components/SectorApplication.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-construction/components/TheConstructionChallenge.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-construction/components/TheLearningExperience.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-construction/components/WorkplaceEvidence.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-energy/components/BuildTheCapabilityToControlComplexEnergyProgrammesWithConfidence.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-energy/components/CheckTheRightAccessRouteForYou.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-energy/components/CoreProfessionalCapability.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-energy/components/EmployerCapability.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-energy/components/OneFoundation.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-energy/components/PracticalAnswers.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-energy/components/ProfessionalProgression.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-energy/components/SectorApplication.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-energy/components/TheEnergyDeliveryChallenge.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-energy/components/TheLearningExperience.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-energy/components/WorkplaceEvidence.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-engineering/components/EngineeringProjectControlsEvidence.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-engineering/components/OneProfessionalFoundationAcrossComplexEngineeringEnvironments.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-engineering/components/ProjectControlsThatProtectEngineeringValue.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-engineering/components/QuestionsBeforeYouEnquire.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-engineering/components/ReadyToTakeControl.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-public-sector/components/CareerDevelopment.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-public-sector/components/CareerProgression.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-public-sector/components/DevelopAccountableProjectCapability.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-public-sector/components/EmployerJourney.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-public-sector/components/EmployerQuestions.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-public-sector/components/IllustrativePublicSectorApplication.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-public-sector/components/LearningGroundedInGovernmentDelivery.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-public-sector/components/TheProjectControlsCapabilityModel.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/operational-pcp-public-sector/components/WhyPublicSectorDeliveryIsDifferent.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/pmo-pcp/components/DiscussThePMOCapabilityYourTeamNeeds.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/programme-template/PathwayPage.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/programmes/components/ChooseYourProgramme.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/programmes/components/CompareProgrammes.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/programmes/components/FindYourFit.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/programmes/components/FlexibleProfessionalDevelopment.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/programmes/components/ForEmployers.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/programmes/components/FrequentlyAskedQuestions.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/project-controls-professional-level-6/components/ProfessionalCapability.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/project-controls-professional-operational-route/components/CapabilityThemes.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/project-controls-professional-operational-route/components/EmployerResponsibilities.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/project-controls-professional-operational-route/components/GatewayAndEPA.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/project-controls-professional-operational-route/components/ProfessionalArtefacts.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/project-controls-professional-operational-route/components/SelectSixCredits.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/project-controls-professional-operational-route/components/TakeTheNextStep.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/project-controls-professional-operational-route/components/TheOperationalRoute.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/project-controls-professional-operational-route/components/WhoItIsFor.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/route-finder/components/RouteFinder.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/short-courses/components/ShortCourses.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/strategic-operational-pcp/components/ComplianceNote.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/strategic-pcp/components/AIInProjectControls.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/strategic-pcp/components/EligibilityCriteria.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/strategic-pcp/components/PMIPMOCPPreparationAndPMOLeadership.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/strategic-pcp/components/PMPExamPreparationAndStrategicProjectLeadership.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/strategic-pcp/components/PRINCE2PortfolioManagement.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/strategic-pcp/components/PRINCE2ProgrammeManagement.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/strategic-pcp/components/ProgrammeEssentials.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/pages/strategic-pcp/components/TakeTheNextStep.tsx",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/styles/heroes.css",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/styles/mobile-typography.css",
+    "status": "modified"
+  },
+  {
+    "file": "frontend/src/styles/tokens.css",
+    "status": "modified"
+  }
+]

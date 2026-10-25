@@ -8,7 +8,7 @@ export default function TakeTheNextStep() {
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="min-w-0 max-w-3xl space-y-4">
               <p className="text-xs font-bold uppercase tracking-[.18em] text-signal-300">Take the Next Step</p>
-              <h2 id="strategic-next-step-title" className="text-2xl font-bold leading-tight text-white md:text-3xl lg:text-4xl">
+              <h2 id="strategic-next-step-title" className="text-section-2xl font-bold leading-tight text-white md:text-section-3xl lg:text-section-4xl">
                 Explore Your Strategic Project Controls Pathway
               </h2>
               <p className="text-base font-semibold leading-relaxed text-white">

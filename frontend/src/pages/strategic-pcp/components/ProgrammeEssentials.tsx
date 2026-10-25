@@ -6,7 +6,7 @@ export default function ProgrammeEssentials() {
 <div className="text-xs font-bold uppercase tracking-[.14em] text-accent-700">
 {"Programme essentials "}
 </div>
-<h2 className="text-3xl font-bold leading-tight md:text-4xl">
+<h2 className="text-section-3xl font-bold leading-tight md:text-section-4xl">
 {"The important information in four clear panels "}
 </h2>
 <p className="text-base leading-relaxed">

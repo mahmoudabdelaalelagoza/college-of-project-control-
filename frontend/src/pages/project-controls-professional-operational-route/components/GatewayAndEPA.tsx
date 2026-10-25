@@ -17,7 +17,7 @@ export default function GatewayAndEPA() {
           <p className="text-xs font-bold uppercase tracking-[.18em] text-accent-700">
             Gateway & End-Point Assessment
           </p>
-          <h2 id="operational-assessment-title" className="text-3xl font-bold leading-tight text-foreground-950 md:text-4xl">
+          <h2 id="operational-assessment-title" className="text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl">
             Demonstrate Your Professional Competence
           </h2>
           <p className="text-base leading-relaxed text-foreground-600">

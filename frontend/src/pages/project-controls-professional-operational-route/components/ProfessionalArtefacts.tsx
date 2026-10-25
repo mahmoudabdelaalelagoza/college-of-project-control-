@@ -31,7 +31,7 @@ export default function ProfessionalArtefacts() {
       <div className="container-site">
         <div className="mb-10 max-w-3xl space-y-4">
           <p className="text-xs font-bold uppercase tracking-[.18em] text-accent-700">Workplace Outputs</p>
-          <h2 id="operational-evidence-title" className="text-3xl font-bold leading-tight text-foreground-950 md:text-4xl">
+          <h2 id="operational-evidence-title" className="text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl">
             Turn Your Learning into Practical Project Controls Work
           </h2>
           <p className="text-base leading-relaxed text-foreground-600">

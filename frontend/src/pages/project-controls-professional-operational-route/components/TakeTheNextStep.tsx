@@ -14,7 +14,7 @@ export default function TakeTheNextStep() {
               <p className="text-xs font-bold uppercase tracking-[.18em] text-signal-300">
                 Take the Next Step
               </p>
-              <h2 id="operational-contact-title" className="text-3xl font-bold leading-tight text-white md:text-4xl">
+              <h2 id="operational-contact-title" className="text-section-3xl font-bold leading-tight text-white md:text-section-4xl">
                 Explore Your Operational Pathway
               </h2>
               <p className="text-base font-semibold leading-relaxed text-white">

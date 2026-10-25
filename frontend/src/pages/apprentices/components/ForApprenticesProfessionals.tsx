@@ -80,7 +80,7 @@ export default function ForApprenticesProfessionals() {
                 </SiteLink>
               </div>
 
-              <p className="mt-4 text-xs text-white/25">Free eligibility check. No commitment required.</p>
+              <p className="mt-4 text-xs text-support-on-dark">Free eligibility check. No commitment required.</p>
             </div>
 
             {/* Stats Row */}

@@ -1,5 +1,6 @@
 @import './styles/tokens.css';
 @import './styles/heroes.css';
+@import './styles/mobile-typography.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -129,13 +130,15 @@
   background-color: transparent !important;
   background-image: none;
   box-shadow: none;
-  color: inherit;
+  color: var(--cta-outline-ink, inherit);
 
   &::before,
   &::after {
     content: none;
   }
 }
+
+.cta-button--on-dark { --cta-outline-ink: var(--text-on-dark); }
 
 @layer base {
   html {
@@ -145,8 +148,8 @@
   body {
     min-width: 320px;
     font-family: var(--font-body);
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: var(--type-body);
+    line-height: var(--leading-body);
     background-color: oklch(var(--background-50));
     color: oklch(var(--foreground-800));
     -webkit-font-smoothing: antialiased;
@@ -283,7 +286,7 @@
   .dashboard-icon-chip {
     @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#05232E]/5 text-[#05232E];
   }
-  .form-control { @apply w-full min-h-12 rounded-md border border-foreground-500 bg-white px-3 py-2 text-base text-foreground-900; }
+  .form-control { @apply w-full min-h-12 rounded-md border border-foreground-500 bg-white px-3 py-2 text-control text-foreground-900; }
   .form-control:focus-visible { outline: 3px solid oklch(var(--secondary-500)); outline-offset: 2px; }
   .section-space { padding-block: var(--section-space); }
 

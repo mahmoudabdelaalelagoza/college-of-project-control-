@@ -1,0 +1,63 @@
+[
+  {
+    "route": "/contact",
+    "width": 375,
+    "data": {
+      "h1": "\"CPCM Mobile Heading\", \"Source Serif 4\", Georgia, serif",
+      "booking": {
+        "w": 0,
+        "h": 0,
+        "top": 0
+      },
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/about",
+    "width": 1280,
+    "data": {
+      "h1": "\"Source Serif 4\", Georgia, serif",
+      "booking": {
+        "w": 129.734375,
+        "h": 105.59375,
+        "top": 39.203125
+      },
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/testimonials",
+    "width": 375,
+    "data": {
+      "h1": "\"CPCM Mobile Heading\", \"Source Serif 4\", Georgia, serif",
+      "booking": {
+        "w": 0,
+        "h": 0,
+        "top": 0
+      },
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/dashboard/login",
+    "width": 375,
+    "data": {
+      "h1": "\"Source Serif 4\", Georgia, serif",
+      "booking": null,
+      "overflow": 0
+    }
+  },
+  {
+    "route": "/short-courses",
+    "width": 375,
+    "data": {
+      "h1": "\"CPCM Mobile Heading\", \"Source Serif 4\", Georgia, serif",
+      "booking": {
+        "w": 0,
+        "h": 0,
+        "top": 0
+      },
+      "overflow": 0
+    }
+  }
+]

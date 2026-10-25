@@ -22,7 +22,7 @@ function RhythmCard({ day, i }: { day: typeof weeklyRhythm[0]; i: number }) {
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-0.5">
           <span className="text-xs font-semibold text-foreground-800">{day.title}</span>
-          <span className="text-sm font-semibold text-highlight-600 bg-highlight-100 px-2 py-0.5 rounded-full">{day.day}</span>
+          <span className="text-sm font-semibold text-warm-ink bg-highlight-100 px-2 py-0.5 rounded-full">{day.day}</span>
         </div>
         <p className="text-xs text-foreground-600 leading-relaxed">{day.desc}</p>
       </div>
@@ -64,11 +64,11 @@ export default function WeeklyRhythm() {
               {/* Right: Rhythm Cards */}
               <div>
                 <div style={{ opacity: rhythmRef.visible ? 1 : 0, transform: rhythmRef.visible ? 'translateY(0)' : 'translateY(16px)', transition: 'opacity 600ms cubic-bezier(0.22,1,0.36,1) 100ms, transform 600ms cubic-bezier(0.22,1,0.36,1) 100ms' }}>
-                  <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-highlight-700 mb-5">
+                  <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-warm-ink mb-5">
                     <i className="ri-calendar-check-line text-sm" />
                     Weekly Rhythm
                   </span>
-                  <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground-950 leading-tight mb-2">
+                  <h2 className="text-section-2xl md:text-section-3xl font-heading font-bold text-foreground-950 leading-tight mb-2">
                     What Your Week Looks Like
                   </h2>
                   <p className="text-sm text-foreground-600 mb-8 max-w-md">

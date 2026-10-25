@@ -1,0 +1,17 @@
+# Remaining issues and verification limits
+
+22 October 2026. **No T01–T12 issue group is deferred.** Their implemented corrections have browser evidence within the stated scope. The following limitations remain; they must not be interpreted as full-site accessibility certification.
+
+| Item | Severity / scope | Exact reason and impact | Next step |
+|---|---|---|---|
+| Full-project lint gate | Existing tooling warning; `src/dashboard/pages/UsersPage.tsx:94` | `react-hooks/exhaustive-deps` reports the missing `load` dependency. `--max-warnings 0` exits 1. This pre-existing, unchanged authentication/administration file is outside the typography changes. All 187 changed source files lint cleanly. | Resolve the effect's intended loading/selection behavior in a separate focused change. |
+| Authenticated dashboard content | Verification limitation; 15 protected content pages and role-controlled dialogs | No authorized account/role session was supplied. Two real editor components passed in-memory draft tests, but live records, roles and populated states were not certified. | Test with authorized representative accounts and content before release. |
+| CMS ready states | Verification limitation; article/event/mentor records, live submissions and overrides | Browser sweeps isolated live CMS traffic. Bundled courses/cases/reflections render; missing/loading shells do not validate every published record. | Review approved live records and long content through the normal CMS workflow. |
+| Native zoom and other browsers | Verification limitation | Chrome headless on Windows was used. 200% root-font overrides and 320px reflow are explicitly relative-size/reflow tests; native browser-UI zoom, Safari/iOS, Firefox and screen-reader combinations were not tested. | Run native 200% browser zoom and device/assistive-technology checks. |
+| Employer agreement iframe | Verification limitation; `/employer-agreement` | Cross-origin Zoho content has its own typography; only the local wrapper is covered. | Review provider-side form styles separately. |
+| Next dashboard direct-link hosting | Existing deployment behavior, outside typography scope | `nextStaticRoutes` excludes dashboard URLs. The simple file server returns no independent `/dashboard/login/index.html`. Production font checks exercised the real client router from the exported root; the existing `.htaccess` provides fallback on compatible hosts. No routing/config rewrite was made. | Verify existing SPA fallback behavior on the actual hosting stack. |
+| Base-path deployments | Verification limitation | Both loader URLs are base-aware by construction; runtime verification used the root path. | Smoke-test font paths on any non-root deployment. |
+| Stability | Measurement limitation | Bounded cold/warm shift observations are included, not a full Web Vitals CLS benchmark or isolated font-causality study. | Measure a representative production session if a performance sign-off is required. |
+| Build notices | Non-blocking tooling | Tailwind reports an outdated caniuse-lite dataset; Vite prints plugin timing information. Neither caused build failure. Toolchain used Node 24.18.0; other host runtime versions were not executed here. | Update datasets/runtime verification through the usual maintenance process. |
+
+No credentials, backend changes, deployment, database writes or external form submissions were used to remove these verification limits. Existing generated source examples and fixtures were not published to a database.

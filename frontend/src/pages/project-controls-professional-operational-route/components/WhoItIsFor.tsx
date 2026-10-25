@@ -22,7 +22,7 @@ export default function WhoItIsFor() {
       <div className="container-site">
         <div className="mb-10 max-w-3xl space-y-4">
           <p className="text-xs font-bold uppercase tracking-[.18em] text-accent-700">Who This Pathway Is For</p>
-          <h2 id="operational-roles-title" className="text-3xl font-bold leading-tight text-foreground-950 md:text-4xl">
+          <h2 id="operational-roles-title" className="text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl">
             For Professionals with Project Controls Responsibilities
           </h2>
           <p className="text-base leading-relaxed text-foreground-600">

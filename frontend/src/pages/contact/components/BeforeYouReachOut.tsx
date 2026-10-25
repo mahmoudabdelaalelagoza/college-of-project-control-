@@ -13,7 +13,7 @@ export default function BeforeYouReachOut() {
               <span className="mb-4 inline-block rounded-full border border-primary-300 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-600">
                 Before you reach out
               </span>
-              <h2 className="text-2xl font-bold leading-tight text-foreground-950 md:text-3xl">
+              <h2 className="text-section-2xl font-bold leading-tight text-foreground-950 md:text-section-3xl">
                 A few quick answers
               </h2>
             </div>

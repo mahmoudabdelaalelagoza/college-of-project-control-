@@ -16,7 +16,7 @@ export default function OneFoundation() {
             <p className="text-xs font-bold uppercase tracking-[.18em] text-signal-300">
               Designed for energy and utilities
             </p>
-            <h2 className="mt-4 max-w-sm text-3xl font-semibold leading-tight text-white md:text-4xl">
+            <h2 className="mt-4 max-w-sm text-section-3xl font-semibold leading-tight text-white md:text-section-4xl">
               One professional foundation across the energy lifecycle.
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-white/70">

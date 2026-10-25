@@ -1,0 +1,55 @@
+{
+  "compared": 343,
+  "differences": [
+    {
+      "path": "/events",
+      "width": 375,
+      "h1Before": [
+        {
+          "size": "36px",
+          "weight": "800"
+        }
+      ],
+      "h1After": [
+        {
+          "size": "36px",
+          "weight": "800"
+        }
+      ],
+      "h2Before": [
+        "18px",
+        "16px"
+      ],
+      "h2After": [
+        "22.32px",
+        "18px",
+        "16px"
+      ]
+    },
+    {
+      "path": "/events",
+      "width": 1440,
+      "h1Before": [
+        {
+          "size": "76px",
+          "weight": "700"
+        }
+      ],
+      "h1After": [
+        {
+          "size": "76px",
+          "weight": "700"
+        }
+      ],
+      "h2Before": [
+        "18px",
+        "16px"
+      ],
+      "h2After": [
+        "18px",
+        "22.32px",
+        "16px"
+      ]
+    }
+  ]
+}

@@ -8,7 +8,7 @@ import WhyChPPReadinessMattersEvenWithoutAGuarantee from "./WhyChPPReadinessMatt
 /** Section: Honesty About Professional Recognition Matters. */
 export default function HonestyAboutProfessionalRecognitionMatters() {
   return (
-    <><h2 className="text-xl md:text-2xl font-heading font-bold text-foreground-950 mt-0 mb-4">Honesty About Professional Recognition Matters</h2>
+    <><h2 className="text-section-xl md:text-section-2xl font-heading font-bold text-foreground-950 mt-0 mb-4">Honesty About Professional Recognition Matters</h2>
         <p className="mb-4">
           This guide explains how ChPP readiness support helps you prepare professional evidence, what support may include and why eligibility and Chartered status remain subject to APM’s independent assessment.
         </p>

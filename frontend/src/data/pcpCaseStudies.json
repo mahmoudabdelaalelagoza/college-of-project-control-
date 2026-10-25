@@ -1,0 +1,212 @@
+[
+  {
+    "metrics": [],
+    "is_featured": true,
+    "published_at": "2026-10-21T00:00:00Z",
+    "updated_at": "2026-10-21T00:00:00Z",
+    "id": -1001,
+    "slug": "elizabeth-pardoe-pcp",
+    "learner_name": "Elizabeth Pardoe",
+    "role": "Project Delivery & Business Development Lead",
+    "client_name": "Rod Barlow Consultancy",
+    "sector": "Professional services",
+    "title": "Turning project learning into tools the whole team can use",
+    "headline": "Elizabeth connects structured learning with practical improvements to consultancy project delivery.",
+    "summary": "From lessons learned to change control, Elizabeth is building reusable project documents and a more evidence-based approach to planning and estimating.",
+    "image_url": "/assets/case-studies/pcp/elizabeth-pardoe.jpg",
+    "image_alt": "Elizabeth Pardoe",
+    "employer_logo_url": "/assets/learner-experiences/kbc/employers/1ff1209e-rod-barlow-consultancy.png",
+    "themes": [
+      "Project delivery",
+      "Practical tools",
+      "Estimating"
+    ],
+    "quote": "I have created various new project management documents for my company so far in this course such as Lessons Learned Register, Precedence Diagram (flow chart) of an implementation project tasks and schedule, Change Log and Request form, and more.",
+    "source_note": "Adapted from Elizabeth’s submitted professional reflection, 25 June 2026.",
+    "challenge": "Elizabeth manages consultancy system procurement and implementation projects at Rod Barlow Consultancy. Her responsibilities include schedules, business cases, risk registers, project documentation and stakeholder engagement.\n\nHer team combines predictive techniques with an agile working environment, tailoring the level of structure and documentation to each client and project.",
+    "approach": "The project management learning is strengthening the theoretical foundations of her existing practice while introducing alternative methods. Elizabeth describes exploring burndown charts for schedule monitoring and S-curves for comparing progress and value with a baseline.\n\nShe is applying a more evidence-based approach to selecting cost and schedule estimating techniques, considering duration, effort and cost risk. Reviewing previous projects is also helping her identify lessons and anticipate potential problems.",
+    "outcome": "Elizabeth reports creating a lessons learned register, a precedence diagram for implementation tasks and schedules, and a change log and request form. She describes these as valuable, usable organisational process assets.\n\nHer account shows how professional learning can support practical improvements to the methods and documents used in everyday project delivery.",
+    "evidence": [
+      {
+        "title": "Lessons learned register",
+        "description": "A reusable way to capture previous experience and inform future projects."
+      },
+      {
+        "title": "Precedence diagram",
+        "description": "A visual record of implementation tasks and their sequence."
+      },
+      {
+        "title": "Change log and request form",
+        "description": "Practical documents for recording and reviewing project changes."
+      }
+    ]
+  },
+  {
+    "metrics": [],
+    "is_featured": true,
+    "published_at": "2026-10-21T00:00:00Z",
+    "updated_at": "2026-10-21T00:00:00Z",
+    "id": -1002,
+    "slug": "lucian-moraru-pcp",
+    "learner_name": "Lucian Moraru",
+    "role": "Project Planner & Project Controller",
+    "client_name": "Barhale",
+    "sector": "Construction & infrastructure",
+    "title": "From maintaining programmes to understanding project performance",
+    "headline": "Lucian is developing a more rounded approach to planning, forecasting and project controls.",
+    "summary": "Planning workshops, earned value learning and reflective practice are helping Lucian question programme logic, interpret performance and communicate more clearly.",
+    "image_url": "",
+    "image_alt": "",
+    "employer_logo_url": "/assets/learner-experiences/kbc/employers/d9f59e87-barhale.png",
+    "themes": [
+      "Planning & scheduling",
+      "Earned value",
+      "Data assurance"
+    ],
+    "quote": "I am becoming more confident in analysing information, challenging programme logic, understanding project performance and communicating information clearly.",
+    "source_note": "Adapted from Lucian’s submitted professional reflection, 18 September 2026.",
+    "challenge": "Lucian’s day-to-day work involves producing and maintaining project programmes. He wanted to understand more fully how planning information, performance data and professional judgement work together in effective project controls.\n\nChanges, delays, assumptions and project events need to be recorded accurately and communicated to the people responsible for delivery decisions.",
+    "approach": "Formal learning, workshops and practical exercises have helped Lucian connect theory with live project responsibilities. He describes learning in Primavera P6, MS Project, work breakdown structures, sequencing, estimating, risk and schedule development.\n\nEarned value topics, including cost and schedule performance indices, variances and forecasting, have strengthened his understanding of objective performance measurement. Reflective exercises encourage him to consider how communication, teamwork, leadership and change control influence his work.",
+    "outcome": "Lucian reports greater confidence when reviewing and developing programmes, examining activity logic, constraints, float and key dates. He also describes a stronger appreciation of accurate data and traceable records.\n\nHe sees himself developing from someone focused mainly on maintaining programmes into a more rounded project controls professional. His reflection identifies continued learning needs as he progresses towards apprenticeship completion and independent assessment.",
+    "evidence": [
+      {
+        "title": "Programme logic and schedule review",
+        "description": "Understanding how activities, constraints, float and key dates affect the overall programme."
+      },
+      {
+        "title": "Performance interpretation",
+        "description": "Connecting earned value measures, variances and forecasts with reliable project information."
+      },
+      {
+        "title": "Traceable project records",
+        "description": "Recognising why changes, delays and assumptions need to be captured and communicated."
+      }
+    ]
+  },
+  {
+    "metrics": [],
+    "is_featured": true,
+    "published_at": "2026-10-21T00:00:00Z",
+    "updated_at": "2026-10-21T00:00:00Z",
+    "id": -1003,
+    "slug": "james-molloy-pcp",
+    "learner_name": "James Molloy",
+    "role": "Project management professional",
+    "client_name": "MAG (Airports Group)",
+    "sector": "Aviation",
+    "title": "Building confidence in leadership, communication and governance",
+    "headline": "James is connecting structured professional learning with the relationships and decisions behind project delivery.",
+    "summary": "Leadership approaches, stakeholder communication and governance learning are giving James a broader perspective on his day-to-day project responsibilities.",
+    "image_url": "",
+    "image_alt": "",
+    "employer_logo_url": "/assets/learner-experiences/kbc/employers/f4ac2989-mag-airports-group.svg",
+    "themes": [
+      "Leadership",
+      "Stakeholders",
+      "Governance"
+    ],
+    "quote": "Overall, the apprenticeship is helping me become a more capable and confident project manager.",
+    "source_note": "Adapted from James’s submitted professional reflection, 27 July 2026.",
+    "challenge": "James works with colleagues, consultants, contractors and operational teams whose priorities and objectives can differ. Effective project delivery requires him to communicate clearly, build relationships and understand how individual projects connect with wider organisational decisions.",
+    "approach": "Learning about leadership styles and communication techniques has helped James consider how he engages with different stakeholders. Reflective practice encourages him to review what went well, identify lessons and consider improvements for future projects.\n\nHe has also found the commercial and governance topics useful for understanding organisational objectives, risk and decision-making. Tutor guidance and opportunities to learn with other apprentices add professional perspectives to his practical experience.",
+    "outcome": "James describes stronger working relationships, greater self-awareness and a continuous improvement mindset. He reports that his developing knowledge and skills are already useful in his day-to-day work.\n\nHe sees the apprenticeship as a foundation for future progression and greater responsibility. His account describes development in progress rather than a completed qualification or a confirmed promotion.",
+    "evidence": [
+      {
+        "title": "Stakeholder relationships",
+        "description": "Considering different leadership and communication approaches for colleagues and delivery partners."
+      },
+      {
+        "title": "Reflective practice",
+        "description": "Reviewing project experience and identifying lessons for continuous improvement."
+      },
+      {
+        "title": "Governance awareness",
+        "description": "Understanding risk, organisational priorities and the reasoning behind project decisions."
+      }
+    ]
+  },
+  {
+    "metrics": [],
+    "is_featured": true,
+    "published_at": "2026-10-21T00:00:00Z",
+    "updated_at": "2026-10-21T00:00:00Z",
+    "id": -1004,
+    "slug": "tim-white-pcp",
+    "learner_name": "Tim White",
+    "role": "Project Controls Lead",
+    "client_name": "Apache iX Limited",
+    "sector": "Professional services",
+    "title": "Making each learning topic relevant to consultancy practice",
+    "headline": "Tim uses monthly assignments to examine how project management knowledge works in his own organisation.",
+    "summary": "Structured assignments are helping Tim connect scope, schedule, cost, risk and stakeholder learning with his experience as a project controls lead.",
+    "image_url": "",
+    "image_alt": "",
+    "employer_logo_url": "/assets/learner-experiences/kbc/employers/9c2fa97d-apache-ix-limited.svg",
+    "themes": [
+      "Workplace application",
+      "Project controls",
+      "Coaching"
+    ],
+    "quote": "Each month the assignment has given me the opportunity to consider how a topic works in our organisation.",
+    "source_note": "Adapted from Tim’s submitted professional reflection, 20 August 2026.",
+    "challenge": "As a project controls lead in a consultancy, Tim brings existing professional experience to his learning. His focus is on connecting structured project management topics with the way his organisation works, rather than treating teaching as a separate activity.",
+    "approach": "At the time of his reflection, Tim had covered PMP preparation content including scope, schedule, cost, risk, stakeholders, communication and leadership. Each monthly assignment gave him a reason to examine a particular topic in his organisational context.\n\nHe also describes applying a stakeholder exercise discussed in teaching to a cyber programme in his working environment. Coaching is another part of the support he values.",
+    "outcome": "Tim describes the combination of learned knowledge, practical application and existing experience as powerful and useful.\n\nHe explicitly notes that he is not yet reporting a specific achievement or measured impact. The value in his account is the consolidation of knowledge and its application to professional practice.",
+    "evidence": [
+      {
+        "title": "Monthly applied assignments",
+        "description": "Considering how each learning topic operates within the consultancy."
+      },
+      {
+        "title": "Stakeholder analysis",
+        "description": "Connecting a teaching exercise with a relevant programme at work."
+      },
+      {
+        "title": "Knowledge consolidation",
+        "description": "Building on professional experience through structured learning and coaching."
+      }
+    ]
+  },
+  {
+    "metrics": [],
+    "is_featured": true,
+    "published_at": "2026-10-21T00:00:00Z",
+    "updated_at": "2026-10-21T00:00:00Z",
+    "id": -1005,
+    "slug": "roy-hillson-pcp",
+    "learner_name": "Roy Hillson",
+    "role": "Project Controls Professional learner",
+    "client_name": "Collins Aerospace",
+    "sector": "Engineering & aerospace",
+    "title": "Coaching that connects learning with real workplace responsibilities",
+    "headline": "Roy values professional support that is tailored to his own role and the work he submits.",
+    "summary": "Individual feedback and workplace-focused coaching are helping Roy develop his learning as he takes the next step in his professional career.",
+    "image_url": "/assets/case-studies/pcp/roy-hillson.jpg",
+    "image_alt": "Roy Hillson",
+    "employer_logo_url": "/assets/learner-experiences/kbc/employers/0d4333bf-collinsaerospace.svg",
+    "themes": [
+      "Coaching",
+      "Workplace learning",
+      "Professional development"
+    ],
+    "quote": "Patryk is fantastic at tailoring his approach to my workplace, he has recommended how to develop my submitted content based on my work in my role many times which has helped immensely.",
+    "source_note": "Adapted from Roy’s submitted programme feedback, 19 August 2026. Career progression is learner-reported.",
+    "challenge": "Roy wanted professional learning and support that related directly to his workplace responsibilities. In his programme feedback, he describes having recently started a new role and values being able to connect development with the work he is doing.",
+    "approach": "Roy highlights coaching tailored to his own workplace, including feedback on how to develop submitted work using examples from his role. He identifies his coach, Patryk, as an important source of motivation and support.\n\nHis feedback also emphasises the relevance of teaching to real workplace scenarios and the value of guidance that helps him apply learning in practice.",
+    "outcome": "Roy reports a positive learning experience and believes apprenticeship topics have supported his professional progression. His account particularly highlights the value of individual feedback and the connection between teaching, coaching and workplace application.\n\nHe also asks for clearer information about available professional examinations and certification choices. This is an individual account of development, without a quantified claim about career or financial outcomes.",
+    "evidence": [
+      {
+        "title": "Tailored feedback",
+        "description": "Developing submitted work using relevant examples from Roy’s own responsibilities."
+      },
+      {
+        "title": "Workplace relevance",
+        "description": "Connecting professional teaching with real working situations."
+      },
+      {
+        "title": "Development guidance",
+        "description": "Identifying the support and information useful for the next stage of learning."
+      }
+    ]
+  }
+]

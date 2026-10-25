@@ -1,6 +1,6 @@
 import SiteLink from '@/components/base/SiteLink';
 import { level6Copy } from '../pageCopy';
-const catalogueUrl = 'https://kentbusinesscollege.com/wp-content/uploads/2026/05/Edit-Project-Control-Professional-with-ChPP_compressed.pdf';
+const catalogueUrl = 'https://kentbusinesscollege.com/downloads/programmes/Project_Controls_Professional_Catalogue.pdf';
 export default function CollegeOfProjectControlsAndProjectManagement() {
  const copy=level6Copy.hero;
  return <section id="hero" className="relative isolate flex min-h-[90vh] flex-col justify-center overflow-hidden bg-primary-950 pb-20 pt-32 text-white md:pb-24 md:pt-40 site-hero">

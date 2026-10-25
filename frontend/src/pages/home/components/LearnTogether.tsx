@@ -112,7 +112,7 @@ export default function LearnTogether() {
       <div className="mb-8 flex flex-wrap items-end justify-between gap-6">
         <div className="max-w-2xl">
           <p className="text-xs font-bold uppercase tracking-[.18em] text-accent-700">Events & masterclasses</p>
-          <h2 id="homepage-events-title" className="mt-3 text-3xl md:text-4xl">Learn together</h2>
+          <h2 id="homepage-events-title" className="mt-3 text-section-3xl md:text-section-4xl">Learn together</h2>
           <p className="mt-4 text-sm leading-7 text-foreground-600">Explore project controls and project management sessions with our practitioners. Browse upcoming sessions and recent events.</p>
         </div>
         <SiteLink href="/events" className="inline-flex min-h-12 items-center gap-2 text-sm font-bold text-primary-700">View all events<i className="ri-arrow-right-line" aria-hidden="true" /></SiteLink>

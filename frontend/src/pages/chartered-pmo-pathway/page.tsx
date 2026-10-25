@@ -3,10 +3,7 @@ import '@/styles/pathway-pages.css';
 import Footer from '@/components/feature/Footer';
 import ApmProfessionalRecognition from './components/ApmProfessionalRecognition';
 import PageSectionNav from '@/components/feature/PageSectionNav';
-import APMGInternationalCertificationContext from "./components/APMGInternationalCertificationContext";
-import CollegeSpecialistDevelopment from "./components/CollegeSpecialistDevelopment";
 import EligibilityCriteria from "./components/EligibilityCriteria";
-import IndependentProfessionalDevelopmentRoute from "./components/IndependentProfessionalDevelopmentRoute";
 import LiveTeachingCoachingAndWorkplaceApplication from "./components/LiveTeachingCoachingAndWorkplaceApplication";
 import OccupationalAssessmentAndFutureChPPApplication from "./components/OccupationalAssessmentAndFutureChPPApplication";
 import PMOProfessionalDevelopmentModule1 from "./components/PMOProfessionalDevelopmentModule1";
@@ -62,18 +59,6 @@ const sectionLinks = [
     "label": "Module 4",
     "href": "#module-4"
   },
-  {
-    "label": "AI",
-    "href": "#ai-project-controls"
-  },
-  {
-    "label": "Portfolio",
-    "href": "#portfolio-management"
-  },
-  {
-    "label": "EVM",
-    "href": "#earned-value-management"
-  },
   { label: 'Funding', href: '#chartered-funding' },
   {
     "label": "Eligibility",
@@ -103,9 +88,6 @@ export default function CharteredPathway() {
     <PMOProfessionalDevelopmentModule2 />
     <PMOProfessionalDevelopmentModule3 />
     <PMOProfessionalDevelopmentModule4 />
-    <CollegeSpecialistDevelopment />
-    <IndependentProfessionalDevelopmentRoute />
-    <APMGInternationalCertificationContext />
     <FundingAndCosts />
     <EligibilityCriteria />
     <ProgrammeInformationAndNextSteps />

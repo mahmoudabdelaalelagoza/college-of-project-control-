@@ -13,7 +13,7 @@ function CategoryCard({ icon, title, description, href }: { icon: string; title:
       <div className="w-11 h-11 flex items-center justify-center rounded-full bg-highlight-100 group-hover:bg-highlight-200 transition-colors duration-200 mb-4">
         <i className={`${icon} text-xl text-highlight-600`}></i>
       </div>
-      <h3 className="text-base font-heading font-semibold text-foreground-900 group-hover:text-highlight-700 transition-colors">
+      <h3 className="text-base font-heading font-semibold text-foreground-900 group-hover:text-warm-ink transition-colors">
         {title}
       </h3>
       <p className="mt-2 text-sm text-foreground-600 leading-relaxed">{description}</p>

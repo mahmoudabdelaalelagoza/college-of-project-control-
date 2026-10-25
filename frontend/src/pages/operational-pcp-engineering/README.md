@@ -25,3 +25,5 @@ Keep `page.tsx` focused on section order and page state. Add new page-specific s
 The Funding & Costs design and copy are shared across the site. Edit [FundingOptionsSection.tsx](../../components/feature/FundingOptionsSection.tsx) for changes everywhere; page wrappers only set existing navigation anchors. Dates and employer contributions derive from `src/data/apprenticeshipFundingPolicy.ts`.
 
 The mentor section uses the canonical homepage content and portrait-card layout in [MeetMentors.tsx](../../components/feature/MeetMentors.tsx). Changes there apply to every consumer, including mobile looping. Images, profile destinations and LinkedIn links come from the dashboard-managed mentor records; only navigation anchors vary by page.
+
+The inline eligibility section is omitted. Eligibility actions open the dedicated `/apprenticeship-eligibility-checker` route; the removed section has no item in the page navigation.

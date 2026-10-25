@@ -1,7 +1,9 @@
+import LearnerCaseStudyCard from './LearnerCaseStudyCard';
 import SiteLink from '@/components/base/SiteLink';
 import type { CaseStudySummary } from '@/services/caseStudiesApi';
 
 export default function CaseStudyCard({ item }: { item: CaseStudySummary }) {
+  if (item.learner_name) return <LearnerCaseStudyCard item={item} />;
   const href = `/case-studies/${item.slug}`;
   return (
     <article className="interactive-surface group flex h-full flex-col overflow-hidden rounded-2xl border border-background-200 bg-white shadow-sm hover:border-primary-200 hover:shadow-lg">
@@ -37,7 +39,7 @@ export default function CaseStudyCard({ item }: { item: CaseStudySummary }) {
             </div>
           )}
           <span className="interactive-arrow mt-auto inline-flex items-center gap-2 pt-6 text-sm font-bold text-primary-700">
-            Read case study <i className="ri-arrow-right-line" aria-hidden="true" />
+            Read case study <span aria-hidden="true">→</span>
           </span>
         </div>
       </SiteLink>

@@ -6,7 +6,7 @@ export default function CoreProfessionalCapability() {
       <div className="container-site grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_430px]">
         <div>
           <span className="text-xs font-bold uppercase tracking-[.15em] text-signal-300">Core professional capability</span>
-          <h2 className="mt-4 text-3xl font-bold leading-tight text-white md:text-4xl">
+          <h2 className="mt-4 text-section-3xl font-bold leading-tight text-white md:text-section-4xl">
             AI accelerates the work. Human judgement remains accountable.
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/76">
@@ -32,7 +32,7 @@ export default function CoreProfessionalCapability() {
               <div key={step} className="flex items-center gap-3 rounded-md bg-white/10 p-3">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-signal-400 text-sm font-bold text-primary-950">{index + 1}</span>
                 <span className="font-semibold">{step}</span>
-                <span className="ml-auto text-xs font-bold uppercase tracking-[.12em] text-white/45">{index < workflow.length - 1 ? 'next' : 'approve'}</span>
+                <span className="ml-auto text-xs font-bold uppercase tracking-[.12em] text-support-on-dark">{index < workflow.length - 1 ? 'next' : 'approve'}</span>
               </div>
             ))}
           </div>

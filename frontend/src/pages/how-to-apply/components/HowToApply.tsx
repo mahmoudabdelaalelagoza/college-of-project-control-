@@ -73,7 +73,7 @@ export default function HowToApply() {
                 For apprenticeship applicants, we'll also explain employer responsibilities, prior-learning assessment and potential funding arrangements.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap site-hero__actions">
-                <SiteLink href="/book-a-session" className="btn-primary inline-flex min-h-12 items-center justify-center px-6 text-sm font-bold">
+                <SiteLink href="https://bookings.cloud.microsoft/book/InformationSession@kentbusinesscollege.com/?ismsaljsauthenabled=true" target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex min-h-12 items-center justify-center px-6 text-sm font-bold">
                   Book an information session
                 </SiteLink>
                 <SiteLink href="/apprenticeship-eligibility-checker" className="btn-secondary inline-flex min-h-12 items-center justify-center px-6 text-sm font-semibold text-white">
@@ -112,7 +112,7 @@ export default function HowToApply() {
                   <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-700 text-sm font-bold text-white">
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  <h2 className="mt-5 text-xl font-bold">{title}</h2>
+                  <h2 className="mt-5 text-section-xl font-bold">{title}</h2>
                   {paragraphs.map(paragraph => <p key={paragraph} className="mt-3 text-sm leading-relaxed text-foreground-600">{paragraph}</p>)}
                 </li>
               ))}
@@ -127,7 +127,7 @@ export default function HowToApply() {
           <div className="container-site grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-700">Programme Suitability</p>
-              <h2 className="mt-3 text-3xl font-bold md:text-4xl">Find a learning route that fits your role</h2>
+              <h2 className="mt-3 text-section-3xl font-bold md:text-section-4xl">Find a learning route that fits your role</h2>
               <p className="mt-4 text-foreground-600">
                 The right programme starts with understanding your responsibilities, existing skills and professional development goals. Kent Business College helps you explore suitable learning options and the requirements that apply to your chosen route.
               </p>

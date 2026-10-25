@@ -67,13 +67,9 @@ const seoEntries: Record<string, SeoEntry> = {
     title: 'Events & Masterclasses | CPCM',
     description: 'Join specialist Project Controls Masterclasses, professional webinars and online information sessions from the College of Project Controls & Management.',
   },
-  '/apprenticeship-eligibility-checker': {
-    title: 'Apprenticeship Eligibility Checker | CPCM',
-    description: 'Answer a few short questions to receive an initial indication of whether an apprenticeship route may be suitable for you, before speaking with our admissions team.',
-  },
   '/project-controls-professional-level-6': {
     title: 'Project Controls Professional Level 6',
-    description: 'A 27-month, six-credit work-based Project Controls Professional Level 6 programme with Operational, Strategic, Chartered and tailored pathway options.',
+    description: 'A 26-month, six-credit work-based Project Controls Professional Level 6 programme with Operational, Strategic, Chartered and tailored pathway options.',
   },
   '/project-controls-professional/strategic-route': {
     title: 'Strategic Pathway | Project Controls Professional Level 6 | College of Project Controls',

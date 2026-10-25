@@ -41,7 +41,7 @@
                     "test:sections":  "node --test scripts/page-sections.test.mjs",
                     "test:dashboard": "node --test scripts/dashboard-drafts.test.mjs",
                     "test:journeys":  "node --test scripts/journeys.test.mjs",
-                    "test":  "npm run test:sections \u0026\u0026 npm run test:journeys",
+                    "test":  "npm run test:sections \u0026\u0026 npm run test:journeys \u0026\u0026 node --test scripts/case-studies.test.mjs",
                     "vite:build":  "vite build",
                     "build:css":  "tailwindcss -c tailwind.config.cjs -i ./src/index.css -o ./src/index.compiled.css --minify"
                 },

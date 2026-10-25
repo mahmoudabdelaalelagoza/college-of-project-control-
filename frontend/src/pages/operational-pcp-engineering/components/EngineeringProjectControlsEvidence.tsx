@@ -46,7 +46,7 @@ export default function EngineeringProjectControlsEvidence() {
             <span className="text-xs font-bold uppercase tracking-[.15em] text-accent-700">
               Engineering project-controls evidence
             </span>
-            <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground-950 md:text-4xl">
+            <h2 className="mt-4 text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl">
               Create decision-ready evidence, not disconnected documents.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-foreground-600">
@@ -73,7 +73,7 @@ export default function EngineeringProjectControlsEvidence() {
                     <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-white text-sm font-bold text-accent-700 shadow-sm ring-1 ring-background-200 group-hover:bg-primary-950 group-hover:text-signal-300">
                       {output.code}
                     </span>
-                    <span className="text-xs font-bold uppercase tracking-[.14em] text-foreground-400 md:mt-3 md:block">
+                    <span className="text-xs font-bold uppercase tracking-[.14em] text-foreground-600 md:mt-3 md:block">
                       {String(index + 1).padStart(2, '0')}
                     </span>
                   </div>

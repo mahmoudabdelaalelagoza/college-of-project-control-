@@ -44,7 +44,7 @@ export default function EmployerResponsibilities() {
           <div className="text-xs font-bold uppercase tracking-[.18em] text-accent-700">
             For Employers
           </div>
-          <h2 id="operational-employer-title" className="text-3xl font-bold leading-tight text-foreground-950 md:text-4xl">
+          <h2 id="operational-employer-title" className="text-section-3xl font-bold leading-tight text-foreground-950 md:text-section-4xl">
             Your Workplace Makes Professional Development Possible
           </h2>
           <p className="leading-relaxed text-foreground-600">

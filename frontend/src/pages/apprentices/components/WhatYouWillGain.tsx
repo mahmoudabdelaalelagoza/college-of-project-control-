@@ -20,7 +20,7 @@ function BenefitCard({ item, i }: { item: typeof benefits[0]; i: number }) {
       <div className="w-12 h-12 rounded-xl bg-highlight-50 flex items-center justify-center mb-4 group-hover:bg-highlight-500 transition-all duration-300">
         <i className={`${item.icon} text-xl text-highlight-600 group-hover:text-white transition-colors duration-300`} />
       </div>
-      <h4 className="text-sm font-semibold text-foreground-900 mb-1.5">{item.title}</h4>
+      <h3 className="text-sm font-semibold text-foreground-900 mb-1.5">{item.title}</h3>
       <p className="text-xs text-foreground-600 leading-relaxed">{item.desc}</p>
     </div>
   );
@@ -33,11 +33,11 @@ export default function WhatYouWillGain() {
 <div className="bg-background-50 py-16 md:py-24">
           <div className="container-site" ref={benefitsRef.ref}>
             <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-highlight-700 mb-5">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-label font-semibold uppercase tracking-wider border border-highlight-500/40 text-warm-ink mb-5">
                 <i className="ri-star-line text-sm" />
                 What You Will Gain
               </span>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground-950 leading-tight">
+              <h2 className="text-section-2xl md:text-section-3xl lg:text-section-4xl font-heading font-bold text-foreground-950 leading-tight">
                 Skills That Employers Value & Promote
               </h2>
               <p className="mt-3 text-sm md:text-base text-foreground-600 leading-relaxed">

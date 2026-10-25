@@ -1,0 +1,336 @@
+[
+  {
+    "mode": "vite",
+    "width": 375,
+    "cold": {
+      "shifts": [
+        {
+          "value": 0.00034208893952546296,
+          "time": 5364
+        },
+        {
+          "value": 0.009771851851851851,
+          "time": 6988.100000023842
+        },
+        {
+          "value": 0.0006709143518518518,
+          "time": 7044.200000047684
+        }
+      ],
+      "fontResources": [
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/fonts.css",
+          "transfer": 6527,
+          "decoded": 6227
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/poppins-latin-600.woff2",
+          "transfer": 8300,
+          "decoded": 8000
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/poppins-latin-700.woff2",
+          "transfer": 8116,
+          "decoded": 7816
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/source-serif-4-latin-variable.woff2",
+          "transfer": 51236,
+          "decoded": 50936
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/poppins-latin-400.woff2",
+          "transfer": 8184,
+          "decoded": 7884
+        }
+      ],
+      "remoteTextRequests": 0
+    },
+    "warm": {
+      "shifts": [],
+      "fontResources": [
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/fonts.css",
+          "transfer": 300,
+          "decoded": 0
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/poppins-latin-400.woff2",
+          "transfer": 0,
+          "decoded": 7884
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/poppins-latin-600.woff2",
+          "transfer": 0,
+          "decoded": 8000
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/poppins-latin-700.woff2",
+          "transfer": 0,
+          "decoded": 7816
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/source-serif-4-latin-variable.woff2",
+          "transfer": 0,
+          "decoded": 50936
+        }
+      ]
+    }
+  },
+  {
+    "mode": "vite",
+    "width": 1440,
+    "cold": {
+      "shifts": [
+        {
+          "value": 0.00005939044088983731,
+          "time": 7150.5
+        },
+        {
+          "value": 0.0011762080640196984,
+          "time": 8792.799999952316
+        },
+        {
+          "value": 0.0011283225607879347,
+          "time": 9371.799999952316
+        }
+      ],
+      "fontResources": [
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/fonts.css",
+          "transfer": 6527,
+          "decoded": 6227
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/poppins-latin-600.woff2",
+          "transfer": 8300,
+          "decoded": 8000
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/poppins-latin-700.woff2",
+          "transfer": 8116,
+          "decoded": 7816
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/poppins-latin-500.woff2",
+          "transfer": 8048,
+          "decoded": 7748
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/poppins-latin-400.woff2",
+          "transfer": 8184,
+          "decoded": 7884
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/source-serif-4-latin-variable.woff2",
+          "transfer": 51236,
+          "decoded": 50936
+        }
+      ],
+      "remoteTextRequests": 0
+    },
+    "warm": {
+      "shifts": [
+        {
+          "value": 0.000048199445983379496,
+          "time": 10820.5
+        }
+      ],
+      "fontResources": [
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/fonts.css",
+          "transfer": 300,
+          "decoded": 0
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/poppins-latin-400.woff2",
+          "transfer": 0,
+          "decoded": 7884
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/poppins-latin-500.woff2",
+          "transfer": 0,
+          "decoded": 7748
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/poppins-latin-600.woff2",
+          "transfer": 0,
+          "decoded": 8000
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/poppins-latin-700.woff2",
+          "transfer": 0,
+          "decoded": 7816
+        },
+        {
+          "url": "http://127.0.0.1:3001/assets/fonts/source-serif-4-latin-variable.woff2",
+          "transfer": 0,
+          "decoded": 50936
+        }
+      ]
+    }
+  },
+  {
+    "mode": "next",
+    "width": 375,
+    "cold": {
+      "shifts": [
+        {
+          "value": 0.0006709143518518518,
+          "time": 2090.5
+        },
+        {
+          "value": 0.009771851851851851,
+          "time": 2112
+        }
+      ],
+      "fontResources": [
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/fonts.css",
+          "transfer": 6527,
+          "decoded": 6227
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/poppins-latin-600.woff2",
+          "transfer": 8300,
+          "decoded": 8000
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/poppins-latin-700.woff2",
+          "transfer": 8116,
+          "decoded": 7816
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/source-serif-4-latin-variable.woff2",
+          "transfer": 51236,
+          "decoded": 50936
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/poppins-latin-400.woff2",
+          "transfer": 8184,
+          "decoded": 7884
+        }
+      ],
+      "remoteTextRequests": 0
+    },
+    "warm": {
+      "shifts": [],
+      "fontResources": [
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/fonts.css",
+          "transfer": 0,
+          "decoded": 6227
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/poppins-latin-400.woff2",
+          "transfer": 0,
+          "decoded": 7884
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/poppins-latin-600.woff2",
+          "transfer": 0,
+          "decoded": 8000
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/poppins-latin-700.woff2",
+          "transfer": 0,
+          "decoded": 7816
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/source-serif-4-latin-variable.woff2",
+          "transfer": 0,
+          "decoded": 50936
+        }
+      ]
+    }
+  },
+  {
+    "mode": "next",
+    "width": 1440,
+    "cold": {
+      "shifts": [
+        {
+          "value": 0.0011762080640196984,
+          "time": 1436.3999999761581
+        },
+        {
+          "value": 0.0011283225607879347,
+          "time": 1634.7000000476837
+        }
+      ],
+      "fontResources": [
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/fonts.css",
+          "transfer": 6527,
+          "decoded": 6227
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/poppins-latin-600.woff2",
+          "transfer": 8300,
+          "decoded": 8000
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/poppins-latin-500.woff2",
+          "transfer": 8048,
+          "decoded": 7748
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/poppins-latin-700.woff2",
+          "transfer": 8116,
+          "decoded": 7816
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/poppins-latin-400.woff2",
+          "transfer": 8184,
+          "decoded": 7884
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/source-serif-4-latin-variable.woff2",
+          "transfer": 51236,
+          "decoded": 50936
+        }
+      ],
+      "remoteTextRequests": 0
+    },
+    "warm": {
+      "shifts": [
+        {
+          "value": 0.000048199445983379496,
+          "time": 646.2999999523163
+        }
+      ],
+      "fontResources": [
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/fonts.css",
+          "transfer": 0,
+          "decoded": 6227
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/poppins-latin-400.woff2",
+          "transfer": 0,
+          "decoded": 7884
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/poppins-latin-500.woff2",
+          "transfer": 0,
+          "decoded": 7748
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/poppins-latin-600.woff2",
+          "transfer": 0,
+          "decoded": 8000
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/poppins-latin-700.woff2",
+          "transfer": 0,
+          "decoded": 7816
+        },
+        {
+          "url": "http://127.0.0.1:3016/assets/fonts/source-serif-4-latin-variable.woff2",
+          "transfer": 0,
+          "decoded": 50936
+        }
+      ]
+    }
+  }
+]

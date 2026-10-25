@@ -25,7 +25,7 @@ export default function PRINCE2PortfolioManagement() {
 </span>
 </div>
 <div className="space-y-5">
-<h2 className="text-3xl font-bold leading-tight md:text-4xl">
+<h2 className="text-section-3xl font-bold leading-tight md:text-section-4xl">
 {"PRINCE2 Portfolio Management "}
 </h2>
 <p className="text-base leading-relaxed">

@@ -9,7 +9,7 @@ import WhoIsThisFor from "./WhoIsThisFor";
 /** Section: What Is the Level 6 Project Controls Professional Apprenticeship?. */
 export default function WhatIsTheLevel6ProjectControlsProfessionalApprenticeship() {
   return (
-    <><h2 className="text-xl md:text-2xl font-heading font-bold text-foreground-950 mt-0 mb-4">What Is the Level 6 Project Controls Professional Apprenticeship?</h2>
+    <><h2 className="text-section-xl md:text-section-2xl font-heading font-bold text-foreground-950 mt-0 mb-4">What Is the Level 6 Project Controls Professional Apprenticeship?</h2>
         <p className="mb-4">
           The Level 6 Project Controls Professional apprenticeship is a degree-level professional development pathway designed to build serious project controls capability in real workplace environments. It is not a short course, not a basic certificate and not a generic project management qualification. It is a structured programme that develops the planning, cost, risk, reporting and governance skills that project-driven organisations need to deliver with confidence.
         </p>
